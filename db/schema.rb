@@ -10,10 +10,54 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_09_125751) do
+ActiveRecord::Schema.define(version: 2021_02_11_104030) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "applications", force: :cascade do |t|
+    t.integer "status"
+    t.bigint "user_id", null: false
+    t.bigint "team_id", null: false
+    t.integer "requester"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["team_id"], name: "index_applications_on_team_id"
+    t.index ["user_id"], name: "index_applications_on_user_id"
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.time "start_time"
+    t.time "end_time"
+    t.integer "day"
+    t.bigint "team_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["team_id"], name: "index_events_on_team_id"
+  end
+
+  create_table "games", force: :cascade do |t|
+    t.string "title"
+    t.string "content"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "teams", force: :cascade do |t|
+    t.string "name"
+    t.string "avatar"
+    t.text "bio"
+    t.string "discord"
+    t.integer "status"
+    t.bigint "user_id", null: false
+    t.bigint "game_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["game_id"], name: "index_teams_on_game_id"
+    t.index ["user_id"], name: "index_teams_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -23,8 +67,36 @@ ActiveRecord::Schema.define(version: 2021_02_09_125751) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "username"
+    t.string "nickname"
+    t.string "avatar"
+    t.text "bio"
+    t.string "discord"
+    t.string "role"
+    t.time "sunday_start"
+    t.time "sunday_end"
+    t.time "monday_start"
+    t.time "monday_end"
+    t.time "tuesday_start"
+    t.time "tuesday_end"
+    t.time "wednesday_start"
+    t.time "wednesday_end"
+    t.time "thursday_start"
+    t.time "thursday_end"
+    t.time "friday_start"
+    t.time "friday_end"
+    t.time "saturday_start"
+    t.time "saturday_end"
+    t.bigint "team_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["team_id"], name: "index_users_on_team_id"
   end
 
+  add_foreign_key "applications", "teams"
+  add_foreign_key "applications", "users"
+  add_foreign_key "events", "teams"
+  add_foreign_key "teams", "games"
+  add_foreign_key "teams", "users"
+  add_foreign_key "users", "teams"
 end
