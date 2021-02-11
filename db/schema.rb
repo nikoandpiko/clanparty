@@ -15,17 +15,6 @@ ActiveRecord::Schema.define(version: 2021_02_11_104030) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "applications", force: :cascade do |t|
-    t.integer "status"
-    t.bigint "user_id", null: false
-    t.bigint "team_id", null: false
-    t.integer "requester"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["team_id"], name: "index_applications_on_team_id"
-    t.index ["user_id"], name: "index_applications_on_user_id"
-  end
-
   create_table "events", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -43,6 +32,17 @@ ActiveRecord::Schema.define(version: 2021_02_11_104030) do
     t.string "content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "invites", force: :cascade do |t|
+    t.integer "status"
+    t.bigint "user_id", null: false
+    t.bigint "team_id", null: false
+    t.integer "requester"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["team_id"], name: "index_invites_on_team_id"
+    t.index ["user_id"], name: "index_invites_on_user_id"
   end
 
   create_table "teams", force: :cascade do |t|
@@ -93,9 +93,9 @@ ActiveRecord::Schema.define(version: 2021_02_11_104030) do
     t.index ["team_id"], name: "index_users_on_team_id"
   end
 
-  add_foreign_key "applications", "teams"
-  add_foreign_key "applications", "users"
   add_foreign_key "events", "teams"
+  add_foreign_key "invites", "teams"
+  add_foreign_key "invites", "users"
   add_foreign_key "teams", "games"
   add_foreign_key "teams", "users"
   add_foreign_key "users", "teams"
