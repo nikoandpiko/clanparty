@@ -1,6 +1,6 @@
-class CreateApplications < ActiveRecord::Migration[6.0]
+class CreateInvites < ActiveRecord::Migration[6.0]
   def change
-    create_table :applications do |t|
+    create_table :invites do |t|
       t.integer :status
       t.references :user, null: false, foreign_key: true
       t.references :team, null: false, foreign_key: true
