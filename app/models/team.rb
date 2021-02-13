@@ -3,6 +3,7 @@ class Team < ApplicationRecord
   belongs_to :game
   has_many :invites
   has_many :events
+  #  has_one_attached :avatar # for cloudinary only
 
   validates :name, presence: true, uniqueness: true
   validates :avatar, presence: true
