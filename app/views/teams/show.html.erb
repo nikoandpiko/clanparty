@@ -1,28 +1,141 @@
 <h1>Team show</h1>
 
-<h2>Team name: <%= @team.name %></h2>
+<div class="card-product p-3">
+            <img src="<%= @team.avatar %>" alt="<%= @team.name %>">
+            <div class="card-product-info">
+              <h4 class="text-center mt-1"><%= @team.name %></h4>
+              <h5><i class="far fa-calendar"></i> 0 days / <i class="far fa-clock"></i> 0-0 h / <i class="far fa-user"></i> <%= @team.invites.count %> players </h5>
+              <h5>(Core Hours)</h5>
+            </div>
+          </div><br>
 
-<h3>Events (shown if member):</h3>
-<% @team.events.each do |event| %>
-<h4>Event name: <%= event.name %></h4>
-<h4>Event description: <%= event.description %></h4>
-<h4>Day: <%= event.day %></h4>
-<h4>Start time: <%= event.start_time %></h4>
-<h4>End time: <%= event.end_time %></h4>
-<% end %>
-
-<h3>Game: <%= @team.game.title %></h3>
-
-<h3>Members:</h3>
-<% @team.invites.each do |invite| %>
-<%= invite.user.username %>
-<% end %>
+<h3>Game: <%= @team.game.title %></h3><br>
 
 <h3>Team Info:</h3>
 <p><%= @team.bio %></p>
+<p><%= link_to "Discord", @team.discord %></p>
 
 <% if @team.status == 0 %>
   <p>Currently Not Accepting New Members</p>
 <% else %>
   <p>Currently Recruiting</p>
 <% end %>
+
+<button style="background-color:rgb(255,0,255);">Apply Button</button><br>
+<br>
+
+<h3>Members:</h3>
+<% @team.invites.each do |member| %>
+  <div class="card-product">
+    <img src="<%= member.avatar %>" alt="<%= member.user.username %>">
+    <div class="card-product-infos">
+      <h4 class="text-center"><%= link_to member.user.username, user_path(member) %></h4>
+      <h6><%= member.user.bio %></h6>
+      <%= link_to "Discord", member.user.discord %>
+        <p>Role: <%= member.user.role %></p>
+    </div>
+  </div>
+<% end %><br>
+
+<h3>Events (shown if member):</h3>
+<h4>Table style 1</h4>
+<div class="container table-responsive">
+<table class="table table-sm table-dark"">
+  <thead class="thead-dark">
+    <tr class="text-center">
+      <th scope="col">Day</th>
+      <th scope="col">Start</th>
+      <th scope="col">Finish</th>
+      <th scope="col">Name</th>
+      <th scope="col">Description</th>
+    </tr>
+  </thead>
+<% @team.events.each do |event| %>
+  <tbody>
+    <tr class="text-center">
+      <% if event.day == 1 %>
+      <td>Sunday</td>
+      <% elsif event.day == 2 %>
+      <td> Monday </td>
+      <% elsif event.day == 3 %>
+      <td> Tuesday </td>
+      <% elsif event.day == 4 %>
+      <td> Wedesday </td>
+      <% elsif event.day == 5 %>
+      <td> Thursday </td>
+      <% elsif event.day == 6 %>
+      <td> Friday </td>
+      <% elsif event.day == 7 %>
+      <td> Saturday </td>
+      <% end %>
+      <td style="width:8%;"><%= event.start_time.strftime("%I:%M%p")  %></td>
+      <td style="width:8%;"><%= event.end_time.strftime("%I:%M%p")  %></td>
+      <%# Name and Description are reversed until seed is updated %>
+      <td>"<%= event.description %>"</td>
+      <td><%= event.name %></td>
+    </tr>
+  </tbody>
+<% end %>
+</table>
+</div>
+
+<h4>Table style 2</h4>
+<div class="container table-responsive">
+<table id="dtVerticalScrollExample" class="table table-striped table-bordered table-sm" cellspacing="0"
+  width="50%">
+  <thead>
+    <tr>
+      <th class="th-sm">Day
+      </th>
+      <th class="th-sm">Start
+      </th>
+      <th class="th-sm">Finish
+      </th>
+      <th class="th-sm">Name
+      </th>
+      <th class="th-sm">Description
+      </th>
+    </tr>
+  </thead>
+  <% @team.events.each do |event| %>
+  <tbody>
+    <tr>
+      <% if event.day == 1 %>
+      <td>Sun</td>
+      <% elsif event.day == 2 %>
+      <td>Mon</td>
+      <% elsif event.day == 3 %>
+      <td>Tue</td>
+      <% elsif event.day == 4 %>
+      <td>Wed</td>
+      <% elsif event.day == 5 %>
+      <td>Thur</td>
+      <% elsif event.day == 6 %>
+      <td>Fri</td>
+      <% elsif event.day == 7 %>
+      <td>Sat</td>
+      <% end %>
+      <td style="width:8%;"><%= event.start_time.strftime("%I:%M%p")  %></td>
+      <td style="width:8%;"><%= event.end_time.strftime("%I:%M%p")  %></td>
+      <%# Name and Description are reversed until seed is updated %>
+      <td>"<%= event.description %>"</td>
+      <td><%= event.name %></td>
+    </tr>
+  </tbody>
+<% end %>
+  <tfoot>
+    <tr>
+      <th>Day
+      </th>
+      <th>Start
+      </th>
+      <th>Finish
+      </th>
+      <th>Name
+      </th>
+      <th>Description
+      </th>
+    </tr>
+  </tfoot>
+</table>
+</div>

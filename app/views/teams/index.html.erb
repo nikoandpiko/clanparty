@@ -9,36 +9,48 @@
   </li>
 </ul>
 <div class="tab-content" id="myTabContent">
-  <div class="tab-pane fade show active" id="team" role="tabpanel" aria-labelledby="team-tab">
-    <% @teams.each do |team| %>
-      <div class="card-product">
-        <img src="<%= team.avatar %>" alt="<%= team.name %>">
-        <div class="card-product-infos">
-          <h4 class="text-center mt-1"><%= link_to team.name, team_path(team) %></h4>
-          <h6><%= team.bio %></h6>
-          <%= link_to "Discord", team.discord %>
-            <% if team.status == 0 %>
-              <p><%= "Status: WE FULL" %></p>
-            <% else %>
-              <p><%= "Status: We open" %></p>
-            <% end %>
-        </div>
-      </div>
-    <% end %>
-  </div>
 
-  <div class="tab-pane fade" id="user" role="tabpanel" aria-labelledby="user-tab">
-    <% @users.each do |user| %>
-    <div class="card-product">
-      <img src="<%= user.avatar %>" alt="<%= user.username %>">
-      <div class="card-product-infos">
-        <h4 class="text-center"><%= link_to user.username, user_path(user) %></h4>
-        <h6><%= user.bio %></h6>
-        <%= link_to "Discord", user.discord %>
-        <p>Role: <%= user.role %></p>
+  <div class="tab-pane fade show active" id="team" role="tabpanel" aria-labelledby="team-tab">
+    <div class="container-fluid">
+      <div class="card-deck">
+        <% @teams.each do |team| %>
+          <div class="card-product p-3">
+            <img src="<%= team.avatar %>" alt="<%= team.name %>">
+            <div class="card-product-info">
+              <h4 class="text-center mt-1"><%= link_to team.name, team_path(team) %></h4>
+              <h5><i class="far fa-calendar"></i> 0 days / <i class="far fa-clock"></i> 0-0 h / <i class="far fa-user"></i> <%= team.invites.count %> players </h5>
+              <h5>(Core Hours)</h5>
+              <%# <h6><%= team.bio %>
+              <%# <%= link_to "Discord", team.discord %>
+                <% if team.status == 0 %>
+                  <p><%= "Status: WE FULL" %></p>
+                <% else %>
+                  <p><%= "Status: We open" %></p>
+                <% end %>
+            </div>
+          </div>
+        <% end %>
       </div>
     </div>
-  <% end %>
+  </div>
+
+
+  <div class="tab-pane fade" id="user" role="tabpanel" aria-labelledby="user-tab">
+    <div class="container-fluid">
+      <div class="card-deck">
+        <% @users.each do |user| %>
+          <div class="card-product">
+            <img src="<%= user.avatar %>" alt="<%= user.username %>">
+            <div class="card-product-infos">
+              <h4 class="text-center"><%= link_to user.username, user_path(user) %></h4>
+              <h6><%= user.bio %></h6>
+              <%= link_to "Discord", user.discord %>
+                <p>Role: <%= user.role %></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
   </div>
 
 </div>
