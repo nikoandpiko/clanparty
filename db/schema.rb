@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_11_104030) do
+ActiveRecord::Schema.define(version: 2021_02_13_015617) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,9 +36,9 @@ ActiveRecord::Schema.define(version: 2021_02_11_104030) do
 
   create_table "invites", force: :cascade do |t|
     t.integer "status"
-    t.bigint "user_id", null: false
+    t.string "requester"
     t.bigint "team_id", null: false
-    t.integer "requester"
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["team_id"], name: "index_invites_on_team_id"
