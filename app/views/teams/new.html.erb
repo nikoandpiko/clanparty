@@ -1,0 +1,16 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-6">
+      <%= simple_form_for (@team)  do |f| %>
+        <%= f.input :name %>
+        <%= f.input :bio %>
+        <%= f.input :avatar, as: :file %>
+        <%= f.input :discord %>
+        <%= f.label "Status:" %>
+        <%= f.collection_radio_buttons :status, [[1, 'Open to recruit'], [0, 'Closed']], :first, :last %>
+        <%= f.association :game, input_html: { class: 'multiple-select'} %>
+        <%= f.submit "Create team", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>
