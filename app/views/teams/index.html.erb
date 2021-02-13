@@ -14,7 +14,7 @@
       <div class="card-product">
         <img src="<%= team.avatar %>" alt="<%= team.name %>">
         <div class="card-product-infos">
-          <h4 class="text-center mt-1"><%= team.name %></h4>
+          <h4 class="text-center mt-1"><%= link_to team.name, team_path(team) %></h4>
           <h6><%= team.bio %></h6>
           <%= link_to "Discord", team.discord %>
             <% if team.status == 0 %>
@@ -32,7 +32,7 @@
     <div class="card-product">
       <img src="<%= user.avatar %>" alt="<%= user.username %>">
       <div class="card-product-infos">
-        <h4 class="text-center"><%= user.username %></h4>
+        <h4 class="text-center"><%= link_to user.username, user_path(user) %></h4>
         <h6><%= user.bio %></h6>
         <%= link_to "Discord", user.discord %>
         <p>Role: <%= user.role %></p>

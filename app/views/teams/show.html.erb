@@ -1,0 +1,28 @@
+<h1>Team show</h1>
+
+<h2>Team name: <%= @team.name %></h2>
+
+<h3>Events (shown if member):</h3>
+<% @team.events.each do |event| %>
+<h4>Event name: <%= event.name %></h4>
+<h4>Event description: <%= event.description %></h4>
+<h4>Day: <%= event.day %></h4>
+<h4>Start time: <%= event.start_time %></h4>
+<h4>End time: <%= event.end_time %></h4>
+<% end %>
+
+<h3>Game: <%= @team.game.title %></h3>
+
+<h3>Members:</h3>
+<% @team.invites.each do |invite| %>
+<%= invite.user.username %>
+<% end %>
+
+<h3>Team Info:</h3>
+<p><%= @team.bio %></p>
+
+<% if @team.status == 0 %>
+  <p>Currently Not Accepting New Members</p>
+<% else %>
+  <p>Currently Recruiting</p>
+<% end %>
