@@ -378,10 +378,11 @@
     const fridaySquares = document.getElementById("friday-squares").querySelectorAll("button");
     const saturdaySquares = document.getElementById("saturday-squares").querySelectorAll("button");
     const sundaySquares = document.getElementById("sunday-squares").querySelectorAll("button");
+    let alreadyClicked = false
      
     function clickchecker(square) {
-      if (!square.classList.contains("clicked-square")) {
-        square.classList.add("not-clicked");
+      if (square.classList.contains("clicked-square")) {
+         alreadyClicked= true
       }
 
       <%# if (square.classList.contains("not-clicked") && square.nextElementSibling[0].classList.contains("clicked-square")) {
@@ -390,17 +391,20 @@
     }
 
     function hover() {
-      if (!event.currentTarget.previousElementSibling.classList.contains("clicked-square")) {
-        event.currentTarget.previousElementSibling.classList.add("clicked-square")
-        event.currentTarget.previousElementSibling.previousElementSibling.classList.add("clicked-square")
+      var parent = event.currentTarget.parentElement;
+      parent.querySelectorAll("button").forEach(clickchecker)
+      if (!event.currentTarget.previousElementSibling.classList.contains("clicked-square") && alreadyClicked) {
+        event.currentTarget.previousElementSibling.classList.add("range-connecter")
+        event.currentTarget.previousElementSibling.previousElementSibling.classList.add("range-connecter")
       }
     }
 
 
     function hoveroff() {
+      var parent = event.currentTarget.parentNode;
       if (!event.currentTarget.previousElementSibling.classList.contains("clicked-square")) {
-        event.currentTarget.previousElementSibling.classList.remove("clicked-square")
-        event.currentTarget.previousElementSibling.previousElementSibling.classList.remove("clicked-square")
+        event.currentTarget.previousElementSibling.classList.remove("range-connecter")
+        event.currentTarget.previousElementSibling.previousElementSibling.classList.remove("range-connecter")
       }
     }
 
@@ -408,7 +412,7 @@
     function buttontoggle() {
       event.currentTarget.classList.toggle("clicked-square");
       event.currentTarget.classList.remove("not-clicked");
-      mondaySquares.forEach(clickchecker)
+
       if (event.currentTarget.nextElementSibling.classList.contains("clicked-square") && event.currentTarget.previousElementSibling.classList.contains("clicked-square")) {
         event.currentTarget.classList.add("clicked-square")
       }
