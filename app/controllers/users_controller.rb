@@ -14,4 +14,24 @@ class UsersController < ApplicationController
     @user = User.new
     authorize @user
   end
+
+  def edit
+    @user = User.find(params[:id])
+    @roles = ["Tank", "Healer", "DPS"]
+    authorize @user
+  end
+
+  def update
+    @user = User.update(user_params)
+    authorize @user
+
+    redirect_to user_path(@user)
+  end
+
+  private
+
+  def user_params
+    params.require(:user).permit(:nickname, :bio, :dicord, :role)
+  end
+
 end

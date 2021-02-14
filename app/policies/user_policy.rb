@@ -18,6 +18,6 @@ class UserPolicy < ApplicationPolicy
   end
 
   def edit?
-    create?
+    true
   end
 end
