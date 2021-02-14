@@ -1,0 +1,419 @@
+<h1>edit form here</h1>
+
+<div class="container edit-profile-container">
+  <div class="row justify-content-center">
+    <div class="col-xl-6 lg-6">
+      <h2 class="profile-details-h2">Set your profile</h2>
+
+      <%= simple_form_for @user, url: user_path(@user) do |f| %>
+        <%= f.input :nickname %>
+        <%= f.input :bio %>
+        <%= f.input :discord %>
+        <%= f.input :role, collection: @roles%>
+    </div>
+
+    <div class="col-xl-6 lg-6">
+      <h2 class="schedule-title-h2">Set your schedule</h2>
+      <div class="container">
+      <div class="schedule-grid">
+        <div class="col-xl-12 lg-12">
+          <div class="hours d-flex">
+            <%# <p>10am</p>
+            <p>11am</p>
+            <p>12</p>
+            <p>1</p>
+            <p>2</p>
+            <p>3</p>
+            <p>4</p>
+            <p>5</p>
+            <p>6</p>
+            <p>7</p>
+            <p>8</p>
+            <p>9</p>
+            <p>10</p>
+            <p>11</p>
+            <p>12</p> %>
+          </div>
+          <div class="days">
+          <p class="monday">M</p>
+          <p class="tuesday">T</p>
+          <p class="wednesday">W</p>
+          <p class="thursday">TH</p>
+          <p class="friday">F</p>
+          <p class="saturday">SAT</p>
+          <p class="sunday">SUN</p>
+          </div>
+          <div class="monday-squares" id="monday-squares">
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square mon1", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
+            
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square mon2", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
+                
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square mon3", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
+            
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square mon4", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
+                
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square mon5", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
+                
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square mon6", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
+            
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square mon7", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
+                
+            <% end %>
+
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square mon8", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
+            
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square mon9", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
+                
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square mon10", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
+            
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square mon11", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
+                
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square mon12", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
+                
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square mon13", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
+            
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square mon14", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
+                
+            <% end %>
+          </div>
+          <div class="tuesday-squares" id="tuesday-squares">
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square tue1", :onclick => "buttontoggle()" do %>
+            
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square tue2", :onclick => "buttontoggle()" do %>
+                
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square tue3", :onclick => "buttontoggle()" do %>
+            
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square tue4", :onclick => "buttontoggle()" do %>
+                
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square tue5", :onclick => "buttontoggle()" do %>
+                
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square tue6", :onclick => "buttontoggle()" do %>
+            
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square tue7", :onclick => "buttontoggle()" do %>
+                
+            <% end %>
+
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square tue8", :onclick => "buttontoggle()" do %>
+            
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square tue9", :onclick => "buttontoggle()" do %>
+                
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square tue10", :onclick => "buttontoggle()" do %>
+            
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square tue11", :onclick => "buttontoggle()" do %>
+                
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square tue12", :onclick => "buttontoggle()" do %>
+                
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square tue13", :onclick => "buttontoggle()" do %>
+            
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square tue14", :onclick => "buttontoggle()" do %>
+                
+            <% end %>
+          </div>
+          <div class="wednesday-squares" id="wednesday-squares">
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square mon1", :onclick => "buttontoggle()" do %>
+            
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square mon2", :onclick => "buttontoggle()" do %>
+                
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square mon3", :onclick => "buttontoggle()" do %>
+            
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square mon4", :onclick => "buttontoggle()" do %>
+                
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square mon5", :onclick => "buttontoggle()" do %>
+                
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square mon6", :onclick => "buttontoggle()" do %>
+            
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square mon7", :onclick => "buttontoggle()" do %>
+                
+            <% end %>
+
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square mon8", :onclick => "buttontoggle()" do %>
+            
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square mon9", :onclick => "buttontoggle()" do %>
+                
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square mon10", :onclick => "buttontoggle()" do %>
+            
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square mon11", :onclick => "buttontoggle()" do %>
+                
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square mon12", :onclick => "buttontoggle()" do %>
+                
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square mon13", :onclick => "buttontoggle()" do %>
+            
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square mon14", :onclick => "buttontoggle()" do %>
+                
+            <% end %>
+          </div>
+          <div class="thursday-squares" id="thursday-squares">
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square mon1", :onclick => "buttontoggle()" do %>
+            
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square mon2", :onclick => "buttontoggle()" do %>
+                
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square mon3", :onclick => "buttontoggle()" do %>
+            
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square mon4", :onclick => "buttontoggle()" do %>
+                
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square mon5", :onclick => "buttontoggle()" do %>
+                
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square mon6", :onclick => "buttontoggle()" do %>
+            
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square mon7", :onclick => "buttontoggle()" do %>
+                
+            <% end %>
+
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square mon8", :onclick => "buttontoggle()" do %>
+            
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square mon9", :onclick => "buttontoggle()" do %>
+                
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square mon10", :onclick => "buttontoggle()" do %>
+            
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square mon11", :onclick => "buttontoggle()" do %>
+                
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square mon12", :onclick => "buttontoggle()" do %>
+                
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square mon13", :onclick => "buttontoggle()" do %>
+            
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square mon14", :onclick => "buttontoggle()" do %>
+                
+            <% end %>
+          </div>
+          <div class="friday-squares" id="friday-squares">
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square mon1", :onclick => "buttontoggle()" do %>
+            
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square mon2", :onclick => "buttontoggle()" do %>
+                
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square mon3", :onclick => "buttontoggle()" do %>
+            
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square mon4", :onclick => "buttontoggle()" do %>
+                
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square mon5", :onclick => "buttontoggle()" do %>
+                
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square mon6", :onclick => "buttontoggle()" do %>
+            
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square mon7", :onclick => "buttontoggle()" do %>
+                
+            <% end %>
+
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square mon8", :onclick => "buttontoggle()" do %>
+            
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square mon9", :onclick => "buttontoggle()" do %>
+                
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square mon10", :onclick => "buttontoggle()" do %>
+            
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square mon11", :onclick => "buttontoggle()" do %>
+                
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square mon12", :onclick => "buttontoggle()" do %>
+                
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square mon13", :onclick => "buttontoggle()" do %>
+            
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square mon14", :onclick => "buttontoggle()" do %>
+                
+            <% end %>
+          </div>
+          <div class="saturday-squares" id="saturday-squares">
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square mon1", :onclick => "buttontoggle()" do %>
+            
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square mon2", :onclick => "buttontoggle()" do %>
+                
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square mon3", :onclick => "buttontoggle()" do %>
+            
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square mon4", :onclick => "buttontoggle()" do %>
+                
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square mon5", :onclick => "buttontoggle()" do %>
+                
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square mon6", :onclick => "buttontoggle()" do %>
+            
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square mon7", :onclick => "buttontoggle()" do %>
+                
+            <% end %>
+
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square mon8", :onclick => "buttontoggle()" do %>
+            
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square mon9", :onclick => "buttontoggle()" do %>
+                
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square mon10", :onclick => "buttontoggle()" do %>
+            
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square mon11", :onclick => "buttontoggle()" do %>
+                
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square mon12", :onclick => "buttontoggle()" do %>
+                
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square mon13", :onclick => "buttontoggle()" do %>
+            
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square mon14", :onclick => "buttontoggle()" do %>
+                
+            <% end %>
+          </div>
+          <div class="sunday-squares" id="sunday-squares">
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square mon1", :onclick => "buttontoggle()" do %>
+            
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square mon2", :onclick => "buttontoggle()" do %>
+                
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square mon3", :onclick => "buttontoggle()" do %>
+            
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square mon4", :onclick => "buttontoggle()" do %>
+                
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square mon5", :onclick => "buttontoggle()" do %>
+                
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square mon6", :onclick => "buttontoggle()" do %>
+            
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square mon7", :onclick => "buttontoggle()" do %>
+                
+            <% end %>
+
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square mon8", :onclick => "buttontoggle()" do %>
+            
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square mon9", :onclick => "buttontoggle()" do %>
+                
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square mon10", :onclick => "buttontoggle()" do %>
+            
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square mon11", :onclick => "buttontoggle()" do %>
+                
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square mon12", :onclick => "buttontoggle()" do %>
+                
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square mon13", :onclick => "buttontoggle()" do %>
+            
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square mon14", :onclick => "buttontoggle()" do %>
+                
+            <% end %>
+          </div>
+
+
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+        <div>
+          <%= f.button :submit, "Confirm details", class: "btn-lg btn-dark edit-profile-button" %>
+        </div>
+      <% end %>
+
+  <script>
+    const mondaySquares = document.getElementById("monday-squares").querySelectorAll("button");
+    const tuesdaySquares = document.getElementById("tuesday-squares").querySelectorAll("button");
+    const wednesdaySquares = document.getElementById("wednesday-squares").querySelectorAll("button");
+    const thursdaySquares = document.getElementById("thursday-squares").querySelectorAll("button");
+    const fridaySquares = document.getElementById("friday-squares").querySelectorAll("button");
+    const saturdaySquares = document.getElementById("saturday-squares").querySelectorAll("button");
+    const sundaySquares = document.getElementById("sunday-squares").querySelectorAll("button");
+     
+    function clickchecker(square) {
+      if (!square.classList.contains("clicked-square")) {
+        square.classList.add("not-clicked");
+      }
+
+      <%# if (square.classList.contains("not-clicked") && square.nextElementSibling[0].classList.contains("clicked-square")) {
+        square.classList.add("clicked-square");
+      } %>
+    }
+
+    function hover() {
+      if (!event.currentTarget.previousElementSibling.classList.contains("clicked-square")) {
+        event.currentTarget.previousElementSibling.classList.add("clicked-square")
+        event.currentTarget.previousElementSibling.previousElementSibling.classList.add("clicked-square")
+      }
+    }
+
+
+    function hoveroff() {
+      if (!event.currentTarget.previousElementSibling.classList.contains("clicked-square")) {
+        event.currentTarget.previousElementSibling.classList.remove("clicked-square")
+        event.currentTarget.previousElementSibling.previousElementSibling.classList.remove("clicked-square")
+      }
+    }
+
+    
+    function buttontoggle() {
+      event.currentTarget.classList.toggle("clicked-square");
+      event.currentTarget.classList.remove("not-clicked");
+      mondaySquares.forEach(clickchecker)
+      if (event.currentTarget.nextElementSibling.classList.contains("clicked-square") && event.currentTarget.previousElementSibling.classList.contains("clicked-square")) {
+        event.currentTarget.classList.add("clicked-square")
+      }
+      
+    }
+    </script>
+  </div>
+</div>
