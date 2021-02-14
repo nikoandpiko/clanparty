@@ -378,39 +378,54 @@
     const fridaySquares = document.getElementById("friday-squares").querySelectorAll("button");
     const saturdaySquares = document.getElementById("saturday-squares").querySelectorAll("button");
     const sundaySquares = document.getElementById("sunday-squares").querySelectorAll("button");
-    let alreadyClicked = false
-     
+    let firstClicked = 50
+
     function clickchecker(square) {
       if (square.classList.contains("clicked-square")) {
-         alreadyClicked= true
+         square.classList.add("first-selection")
       }
+    }
 
-      <%# if (square.classList.contains("not-clicked") && square.nextElementSibling[0].classList.contains("clicked-square")) {
-        square.classList.add("clicked-square");
-      } %>
+
+    function rangemaker(square, index) {
+        if (square.classList.contains("clicked-square")) {
+          firstClicked = index
+        }
+
+        if (firstClicked < index) {
+            square.classList.add("range-connecter");
+        }
+
+    }
+    
+
+    function rangedestroyer(square) {
+        if (!square.classList.contains("clicked-square")) {
+          square.classList.remove("range-connecter");
+        }
     }
 
     function hover() {
-      var parent = event.currentTarget.parentElement;
-      parent.querySelectorAll("button").forEach(clickchecker)
-      if (!event.currentTarget.previousElementSibling.classList.contains("clicked-square") && alreadyClicked) {
-        event.currentTarget.previousElementSibling.classList.add("range-connecter")
-        event.currentTarget.previousElementSibling.previousElementSibling.classList.add("range-connecter")
-      }
+
+        var parent = event.currentTarget.parentElement;
+        parent.querySelectorAll("button").forEach(rangemaker);
+        console.log(firstClicked)
+        
+    
     }
 
 
     function hoveroff() {
-      
+      var parent = event.currentTarget.parentElement;
       alreadyClicked= false
-      if (!event.currentTarget.previousElementSibling.classList.contains("clicked-square")) {
-        event.currentTarget.previousElementSibling.classList.remove("range-connecter")
-        event.currentTarget.previousElementSibling.previousElementSibling.classList.remove("range-connecter")
-      }
+      parent.querySelectorAll("button").forEach(rangedestroyer);
+      
     }
 
     
     function buttontoggle() {
+      var parent = event.currentTarget.parentElement;
+      parent.querySelectorAll("button").forEach(clickchecker)
       event.currentTarget.classList.toggle("clicked-square");
       event.currentTarget.classList.remove("not-clicked");
 
