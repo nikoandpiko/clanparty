@@ -393,7 +393,12 @@
     function goingupRangemaker(square,index) {
       if (firstClickedUp > index && index > currentSquareHoveredIndexDown) {
             square.classList.add("range-connecter");
+      }
+      currentSquareHovered.addEventListener("click", function() {
+        if (firstClickedUp > index && index > currentSquareHoveredIndexDown) {
+            square.classList.add("clicked-square");
         }
+      });
     }
 
 
@@ -443,6 +448,12 @@
             square.classList.add("range-connecter");
             console.log(currentSquareHovered)
         } 
+
+        currentSquareHovered.addEventListener("click", function() {
+          if (firstClickedDown < index && index < currentSquareHoveredIndexDown) {
+            square.classList.add("clicked-square");
+          }
+        });
 
        parent.querySelectorAll("button").forEach(goingupRangemaker);
     }
