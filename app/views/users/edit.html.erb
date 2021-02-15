@@ -366,7 +366,7 @@
       </div>
     </div>
         <div>
-          <%= f.button :submit, "Confirm details", class: "btn-lg btn-dark edit-profile-button" %>
+          <%= f.button :submit, "Confirm details", class: "btn-lg btn-dark edit-profile-button", :onmouseover => "submitButtonHover()" %>
         </div>
       <% end %>
 
@@ -383,10 +383,17 @@
     let currentSquareHovered = null
     let currentSquareHoveredIndexDown = 50
     let currentSquareHoveredIndexUp = -50
+    let dataSubmitter = []
 
     function clickchecker(square) {
       if (square.classList.contains("clicked-square")) {
          square.classList.add("first-selection")
+      }
+    }
+
+    function scheduleDataSetter(square) {
+      if (square.classList.contains("clicked-square")) {
+         dataSubmitter.push(square)
       }
     }
 
@@ -495,8 +502,19 @@
 
       if (event.currentTarget.nextElementSibling.classList.contains("clicked-square") && event.currentTarget.previousElementSibling.classList.contains("clicked-square")) {
         event.currentTarget.classList.add("clicked-square")
-      }
-      
+      } 
+    }
+
+    function submitButtonHover() {
+     mondaySquares.forEach(scheduleDataSetter);
+     tuesdaySquares.forEach(scheduleDataSetter);
+     wednesdaySquares.forEach(scheduleDataSetter);
+     thursdaySquares.forEach(scheduleDataSetter);
+     fridaySquares.forEach(scheduleDataSetter);
+     saturdaySquares.forEach(scheduleDataSetter);
+     sundaySquares.forEach(scheduleDataSetter);
+     console.log(dataSubmitter[0])
+     console.log(dataSubmitter[dataSubmitter.length - 1])
     }
     </script>
   </div>
