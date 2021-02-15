@@ -22,16 +22,20 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.update(user_params)
+    @user = User.find(params[:id])
     authorize @user
-
+    
+    @user.update(user_params)
+    
+    
     redirect_to user_path(@user)
   end
 
   private
 
   def user_params
-    params.require(:user).permit(:nickname, :bio, :discord, :role)
+    params.require(:user).permit(:nickname, :bio, :discord, :role, :monday_start, :monday_end, :tuesday_start, :tuesday_end, :wednesday_start, :wednesday_end, :thursday_start,
+    :thursday_end, :friday_start, :friday_end, :saturday_start, :saturday_end, :sunday_start, :sunday_end)
   end
 
 end
