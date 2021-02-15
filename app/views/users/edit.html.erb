@@ -378,9 +378,11 @@
     const fridaySquares = document.getElementById("friday-squares").querySelectorAll("button");
     const saturdaySquares = document.getElementById("saturday-squares").querySelectorAll("button");
     const sundaySquares = document.getElementById("sunday-squares").querySelectorAll("button");
-    let firstClicked = 50
+    let firstClickedDown = 50
+    let firstClickedUp = -50
     let currentSquareHovered = null
-    let currentSquareHoveredIndex = 50
+    let currentSquareHoveredIndexDown = 50
+    let currentSquareHoveredIndexUp = -50
 
     function clickchecker(square) {
       if (square.classList.contains("clicked-square")) {
@@ -388,47 +390,61 @@
       }
     }
 
+    function goingupRangemaker(square,index) {
+      if (firstClickedUp > index && index > currentSquareHoveredIndexDown) {
+            square.classList.add("range-connecter");
+        }
+    }
+
 
     function rangemaker(square, index) {
+
+        var parent = event.currentTarget.parentElement;
+       
         if (square.classList.contains("clicked-square")) {
-          firstClicked = index
+          firstClickedDown = index
+          firstClickedUp = index
+          console.log(firstClickedUp)
+
         }
 
         if (currentSquareHovered.classList.contains("0")) {
-          currentSquareHoveredIndex = 0
+          currentSquareHoveredIndexDown = 0
         } else if (currentSquareHovered.classList.contains("1")) {
-          currentSquareHoveredIndex = 1
+          currentSquareHoveredIndexDown = 1
         } else if (currentSquareHovered.classList.contains("2")) {
-          currentSquareHoveredIndex = 2
+          currentSquareHoveredIndexDown = 2
         } else if (currentSquareHovered.classList.contains("3")) {
-          currentSquareHoveredIndex = 3
+          currentSquareHoveredIndexDown = 3
         } else if (currentSquareHovered.classList.contains("4")) {
-          currentSquareHoveredIndex = 4
+          currentSquareHoveredIndexDown = 4
         } else if (currentSquareHovered.classList.contains("5")) {
-          currentSquareHoveredIndex = 5
+          currentSquareHoveredIndexDown = 5
         } else if (currentSquareHovered.classList.contains("6")) {
-          currentSquareHoveredIndex = 6
+          currentSquareHoveredIndexDown = 6
         } else if (currentSquareHovered.classList.contains("7")) {
-          currentSquareHoveredIndex = 7
+          currentSquareHoveredIndexDown = 7
         } else if (currentSquareHovered.classList.contains("8")) {
-          currentSquareHoveredIndex = 8
+          currentSquareHoveredIndexDown = 8
         } else if (currentSquareHovered.classList.contains("9")) {
-          currentSquareHoveredIndex = 9
+          currentSquareHoveredIndexDown = 9
         } else if (currentSquareHovered.classList.contains("10")) {
-          currentSquareHoveredIndex = 10
+          currentSquareHoveredIndexDown = 10
         } else if (currentSquareHovered.classList.contains("11")) {
-          currentSquareHoveredIndex = 11
+          currentSquareHoveredIndexDown = 11
         } else if (currentSquareHovered.classList.contains("12")) {
-          currentSquareHoveredIndex = 12
+          currentSquareHoveredIndexDown = 12
         } else if (currentSquareHovered.classList.contains("13")) {
-          currentSquareHoveredIndex = 13
+          currentSquareHoveredIndexDown = 13
         }
+        console.log(index, firstClickedUp, currentSquareHoveredIndexDown)
 
-        if (firstClicked < index && index < currentSquareHoveredIndex)  {
+        if (firstClickedDown < index && index < currentSquareHoveredIndexDown)  {
             square.classList.add("range-connecter");
             console.log(currentSquareHovered)
-        }
+        } 
 
+       parent.querySelectorAll("button").forEach(goingupRangemaker);
     }
     
 
@@ -442,7 +458,7 @@
         currentSquareHovered = event.currentTarget
         var parent = event.currentTarget.parentElement;
         parent.querySelectorAll("button").forEach(rangemaker);
-        console.log(firstClicked)
+       
         
     
     }
@@ -452,7 +468,10 @@
       var parent = event.currentTarget.parentElement;
       alreadyClicked= false
       parent.querySelectorAll("button").forEach(rangedestroyer);
-      firstClicked = 50
+      firstClickedDown = 50
+      firstClickedUp = -50
+      console.log(firstClickedUp)
+      
       
     }
 
