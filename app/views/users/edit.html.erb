@@ -366,6 +366,20 @@
       </div>
     </div>
         <div>
+          <%= f.input :monday_start, :as => :hidden %>
+          <%= f.input :monday_end, :as => :hidden %>
+          <%= f.input :tuesday_start, :as => :hidden %>
+          <%= f.input :tuesday_end, :as => :hidden %>
+          <%= f.input :wednesday_start, :as => :hidden %>
+          <%= f.input :wednesday_end, :as => :hidden %>
+          <%= f.input :thursday_start, :as => :hidden %>
+          <%= f.input :thursday_end, :as => :hidden %>
+          <%= f.input :friday_start, :as => :hidden %>
+          <%= f.input :friday_end, :as => :hidden %>
+          <%= f.input :saturday_end, :as => :hidden %>
+          <%= f.input :saturday_end, :as => :hidden %>
+          <%= f.input :sunday_start, :as => :hidden %>
+          <%= f.input :sunday_end, :as => :hidden %>
           <%= f.button :submit, "Confirm details", class: "btn-lg btn-dark edit-profile-button", :onmouseover => "submitButtonHover()" %>
         </div>
       <% end %>
@@ -378,12 +392,22 @@
     const fridaySquares = document.getElementById("friday-squares").querySelectorAll("button");
     const saturdaySquares = document.getElementById("saturday-squares").querySelectorAll("button");
     const sundaySquares = document.getElementById("sunday-squares").querySelectorAll("button");
+
     let firstClickedDown = 50
     let firstClickedUp = -50
     let currentSquareHovered = null
     let currentSquareHoveredIndexDown = 50
     let currentSquareHoveredIndexUp = -50
     let dataSubmitter = []
+
+    const monStartAttribute = document.createAttribute("value");
+    const mondayStartInput = document.getElementById("user_monday_start");
+    mondayStartInput.setAttributeNode(monStartAttribute);
+
+    const monEndAttribute = document.createAttribute("value");
+    const mondayEndInput = document.getElementById("user_monday_end");
+    mondayEndInput.setAttributeNode(monEndAttribute);
+
 
     function clickchecker(square) {
       if (square.classList.contains("clicked-square")) {
@@ -515,6 +539,9 @@
      sundaySquares.forEach(scheduleDataSetter);
      console.log(dataSubmitter[0])
      console.log(dataSubmitter[dataSubmitter.length - 1])
+     mondayStartInput.value = "12:00"
+     mondayEndInput.value = "1:00"
+     
     }
     </script>
   </div>
