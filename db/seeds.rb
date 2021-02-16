@@ -67,6 +67,7 @@ end
     saturday_end: days_times[6][1]
   )
 end
+puts "Done"
 # Games only FFXIV
 puts "Creating Game"
 content = ["The Sirensong Sea", "Amaurot", "The Dying Gasp", "Anamnesis Anyder", "Mt. Gulg"]
@@ -75,12 +76,13 @@ Game.create(
   title: "Final Fantasy XIV",
   content: content.sample
 )
+puts "Done"
 
 # Teams
 puts "Creating Teams"
 users_for_seed = User.all
 10.times do
-  status = [0, 1] # 0 is closed, 1 is open
+  status = [0, 1] # 0 is closed, 1 is open, 2 pending?
   Team.create(
     name: Faker::Games::StreetFighter.stage,
     avatar: Faker::Avatar.image,
@@ -91,6 +93,21 @@ users_for_seed = User.all
     game_id: Game.last.id
   )
 end
+puts "Done"
+
+# Invites
+#Creating teams with members via invites
+puts "Creating Teams with members"
+teams_for_seed = Team.all
+30.times do
+  Invite.create(
+    status: 1,
+    user: users_for_seed.sample,
+    team: teams_for_seed.sample
+  )
+end
+
+puts "Done"
 
 # Events
 puts "Creating Events"
@@ -108,4 +125,4 @@ puts "Creating Events"
     team_id: teams_for_seed.sample.id
   )
 end
-# Applications no seed
+puts "Done"
