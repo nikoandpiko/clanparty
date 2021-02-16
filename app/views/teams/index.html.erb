@@ -11,45 +11,42 @@
 <div class="tab-content" id="myTabContent">
 
   <div class="tab-pane fade show active" id="team" role="tabpanel" aria-labelledby="team-tab">
-    <div class="container-fluid">
-      <div class="card-deck">
-        <% @teams.each do |team| %>
-          <div class="card-product p-3">
-            <img src="<%= team.avatar %>" alt="<%= team.name %>">
-            <div class="card-product-info">
-              <h4 class="text-center mt-1"><%= link_to team.name, team_path(team) %></h4>
-              <h5><i class="far fa-calendar"></i> 0 days / <i class="far fa-clock"></i> 0-0 h / <i class="far fa-user"></i> <%= team.invites.count %> players </h5>
-              <h5>(Core Hours)</h5>
-              <%# <h6><%= team.bio %>
-              <%# <%= link_to "Discord", team.discord %>
-                <% if team.status == 0 %>
-                  <p><%= "Status: WE FULL" %></p>
-                <% else %>
-                  <p><%= "Status: We open" %></p>
-                <% end %>
+    <div class="team-cards-grid container">
+      <% @teams.each do |team| %>
+        <div class="card mb-3">
+          <div class="card-body d-flex">
+            <img src="<%= team.avatar %>" alt="<%= team.name %>" style="height:80px;width:80px;border-radius:50%;">
+            <div class="ml-2">
+              <h5 class="card-title"><%= link_to team.name, team_path(team) %></h5>
+              <h6 class="card-subtitle text-muted mb-2"><i class="far fa-calendar"></i> 0 days / <i class="far fa-clock"></i> 0-0 h / <i class="far fa-user"></i> <%= team.invites.count %> players</h6>
+              <p class="card-text">CORE HOURS</p>
             </div>
           </div>
-        <% end %>
-      </div>
+        </div>
+      <% end %>
     </div>
   </div>
 
 
   <div class="tab-pane fade" id="user" role="tabpanel" aria-labelledby="user-tab">
-    <div class="container-fluid">
-      <div class="card-deck">
+    <div class="tab-pane fade show active" id="team" role="tabpanel" aria-labelledby="team-tab">
+      <div class="team-cards-grid container">
         <% @users.each do |user| %>
-          <div class="card-product">
-            <img src="<%= user.avatar %>" alt="<%= user.username %>">
-            <div class="card-product-infos">
-              <h4 class="text-center"><%= link_to user.username, user_path(user) %></h4>
-              <h6><%= user.bio %></h6>
-              <%= link_to "Discord", user.discord %>
-                <p>Role: <%= user.role %></p>
+          <div class="card mb-3">
+            <div class="card-body d-flex">
+              <img src="<%= user.avatar %>" alt="<%= user.username %>" style="height:80px;width:80px;border-radius:50%;">
+              <div class="ml-2">
+                <h5 class="card-title"><%= link_to user.username, user_path(user) %></h5>
+                <h6 class="card-subtitle text-muted mb-2"><%= user.bio %></h6>
+                <div class="d-flex">
+                <a href=""><i class="fab fa-discord"></i></a>
+                <%= link_to "Discord", user.discord %>
+                <p> / <%= user.role %></p>
+                </div>
+                <p class="card-text">CORE HOURS</p>
+              </div>
             </div>
           </div>
         <% end %>
       </div>
-    </div>
   </div>
-</div>

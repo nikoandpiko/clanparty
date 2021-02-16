@@ -1,13 +1,13 @@
 <h1>Team show</h1>
 
 <div class="card-product p-3">
-            <img src="<%= @team.avatar %>" alt="<%= @team.name %>">
-            <div class="card-product-info">
-              <h4 class="text-center mt-1"><%= @team.name %></h4>
-              <h5><i class="far fa-calendar"></i> 0 days / <i class="far fa-clock"></i> 0-0 h / <i class="far fa-user"></i> <%= @team.invites.count %> players </h5>
-              <h5>(Core Hours)</h5>
-            </div>
-          </div><br>
+  <img src="<%= @team.avatar %>" alt="<%= @team.name %>">
+  <div class="card-product-info">
+    <h4 class="text-center mt-1"><%= @team.name %></h4>
+    <h5><i class="far fa-calendar"></i> 0 days / <i class="far fa-clock"></i> 0-0 h / <i class="far fa-user"></i> <%= @team.invites.count %> players </h5>
+    <h5>(Core Hours)</h5>
+  </div>
+</div><br>
 
 <h3>Game: <%= @team.game.title %></h3><br>
 
@@ -24,18 +24,63 @@
 <button style="background-color:rgb(255,0,255);">Apply Button</button><br>
 <br>
 
-<h3>Members:</h3>
-<% @team.invites.each do |member| %>
-  <div class="card-product">
-    <img src="<%= member.avatar %>" alt="<%= member.user.username %>">
-    <div class="card-product-infos">
-      <h4 class="text-center"><%= link_to member.user.username, user_path(member) %></h4>
-      <h6><%= member.user.bio %></h6>
-      <%= link_to "Discord", member.user.discord %>
-        <p>Role: <%= member.user.role %></p>
+<h3>Applicants:</h3>
+<%# leader can see invites %>
+<% if @user.team_id == @team.id %>
+  <% @team.invites.each do |invite| %>
+    <div class="card-product">
+      <img src="<%= invite.avatar %>" alt="<%= invite.user.username %>">
+      <div class="card-product-infos">
+        <h4 class="text-center"><%= link_to invite.user.username, user_path(invite) %></h4>
+        <h6><%= invite.user.bio %></h6>
+        <%= link_to "Discord", invite.user.discord %>
+          <p>Role: <%= invite.user.role %></p>
+      </div>
     </div>
-  </div>
-<% end %><br>
+  <% end %>
+<% end %>
+
+<h3>Members:</h3>
+<%# users that have this team_id %>
+<% if @user.team_id == @team.id %>
+  <% @team.invites.each do |invite| %>
+    <div class="card-product">
+      <img src="<%= invite.avatar %>" alt="<%= invite.user.username %>">
+      <div class="card-product-infos">
+        <h4 class="text-center"><%= link_to invite.user.username, user_path(invite) %></h4>
+        <h6><%= invite.user.bio %></h6>
+        <%= link_to "Discord", invite.user.discord %>
+          <p>Role: <%= invite.user.role %></p>
+      </div>
+    </div>
+  <% end %>
+<% end %>
+
+Events (card format):
+<% @team.events.each do |event| %>
+<div class="card-product p-3">
+  <% if event.day == 1 %>
+    <h4>Sunday</h4>
+    <% elsif event.day == 2 %>
+    <h4> Monday </h4>
+    <% elsif event.day == 3 %>
+    <h4> Tuesday </h4>
+    <% elsif event.day == 4 %>
+    <h4> Wedesday </h4>
+    <% elsif event.day == 5 %>
+    <h4> Thursday </h4>
+    <% elsif event.day == 6 %>
+    <h4> Friday </h4>
+    <% elsif event.day == 7 %>
+    <h4> Saturday </h4>
+    <% end %>
+    <h4><%= event.start_time.strftime("%I:%M%h4") %></h4>
+    <h4><%= event.end_time.strftime("%I:%M%h4") %></h4>
+    <%# Name and Description are reversed until seed is updated %>
+    <h4>"<%= event.description %>"</h4>
+    <h4><%= event.name %></h4>
+</div><br>
+  <% end %>
 
 <h3>Events (shown if member):</h3>
 <h4>Table style 1</h4>

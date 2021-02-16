@@ -8,6 +8,7 @@ class TeamsController < ApplicationController
 
   def show
     @team = Team.find(params[:id])
+    @user = User.find(params[:id])
     authorize @team
   end
 
@@ -19,7 +20,7 @@ class TeamsController < ApplicationController
   def create
     team_params[:game_id] == "" ? team_params[:game_id] = nil :
 
-      @game = Game.find(team_params[:game_id])
+    @game = Game.find(team_params[:game_id])
     @team = Team.new(
       game: @game,
       user: current_user,
