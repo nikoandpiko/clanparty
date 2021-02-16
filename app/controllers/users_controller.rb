@@ -34,7 +34,7 @@ class UsersController < ApplicationController
   end
 
   def update_schedule
-    @user = User.find(params[:id])
+     @user = User.find(params[:id])
     authorize @user
     @user.update(user_params)
     redirect_to user_path(@user)
