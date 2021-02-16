@@ -44,7 +44,7 @@
           <p class="sunday">SUN</p>
           </div>
           <div class="monday-squares" id="monday-squares">
-            <%= button_tag type: 'button', class: "btn shadow-none grid-square 0 view-only" do %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square 0 view-only", onload: "myFunction()" do %>
             
             <% end %>
             <%= button_tag type: 'button', class: "btn shadow-none grid-square 1 view-only" do %>
@@ -366,3 +366,16 @@
   </div>
 </div>
 
+
+<script>
+  const mondaySquares = document.getElementById("monday-squares").querySelectorAll("button");
+  const tuesdaySquares = document.getElementById("tuesday-squares").querySelectorAll("button");
+  const wednesdaySquares = document.getElementById("wednesday-squares").querySelectorAll("button");
+  const thursdaySquares = document.getElementById("thursday-squares").querySelectorAll("button");
+  const fridaySquares = document.getElementById("friday-squares").querySelectorAll("button");
+  const saturdaySquares = document.getElementById("saturday-squares").querySelectorAll("button");
+  const sundaySquares = document.getElementById("sunday-squares").querySelectorAll("button");
+
+
+  
+</script>
