@@ -44,10 +44,10 @@
           <p class="sunday">SUN</p>
           </div>
           <div class="monday-squares" id="monday-squares">
-            <%= button_tag type: 'button', class: "btn shadow-none grid-square 0 view-only", onload: "myFunction()" do %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square 0 view-only", onload: "displayScheduleMonday();" do %>
             
             <% end %>
-            <%= button_tag type: 'button', class: "btn shadow-none grid-square 1 view-only" do %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square 1 view-only", onload: "displayScheduleMonday();" do %>
                 
             <% end %>
             <%= button_tag type: 'button', class: "btn shadow-none grid-square 2 view-only" do %>
@@ -366,6 +366,25 @@
   </div>
 </div>
 
+<%= javascript_tag do %>
+    const monday_start = "<%= j @user.monday_start %>";
+    const monday_end = "<%= j @user.monday_end %>";
+    const tuesday_start = "<%= j @user.tuesday_start %>";
+    const tuesday_end = "<%= j @user.tuesday_end %>";
+    const wednesday_start = "<%= j @user.wednesday_start %>";
+    const wednesday_end = "<%= j @user.wednesday_end %>";
+    const thursday_start = "<%= j @user.thursday_start %>";
+    const thursday_end = "<%= j @user.thursday_end %>";
+    const friday_start = "<%= j @user.friday_start %>";
+    const friday_end = "<%= j @user.friday_end %>";
+    const saturday_start = "<%= j @user.saturday_start %>";
+    const saturday_end = "<%= j @user.saturday_end %>";
+    const sunday_start = "<%= j @user.sunday_start %>";
+    const sunday_end = "<%= j @user.sunday_end %>";
+    // do stuff with myEmail
+    
+<% end %>
+
 
 <script>
   const mondaySquares = document.getElementById("monday-squares").querySelectorAll("button");
@@ -375,6 +394,44 @@
   const fridaySquares = document.getElementById("friday-squares").querySelectorAll("button");
   const saturdaySquares = document.getElementById("saturday-squares").querySelectorAll("button");
   const sundaySquares = document.getElementById("sunday-squares").querySelectorAll("button");
+
+  window.onload = function displayScheduleMonday() {
+    console.log(monday_start)
+    if (monday_start == "2000-01-01 08:00:00 UTC" && monday_end == "2000-01-01 09:00:00 UTC") {
+      mondaySquares[0].classList.add("view-only-green");
+      mondaySquares[1].classList.add("view-only-green");
+    } else if (monday_start == "2000-01-01 08:00:00 UTC" && monday_end == "2000-01-01 10:00:00 UTC") {
+      mondaySquares[0].classList.add("view-only-green");
+      mondaySquares[1].classList.add("view-only-green");
+      mondaySquares[2].classList.add("view-only-green");
+    } else if (monday_start == "2000-01-01 08:00:00 UTC" && monday_end == "2000-01-01 11:00:00 UTC") {
+      mondaySquares[0].classList.add("view-only-green");
+      mondaySquares[1].classList.add("view-only-green");
+      mondaySquares[2].classList.add("view-only-green");
+      mondaySquares[3].classList.add("view-only-green");
+    } else if (monday_start == "2000-01-01 08:00:00 UTC" && monday_end == "2000-01-01 12:00:00 UTC") {
+      mondaySquares[0].classList.add("view-only-green");
+      mondaySquares[1].classList.add("view-only-green");
+      mondaySquares[2].classList.add("view-only-green");
+      mondaySquares[3].classList.add("view-only-green");
+      mondaySquares[4].classList.add("view-only-green");
+    } else if (monday_start == "2000-01-01 08:00:00 UTC" && monday_end == "2000-01-01 1:00:00 UTC") {
+      mondaySquares[0].classList.add("view-only-green");
+      mondaySquares[1].classList.add("view-only-green");
+      mondaySquares[2].classList.add("view-only-green");
+      mondaySquares[3].classList.add("view-only-green");
+      mondaySquares[4].classList.add("view-only-green");
+      mondaySquares[5].classList.add("view-only-green");
+    } else if (monday_start == "2000-01-01 08:00:00 UTC" && monday_end == "2000-01-01 2:00:00 UTC") {
+      mondaySquares[0].classList.add("view-only-green");
+      mondaySquares[1].classList.add("view-only-green");
+      mondaySquares[2].classList.add("view-only-green");
+      mondaySquares[3].classList.add("view-only-green");
+      mondaySquares[4].classList.add("view-only-green");
+      mondaySquares[5].classList.add("view-only-green");
+      mondaySquares[6].classList.add("view-only-green");
+    }
+  }
 
 
   
