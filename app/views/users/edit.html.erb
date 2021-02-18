@@ -858,13 +858,33 @@
       sunday_end = [1]
     }
 
-    const grayMonday = monday_start.filter(val => !monday_end.includes(val));
-    const grayTuesday = tuesday_start.filter(val => !tuesday_end.includes(val));
-    const grayWednesday = wednesday_start.filter(val => !wednesday_end.includes(val));
-    const grayThursday = thursday_start.filter(val => !thursday_end.includes(val));
-    const grayFriday = friday_start.filter(val => !friday_end.includes(val));
-    const graySaturday = saturday_start.filter(val => !saturday_end.includes(val));
-    const graySunday = sunday_start.filter(val => !sunday_end.includes(val));
+    const grayMonday1 = monday_start.filter(val => !monday_end.includes(val));
+    const grayMonday2 = monday_end.filter(val => !monday_start.includes(val));
+    const grayMonday = grayMonday2.concat(grayMonday1);
+
+    const grayTuesday1 = tuesday_start.filter(val => !tuesday_end.includes(val));
+    const grayTuesday2 = tuesday_end.filter(val => !tuesday_start.includes(val));
+    const grayTuesday = grayTuesday2.concat(grayTuesday1);
+
+    const grayWednesday1 = wednesday_start.filter(val => !wednesday_end.includes(val));
+    const grayWednesday2 = wednesday_end.filter(val => !wednesday_start.includes(val));
+    const grayWednesday = grayWednesday2.concat(grayWednesday1);
+
+    const grayThursday1 = thursday_start.filter(val => !thursday_end.includes(val));
+    const grayThursday2 = thursday_end.filter(val => !thursday_start.includes(val));
+    const grayThursday = grayThursday2.concat(grayThursday1);
+
+    const grayFriday1 = friday_start.filter(val => !friday_end.includes(val));
+    const grayFriday2 = friday_end.filter(val => !friday_start.includes(val));
+    const grayFriday = grayFriday2.concat(grayFriday1);
+
+    const graySaturday1 = saturday_start.filter(val => !saturday_end.includes(val));
+    const graySaturday2 = saturday_end.filter(val => !saturday_start.includes(val));
+    const graySaturday = graySaturday2.concat(graySaturday1);
+
+    const graySunday1 = sunday_start.filter(val => !sunday_end.includes(val));
+    const graySunday2 = sunday_end.filter(val => !sunday_start.includes(val));
+    const graySunday = graySunday2.concat(graySunday1);
 
 
     grayMonday.forEach(grayMondaySquareMaker);
@@ -874,6 +894,7 @@
     grayFriday.forEach(grayFridaySquareMaker);
     graySaturday.forEach(graySaturdaySquareMaker);
     graySunday.forEach(graySundaySquareMaker);
+
 
 }
 
