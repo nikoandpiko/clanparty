@@ -10,9 +10,14 @@ class User < ApplicationRecord
   validates :username, presence: true
 
   def team
-    # invites.find_by{sta"Accepted"}
-    # status == "Accepted"
-    # Invite.accepted.where(user: self).team
     Invite.accepted.find_by(user: self).team
+  end
+
+  def pending
+    Invite.pending.find_by(user: self).team
+  end
+
+  def declined
+    Invite.declined.find_by(user: self).team
   end
 end
