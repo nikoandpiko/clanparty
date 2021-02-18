@@ -1,3 +1,52 @@
+// Clanparty Classes
+
+.team-header h1 {
+  font-family: Helvetica Neue;
+  font-size: 48px;
+  color: white;
+  text-shadow: 0px 2px 2px #000000;
+}
+
+.team-header h2 {
+  font-family: Helvetica Neue;
+  font-size: 24px;
+  color: #FF368D;
+  text-shadow: 0px 2px 2px #000000;
+}
+
+.team-header p {
+  font-family: Helvetica Neue;
+  font-size: 16px;
+  color: #808080;
+  text-shadow: 0px 2px 2px #000000;
+}
+
+.card h1 {
+  font-family: Tungsten;
+  font-size: 36px;
+  color: white;
+  text-shadow: 0px 2px 2px #00000080;
+}
+
+.card h2 {
+  font-family: Helvetica Neue;
+  font-size: 24px;
+  color: white;
+  text-shadow: 0px 2px 2px #00000080;
+}
+
+.card p {
+  font-family: Helvetica Neue;
+  font-size: 16px;
+  color: white;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+// Generic Preset Classes
+
 .card-product {
   overflow: hidden;
   height: 200px;
@@ -37,3 +86,4 @@
   grid-template-columns: 1fr 1fr;
   grid-column-gap: 1rem;
 }
+
