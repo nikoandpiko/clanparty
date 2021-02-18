@@ -20,4 +20,8 @@ class UserPolicy < ApplicationPolicy
   def edit?
     true
   end
+
+  def edit_schedule?
+    true
+  end
 end

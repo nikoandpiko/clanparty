@@ -13,5 +13,8 @@ Rails.application.routes.draw do
     resources :invites, except: [ :delete, :update, :edit ]
   end
 
+  get '/users/:id/edit_schedule' =>'users#edit_schedule', as: :edit_schedule
+  patch '/users/:id/edit_schedule'=>'users#edit_schedule'
+
   resources :invites, only: [ :edit, :update ]
 end
