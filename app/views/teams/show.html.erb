@@ -18,32 +18,36 @@
 <% else %>
   <p>Currently Recruiting</p>
 <% end %>
-<button style="background-color:rgb(255,0,255);">Apply Button</button><br>
+
+<button class="btn btn-outline-warning bg-dark" style="border-radius:0.4em;">APPLY TO TEAM</button><br>
+
 <br>
 <h3>Applicants:</h3>
-<%# leader can see invites %>
-<% @pending_member.each do |invite| %>
-  <div class="card-product">
-    <img src="<%= invite.user.avatar %>" alt="<%= invite.user.username %>">
-    <div class="card-product-infos">
-      <h4 class="text-center"><%= link_to invite.user.username, user_path(invite) %></h4>
-      <h6><%= invite.user.bio %></h6>
-      <%= link_to "Discord", invite.user.discord %>
-      <p>Role: <%= invite.user.role %></p>
+
+  <% @pending_member.each do |invite| %>
+    <div class="card-product">
+      <img src="<%= invite.user.avatar %>" alt="<%= invite.user.username %>">
+      <div class="card-product-infos">
+        <h4 class="text-center"><%= link_to invite.user.username, user_path(invite) %></h4>
+        <h6><%= invite.user.bio %></h6>
+        <%= link_to "Discord", invite.user.discord %>
+          <p>Role: <%= invite.user.role %></p>
+      </div>
     </div>
-  </div>
 <% end %>
+
 <h3>Members:</h3>
-<% @accepted_member.each do |invite| %>
-  <div class="card-product">
-    <img src="<%= invite.user.avatar %>" alt="<%= invite.user.username %>">
-    <div class="card-product-infos">
-      <h4 class="text-center"><%= link_to invite.user.username, user_path(invite) %></h4>
-      <h6><%= invite.user.bio %></h6>
-      <%= link_to "Discord", invite.user.discord %>
-      <p>Role: <%= invite.user.role %></p>
+  <% @accepted_member.each do |invite| %>
+    <div class="card-product">
+      <img src="<%= invite.user.avatar %>" alt="<%= invite.user.username %>">
+      <div class="card-product-infos">
+        <h4 class="text-center"><%= link_to invite.user.username, user_path(invite) %></h4>
+        <h6><%= invite.user.bio %></h6>
+        <%= link_to "Discord", invite.user.discord %>
+        <p>Role: <%= invite.user.role %></p>
+      </div>
     </div>
-  </div>
+
 <% end %>
 Events (card format):
 <% @team.events.each do |event| %>
