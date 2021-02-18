@@ -1,11 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-
 puts "Cleaning up database"
 
 Event.destroy_all
@@ -23,14 +15,14 @@ n = 0
 role = ["Tank", "Healer", "DPS"] # 2 tanks, 2 healers, 4 DPS per team max
 def random_start_end_time(start_time, end_time)
   array = []
-  half_hour = [3, 0]
+  half_hour = [3, 0] # usage: #{half_hour.sample}
   if start_time < end_time
-    array << "#{start_time}:#{half_hour.sample}0:00"
-    array << "#{end_time}:#{half_hour.sample}0:00"
+    array << "#{start_time}:00:00"
+    array << "#{end_time}:00:00"
     return array
   else
-    array << "#{end_time}:#{half_hour.sample}0:00"
-    array << "#{start_time}:#{half_hour.sample}0:00"
+    array << "#{end_time}:00:00"
+    array << "#{start_time}:00:00"
     return array
   end
 end
@@ -68,7 +60,7 @@ end
   )
 end
 puts "Done"
-# Games only FFXIV
+# Games only FFXIV for now
 puts "Creating Game"
 content = ["The Sirensong Sea", "Amaurot", "The Dying Gasp", "Anamnesis Anyder", "Mt. Gulg"]
 # using top 50 or using API to seed
@@ -96,7 +88,7 @@ end
 puts "Done"
 
 # Invites
-#Creating teams with members via invites
+#Creating teams with members via invites (status 0 declined, 1 accepted, 2 pending?)
 puts "Creating Teams with members"
 teams_for_seed = Team.all
 30.times do
@@ -107,6 +99,23 @@ teams_for_seed = Team.all
   )
 end
 
+puts "Creating pending Invites"
+15.times do
+  Invite.create(
+    status: 2,
+    user: users_for_seed.sample,
+    team: teams_for_seed.sample
+  )
+end
+
+puts "Creating declined Invites"
+10.times do
+  Invite.create(
+    status: 0,
+    user: users_for_seed.sample,
+    team: teams_for_seed.sample
+  )
+end
 puts "Done"
 
 # Events
