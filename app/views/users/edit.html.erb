@@ -830,23 +830,52 @@
     }
 
     const grayMonday = monday_start.filter(val => !monday_end.includes(val));
-    const grayTuesday = monday_start.filter(val => !monday_end.includes(val));
+    const grayTuesday = tuesday_start.filter(val => !tuesday_end.includes(val));
+    const grayWednesday = wednesday_start.filter(val => !wednesday_end.includes(val));
+    const grayThursday = thursday_start.filter(val => !thursday_end.includes(val));
+    const grayFriday = friday_start.filter(val => !friday_end.includes(val));
+    const graySaturday = saturday_start.filter(val => !saturday_end.includes(val));
+    const graySunday = sunday_start.filter(val => !sunday_end.includes(val));
 
-   
-    console.log(monday_start)
-    console.log(monday_end)
-    console.log(grayMonday)
+
   
 
     
      function grayMondaySquareMaker(number) {
        mondaySquares[number-1].classList.remove("view-only-green")
-      
-     
+    }
+
+    function grayTuesdaySquareMaker(number) {
+       tuesdaySquares[number-1].classList.remove("view-only-green")
+    }
+
+    function grayWednesdaySquareMaker(number) {
+       wednesdaySquares[number-1].classList.remove("view-only-green")
+    }
+
+    function grayThursdaySquareMaker(number) {
+       thursdaySquares[number-1].classList.remove("view-only-green")
+    }
+
+    function grayFridaySquareMaker(number) {
+       fridaySquares[number-1].classList.remove("view-only-green")
+    }
+
+    function graySaturdaySquareMaker(number) {
+       saturdaySquares[number-1].classList.remove("view-only-green")
+    }
+
+    function graySundaySquareMaker(number) {
+       sundaySquares[number-1].classList.remove("view-only-green")
     }
 
     grayMonday.forEach(grayMondaySquareMaker);
-    gray
+    grayTuesday.forEach(grayTuesdaySquareMaker);
+    grayWednesday.forEach(grayWednesdaySquareMaker);
+    grayThursday.forEach(grayThursdaySquareMaker);
+    grayFriday.forEach(grayFridaySquareMaker);
+    graySaturday.forEach(graySaturdaySquareMaker);
+    graySunday.forEach(graySundaySquareMaker);
 
     
 
