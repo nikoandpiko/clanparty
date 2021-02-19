@@ -8,6 +8,7 @@ Invite.destroy_all
 puts "All clean"
 
 
+
 # Users
 puts "Creating random times"
 puts "Creating users"
@@ -31,7 +32,7 @@ end
   # each weekday start and end time
   days_times = []
   7.times do
-    days_times << random_start_end_time(rand(10..23), rand(10..23))
+    days_times << random_start_end_time(rand(8..21), rand(8..21))
   end
 
   User.create(
@@ -122,7 +123,7 @@ puts "Done"
 puts "Creating Events"
 50.times do
   days_times_events = []
-  days_times_events << random_start_end_time(rand(9..23), rand(9..23))
+  days_times_events << random_start_end_time(rand(8..21), rand(8..21))
   day = 1..7
   teams_for_seed = Team.all
   Event.create(

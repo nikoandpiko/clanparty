@@ -367,21 +367,21 @@
 </div>
 
 <%= javascript_tag do %>
-    let monday_start = "<%= j @user.monday_start %>";
-    let monday_end = "<%= j @user.monday_end %>";
-    let tuesday_start = "<%= j @user.tuesday_start %>";
-    let tuesday_end = "<%= j @user.tuesday_end %>";
-    let wednesday_start = "<%= j @user.wednesday_start %>";
-    let wednesday_end = "<%= j @user.wednesday_end %>";
-    let thursday_start = "<%= j @user.thursday_start %>";
-    let thursday_end = "<%= j @user.thursday_end %>";
-    let friday_start = "<%= j @user.friday_start %>";
-    let friday_end = "<%= j @user.friday_end %>";
-    let saturday_start = "<%= j @user.saturday_start %>";
-    let saturday_end = "<%= j @user.saturday_end %>";
-    let sunday_start = "<%= j @user.sunday_start %>";
-    let sunday_end = "<%= j @user.sunday_end %>";
-    // do stuff with myEmail
+    let monday_start = "<%= j @user.monday_start.to_s %>";
+    let monday_end = "<%= j @user.monday_end.to_s %>";
+    let tuesday_start = "<%= j @user.tuesday_start.to_s %>";
+    let tuesday_end = "<%= j @user.tuesday_end.to_s %>";
+    let wednesday_start = "<%= j @user.wednesday_start.to_s %>";
+    let wednesday_end = "<%= j @user.wednesday_end.to_s %>";
+    let thursday_start = "<%= j @user.thursday_start.to_s %>";
+    let thursday_end = "<%= j @user.thursday_end.to_s %>";
+    let friday_start = "<%= j @user.friday_start.to_s %>";
+    let friday_end = "<%= j @user.friday_end.to_s %>";
+    let saturday_start = "<%= j @user.saturday_start.to_s %>";
+    let saturday_end = "<%= j @user.saturday_end.to_s %>";
+    let sunday_start = "<%= j @user.sunday_start.to_s %>";
+    let sunday_end = "<%= j @user.sunday_end.to_s %>";
+  
     
 <% end %>
 
@@ -430,6 +430,9 @@
   
   window.onload = function displaySchedule() {
 //reformats monday data for iteration
+
+console.log(monday_start)
+console.log(monday_end)
     if (monday_start == "2000-01-01 08:00:00 UTC") {
       monday_start = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
     } else if (monday_start == "2000-01-01 09:00:00 UTC") {
