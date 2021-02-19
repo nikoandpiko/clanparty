@@ -122,7 +122,7 @@ puts "Done"
 puts "Creating Events"
 50.times do
   days_times_events = []
-  days_times_events << random_start_end_time(rand(10..23), rand(10..23))
+  days_times_events << random_start_end_time(rand(9..23), rand(9..23))
   day = 1..7
   teams_for_seed = Team.all
   Event.create(

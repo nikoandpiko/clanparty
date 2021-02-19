@@ -1,13 +1,14 @@
-<h1>Team's Index</h1>
-
-<ul class="nav nav-tabs" id="myTab" role="tablist">
-  <li class="nav-item">
-    <a class="nav-link active" id="team-tab" data-toggle="tab" href="#team" role="tab" aria-controls="team" aria-selected="true">Teams</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" id="user-tab" data-toggle="tab" href="#user" role="tab" aria-controls="user" aria-selected="false">Users</a>
-  </li>
-</ul>
+<div class="container">
+  <h1>Team's Index</h1>
+  <ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" id="team-tab" data-toggle="tab" href="#team" role="tab" aria-controls="team" aria-selected="true">Teams</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="user-tab" data-toggle="tab" href="#user" role="tab" aria-controls="user" aria-selected="false">Users</a>
+    </li>
+  </ul>
+</div>
 <div class="tab-content" id="myTabContent">
 
   <div class="tab-pane fade show active" id="team" role="tabpanel" aria-labelledby="team-tab">
@@ -19,7 +20,7 @@
             <div class="ml-2">
               <h5 class="card-title"><%= link_to team.name, team_path(team) %></h5>
               <h6 class="card-subtitle text-muted mb-2"><i class="far fa-calendar"></i> 0 days / <i class="far fa-clock"></i> 0-0 h / <i class="far fa-user"></i> <%= team.invites.accepted.count %> players</h6>
-              <p class="card-text">CORE HOURS</p>
+              <p class="card-text text-dark">CORE HOURS</p>
             </div>
           </div>
         </div>
@@ -36,14 +37,15 @@
             <div class="card-body d-flex">
               <img src="<%= user.avatar %>" alt="<%= user.username %>" style="height:80px;width:80px;border-radius:50%;">
               <div class="ml-2">
-                <h5 class="card-title"><%= link_to user.username, user_path(user) %></h5>
-                <h6 class="card-subtitle text-muted mb-2"><%= user.bio %></h6>
+                <h5 class="card-title"><%= link_to user.username, user_path(user) %>
+                  <a href="<%= user.discord %> " style="color: Mediumslateblue;">
+                  <i class="fab fa-discord fa-fw"></i></a>
+                </h5>
+                <%# <h6 class="card-subtitle text-muted mb-2"><%= user.bio %>
                 <div class="d-flex">
-                <a href=""><i class="fab fa-discord"></i></a>
-                <%= link_to "Discord", user.discord %>
-                <p> / <%= user.role %></p>
+                <p class="text-dark"><%= user.role %></p>
                 </div>
-                <p class="card-text">CORE HOURS</p>
+                <p class="card-text text-dark">CORE HOURS</p>
               </div>
             </div>
           </div>
