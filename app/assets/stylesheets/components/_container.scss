@@ -15,8 +15,9 @@
 .schedule-grid-show {
     width: 400px;
     position: relative;
-    right: 220px;
-    bottom: 220px;
+    top: -300px;
+    right: -60px;
+    
     
 }
 
@@ -292,6 +293,12 @@
 .edit-schedule-title-h2 {
     position: absolute;
     right: 456px;
+}
+
+.show-schedule-title-h2 {
+    position: absolute;
+    right: 0px;
+    
 }
 
 .view-only {

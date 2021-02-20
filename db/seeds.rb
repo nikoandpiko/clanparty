@@ -5,6 +5,7 @@ Invite.destroy_all
 Team.destroy_all
 Game.destroy_all
 User.destroy_all
+
 puts "All clean"
 
 
@@ -146,4 +147,16 @@ puts "Creating Events"
     team_id: teams_for_seed.sample.id
   )
 end
+
+User.create(
+  username: "CrazyGamer",
+  email: "1@1.com",
+  password: 123456,
+  nickname: "KillOnDemand",
+  avatar: Faker::Avatar.image,
+  bio: "Just look at my stats and start crying since you will never get as good as me.",
+  discord: "https://discord.gg/crazyLWT",
+  role: role.sample
+)
+
 puts "Done"
