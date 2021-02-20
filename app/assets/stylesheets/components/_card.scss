@@ -75,6 +75,13 @@
   // }
 }
 
+.card-rainbow-gradient-border-two {
+  background-color: #302244;
+  border: 20px solid transparent;
+  border-image: linear-gradient(to bottom, #FF9703 0%, #3b2000 100%);
+  border-image-slice: 1;
+}
+
 .card-title, .card-title :link, .card-title :visited {
   text-decoration: none;
   color: white;
@@ -189,4 +196,10 @@ background-size: 1800% 1800%;
   width: 100%;
   margin-bottom: 10px;
   padding: 10px;
+}
+
+.truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
