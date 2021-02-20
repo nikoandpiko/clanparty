@@ -418,8 +418,9 @@
 
 
 
-  
-  window.onload = function displaySchedule() {
+  window.addEventListener("load", function displaySchedule(){
+    // ....
+
 //reformats monday data for iteration
 
     if (monday_start_show == "2000-01-01 08:00:00 UTC") {
@@ -888,6 +889,6 @@
     graySunday.forEach(graySundaySquareMaker);
 
 
-}
 
+});
 </script>
