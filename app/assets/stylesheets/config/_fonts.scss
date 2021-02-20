@@ -14,3 +14,23 @@ $headers-font: "Nunito", "Helvetica", "sans-serif";
 //        font-url('FontFile.ttf') format('truetype')
 // }
 // $my-font: "Font Name";
+
+@font-face {
+  font-family: "Helvetica Neue Regular";
+  src: font-url('HelveticaNeue-Regular.ttf') format('truetype')
+}
+
+@font-face {
+  font-family: "Helvetica Neue Bold";
+  src: font-url('HelveticaNeue-Bold.ttf') format('truetype')
+}
+
+@font-face {
+  font-family: "Helvetica Neue Condensed Bold";
+  src: font-url('HelveticaNeue-CondensedBold.ttf') format('truetype')
+}
+
+@font-face {
+  font-family: "Tungsten";
+  src: font-url('Tungsten.ttf') format('truetype')
+}
