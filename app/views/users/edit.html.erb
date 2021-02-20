@@ -1,5 +1,5 @@
-<h1>edit form here</h1>
-
+<br>
+<br>
 <div class="container edit-profile-container">
   <div class="row justify-content-center">
     <div class="col-xl-6 lg-6">
@@ -7,7 +7,7 @@
 
       <%= simple_form_for @user, url: user_path(@user) do |f| %>
         <%= f.input :nickname %>
-        <%= f.input :bio %>
+        <%= f.input :bio, :input_html => {:rows => 7}  %>
         <%= f.input :discord %>
         <%= f.input :role, collection: @roles%>
         <%= f.button :submit, "Confirm details", class: "btn-lg btn-dark edit-profile-button" %>
@@ -17,22 +17,21 @@
      <h2 class="schedule-title-h2">Your schedule</h2>
     <div class="schedule-grid-edit">
         <div class="col-xl-6 lg-6">
-          <div class="hours d-flex">
-            <%# <p>10am</p>
-            <p>11am</p>
-            <p>12</p>
-            <p>1</p>
-            <p>2</p>
-            <p>3</p>
-            <p>4</p>
-            <p>5</p>
-            <p>6</p>
-            <p>7</p>
-            <p>8</p>
-            <p>9</p>
-            <p>10</p>
-            <p>11</p>
-            <p>12</p> %>
+           <div class="hours">
+            <p class="hour1">10:00</p>
+            <p class="hour2">11:00</p>
+            <p class="hour3">12:00</p>
+            <p class="hour4">13:00</p>
+            <p class="hour5">14:00</p>
+            <p class="hour6">15:00</p>
+            <p class="hour7">16:00</p>
+            <p class="hour8">17:00</p>
+            <p class="hour9">18:00</p>
+            <p class="hour10">19:00</p>
+            <p class="hour11">20:00</p>
+            <p class="hour12">21:00</p>
+            <p class="hour13">22:00</p>
+            <p class="hour14">23:00</p>
           </div>
           <div class="days">
           <p class="monday">M</p>
@@ -367,20 +366,20 @@
 </div>
 
 <%= javascript_tag do %>
-    let monday_start = "<%= j @user.monday_start.to_s %>";
-    let monday_end = "<%= j @user.monday_end.to_s %>";
-    let tuesday_start = "<%= j @user.tuesday_start.to_s %>";
-    let tuesday_end = "<%= j @user.tuesday_end.to_s %>";
-    let wednesday_start = "<%= j @user.wednesday_start.to_s %>";
-    let wednesday_end = "<%= j @user.wednesday_end.to_s %>";
-    let thursday_start = "<%= j @user.thursday_start.to_s %>";
-    let thursday_end = "<%= j @user.thursday_end.to_s %>";
-    let friday_start = "<%= j @user.friday_start.to_s %>";
-    let friday_end = "<%= j @user.friday_end.to_s %>";
-    let saturday_start = "<%= j @user.saturday_start.to_s %>";
-    let saturday_end = "<%= j @user.saturday_end.to_s %>";
-    let sunday_start = "<%= j @user.sunday_start.to_s %>";
-    let sunday_end = "<%= j @user.sunday_end.to_s %>";
+     monday_start = "<%= j @user.monday_start.to_s %>";
+     monday_end = "<%= j @user.monday_end.to_s %>";
+     tuesday_start = "<%= j @user.tuesday_start.to_s %>";
+     tuesday_end = "<%= j @user.tuesday_end.to_s %>";
+     wednesday_start = "<%= j @user.wednesday_start.to_s %>";
+     wednesday_end = "<%= j @user.wednesday_end.to_s %>";
+     thursday_start = "<%= j @user.thursday_start.to_s %>";
+     thursday_end = "<%= j @user.thursday_end.to_s %>";
+     friday_start = "<%= j @user.friday_start.to_s %>";
+     friday_end = "<%= j @user.friday_end.to_s %>";
+     saturday_start = "<%= j @user.saturday_start.to_s %>";
+     saturday_end = "<%= j @user.saturday_end.to_s %>";
+     sunday_start = "<%= j @user.sunday_start.to_s %>";
+     sunday_end = "<%= j @user.sunday_end.to_s %>";
   
     
 <% end %>
