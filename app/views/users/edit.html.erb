@@ -386,6 +386,12 @@
 
 
 <script>
+ 
+
+
+
+  
+window.onload = function displaySchedule() {
   const mondaySquares = document.getElementById("monday-squares").querySelectorAll("button");
   const tuesdaySquares = document.getElementById("tuesday-squares").querySelectorAll("button");
   const wednesdaySquares = document.getElementById("wednesday-squares").querySelectorAll("button");
@@ -395,39 +401,36 @@
   const sundaySquares = document.getElementById("sunday-squares").querySelectorAll("button");
 
     
-    function grayMondaySquareMaker(number) {
-       mondaySquares[number-1].classList.remove("view-only-green")
-    }
+  function grayMondaySquareMaker(number) {
+      mondaySquares[number-1].classList.remove("view-only-green")
+  }
 
-    function grayTuesdaySquareMaker(number) {
-       tuesdaySquares[number-1].classList.remove("view-only-green")
-    }
+  function grayTuesdaySquareMaker(number) {
+      tuesdaySquares[number-1].classList.remove("view-only-green")
+  }
 
-    function grayWednesdaySquareMaker(number) {
-       wednesdaySquares[number-1].classList.remove("view-only-green")
-    }
+  function grayWednesdaySquareMaker(number) {
+      wednesdaySquares[number-1].classList.remove("view-only-green")
+  }
 
-    function grayThursdaySquareMaker(number) {
-       thursdaySquares[number-1].classList.remove("view-only-green")
-    }
+  function grayThursdaySquareMaker(number) {
+      thursdaySquares[number-1].classList.remove("view-only-green")
+  }
 
-    function grayFridaySquareMaker(number) {
-       fridaySquares[number-1].classList.remove("view-only-green")
-    }
+  function grayFridaySquareMaker(number) {
+      fridaySquares[number-1].classList.remove("view-only-green")
+  }
 
-    function graySaturdaySquareMaker(number) {
-       saturdaySquares[number-1].classList.remove("view-only-green")
-    }
+  function graySaturdaySquareMaker(number) {
+      saturdaySquares[number-1].classList.remove("view-only-green")
+  }
 
-    function graySundaySquareMaker(number) {
-       sundaySquares[number-1].classList.remove("view-only-green")
-    }
-
-
+  function graySundaySquareMaker(number) {
+      sundaySquares[number-1].classList.remove("view-only-green")
+  }
 
 
   
-window.onload = function displaySchedule() {
 //reformats monday data for iteration
 
 console.log(monday_start)

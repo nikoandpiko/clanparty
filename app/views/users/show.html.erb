@@ -357,6 +357,7 @@
 </div>
 
 
+
 <%= javascript_tag do %>
     monday_start_show = "<%= j @user.monday_start.to_s %>";
     monday_end_show = "<%= j @user.monday_end.to_s %>";
@@ -378,13 +379,18 @@
 
 
 <script>
-  const mondaySquares = document.getElementById("monday-squares").querySelectorAll("button");
-  const tuesdaySquares = document.getElementById("tuesday-squares").querySelectorAll("button");
-  const wednesdaySquares = document.getElementById("wednesday-squares").querySelectorAll("button");
-  const thursdaySquares = document.getElementById("thursday-squares").querySelectorAll("button");
-  const fridaySquares = document.getElementById("friday-squares").querySelectorAll("button");
-  const saturdaySquares = document.getElementById("saturday-squares").querySelectorAll("button");
-  const sundaySquares = document.getElementById("sunday-squares").querySelectorAll("button");
+
+
+
+  
+  window.onload = function displaySchedule() {
+    const mondaySquares = document.getElementById("monday-squares").querySelectorAll("button");
+    const tuesdaySquares = document.getElementById("tuesday-squares").querySelectorAll("button");
+    const wednesdaySquares = document.getElementById("wednesday-squares").querySelectorAll("button");
+    const thursdaySquares = document.getElementById("thursday-squares").querySelectorAll("button");
+    const fridaySquares = document.getElementById("friday-squares").querySelectorAll("button");
+    const saturdaySquares = document.getElementById("saturday-squares").querySelectorAll("button");
+    const sundaySquares = document.getElementById("sunday-squares").querySelectorAll("button");
 
     
     function grayMondaySquareMaker(number) {
@@ -418,8 +424,6 @@
 
 
 
-  window.addEventListener("load", function displaySchedule(){
-    // ....
 
 //reformats monday data for iteration
 
@@ -889,6 +893,6 @@
     graySunday.forEach(graySundaySquareMaker);
 
 
+}
 
-});
 </script>
