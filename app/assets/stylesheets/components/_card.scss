@@ -98,14 +98,22 @@
 }
 
 .user-show-card {
-  margin: auto;
   margin-top: 20px;
-  height: 900px;
+  width: 690px;
+}
+
+.user-show-card-schedule {
+  margin-top: 20px;
+  width: 400px;
+  height: 800px;
+  margin-bottom: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .user-show-card img {
-  height: 100px;
-  width: 100px;
+  height: 150px;
+  width: 150px;
   border-radius: 50%;
 }
 

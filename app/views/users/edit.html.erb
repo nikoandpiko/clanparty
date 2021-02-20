@@ -386,6 +386,7 @@
 
 
 <script>
+window.onload = function displaySchedule() {
   const mondaySquares = document.getElementById("monday-squares").querySelectorAll("button");
   const tuesdaySquares = document.getElementById("tuesday-squares").querySelectorAll("button");
   const wednesdaySquares = document.getElementById("wednesday-squares").querySelectorAll("button");
@@ -395,43 +396,80 @@
   const sundaySquares = document.getElementById("sunday-squares").querySelectorAll("button");
 
     
-    function grayMondaySquareMaker(number) {
-       mondaySquares[number-1].classList.remove("view-only-green")
-    }
+  function grayMondaySquareMaker(number) {
+      mondaySquares[number-1].classList.remove("view-only-green")
+  }
 
-    function grayTuesdaySquareMaker(number) {
-       tuesdaySquares[number-1].classList.remove("view-only-green")
-    }
+  function grayTuesdaySquareMaker(number) {
+      tuesdaySquares[number-1].classList.remove("view-only-green")
+  }
 
-    function grayWednesdaySquareMaker(number) {
-       wednesdaySquares[number-1].classList.remove("view-only-green")
-    }
+  function grayWednesdaySquareMaker(number) {
+      wednesdaySquares[number-1].classList.remove("view-only-green")
+  }
 
-    function grayThursdaySquareMaker(number) {
-       thursdaySquares[number-1].classList.remove("view-only-green")
-    }
+  function grayThursdaySquareMaker(number) {
+      thursdaySquares[number-1].classList.remove("view-only-green")
+  }
 
-    function grayFridaySquareMaker(number) {
-       fridaySquares[number-1].classList.remove("view-only-green")
-    }
+  function grayFridaySquareMaker(number) {
+      fridaySquares[number-1].classList.remove("view-only-green")
+  }
 
-    function graySaturdaySquareMaker(number) {
-       saturdaySquares[number-1].classList.remove("view-only-green")
-    }
+  function graySaturdaySquareMaker(number) {
+      saturdaySquares[number-1].classList.remove("view-only-green")
+  }
 
-    function graySundaySquareMaker(number) {
-       sundaySquares[number-1].classList.remove("view-only-green")
-    }
-
-
+  function graySundaySquareMaker(number) {
+      sundaySquares[number-1].classList.remove("view-only-green")
+  }
 
 
   
-  window.onload = function displaySchedule() {
 //reformats monday data for iteration
+    if (monday_start == "") {
+      monday_start = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+    } 
+    if (monday_end == "") {
+        monday_end = []
+    } 
+    if (tuesday_start == "") {
+      tuesday_start = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+    } 
+    if (tuesday_end == "") {
+        tuesday_end = []
+    }
+    if (wednesday_start == "") {
+      wednesday_start = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+    } 
+    if (wednesday_end == "") {
+        wednesday_end = []
+    }
+    if (thursday_start == "") {
+      thursday_start = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+    } 
+    if (thursday_end == "") {
+      thursday_end = []
+    } 
+    if (friday_start == "") {
+        friday_start = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+    }
+    if (friday_end == "") {
+        friday_end = []
+    }
+    if (saturday_start == "") {
+      saturday_start = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+    } 
+    if (saturday_end == "") {
+        saturday_end = []
+    }
+    if (sunday_start == "") {
+      sunday_start = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+    } 
+    if (sunday_end == "") {
+        sunday_end = []
+    }
 
-console.log(monday_start)
-console.log(monday_end)
     if (monday_start == "2000-01-01 08:00:00 UTC") {
       monday_start = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
     } else if (monday_start == "2000-01-01 09:00:00 UTC") {
