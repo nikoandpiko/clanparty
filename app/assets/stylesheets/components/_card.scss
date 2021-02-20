@@ -47,6 +47,39 @@
 
 // Generic Preset Classes
 
+.card-rainbow-gradient-border {
+  background-color: #302244;
+  border: 20px solid transparent;
+  border-image: linear-gradient(to bottom, #B802F8 0%, #381177 100%);
+  border-image-slice: 1;
+  // border-radius: 30%;
+  // height: 200px;
+  // margin: 20px auto;
+  // width: 200px;
+
+  // $border: 5px;
+  // color: #FFF;
+  // background: #000;
+  // background-clip: padding-box;
+  // border: solid $border transparent;
+  // border-radius: 1em;
+
+  // &:before {
+  //   content: '';
+  //   position: absolute;
+  //   top: 0; right: 0; bottom: 0; left: 0;
+  //   z-index: -1;
+  //   margin: -$border;
+  //   border-radius: inherit;
+  //   background: linear-gradient(to bottom, #B802F8 0%, #381177 100%);
+  // }
+}
+
+.card-title, .card-title :link, .card-title :visited {
+  text-decoration: none;
+  color: white;
+}
+
 .card-product {
   overflow: hidden;
   height: 200px;
@@ -85,6 +118,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-column-gap: 1rem;
+  background-color: #0E0E0E;
 }
 
 .user-show-card {
@@ -97,5 +131,38 @@
   height: 100px;
   width: 100px;
   border-radius: 50%;
+}
+
+// Rainbow
+
+.card-title :hover {
+background: linear-gradient(124deg, #ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8, #dd00f3, #dd00f3);
+background-size: 1800% 1800%;
+
+-webkit-animation: rainbow 18s ease infinite;
+-z-animation: rainbow 18s ease infinite;
+-o-animation: rainbow 18s ease infinite;
+  animation: rainbow 18s ease infinite;
+}
+
+@-webkit-keyframes rainbow {
+    0%{background-position:0% 82%}
+    50%{background-position:100% 19%}
+    100%{background-position:0% 82%}
+}
+@-moz-keyframes rainbow {
+    0%{background-position:0% 82%}
+    50%{background-position:100% 19%}
+    100%{background-position:0% 82%}
+}
+@-o-keyframes rainbow {
+    0%{background-position:0% 82%}
+    50%{background-position:100% 19%}
+    100%{background-position:0% 82%}
+}
+@keyframes rainbow {
+    0%{background-position:0% 82%}
+    50%{background-position:100% 19%}
+    100%{background-position:0% 82%}
 }
 

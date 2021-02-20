@@ -1,10 +1,10 @@
 puts "Cleaning up database"
 
 Event.destroy_all
+Invite.destroy_all
 Team.destroy_all
 Game.destroy_all
 User.destroy_all
-Invite.destroy_all
 puts "All clean"
 
 
@@ -61,6 +61,17 @@ end
   )
 end
 puts "Done"
+
+puts "Create User without schedule"
+User.create(
+  username: "CrazyGamer",
+  email: "1@1.com",
+  password: 123456,
+  nickname: "KillOnDemand",
+  bio: "Just look at my stats and start crying since you will never get as good as me.",
+  discord: "https://discord.gg/crazyLWT",
+  role: role.sample
+)
 # Games only FFXIV for now
 puts "Creating Game"
 content = ["The Sirensong Sea", "Amaurot", "The Dying Gasp", "Anamnesis Anyder", "Mt. Gulg"]
@@ -74,7 +85,7 @@ puts "Done"
 # Teams
 puts "Creating Teams"
 users_for_seed = User.all
-10.times do
+8.times do
   status = [0, 1] # 0 is closed, 1 is open, 2 pending?
   Team.create(
     name: Faker::Games::StreetFighter.stage,
