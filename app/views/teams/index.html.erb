@@ -34,7 +34,7 @@
                 <% else %>
                   <%= "19-23" %>
                 <% end %>
-                h / <i class="far fa-user"></i> <%= team.invites.accepted.count %> players</h6>
+                h / <i class="far fa-user"></i> <%= team.invites.accepted.count %> player<% if team.invites.accepted.count > 1 %><%= "s" %><% end %></h6>
               <!-- <p class="card-text text-dark">CORE HOURS</p> -->
               <img src="<%= sample %>" alt="Schedule" style="width:15em;">
             </div>
