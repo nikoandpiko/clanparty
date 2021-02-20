@@ -142,6 +142,7 @@ User.create(
   email: "1@1.com",
   password: 123456,
   nickname: "KillOnDemand",
+  avatar: Faker::Avatar.image,
   bio: "Just look at my stats and start crying since you will never get as good as me.",
   discord: "https://discord.gg/crazyLWT",
   role: role.sample

@@ -422,6 +422,48 @@
 
 
 //reformats monday data for iteration
+    if (monday_start_show == "") {
+      monday_start_show = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+    } 
+    if (monday_end_show == "") {
+        monday_end_show = []
+    } 
+    if (tuesday_start_show == "") {
+      tuesday_start_show = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+    } 
+    if (tuesday_end_show == "") {
+        tuesday_end_show = []
+    }
+    if (wednesday_start_show == "") {
+      wednesday_start_show = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+    } 
+    if (wednesday_end_show == "") {
+        wednesday_end_show = []
+    }
+    if (thursday_start_show == "") {
+      thursday_start_show = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+    } 
+    if (thursday_end_show == "") {
+      thursday_end_show = []
+    } 
+    if (friday_start_show == "") {
+        friday_start_show = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+    }
+    if (friday_end_show == "") {
+        friday_end_show = []
+    }
+    if (saturday_start_show == "") {
+      saturday_start_show = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+    } 
+    if (saturday_end_show == "") {
+        saturday_end_show = []
+    }
+    if (sunday_start_show == "") {
+      sunday_start_show = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+    } 
+    if (sunday_end_show == "") {
+        sunday_end_show = []
+    }
 
     if (monday_start_show == "2000-01-01 08:00:00 UTC") {
       monday_start_show = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
@@ -850,10 +892,11 @@
     } else if (sunday_end_show == "2000-01-01 08:00:00 UTC") {
       sunday_end_show = [1]
     }
-
+console.log(monday_start_show)
     const grayMonday1 = monday_start_show.filter(val => !monday_end_show.includes(val));
     const grayMonday2 = monday_end_show.filter(val => !monday_start_show.includes(val));
     const grayMonday = grayMonday2.concat(grayMonday1);
+    console.log(grayMonday)
 
     const grayTuesday1 = tuesday_start_show.filter(val => !tuesday_end_show.includes(val));
     const grayTuesday2 = tuesday_end_show.filter(val => !tuesday_start_show.includes(val));
