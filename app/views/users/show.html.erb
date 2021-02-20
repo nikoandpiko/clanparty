@@ -1,16 +1,12 @@
 
+<div class="container">
+<div class="row">
 
-<div class="card-product user-show-card">
-      <img src="<%= @user.avatar %>">
-      <div class="card-product-infos">
-        <h4 class="text-left"><%= @user.nickname %></h4>
-        <h6><%= @user.bio %></h6>
-       
-          <h6>Role: <%= @user.role %></h6>
-      </div>
-      <div class="schedule-grid-show">
-        <div class="col-xl-6 lg-6">
-           <div class="hours">
+    <div class="card-product user-show-card-schedule">
+    <div class="schedule-grid-show">
+        <div class="col-xl-2 lg-2">
+         <h2 class="show-schedule-title-h2">Your schedule</h2>
+            <div class="hours">
             <p class="hour1">10:00</p>
             <p class="hour2">11:00</p>
             <p class="hour3">12:00</p>
@@ -25,17 +21,17 @@
             <p class="hour12">21:00</p>
             <p class="hour13">22:00</p>
             <p class="hour14">23:00</p>
-          </div>
-          <div class="days">
-          <p class="monday">M</p>
-          <p class="tuesday">T</p>
-          <p class="wednesday">W</p>
-          <p class="thursday">TH</p>
-          <p class="friday">F</p>
-          <p class="saturday">SAT</p>
-          <p class="sunday">SUN</p>
-          </div>
-          <div class="monday-squares" id="monday-squares">
+            </div>
+            <div class="days">
+            <p class="monday">M</p>
+            <p class="tuesday">T</p>
+            <p class="wednesday">W</p>
+            <p class="thursday">TH</p>
+            <p class="friday">F</p>
+            <p class="saturday">SAT</p>
+            <p class="sunday">SUN</p>
+            </div>
+            <div class="monday-squares" id="monday-squares">
             <%= button_tag type: 'button', class: "btn shadow-none grid-square 0 view-only view-only-green" do %>
             
             <% end %>
@@ -79,98 +75,8 @@
             <%= button_tag type: 'button', class: "btn shadow-none grid-square 13 view-only view-only-green" do %>
                 
             <% end %>
-          </div>
-          <div class="tuesday-squares" id="tuesday-squares">
-           <%= button_tag type: 'button', class: "btn shadow-none grid-square 0 view-only view-only-green" do %>
-            
-            <% end %>
-            <%= button_tag type: 'button', class: "btn shadow-none grid-square 1 view-only view-only-green" do %>
-                
-            <% end %>
-            <%= button_tag type: 'button', class: "btn shadow-none grid-square 2 view-only view-only-green" do %>
-            
-            <% end %>
-            <%= button_tag type: 'button', class: "btn shadow-none grid-square 3 view-only view-only-green" do %>
-                
-            <% end %>
-            <%= button_tag type: 'button', class: "btn shadow-none grid-square 4 view-only view-only-green" do %>
-                
-            <% end %>
-            <%= button_tag type: 'button', class: "btn shadow-none grid-square 5 view-only view-only-green" do %>
-            
-            <% end %>
-            <%= button_tag type: 'button', class: "btn shadow-none grid-square 6 view-only view-only-green" do %>
-                
-            <% end %>
-
-            <%= button_tag type: 'button', class: "btn shadow-none grid-square 7 view-only view-only-green" do %>
-            
-            <% end %>
-            <%= button_tag type: 'button', class: "btn shadow-none grid-square 8 view-only view-only-green" do %>
-                
-            <% end %>
-            <%= button_tag type: 'button', class: "btn shadow-none grid-square 9 view-only view-only-green" do %>
-            
-            <% end %>
-            <%= button_tag type: 'button', class: "btn shadow-none grid-square 10 view-only view-only-green" do %>
-                
-            <% end %>
-            <%= button_tag type: 'button', class: "btn shadow-none grid-square 11 view-only view-only-green" do %>
-                
-            <% end %>
-            <%= button_tag type: 'button', class: "btn shadow-none grid-square 12 view-only view-only-green" do %>
-            
-            <% end %>
-            <%= button_tag type: 'button', class: "btn shadow-none grid-square 13 view-only view-only-green" do %>
-                
-            <% end %>
-          </div>
-          <div class="wednesday-squares" id="wednesday-squares">
-           <%= button_tag type: 'button', class: "btn shadow-none grid-square 0 view-only view-only-green" do %>
-            
-            <% end %>
-            <%= button_tag type: 'button', class: "btn shadow-none grid-square 1 view-only view-only-green" do %>
-                
-            <% end %>
-            <%= button_tag type: 'button', class: "btn shadow-none grid-square 2 view-only view-only-green" do %>
-            
-            <% end %>
-            <%= button_tag type: 'button', class: "btn shadow-none grid-square 3 view-only view-only-green" do %>
-                
-            <% end %>
-            <%= button_tag type: 'button', class: "btn shadow-none grid-square 4 view-only view-only-green" do %>
-                
-            <% end %>
-            <%= button_tag type: 'button', class: "btn shadow-none grid-square 5 view-only view-only-green" do %>
-            
-            <% end %>
-            <%= button_tag type: 'button', class: "btn shadow-none grid-square 6 view-only view-only-green" do %>
-                
-            <% end %>
-
-            <%= button_tag type: 'button', class: "btn shadow-none grid-square 7 view-only view-only-green" do %>
-            
-            <% end %>
-            <%= button_tag type: 'button', class: "btn shadow-none grid-square 8 view-only view-only-green" do %>
-                
-            <% end %>
-            <%= button_tag type: 'button', class: "btn shadow-none grid-square 9 view-only view-only-green" do %>
-            
-            <% end %>
-            <%= button_tag type: 'button', class: "btn shadow-none grid-square 10 view-only view-only-green" do %>
-                
-            <% end %>
-            <%= button_tag type: 'button', class: "btn shadow-none grid-square 11 view-only view-only-green" do %>
-                
-            <% end %>
-            <%= button_tag type: 'button', class: "btn shadow-none grid-square 12 view-only view-only-green" do %>
-            
-            <% end %>
-            <%= button_tag type: 'button', class: "btn shadow-none grid-square 13 view-only view-only-green" do %>
-                
-            <% end %>
-          </div>
-          <div class="thursday-squares" id="thursday-squares">
+            </div>
+            <div class="tuesday-squares" id="tuesday-squares">
             <%= button_tag type: 'button', class: "btn shadow-none grid-square 0 view-only view-only-green" do %>
             
             <% end %>
@@ -214,8 +120,8 @@
             <%= button_tag type: 'button', class: "btn shadow-none grid-square 13 view-only view-only-green" do %>
                 
             <% end %>
-          </div>
-          <div class="friday-squares" id="friday-squares">
+            </div>
+            <div class="wednesday-squares" id="wednesday-squares">
             <%= button_tag type: 'button', class: "btn shadow-none grid-square 0 view-only view-only-green" do %>
             
             <% end %>
@@ -259,53 +165,8 @@
             <%= button_tag type: 'button', class: "btn shadow-none grid-square 13 view-only view-only-green" do %>
                 
             <% end %>
-          </div>
-          <div class="saturday-squares" id="saturday-squares">
-           <%= button_tag type: 'button', class: "btn shadow-none grid-square 0 view-only view-only-green" do %>
-            
-            <% end %>
-            <%= button_tag type: 'button', class: "btn shadow-none grid-square 1 view-only view-only-green" do %>
-                
-            <% end %>
-            <%= button_tag type: 'button', class: "btn shadow-none grid-square 2 view-only view-only-green" do %>
-            
-            <% end %>
-            <%= button_tag type: 'button', class: "btn shadow-none grid-square 3 view-only view-only-green" do %>
-                
-            <% end %>
-            <%= button_tag type: 'button', class: "btn shadow-none grid-square 4 view-only view-only-green" do %>
-                
-            <% end %>
-            <%= button_tag type: 'button', class: "btn shadow-none grid-square 5 view-only view-only-green" do %>
-            
-            <% end %>
-            <%= button_tag type: 'button', class: "btn shadow-none grid-square 6 view-only view-only-green" do %>
-                
-            <% end %>
-
-            <%= button_tag type: 'button', class: "btn shadow-none grid-square 7 view-only view-only-green" do %>
-            
-            <% end %>
-            <%= button_tag type: 'button', class: "btn shadow-none grid-square 8 view-only view-only-green" do %>
-                
-            <% end %>
-            <%= button_tag type: 'button', class: "btn shadow-none grid-square 9 view-only view-only-green" do %>
-            
-            <% end %>
-            <%= button_tag type: 'button', class: "btn shadow-none grid-square 10 view-only view-only-green" do %>
-                
-            <% end %>
-            <%= button_tag type: 'button', class: "btn shadow-none grid-square 11 view-only view-only-green" do %>
-                
-            <% end %>
-            <%= button_tag type: 'button', class: "btn shadow-none grid-square 12 view-only view-only-green" do %>
-            
-            <% end %>
-            <%= button_tag type: 'button', class: "btn shadow-none grid-square 13 view-only view-only-green" do %>
-                
-            <% end %>
-          </div>
-          <div class="sunday-squares" id="sunday-squares">
+            </div>
+            <div class="thursday-squares" id="thursday-squares">
             <%= button_tag type: 'button', class: "btn shadow-none grid-square 0 view-only view-only-green" do %>
             
             <% end %>
@@ -349,11 +210,159 @@
             <%= button_tag type: 'button', class: "btn shadow-none grid-square 13 view-only view-only-green" do %>
                 
             <% end %>
-          </div>
+            </div>
+            <div class="friday-squares" id="friday-squares">
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square 0 view-only view-only-green" do %>
+            
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square 1 view-only view-only-green" do %>
+                
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square 2 view-only view-only-green" do %>
+            
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square 3 view-only view-only-green" do %>
+                
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square 4 view-only view-only-green" do %>
+                
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square 5 view-only view-only-green" do %>
+            
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square 6 view-only view-only-green" do %>
+                
+            <% end %>
 
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square 7 view-only view-only-green" do %>
+            
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square 8 view-only view-only-green" do %>
+                
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square 9 view-only view-only-green" do %>
+            
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square 10 view-only view-only-green" do %>
+                
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square 11 view-only view-only-green" do %>
+                
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square 12 view-only view-only-green" do %>
+            
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square 13 view-only view-only-green" do %>
+                
+            <% end %>
+            </div>
+            <div class="saturday-squares" id="saturday-squares">
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square 0 view-only view-only-green" do %>
+            
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square 1 view-only view-only-green" do %>
+                
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square 2 view-only view-only-green" do %>
+            
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square 3 view-only view-only-green" do %>
+                
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square 4 view-only view-only-green" do %>
+                
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square 5 view-only view-only-green" do %>
+            
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square 6 view-only view-only-green" do %>
+                
+            <% end %>
 
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square 7 view-only view-only-green" do %>
+            
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square 8 view-only view-only-green" do %>
+                
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square 9 view-only view-only-green" do %>
+            
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square 10 view-only view-only-green" do %>
+                
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square 11 view-only view-only-green" do %>
+                
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square 12 view-only view-only-green" do %>
+            
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square 13 view-only view-only-green" do %>
+                
+            <% end %>
+            </div>
+            <div class="sunday-squares" id="sunday-squares">
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square 0 view-only view-only-green" do %>
+            
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square 1 view-only view-only-green" do %>
+                
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square 2 view-only view-only-green" do %>
+            
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square 3 view-only view-only-green" do %>
+                
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square 4 view-only view-only-green" do %>
+                
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square 5 view-only view-only-green" do %>
+            
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square 6 view-only view-only-green" do %>
+                
+            <% end %>
+
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square 7 view-only view-only-green" do %>
+            
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square 8 view-only view-only-green" do %>
+                
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square 9 view-only view-only-green" do %>
+            
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square 10 view-only view-only-green" do %>
+                
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square 11 view-only view-only-green" do %>
+                
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square 12 view-only view-only-green" do %>
+            
+            <% end %>
+            <%= button_tag type: 'button', class: "btn shadow-none grid-square 13 view-only view-only-green" do %>
+                
+            <% end %>
+             <%= button_to "Edit schedule", edit_schedule_path(@user), method: :get, class: "btn-lg btn-dark edit-schedule-button3"  %>
+            </div>
         </div>
       </div>
+    </div>
+     <div class="col-xl-7 col-lg-7">
+        <div class="card-product user-show-card">
+            <img src="<%= @user.avatar %>">
+            <div class="card-product-infos">
+                <h4 class="text-left"><%= @user.nickname %></h4>
+                <h6><%= @user.bio %></h6>
+            
+                <h6>Role: <%= @user.role %></h6>
+            </div>
+        </div>
+    </div>
+</div>
+
 </div>
 
 
