@@ -137,6 +137,15 @@
 .user-show-card {
   margin-top: 20px;
   width: 650px;
+  background-color: black;
+}
+
+.user-show-card h4 {
+  color: white;
+}
+
+.user-show-card h6 {
+  color: white;
 }
 
 .user-show-card-schedule {
@@ -146,6 +155,12 @@
   margin-bottom: 20px;
   margin-left: 10px;
   margin-right: 10px;
+  background-color: black;
+}
+
+.user-show-card-schedule p{
+
+  color: white;
 }
 
 .user-show-card img {
@@ -197,6 +212,6 @@ background-size: 1800% 1800%;
 
 .edit-schedule-card {
   height: 700px;
-  background-color: white;
+  background-color: black;
   
 }
