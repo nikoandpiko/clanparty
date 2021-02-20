@@ -21,13 +21,18 @@ $headers-font: "Nunito", "Helvetica", "sans-serif";
 }
 
 @font-face {
+  font-family: "Helvetica Neue Medium";
+  src: font-url('HelveticaNeue-Medium.ttf') format('truetype')
+}
+
+@font-face {
   font-family: "Helvetica Neue Bold";
   src: font-url('HelveticaNeue-Bold.ttf') format('truetype')
 }
 
 @font-face {
-  font-family: "Helvetica Neue Condensed Bold";
-  src: font-url('HelveticaNeue-CondensedBold.ttf') format('truetype')
+  font-family: "Helvetica Neue Condensed Black";
+  src: font-url('HelveticaNeue-CondensedBlack.ttf') format('truetype')
 }
 
 @font-face {

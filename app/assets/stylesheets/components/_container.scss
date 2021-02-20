@@ -1,8 +1,8 @@
 .schedule-grid {
     width: 400px;
     position: relative;
-    margin-left: 30px;
-    margin-top: 80px;
+    top: -350px;
+    left: 52px;
 }
 
 .schedule-grid-edit {
@@ -15,9 +15,8 @@
 .schedule-grid-show {
     width: 400px;
     position: relative;
-    top: -300px;
-    right: -60px;
-    
+    top: -340px;
+    right: -50px;
     
 }
 
@@ -94,7 +93,7 @@
 .tuesday {
     position: absolute;
     top: -20px;
-    left: 75px;
+    left: 76px;
 }
 
 .wednesday {
@@ -106,26 +105,26 @@
 .thursday {
     position: absolute;
     top: -20px;
-    left: 159px;
+    left: 161px;
 }
 
 .friday {
     position: absolute;
     top: -20px;
-    left: 210px;
+    left: 211px;
 }
 
 .saturday {
     position: absolute;
     top: -20px;
-    left: 245px;
+    left: 250px;
 
 }
 
 .sunday {
     position: absolute;
     top: -20px;
-    left: 288px;
+    left: 292px;
 }
 
 .monday-squares {
@@ -292,7 +291,9 @@
 
 .edit-schedule-title-h2 {
     position: absolute;
-    right: 456px;
+    right: 440px;
+    top: -30px;
+    color: white;
 }
 
 .show-schedule-title-h2 {

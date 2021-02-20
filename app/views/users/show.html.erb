@@ -2,10 +2,9 @@
 <div class="container">
 <div class="row">
 
-    <div class="card-product user-show-card-schedule">
+    <div class="card-product user-show-card-schedule card-rainbow-gradient-border">
     <div class="schedule-grid-show">
         <div class="col-xl-2 lg-2">
-         <h2 class="show-schedule-title-h2">Your schedule</h2>
             <div class="hours">
             <p class="hour1">10:00</p>
             <p class="hour2">11:00</p>
@@ -345,13 +344,13 @@
             <%= button_tag type: 'button', class: "btn shadow-none grid-square 13 view-only view-only-green" do %>
                 
             <% end %>
-             <%= button_to "Edit schedule", edit_schedule_path(@user), method: :get, class: "btn-lg btn-dark edit-schedule-button3"  %>
+             <%= button_to "UPDATE SCHEDULE", edit_schedule_path(@user), method: :get, class: "btn-lg btn-dark edit-schedule-button3"  %>
             </div>
         </div>
       </div>
     </div>
      <div class="col-xl-7 col-lg-7">
-        <div class="card-product user-show-card">
+        <div class="card-product user-show-card card-rainbow-gradient-border">
             <img src="<%= @user.avatar %>">
             <div class="card-product-infos">
                 <h4 class="text-left"><%= @user.nickname %></h4>

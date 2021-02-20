@@ -1,21 +1,21 @@
 // Clanparty Classes
 
 .team-header h1 {
-  font-family: Helvetica Neue;
+  font-family: Helvetica Neue Condensed Black;
   font-size: 48px;
   color: white;
   text-shadow: 0px 2px 2px #000000;
 }
 
 .team-header h2 {
-  font-family: Helvetica Neue;
+  font-family: Helvetica Neue Medium;
   font-size: 24px;
   color: #FF368D;
   text-shadow: 0px 2px 2px #000000;
 }
 
 .team-header p {
-  font-family: Helvetica Neue;
+  font-family: Helvetica Neue Regular;
   font-size: 16px;
   color: #808080;
   text-shadow: 0px 2px 2px #000000;
@@ -29,21 +29,24 @@
 }
 
 .card h2 {
-  font-family: Helvetica Neue;
+  font-family: Helvetica Neue Bold;
   font-size: 24px;
   color: white;
   text-shadow: 0px 2px 2px #00000080;
 }
 
 .card p {
-  font-family: Helvetica Neue;
+  font-family: Helvetica Neue Regular;
   font-size: 16px;
   color: white;
 }
 
-.bold {
-  font-weight: bold;
+.card-hours {
+  font-family: Helvetica Neue Bold;
+  font-size: 16px;
+  color: white;
 }
+
 
 // Generic Preset Classes
 
@@ -52,6 +55,7 @@
   border: 20px solid transparent;
   border-image: linear-gradient(to bottom, #B802F8 0%, #381177 100%);
   border-image-slice: 1;
+
   // border-radius: 30%;
   // height: 200px;
   // margin: 20px auto;
@@ -73,7 +77,6 @@
   //   border-radius: inherit;
   //   background: linear-gradient(to bottom, #B802F8 0%, #381177 100%);
   // }
-}
 
 .card-rainbow-gradient-border-two {
   background-color: #302244;
@@ -83,6 +86,26 @@
 }
 
 .card-title, .card-title :link, .card-title :visited {
+  // position: relative;
+  // border: 4px solid transparent;
+  // border-radius: 2px;
+  // padding: 10px;
+  // border-color: black;
+  /* just to show box-shadow still works fine */
+  // box-shadow: 0 3px 9px white, inset 0 0 9px black;
+}
+
+// .card-rainbow-gradient-border::after {
+//   position: absolute;
+//   top: -10px; bottom: -10px;
+//   left: -10px; right: -10px;
+//   background: linear-gradient(#B802F8, #381177);
+//   content: '';
+//   z-index: -3;
+//   border-radius: 16px;
+// }
+
+.card-title, .card-title :link, .card-title :visited, .card-title :hover {
   text-decoration: none;
   color: white;
 }
@@ -135,21 +158,35 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-column-gap: 1rem;
-  background-color: #0E0E0E;
 }
 
 .user-show-card {
   margin-top: 20px;
-  width: 690px;
+  width: 650px;
+  background-color: black;
+}
+
+.user-show-card h4 {
+  color: white;
+}
+
+.user-show-card h6 {
+  color: white;
 }
 
 .user-show-card-schedule {
   margin-top: 20px;
-  width: 400px;
+  width: 440px;
   height: 800px;
   margin-bottom: 20px;
   margin-left: 10px;
   margin-right: 10px;
+  background-color: black;
+}
+
+.user-show-card-schedule p{
+
+  color: white;
 }
 
 .user-show-card img {
@@ -160,7 +197,7 @@
 
 // Rainbow
 
-.card-title :hover {
+.card-title-test :hover {
 background: linear-gradient(124deg, #ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8, #dd00f3, #dd00f3);
 background-size: 1800% 1800%;
 
@@ -202,4 +239,9 @@ background-size: 1800% 1800%;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.edit-schedule-card {
+  height: 700px;
+  background-color: black;
 }

@@ -14,7 +14,7 @@
     <div class="team-cards-grid container">
       <% @teams.each do |team| %>
         <div class="card border-0 mb-3">
-          <div class="card-body d-flex card-rainbow-gradient-border" style="background-color: #0E0E0E;"> <% old_color="#252830" %>
+          <div class="card-body d-flex card-rainbow-gradient-border" style="background-color: #000000;"> <% old_color="#252830" %>
             <img src="<%= team.avatar %>" alt="<%= team.name %>" style="height:80px;width:80px;border-radius:50%;">
             <div class="ml-2">
               <h5 class="card-title"><%= link_to team.name, team_path(team) %></h5>
