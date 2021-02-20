@@ -386,11 +386,6 @@
 
 
 <script>
- 
-
-
-
-  
 window.onload = function displaySchedule() {
   const mondaySquares = document.getElementById("monday-squares").querySelectorAll("button");
   const tuesdaySquares = document.getElementById("tuesday-squares").querySelectorAll("button");
@@ -432,9 +427,6 @@ window.onload = function displaySchedule() {
 
   
 //reformats monday data for iteration
-
-console.log(monday_start)
-console.log(monday_end)
     if (monday_start == "2000-01-01 08:00:00 UTC") {
       monday_start = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
     } else if (monday_start == "2000-01-01 09:00:00 UTC") {
