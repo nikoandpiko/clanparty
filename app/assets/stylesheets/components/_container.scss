@@ -12,6 +12,14 @@
     margin-top: 124px;
 }
 
+.schedule-grid-show {
+    width: 400px;
+    position: relative;
+    right: 220px;
+    bottom: 220px;
+    
+}
+
 
 .grid-square {
     padding-top: 34px;
@@ -124,6 +132,9 @@
     flex-direction: column;
     width: 40px;
     margin-top: 4px;
+    position: absolute;
+    left: 15px;
+    top: 0px;
 }
 
 .tuesday-squares {
@@ -199,9 +210,79 @@
     margin-left: 160px;
 }
 
-.hours p {
-    margin-right: 20px;
+
+.hour1 {
+    position: absolute;
+    left: -34px;
+    top: 10px;
 }
+.hour2 {
+    position: absolute;
+    left: -34px;
+    top: 54px;
+}
+.hour3 {
+    position: absolute;
+    left: -34px;
+    top: 98px;
+}
+.hour4 {
+    position: absolute;
+     left: -34px;
+     top: 142px;
+}
+.hour5 {
+    position: absolute;
+     left: -34px;
+     top: 186px;
+}
+.hour6 {
+    position: absolute;
+     left: -34px;
+     top: 230px;
+}
+.hour7 {
+    position: absolute;
+     left: -34px;
+     top: 274px;
+}
+.hour8 {
+    position: absolute;
+     left: -34px;
+     top: 318px;
+}
+.hour9 {
+    position: absolute;
+     left: -34px;
+     top: 362px;
+}
+.hour10 {
+    position: absolute;
+     left: -34px;
+     top: 406px;
+}
+.hour11 {
+    position: absolute;
+     left: -34px;
+     top: 450px;
+}
+.hour12 {
+    position: absolute;
+     left: -34px;
+     top: 494px;
+}
+.hour13 {
+    position: absolute;
+     left: -34px;
+     top: 538px;
+}
+.hour14 {
+    position: absolute;
+     left: -34px;
+     top: 582px;
+}
+
+
 
 .schedule-title-h2 {
     position: absolute;
@@ -257,3 +338,7 @@
     margin-bottom: 4px;
     pointer-events: none;
 }
+
+
+
+

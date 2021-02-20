@@ -1,5 +1,5 @@
-<h1>edit form here</h1>
-
+<br>
+<br>
 <div class="container edit-profile-container">
   <div class="row justify-content-center">
       <%= simple_form_for @user, url: user_path(@user) do |f| %>
@@ -8,31 +8,30 @@
    
       <div class="schedule-grid">
         <div class="col-xl-12 lg-12">
-          <div class="hours d-flex">
-            <%# <p>10am</p>
-            <p>11am</p>
-            <p>12</p>
-            <p>1</p>
-            <p>2</p>
-            <p>3</p>
-            <p>4</p>
-            <p>5</p>
-            <p>6</p>
-            <p>7</p>
-            <p>8</p>
-            <p>9</p>
-            <p>10</p>
-            <p>11</p>
-            <p>12</p> %>
+          <div class="hours">
+            <p class="hour1">10:00</p>
+            <p class="hour2">11:00</p>
+            <p class="hour3">12:00</p>
+            <p class="hour4">13:00</p>
+            <p class="hour5">14:00</p>
+            <p class="hour6">15:00</p>
+            <p class="hour7">16:00</p>
+            <p class="hour8">17:00</p>
+            <p class="hour9">18:00</p>
+            <p class="hour10">19:00</p>
+            <p class="hour11">20:00</p>
+            <p class="hour12">21:00</p>
+            <p class="hour13">22:00</p>
+            <p class="hour14">23:00</p>
           </div>
           <div class="days">
-          <p class="monday">M</p>
-          <p class="tuesday">T</p>
-          <p class="wednesday">W</p>
-          <p class="thursday">TH</p>
-          <p class="friday">F</p>
-          <p class="saturday">SAT</p>
-          <p class="sunday">SUN</p>
+            <p class="monday">M</p>
+            <p class="tuesday">T</p>
+            <p class="wednesday">W</p>
+            <p class="thursday">TH</p>
+            <p class="friday">F</p>
+            <p class="saturday">SAT</p>
+            <p class="sunday">SUN</p>
           </div>
           <div class="monday-squares" id="monday-squares">
             <%= button_tag type: 'button', class: "btn shadow-none grid-square 0", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
