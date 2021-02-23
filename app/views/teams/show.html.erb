@@ -14,7 +14,35 @@
     </div>
   </div>
 
-  <!-- restaurant menu / checkout-->
+  <button type="button" class="btn pl-1 mt-1" data-toggle="modal" data-target="#eventModal">
+    <h3 class="text-white"> Create New Event</h3>
+  </button>
+  <div class="modal fade" id="eventModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Enter the Event Details</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body no-padding">
+          <%= simple_form_for [ @team, @event ] do |f| %>
+          <%= f.input :name, label: "Event", collection: ["The Sirensong Sea", "Amaurot", "The Dying Gasp", "Anamnesis Anyder", "Mt. Gulg"] %>
+          <%= f.input :description, placeholder: "This is a weekly event to ensure our group gets the best gear." %>
+          <%= f.input :day, collection: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"] %>
+          <%= f.input :start_time %>
+          <%= f.input :end_time %>
+            <div class="modal-footer p-0">
+              <%= f.submit "Create Event", class: "btn btn-dark btn-lg btn-block m-0 mb-2" %>
+              <button type="button" class="btn btn-secondary btn-lg btn-block m-0" data-dismiss="modal">Go Back</button>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="container py-3">
     <div class="row">
       <div class="col-md-6">
@@ -29,24 +57,26 @@
           </div>
         </div><br>
         <div class="card-rainbow-gradient-border p-3" style="border-radius:4px; background-color:black;"">
-          <h2 class="text-white text-left"><i class="far fa-calendar-check"></i>  UPCOMING EVENTS</h2>
+          <h2 class="text-white text-left"><i class="far fa-calendar-check"></i> UPCOMING EVENTS</h2>
           <% @team.events.each do |event| %>
-            <div class="card-category text-white text-left" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(https://attractionsmagazine.com/wp-content/uploads/2017/08/DFnGmYxUIAI-qqF-copy.jpg)">
+
+            <div class="card-category text-white text-left event-image" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= Event::EVENT_IMAGE[event.name] %>)">
               <h4 class="text-right truncate" style="font-weight:bolder;"><%= event.description %></h4><br>
               <% if event.day == 1 %>
-                <h4> <i class="far fa-calendar"></i> Sunday, <%= event.start_time.strftime("%h 4") %></h4>
+                <h4> <i class="far fa-calendar"></i> Every Sunday</h4>
               <% elsif event.day == 2 %>
-                <h4> <i class="far fa-calendar"></i> Monday, <%= event.start_time.strftime("%h 4") %> </h4>
+                <h4> <i class="far fa-calendar"></i> Every Monday</h4>
               <% elsif event.day == 3 %>
-                <h4> <i class="far fa-calendar"></i> Tuesday, <%= event.start_time.strftime("%h 4") %> </h4>
+                <h4> <i class="far fa-calendar"></i> Every Tuesday</h4>
               <% elsif event.day == 4 %>
-                <h4> <i class="far fa-calendar"></i> Wedesday, <%= event.start_time.strftime("%h 4") %> </h4>
+                <h4> <i class="far fa-calendar"></i> Every Wedesday</h4>
               <% elsif event.day == 5 %>
-                <h4> <i class="far fa-calendar"></i> Thursday, <%= event.start_time.strftime("%h 4") %> </h4>
+                <h4> <i class="far fa-calendar"></i> Every Thursday</h4>
               <% elsif event.day == 6 %>
-                <h4> <i class="far fa-calendar"></i> Friday, <%= event.start_time.strftime("%h 4") %> </h4>
+                <h4> <i class="far fa-calendar"></i> Every Friday</h4>
               <% elsif event.day == 7 %>
-                <h4> <i class="far fa-calendar"></i> Saturday, <%= event.start_time.strftime("%h 4") %> </h4>
+                <h4> <i class="far fa-calendar"></i> Every Saturday</h4>
+                <%# <%= event.start_time.strftime("%h 4") %>
               <% end %>
               <h4><i class="far fa-clock"></i> <%= event.start_time.strftime("%I:%M") %> - <%= event.end_time.strftime("%I:%M") %> JST</h4>
               <%# Name and Description are reversed until seed is updated %>
