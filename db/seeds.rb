@@ -88,15 +88,18 @@ puts "Creating Teams"
 users_for_seed = User.all
 8.times do
   status = [0, 1] # 0 is closed, 1 is open, 2 pending?
+  user = users_for_seed.sample
   Team.create(
     name: Faker::Games::StreetFighter.stage,
     avatar: Faker::Avatar.image,
     bio: Faker::Games::StreetFighter.quote,
     discord: "https://discord.gg/thisshouldnotworkhopefullyteams",
     status: status.sample,
-    user_id: users_for_seed.sample.id,
+    user_id: user.id,
     game_id: Game.last.id
   )
+  team = Team.last
+  user.update(team_id: team.id)
 end
 puts "Done"
 
@@ -105,29 +108,41 @@ puts "Done"
 puts "Creating Teams with members"
 teams_for_seed = Team.all
 30.times do
+  user = users_for_seed.sample
+
+  if !user.team_id.nil?
   Invite.create(
     status: 1,
     user: users_for_seed.sample,
     team: teams_for_seed.sample
   )
+  end
 end
 
 puts "Creating pending Invites"
 15.times do
+  user = users_for_seed.sample
+
+  if !user.team_id.nil?
   Invite.create(
     status: 2,
     user: users_for_seed.sample,
     team: teams_for_seed.sample
   )
+  end
 end
 
 puts "Creating declined Invites"
 10.times do
+  user = users_for_seed.sample
+
+  if !user.team_id.nil?
   Invite.create(
     status: 0,
     user: users_for_seed.sample,
     team: teams_for_seed.sample
   )
+  end
 end
 puts "Done"
 
