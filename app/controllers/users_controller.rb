@@ -30,6 +30,10 @@ class UsersController < ApplicationController
 
   def edit_schedule
     @user = User.find(params[:id])
+    if !@user.team_id.nil?
+      @team = Team.where(id: @user.team_id)
+      @accepted_member = Invite.accepted.where(team: @team)
+    end
     authorize @user
   end
 
