@@ -431,9 +431,8 @@
 
   <script>
 
-  let newMon = []
-let newTue = []
-    window.onload = function displaySchedule() {
+
+    <%# window.onload = function displaySchedule() {
     const mondaySquares = document.getElementById("monday-squares").querySelectorAll("button");
     const tuesdaySquares = document.getElementById("tuesday-squares").querySelectorAll("button");
     const wednesdaySquares = document.getElementById("wednesday-squares").querySelectorAll("button");
@@ -470,7 +469,7 @@ let newTue = []
     function graySundaySquareMaker(number) {
        sundaySquares[number-1].classList.remove("view-only-green")
     }
-    
+     %>
   
 
 
@@ -998,6 +997,11 @@ let newTue = []
 
 
   function arrayMaker(element) {
+
+      if (element == "") {
+        element = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+      } 
+
       if (element == "2000-01-01 08:00:00 UTC") {
         element = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
       } else if (element == "2000-01-01 09:00:00 UTC") {
@@ -1031,7 +1035,12 @@ let newTue = []
   }
 
   function arrayMakerEnd(element) {
-      if (element == "2000-01-01 21:00:00 UTC") {
+
+    if (element == "") {
+        element = []
+    }
+
+    if (element == "2000-01-01 21:00:00 UTC") {
       element = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
     } else if (element == "2000-01-01 20:00:00 UTC") {
       element = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
@@ -1079,19 +1088,60 @@ let newTue = []
   saturday_e = saturday_e.map(arrayMakerEnd)
   sunday_e = sunday_e.map(arrayMakerEnd)
 
-    const grayMondayMember1 = monday_s[0].filter(val => !monday_e[0].includes(val));
-    const grayMondayMember2 = monday_e[0].filter(val => !monday_s[0].includes(val));
-    const grayMondayMember1 = grayMondayMember2.concat(grayMondayMember1);
 
-    const
+
+
+
+let notDups = []
+
+function grayerArrayGetter(array1, array2) {
+  let count = 0
+    for ( console.log("runnin loop"); count < array1.length; count ++) {
+      console.log(count)
+    
+      console.log(array1[count])
+      console.log(array2[count])
+      if (notDups.length > count) {
+        notDups = []
+      }
+      let grayerStart = array1[count].filter(val => !array2[count].includes(val));
+      let grayerEnd = array2[count].filter(val => !array1[count].includes(val));
+      let grayerArray = grayerEnd.concat(grayerStart);
+      console.log(grayerArray)
+      notDups.push(grayerArray)
+    }
+    
+    return notDups
+    
+}
+
+
+// need to gray out these squares. Each time it grays it it makes it less green. 
+// when second click is registered, it removes these classes for the row that was clicked.
+
+let notDupsMonday = grayerArrayGetter(monday_s, monday_e);
+let notDupsTuesday = grayerArrayGetter(tuesday_s, tuesday_e);
+let notDupsWednesday = grayerArrayGetter(wednesday_s, wednesday_e);
+let notDupsThursday = grayerArrayGetter(thursday_s, thursday_e);
+let notDupsFriday = grayerArrayGetter(friday_s, friday_e);
+let notDupsSaturday = grayerArrayGetter(saturday_s, saturday_e);
+let notDupsSunday = grayerArrayGetter(sunday_s, sunday_e);
+
+//iterate over these arrays and do grayDayMaker and add a class that dulls the green each time. 
+
+//OR better option: If number is not in array, then add class that makes square greener.. 
+//So something like, if counter = 14 && classlist doesnt include the greyer class, add the greener class.
+//THEN if counter = 14 && classlist doesnt include the greyer class && classlist does include greener class, add the even more greener class (Equivelent to three members)
+//Somehow add count into it so that a percentage of members is utilized to indicate availability instead of a hard coded amount. 
+
+
+
     
 
-    console.log(monday_s[0])
-    console.log(monday_e[0])
-    console.log(grayMonday1)
-    console.log(grayMonday2)
-    console.log(grayMonday)
+
+
     
+
  
 
     <%# const grayTuesday1 = tuesday_start_show.filter(val => !tuesday_end_show.includes(val));
@@ -1131,6 +1181,6 @@ let newTue = []
 
 
 
-}
+
 
     </script>
