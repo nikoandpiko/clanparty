@@ -105,9 +105,9 @@
           <h3 class="card-outer-header"><i class="fas fa-user-friends  pr-1"></i> MEMBERS</h3>
           <% @accepted_member.each do |invite| %>
             <div class="card-product-two text-left" style="border-radius:4px;">
-              <img style="border-radius:50%;height:200px;width:200px;" src="<%= invite.user.avatar %>" alt="<%= invite.user.username %>">
+              <img style="border-radius:50%;height:200px;width:200px;" src="<%= invite.user.avatar %>" alt="<%= invite.user.nickname %>">
               <div class="card-product-infos">
-                <h4><%= link_to invite.user.username, user_path(invite.user) %></h4>
+                <h4><%= link_to invite.user.nickname, user_path(invite.user) %></h4>
                 <%# <h6><%= invite.user.bio %>
                 <%= link_to "Discord", invite.user.discord %>
                 <p>Role: <%= invite.user.role %></p>
@@ -121,39 +121,28 @@
           <h3 class="text-white text-left"><i class="fas fa-user-friends pr-1"></i> APPLICANTS</h3>
           <% @pending_member.each do |invite| %>
             <div class="card-product-two text-left" style="border-radius:4px;">
-              <img style="border-radius:50%;height:200px;width:200px;" src="<%= invite.user.avatar %>" alt="<%= invite.user.username %>">
+              <img style="border-radius:50%;height:200px;width:200px;" src="<%= invite.user.avatar %>" alt="<%= invite.user.nickname %>">
               <div class="card-product-infos">
-                <h4><%= link_to invite.user.username, user_path(invite) %></h4>
+                <h4><%= link_to invite.user.nickname, user_path(invite.user) %></h4>
                 <%# <h6><%= invite.user.bio %>
                 <%= link_to "Discord", invite.user.discord %>
+                <br><%= invite.status %>
                 <p>Role: <%= invite.user.role %></p>
               </div>
             </div>
+            <%= simple_form_for (invite) do |f| %>
+              <div class="d-flex justify-content-center">
+                <%= button_tag type: :submit, class: "btn btn-dark btn-lg btn-block" do %>
+                  <% end %>
+                    <%= f.input :status, input_html: { value: 1 }, as: :hidden %>
+                  <% end %>
+              </div>
           <% end %>
         </div>
       </div>
     </div>
 
+
+
+
   </div>
-
-
-  <%= javascript_tag do %>
-    monday_start = "<%= j @user[0].monday_start.to_s %>";
-    monday_end = "<%= j @user[0].monday_end.to_s %>";
-    tuesday_start = "<%= j @user[0].tuesday_start.to_s %>";
-    tuesday_end = "<%= j @user[0].tuesday_end.to_s %>";
-    wednesday_start = "<%= j @user[0].wednesday_start.to_s %>";
-    wednesday_end = "<%= j @user[0].wednesday_end.to_s %>";
-    thursday_start = "<%= j @user[0].thursday_start.to_s %>";
-    thursday_end = "<%= j @user[0].thursday_end.to_s %>";
-    friday_start = "<%= j @user[0].friday_start.to_s %>";
-    friday_end = "<%= j @user[0].friday_end.to_s %>";
-    saturday_start = "<%= j @user[0].saturday_start.to_s %>";
-    saturday_end = "<%= j @user[0].saturday_end.to_s %>";
-    sunday_start = "<%= j @user[0].sunday_start.to_s %>";
-    sunday_end = "<%= j @user[0].sunday_end.to_s %>";
-
-    console.log(monday_start)
-  
-    
-<% end %>

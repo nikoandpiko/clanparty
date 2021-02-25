@@ -13,6 +13,10 @@ class InvitePolicy < ApplicationPolicy
     create?
   end
 
+  def update?
+    true
+  end
+
   def edit?
     user == record.user
   end
