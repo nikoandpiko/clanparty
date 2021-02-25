@@ -75,29 +75,28 @@
         <div class="p-3 background-gradient-members">
           <h3 class="card-outer-header"><i class="fas fa-user-friends  pr-1"></i> MEMBERS</h3>
           <% @accepted_member.each do |invite| %>
-            <div class="card-product-two text-left" style="border-radius:4px;">
-              <img style="border-radius:50%;height:200px;width:200px;" src="<%= invite.user.avatar %>" alt="<%= invite.user.username %>">
-              <div class="card-product-infos">
-                <h4><%= link_to invite.user.username, user_path(invite) %></h4>
+            <div class="card-product-two text-left card-inner">
+              <img style="border-radius:50%;height:150px;width:150px;" src="<%= invite.user.avatar %>" alt="<%= invite.user.username %>">
+              <div class="card-inner-header">
+                <p class="card-member-role"><%= invite.user.role %></p>
+                <h2><%= link_to invite.user.username, user_path(invite) %></h2>
                 <%# <h6><%= invite.user.bio %>
                 <%= link_to "Discord", invite.user.discord %>
-                <p>Role: <%= invite.user.role %></p>
               </div>
             </div>
-            <br>
           <% end %>
         </div>
         <br>
         <div class="p-3" style="border-radius:4px; background-color:black;">
           <h3 class="text-white text-left"><i class="fas fa-user-friends pr-1"></i> APPLICANTS</h3>
           <% @pending_member.each do |invite| %>
-            <div class="card-product-two text-left" style="border-radius:4px;">
-              <img style="border-radius:50%;height:200px;width:200px;" src="<%= invite.user.avatar %>" alt="<%= invite.user.username %>">
-              <div class="card-product-infos">
-                <h4><%= link_to invite.user.username, user_path(invite) %></h4>
+            <div class="card-product-two text-left card-inner" style="border-radius:4px;">
+              <img style="border-radius:50%;height:150px;width:150px;" src="<%= invite.user.avatar %>" alt="<%= invite.user.username %>">
+              <div class="card-inner card-inner-header card">
+                <p class="card-member-role"><%= invite.user.role %></p>
+                <h2><%= link_to invite.user.username, user_path(invite) %></h2>
                 <%# <h6><%= invite.user.bio %>
                 <%= link_to "Discord", invite.user.discord %>
-                <p>Role: <%= invite.user.role %></p>
               </div>
             </div>
           <% end %>

@@ -22,6 +22,10 @@
   text-shadow: 0px 2px 2px #00000080;
 }
 
+.card-inner-header a {
+  color: white;
+}
+
 .card p {
   font-family: Helvetica Neue Regular;
   font-size: 16px;
@@ -37,8 +41,15 @@
 
 .card-inner {
   border-radius:6px;
-  background-color:#0D0D0D;
+  background-color: #0D0D0DF2;
   box-shadow: 2px 2px 4px #00000080;
+}
+
+.card-member-role {
+  font-family: Helvetica Neue Medium;
+  font-size: 16px;
+  margin-bottom: 0px;
+  color: #FF368D;
 }
 
 .background-gradient-schedule {
@@ -122,8 +133,6 @@
 .card-product {
   overflow: hidden;
   height: 200px;
-  background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
   width: 50%;
@@ -131,12 +140,11 @@
 
 .card-product-two {
   overflow: hidden;
-  height: 200px;
-  background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  height: 105px;
   display: flex;
   align-items: center;
-  width: 100%;
+  width: 380;
+  margin-bottom: 16px;
 }
 
 .card-product img {
