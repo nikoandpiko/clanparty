@@ -7,6 +7,12 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    
+    @invite = Invite.where(user_id: @user)
+    if !@invite[0].nil?
+      @team = Team.where(id: @invite[0].team_id)
+    end
+    @events = Event.where(team_id: @team)
     authorize @user
   end
 

@@ -1,31 +1,27 @@
 <div class="container">
-
   <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://p82.f1.n0.cdn.getcloudapp.com/items/YEuXB4Pj/725a5ca9-290c-406a-99ce-3f3aea2529ae.png?source=viewer&v=733bc8b84c6772f52aaef17de2a7035f);">
     <div class="container">
       <div class="card-product p-1 text-left" style="background-color:transparent;">
         <img src="<%= @user.avatar %>" alt="<%= @user.nickname %>" style="margin-top:-30px;border-radius:50%;">
-        <div>
-          <h5 class="text-warning"><%= @user.role %></h5>
-          <h4 class="mt-1 text-white" style="font-weight:bolder;"><%= @user.nickname %></h4>
-          <h6 class="text-secondary"><%= @user.bio %></h6>
+        <div style="margin-left: 16px">
+          <h2><%= @user.role %></h2>
+          <h1><%= @user.nickname %></h1>
+          <p><%= @user.bio %></p>
           <%# <h5 class="text-white">(Core Hours HERE)</h5> %>
         </div>
       </div>
     </div>
   </div>
-
-   <div class="container py-3">
-    <div class="row">
+  <!-- restaurant menu / checkout-->
+  <div class="container py-3" style="margin-top: -30px">
+    <div class="row justify-content-around">
       <div class="col-md-6">
-        <div class="card-rainbow-gradient-border p-3" style="border-radius:4px; background-color:black;">
-          <h2 class="text-white text-left"><i class="far fa-calendar"></i> SCHEDULE</h2>
-            <div class="text-white text-left p-3" style="border-radius:4px;">
-            <h3>Weekly</h3>
-            <p>TEAM NAME</p>
-            <img style="background-color:black;height:60px;width:400px;" src="https://p82.f1.n0.cdn.getcloudapp.com/items/P8uk622q/b82d1154-75bb-417b-804a-ac81125756f5.png?source=viewer&v=183e8b6eebbe0bda6043b1aa448e0845" alt=""><br><br>
-            <h3>Core Hours SCHEDULE INPUTED BELOW</h3>
+        <div class="background-gradient-schedule">
+          <h2 class="card-outer-header"><i class="far fa-calendar pr-1"></i> SCHEDULE</h2>
+          <div class="text-white text-left p-3 card-inner card-inner-header card">
+     
+            <h2>Core Hours</h2>
             <p>All events happen during the evening hour of the day between 19:00 and 23:00 JST</p>
-            <div class="card-product user-show-card-schedule">
               <div class="schedule-grid-show">
                 <div class="hours">
                 <p class="hour1">10:00</p>
@@ -366,35 +362,76 @@
                 <%= button_tag type: 'button', class: "btn shadow-none grid-square 13 view-only view-only-green" do %>
                     
                 <% end %>
-                <%= button_to "UPDATE SCHEDULE", edit_schedule_path(@user), method: :get, class: "btn-lg btn-dark edit-schedule-button3"  %>
+                
                 </div>
             </div>
+            <%= button_to "UPDATE SCHEDULE", edit_schedule_path(@user), method: :get, class: "edit-schedule-button3 text-center"  %>
+            
+        
+            
           </div>
         </div>
-      </div><br>
-        <div class="card-rainbow-gradient-border p-3" style="border-radius:4px; background-color:black;"">
-          <h2 class="text-white text-left"><i class="far fa-calendar-check"></i>  UPCOMING EVENTS</h2>
-          <h2>INPUT TEAM EVENTS WHEN TEAM IS ADDED TO USER</h2>
+        <br>
+        <div class="p-3 background-gradient-events">
+          <h2 class="card-outer-header"><i class="far fa-calendar-check pr-1"></i>  UPCOMING EVENTS</h2>
+          <% @events.each do |event| %>
+            <div class="card-category text-white text-left">
+            <div class="text-white text-left p-3 card-inner card-inner-header card">  
+              <div class="event-img">
+                <h4 class="text-right truncate" style="font-weight:bolder;"><%= event.description %></h4>
+              </div>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+                <% if event.day == 1 %>
+                  <h4> <i class="far fa-calendar"></i> Sunday, <%= event.start_time.strftime("%h 4") %></h4>
+                <% elsif event.day == 2 %>
+                  <h4> <i class="far fa-calendar"></i> Monday, <%= event.start_time.strftime("%h 4") %> </h4>
+                <% elsif event.day == 3 %>
+                  <h4> <i class="far fa-calendar"></i> Tuesday, <%= event.start_time.strftime("%h 4") %> </h4>
+                <% elsif event.day == 4 %>
+                  <h4> <i class="far fa-calendar"></i> Wedesday, <%= event.start_time.strftime("%h 4") %> </h4>
+                <% elsif event.day == 5 %>
+                  <h4> <i class="far fa-calendar"></i> Thursday, <%= event.start_time.strftime("%h 4") %> </h4>
+                <% elsif event.day == 6 %>
+                  <h4> <i class="far fa-calendar"></i> Friday, <%= event.start_time.strftime("%h 4") %> </h4>
+                <% elsif event.day == 7 %>
+                  <h4> <i class="far fa-calendar"></i> Saturday, <%= event.start_time.strftime("%h 4") %> </h4>
+                <% end %>
+                <h4><i class="far fa-clock"></i> <%= event.start_time.strftime("%I:%M") %> - <%= event.end_time.strftime("%I:%M") %> JST</h4>
+                <%# Name and Description are reversed until seed is updated %>
+                <h6 class="truncate"><%= event.name %></h4>
+              </div>
+            </div>
+          <% end %>
         </div>
       </div>
-
       <div class="col-md-6">
-        <div class="card-rainbow-gradient-border-two p-3" style="border-radius:4px; background-color:black;">
-        <h2 class="text-white text-left"><i class="fas fa-user-friends"></i> RECRUITMENT</h2>
-        <h2>TWO BUTTONS IF NO TEAM EXISTS</h2>
-        </div><br>
-
-
-        <div class="card-rainbow-gradient-border-two p-3" style="border-radius:4px; background-color:black;">
-          <h3 class="text-white text-left"><i class="fas fa-user-friends"></i> TEAM</h3>
-          <h3>ADD TEAM INFORMATIOn</h3>
-        </div><br>
+        <div class="p-3 background-gradient-recruitment">
+          <h2 class="card-outer-header"><i class="fas fa-user-friends pr-1"></i> RECRUITMENT</h2>
+          <div class="p-3 text-left card-inner card">
+            <p>We are currently open for recruitment and are looking for all classes. All members are required to be available at least three times per week for two to three hours.</p>
+            <%# <div class="p-3"> %>
+          </div>
+        </div>
+        <br>
+        <div class="p-3 background-gradient-members">
+          <h3 class="card-outer-header"><i class="fas fa-user-friends  pr-1"></i> MEMBERS</h3>
+         
+        </div>
+        <br>
+        <div class="p-3" style="border-radius:4px; background-color:black;">
+          <h3 class="text-white text-left"><i class="fas fa-user-friends pr-1"></i> APPLICANTS</h3>
+         
+        </div>
+      </div>
     </div>
   </div>
 
- </div>
-
-
+</div>
 
 
 
