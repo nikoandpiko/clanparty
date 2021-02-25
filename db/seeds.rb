@@ -110,12 +110,12 @@ teams_for_seed = Team.all
 30.times do
   user = users_for_seed.sample
 
-  if !user.team_id.nil?
-  Invite.create(
-    status: 1,
-    user: users_for_seed.sample,
-    team: teams_for_seed.sample
-  )
+  if user.team_id.nil?
+    Invite.create(
+      status: 1,
+      user: users_for_seed.sample,
+      team: teams_for_seed.sample
+    )
   end
 end
 
@@ -123,12 +123,12 @@ puts "Creating pending Invites"
 15.times do
   user = users_for_seed.sample
 
-  if !user.team_id.nil?
-  Invite.create(
-    status: 2,
-    user: users_for_seed.sample,
-    team: teams_for_seed.sample
-  )
+  if user.team_id.nil?
+    Invite.create(
+      status: 2,
+      user: users_for_seed.sample,
+      team: teams_for_seed.sample
+    )
   end
 end
 
@@ -136,12 +136,12 @@ puts "Creating declined Invites"
 10.times do
   user = users_for_seed.sample
 
-  if !user.team_id.nil?
-  Invite.create(
-    status: 0,
-    user: users_for_seed.sample,
-    team: teams_for_seed.sample
-  )
+  if user.team_id.nil?
+    Invite.create(
+      status: 0,
+      user: users_for_seed.sample,
+      team: teams_for_seed.sample
+    )
   end
 end
 puts "Done"
