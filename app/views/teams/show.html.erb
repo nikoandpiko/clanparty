@@ -136,3 +136,24 @@
 
   </div>
 
+
+  <%= javascript_tag do %>
+    monday_start = "<%= j @user[0].monday_start.to_s %>";
+    monday_end = "<%= j @user[0].monday_end.to_s %>";
+    tuesday_start = "<%= j @user[0].tuesday_start.to_s %>";
+    tuesday_end = "<%= j @user[0].tuesday_end.to_s %>";
+    wednesday_start = "<%= j @user[0].wednesday_start.to_s %>";
+    wednesday_end = "<%= j @user[0].wednesday_end.to_s %>";
+    thursday_start = "<%= j @user[0].thursday_start.to_s %>";
+    thursday_end = "<%= j @user[0].thursday_end.to_s %>";
+    friday_start = "<%= j @user[0].friday_start.to_s %>";
+    friday_end = "<%= j @user[0].friday_end.to_s %>";
+    saturday_start = "<%= j @user[0].saturday_start.to_s %>";
+    saturday_end = "<%= j @user[0].saturday_end.to_s %>";
+    sunday_start = "<%= j @user[0].sunday_start.to_s %>";
+    sunday_end = "<%= j @user[0].sunday_end.to_s %>";
+
+    console.log(monday_start)
+  
+    
+<% end %>
