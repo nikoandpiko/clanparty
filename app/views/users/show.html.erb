@@ -16,7 +16,7 @@
   <div class="container py-3" style="margin-top: -30px">
     <div class="row justify-content-around">
       <div class="col-md-6">
-        <div class="background-gradient-schedule">
+        <div class="background-gradient-schedule-user">
           <h2 class="card-outer-header"><i class="far fa-calendar pr-1"></i> YOUR SCHEDULE</h2>
           <div class="text-white text-left p-3 card-inner card-inner-header card">
      
@@ -433,21 +433,23 @@
 
   <div class="modal fade" id="editscheduleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
+      <div class="modal-content schedule-modal">
         <div class="modal-header">
+        <% if !@user.team_id.nil? %>
+          <h2 class="card-outer-header"> EDIT YOUR TEAM'S SCHEDULE</h2>
+        <%else %>
+          <h2 class="card-outer-header"> EDIT YOUR SCHEDULE</h2>
+        <% end %>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body no-padding">
          <div class="container edit-profile-container">
-    <br>
-    <br>
     <div class="container edit-profile-container">
       <div class="row justify-content-center">
           <%= simple_form_for @user, url: user_path(@user) do |f| %>
-          <%# <%= if @user.team_id == nil %> %>
-          <h2 class="edit-schedule-title-h2">Set your schedule</h2>
+          <%# <%= if @user.team_id == nil %>
         <div class="card-product user-show-card-schedule card-rainbow-gradient-border">
               <div class="schedule-grid">
                 <div class="col-xl-12 lg-12">
@@ -471,10 +473,10 @@
                     <p class="monday">M</p>
                     <p class="tuesday">T</p>
                     <p class="wednesday">W</p>
-                    <p class="thursday">TH</p>
+                    <p class="thursday">T</p>
                     <p class="friday">F</p>
-                    <p class="saturday">SAT</p>
-                    <p class="sunday">SUN</p>
+                    <p class="saturday">S</p>
+                    <p class="sunday">S</p>
                   </div>
                   <% if @user.team_id.nil? %>
                   <div class="monday-squares1" id="monday-squares1">
@@ -1130,7 +1132,7 @@
               <%= f.input :saturday_end, :as => :hidden %>
               <%= f.input :sunday_start, :as => :hidden %>
               <%= f.input :sunday_end, :as => :hidden %>
-              <%= f.button :submit, "CONFIRM SCHEDULE", class: "btn-lg btn-dark edit-schedule-button", :onmouseover => "mondaySubmitButtonHover(); tuesdaySubmitButtonHover(); wednesdaySubmitButtonHover(); thursdaySubmitButtonHover(); fridaySubmitButtonHover(); saturdaySubmitButtonHover(); sundaySubmitButtonHover()" %>
+              <%= f.button :submit, "CONFIRM SCHEDULE", class: "btn-lg btn-dark edit-schedule-button4", :onmouseover => "mondaySubmitButtonHover(); tuesdaySubmitButtonHover(); wednesdaySubmitButtonHover(); thursdaySubmitButtonHover(); fridaySubmitButtonHover(); saturdaySubmitButtonHover(); sundaySubmitButtonHover()" %>
             </div>
           <% end %>
 
@@ -2783,3 +2785,4 @@ notDupsSunday.forEach(greenifyer1Sun)
 }
 
 </script>
+
