@@ -14,7 +14,7 @@
   </div>
 
   <button type="button" class="btn pl-1 mt-1" data-toggle="modal" data-target="#eventModal">
-    <h3 class="text-white"> Create New Event</h3>
+    <h3 class="text-white"> Create New Event (Move to Upcoming Events)</h3>
   </button>
   <div class="modal fade" id="eventModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
@@ -85,64 +85,66 @@
           <% end %>
         </div>
       </div>
+
       <div class="col-md-6">
         <div class="p-3 background-gradient-recruitment">
           <h2 class="card-outer-header"><i class="fas fa-user-friends pr-1"></i> RECRUITMENT</h2>
           <div class="p-3 text-left card-inner card">
             <p>We are currently open for recruitment and are looking for all classes. All members are required to be available at least three times per week for two to three hours.</p>
-            <%# <div class="p-3"> %>
-            <a href="<%= @team.discord %> " style="color: Mediumslateblue;"><i class="fab fa-discord fa-fw"></i>Discord</a><br>
+            <a href="<%= @team.discord %> " style="color: Mediumslateblue;"><i class="fab fa-discord fa-fw"></i>Discord</a>
             <br>
             <% if @team.status == 0 %>
               <%= link_to "CURRENTLY FULL", '#', class: "btn btn-warning mr-3 disabled btn-block", style:"font-weight:bold;border-radius:0.4em;" %>
             <% else %>
               <%= link_to "APPLY TO JOIN", teams_path, class: "btn btn-warning mr-3 btn-block", style:"font-weight:bold;border-radius:0.4em;" %>
             <% end %>
+            <br>
+            <div class="p-3">
+            <h3 class="text-white text-left">CURRENT APPLICANTS</h3>
+            <% @pending_member.each do |invite| %>
+              <div class="card-product-two text-left" style="border-radius:4px;">
+                <img style="border-radius:50%;height:200px;width:200px;" src="<%= invite.user.avatar %>" alt="<%= invite.user.nickname %>">
+                <div class="card-product-infos">
+                  <h4><%= link_to invite.user.nickname, user_path(invite.user) %></h4>
+                  <%= link_to "Discord", invite.user.discord %>
+                  <br>Role Integer (DEBUG): <%= invite.status %>
+                  <p>Role: <%= invite.user.role %></p>
+                </div>
+              </div>
+              <div class="d-flex justify-content-center">
+              <%= simple_form_for ( invite ), html: { class: "w-50"} do |f| %>
+                <%= button_tag type: :submit, class: "btn btn-success w-100" do %>
+                <i class="fas fa-user-check"></i>
+                <% end %>
+                  <%= f.input :status, wrapper_html: { class: "m-0 "}, input_html: { value: 1, class: "w-100" }, as: :hidden %>
+                <% end %>
+              <%= simple_form_for ( invite ), html: { class: "w-50"} do |f| %>
+                <%= button_tag type: :submit, class: "btn btn-danger w-100" do %>
+                <i class="fas fa-user-times"></i>
+                <% end %>
+                  <%= f.input :status, wrapper_html: { class: "m-0 "}, input_html: { value: 3, class: "w-100" }, as: :hidden %>
+                <% end %>
+              </div><br>
+            <% end %>
           </div>
         </div>
-        <br>
-        <div class="p-3 background-gradient-members">
-          <h3 class="card-outer-header"><i class="fas fa-user-friends  pr-1"></i> MEMBERS</h3>
-          <% @accepted_member.each do |invite| %>
-            <div class="card-product-two text-left" style="border-radius:4px;">
-              <img style="border-radius:50%;height:200px;width:200px;" src="<%= invite.user.avatar %>" alt="<%= invite.user.nickname %>">
-              <div class="card-product-infos">
-                <h4><%= link_to invite.user.nickname, user_path(invite.user) %></h4>
-                <%# <h6><%= invite.user.bio %>
-                <%= link_to "Discord", invite.user.discord %>
-                <p>Role: <%= invite.user.role %></p>
-              </div>
+      </div><br>
+
+      <div class="p-3 background-gradient-members">
+        <h3 class="card-outer-header"><i class="fas fa-user-friends  pr-1"></i> MEMBERS</h3>
+        <% @accepted_member.each do |invite| %>
+          <div class="card-product-two text-left" style="border-radius:4px;">
+            <img style="border-radius:50%;height:200px;width:200px;" src="<%= invite.user.avatar %>" alt="<%= invite.user.nickname %>">
+            <div class="card-product-infos">
+              <h4><%= link_to invite.user.nickname, user_path(invite.user) %></h4>
+              <%# <h6><%= invite.user.bio %>
+              <%= link_to "Discord", invite.user.discord %>
+              <br>Role Integer (DEBUG): <%= invite.status %>
+              <p>Role: <%= invite.user.role %></p>
             </div>
-            <br>
-          <% end %>
-        </div>
-        <br>
-        <div class="p-3" style="border-radius:4px; background-color:black;">
-          <h3 class="text-white text-left"><i class="fas fa-user-friends pr-1"></i> APPLICANTS</h3>
-          <% @pending_member.each do |invite| %>
-            <div class="card-product-two text-left" style="border-radius:4px;">
-              <img style="border-radius:50%;height:200px;width:200px;" src="<%= invite.user.avatar %>" alt="<%= invite.user.nickname %>">
-              <div class="card-product-infos">
-                <h4><%= link_to invite.user.nickname, user_path(invite.user) %></h4>
-                <%# <h6><%= invite.user.bio %>
-                <%= link_to "Discord", invite.user.discord %>
-                <br><%= invite.status %>
-                <p>Role: <%= invite.user.role %></p>
-              </div>
-            </div>
-            <%= simple_form_for (invite) do |f| %>
-              <div class="d-flex justify-content-center">
-                <%= button_tag type: :submit, class: "btn btn-dark btn-lg btn-block" do %>
-                  <% end %>
-                    <%= f.input :status, input_html: { value: 1 }, as: :hidden %>
-                  <% end %>
-              </div>
-          <% end %>
-        </div>
+          </div>
+          <br>
+        <% end %>
       </div>
-    </div>
-
-
-
 
   </div>
