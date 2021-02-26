@@ -14,6 +14,9 @@ class UsersController < ApplicationController
     else
       @team = Team.where(id: @user.team_id)
     end
+    if !@user.team_id.nil?
+      @accepted_member = Invite.accepted.where(team: @team)
+    end
     @events = Event.where(team_id: @team)
     authorize @user
   end
@@ -42,6 +45,7 @@ class UsersController < ApplicationController
       @team = Team.where(id: @user.team_id)
       @accepted_member = Invite.accepted.where(team: @team)
     end
+     @events = Event.where(team_id: @team)
     authorize @user
   end
 
