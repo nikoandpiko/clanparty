@@ -6,7 +6,7 @@
         <div style="margin-left: 16px">
           <h2><%= @user.role %></h2>
           <h1><%= @user.nickname %></h1>
-          <p><%= @user.bio %></p>
+          <p><%= @team[0].game.title%></p>
           <%# <h5 class="text-white">(Core Hours HERE)</h5> %>
         </div>
       </div>
@@ -365,9 +365,6 @@
                 </div>
             </div>
             <%= button_to "UPDATE SCHEDULE", edit_schedule_path(@user), method: :get, class: "edit-schedule-button3 text-center"  %>
-            
-        
-            
           </div>
         </div>
         <br>
@@ -1008,6 +1005,7 @@ console.log(monday_start_show)
     grayFriday.forEach(grayFridaySquareMaker);
     graySaturday.forEach(graySaturdaySquareMaker);
     graySunday.forEach(graySundaySquareMaker);
+
 
 
 }
