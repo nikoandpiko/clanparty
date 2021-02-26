@@ -1799,44 +1799,196 @@ let notDupsSunday = grayerArrayGetter(sunday_s, sunday_e);
 
 let grayedTimes = 0
 //THIS WILL MAKE OBJECTS GREYER
-function greenifyer2(arrayElement) {
-   
+function greenifyerMon(arrayElement) {
+  
+  grayedTimes = 0 
    if (!mondaySquares[arrayElement-1].classList.contains("grayout")) {
      mondaySquares[arrayElement-1].classList.add("grayout")
      grayedTimes = 1    
-   } else if (mondaySquares[arrayElement-1].classList.contains("grayout")){
-     mondaySquares[arrayElement-1].classList.add("grayout")
+   } else if (mondaySquares[arrayElement-1].classList.contains("grayout") && !mondaySquares[arrayElement-1].classList.contains("grayout2")){
+     mondaySquares[arrayElement-1].classList.add("grayout2")
+     mondaySquares[arrayElement-1].classList.remove("grayout")
      grayedTimes = 2
-   } else if (mondaySquares[arrayElement-1].classList.contains("grayout")){
-     mondaySquares[arrayElement-1].classList.add("grayout")
-     grayedTimes = 2
-   } 
-  
-  
-  // all the way to grayout 8.
-
-
-   if (grayedTimes == 1) {
-    // add slightly green class
-    // Everyone on your team except one member is available.
-   } else if (grayedTimes == 2) {
-    // add less green class
-    // Everyone on your team except two members are available.
-   } else if (grayedTimes > 2) {
-    // KEEP GRAY
+   } else if (mondaySquares[arrayElement-1].classList.contains("grayout2")){
+     mondaySquares[arrayElement-1].classList.add("grayout3")
+     mondaySquares[arrayElement-1].classList.remove("grayout2")
+     grayedTimes = 3
+   } else if (mondaySquares[arrayElement-1].classList.contains("grayout3")){
+     grayedTimes = 100
+   } else {
+     grayedTimes = 0
    }
-
-
    // OUTSIDE OF ITERATION MAKE ALL SQUARES HAVE A DEFAULT SUPER GREEN/PERFECT MATCH CLASS.
-
 }
 
-function greenifyer1(array) {
-       array.forEach(greenifyer2)
+function greenifyerTue(arrayElement) {
+  
+  grayedTimes = 0 
+   if (!tuesdaySquares[arrayElement-1].classList.contains("grayout")) {
+     tuesdaySquares[arrayElement-1].classList.add("grayout")
+     grayedTimes = 1    
+   } else if (tuesdaySquares[arrayElement-1].classList.contains("grayout") && !tuesdaySquares[arrayElement-1].classList.contains("grayout2")){
+     tuesdaySquares[arrayElement-1].classList.add("grayout2")
+     tuesdaySquares[arrayElement-1].classList.remove("grayout")
+     grayedTimes = 2
+   } else if (tuesdaySquares[arrayElement-1].classList.contains("grayout2")){
+     tuesdaySquares[arrayElement-1].classList.add("grayout3")
+     tuesdaySquares[arrayElement-1].classList.remove("grayout2")
+     grayedTimes = 3
+   } else if (tuesdaySquares[arrayElement-1].classList.contains("grayout3")){
+     grayedTimes = 100
+   } else {
+     grayedTimes = 0
+   }
+   // OUTSIDE OF ITERATION MAKE ALL SQUARES HAVE A DEFAULT SUPER GREEN/PERFECT MATCH CLASS.
 }
 
-notDupsMonday.forEach(greenifyer1)
-console.log(notDupsMonday)
+function greenifyerWed(arrayElement) {
+  
+  grayedTimes = 0 
+   if (!wednesdaySquares[arrayElement-1].classList.contains("grayout")) {
+     wednesdaySquares[arrayElement-1].classList.add("grayout")
+     grayedTimes = 1    
+   } else if (wednesdaySquares[arrayElement-1].classList.contains("grayout") && !wednesdaySquares[arrayElement-1].classList.contains("grayout2")){
+     wednesdaySquares[arrayElement-1].classList.add("grayout2")
+     wednesdaySquares[arrayElement-1].classList.remove("grayout")
+     grayedTimes = 2
+   } else if (wednesdaySquares[arrayElement-1].classList.contains("grayout2")){
+     wednesdaySquares[arrayElement-1].classList.add("grayout3")
+     wednesdaySquares[arrayElement-1].classList.remove("grayout2")
+     grayedTimes = 3
+   } else if (wednesdaySquares[arrayElement-1].classList.contains("grayout3")){
+     grayedTimes = 100
+   } else {
+     grayedTimes = 0
+   }
+   // OUTSIDE OF ITERATION MAKE ALL SQUARES HAVE A DEFAULT SUPER GREEN/PERFECT MATCH CLASS.
+}
+
+function greenifyerThur(arrayElement) {
+  
+  grayedTimes = 0 
+   if (!thursdaySquares[arrayElement-1].classList.contains("grayout")) {
+     thursdaySquares[arrayElement-1].classList.add("grayout")
+     grayedTimes = 1    
+   } else if (thursdaySquares[arrayElement-1].classList.contains("grayout") && !thursdaySquares[arrayElement-1].classList.contains("grayout2")){
+     thursdaySquares[arrayElement-1].classList.add("grayout2")
+     thursdaySquares[arrayElement-1].classList.remove("grayout")
+     grayedTimes = 2
+   } else if (thursdaySquares[arrayElement-1].classList.contains("grayout2")){
+     thursdaySquares[arrayElement-1].classList.add("grayout3")
+     thursdaySquares[arrayElement-1].classList.remove("grayout2")
+     grayedTimes = 3
+   } else if (thursdaySquares[arrayElement-1].classList.contains("grayout3")){
+     grayedTimes = 100
+   } else {
+     grayedTimes = 0
+   }
+   // OUTSIDE OF ITERATION MAKE ALL SQUARES HAVE A DEFAULT SUPER GREEN/PERFECT MATCH CLASS.
+}
+
+function greenifyerFri(arrayElement) {
+  
+  grayedTimes = 0 
+   if (!fridaySquares[arrayElement-1].classList.contains("grayout")) {
+     fridaySquares[arrayElement-1].classList.add("grayout")
+     grayedTimes = 1    
+   } else if (fridaySquares[arrayElement-1].classList.contains("grayout") && !fridaySquares[arrayElement-1].classList.contains("grayout2")){
+     fridaySquares[arrayElement-1].classList.add("grayout2")
+     fridaySquares[arrayElement-1].classList.remove("grayout")
+     grayedTimes = 2
+   } else if (fridaySquares[arrayElement-1].classList.contains("grayout2")){
+     fridaySquares[arrayElement-1].classList.add("grayout3")
+     fridaySquares[arrayElement-1].classList.remove("grayout2")
+     grayedTimes = 3
+   } else if (fridaySquares[arrayElement-1].classList.contains("grayout3")){
+     grayedTimes = 100
+   } else {
+     grayedTimes = 0
+   }
+   // OUTSIDE OF ITERATION MAKE ALL SQUARES HAVE A DEFAULT SUPER GREEN/PERFECT MATCH CLASS.
+}
+
+function greenifyerSat(arrayElement) {
+  
+  grayedTimes = 0 
+   if (!saturdaySquares[arrayElement-1].classList.contains("grayout")) {
+     saturdaySquares[arrayElement-1].classList.add("grayout")
+     grayedTimes = 1    
+   } else if (saturdaySquares[arrayElement-1].classList.contains("grayout") && !saturdaySquares[arrayElement-1].classList.contains("grayout2")){
+     saturdaySquares[arrayElement-1].classList.add("grayout2")
+     saturdaySquares[arrayElement-1].classList.remove("grayout")
+     grayedTimes = 2
+   } else if (saturdaySquares[arrayElement-1].classList.contains("grayout2")){
+     saturdaySquares[arrayElement-1].classList.add("grayout3")
+     saturdaySquares[arrayElement-1].classList.remove("grayout2")
+     grayedTimes = 3
+   } else if (saturdaySquares[arrayElement-1].classList.contains("grayout3")){
+     grayedTimes = 100
+   } else {
+     grayedTimes = 0
+   }
+   // OUTSIDE OF ITERATION MAKE ALL SQUARES HAVE A DEFAULT SUPER GREEN/PERFECT MATCH CLASS.
+}
+
+function greenifyerSun(arrayElement) {
+  
+  grayedTimes = 0 
+   if (!sundaySquares[arrayElement-1].classList.contains("grayout")) {
+     sundaySquares[arrayElement-1].classList.add("grayout")
+     grayedTimes = 1    
+   } else if (sundaySquares[arrayElement-1].classList.contains("grayout") && !sundaySquares[arrayElement-1].classList.contains("grayout2")){
+     sundaySquares[arrayElement-1].classList.add("grayout2")
+     sundaySquares[arrayElement-1].classList.remove("grayout")
+     grayedTimes = 2
+   } else if (sundaySquares[arrayElement-1].classList.contains("grayout2")){
+     sundaySquares[arrayElement-1].classList.add("grayout3")
+     sundaySquares[arrayElement-1].classList.remove("grayout2")
+     grayedTimes = 3
+   } else if (sundaySquares[arrayElement-1].classList.contains("grayout3")){
+     grayedTimes = 100
+   } else {
+     grayedTimes = 0
+   }
+   // OUTSIDE OF ITERATION MAKE ALL SQUARES HAVE A DEFAULT SUPER GREEN/PERFECT MATCH CLASS.
+}
+
+function greenifyer1Mon(array) {
+       array.forEach(greenifyerMon)
+}
+
+function greenifyer1Tue(array) {
+       array.forEach(greenifyerTue)
+}
+
+function greenifyer1Wed(array) {
+       array.forEach(greenifyerWed)
+}
+
+function greenifyer1Thur(array) {
+       array.forEach(greenifyerThur)
+}
+
+function greenifyer1Fri(array) {
+       array.forEach(greenifyerFri)
+}
+
+function greenifyer1Sat(array) {
+       array.forEach(greenifyerSat)
+}
+
+function greenifyer1Sun(array) {
+       array.forEach(greenifyerSun)
+}
+
+notDupsMonday.forEach(greenifyer1Mon)
+notDupsTuesday.forEach(greenifyer1Tue)
+notDupsWednesday.forEach(greenifyer1Wed)
+notDupsThursday.forEach(greenifyer1Thur)
+notDupsFriday.forEach(greenifyer1Fri)
+notDupsSaturday.forEach(greenifyer1Sat)
+notDupsSunday.forEach(greenifyer1Sun)
+
 
 
 
