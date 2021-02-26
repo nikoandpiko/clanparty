@@ -1132,7 +1132,7 @@
               <%= f.input :saturday_end, :as => :hidden %>
               <%= f.input :sunday_start, :as => :hidden %>
               <%= f.input :sunday_end, :as => :hidden %>
-              <%= f.button :submit, "CONFIRM SCHEDULE", class: "btn-lg btn-dark edit-schedule-button4", :onmouseover => "mondaySubmitButtonHover(); tuesdaySubmitButtonHover(); wednesdaySubmitButtonHover(); thursdaySubmitButtonHover(); fridaySubmitButtonHover(); saturdaySubmitButtonHover(); sundaySubmitButtonHover()" %>
+              <%= f.button :submit, "CONFIRM SCHEDULE", class: "btn-lg btn-dark edit-schedule-button4", :onclick => "mondaySubmitButtonHover(); tuesdaySubmitButtonHover(); wednesdaySubmitButtonHover(); thursdaySubmitButtonHover(); fridaySubmitButtonHover(); saturdaySubmitButtonHover(); sundaySubmitButtonHover()" %>
             </div>
           <% end %>
 
@@ -1891,11 +1891,13 @@
 
 
 
+document.addEventListener("DOMContentLoaded", function() {
+displaySchedule();
+});
 
 
 
-
-  window.onload = function displaySchedule() {
+  function displaySchedule() {
     const scheduleButton = document.getElementById("edit-schedule");
     const mondaySquares = document.getElementById("monday-squares").querySelectorAll("button");
     const tuesdaySquares = document.getElementById("tuesday-squares").querySelectorAll("button");

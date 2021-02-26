@@ -510,7 +510,11 @@
 
 
 <script>
-  window.onload = function displaySchedule() {
+
+document.addEventListener("DOMContentLoaded", function() {
+displaySchedule();
+});
+    function displaySchedule() {
     const mondaySquares = document.getElementById("monday-squares").querySelectorAll("button");
     const tuesdaySquares = document.getElementById("tuesday-squares").querySelectorAll("button");
     const wednesdaySquares = document.getElementById("wednesday-squares").querySelectorAll("button");
