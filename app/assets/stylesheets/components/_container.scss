@@ -46,6 +46,38 @@
     margin-bottom: 4px;
 }
 
+.view-only-green-edit {
+    padding-top: 34px;
+    padding-right: 20px;
+    padding-left: 20px;
+    background-color: blue;
+    border: none;
+    margin-right: 0px;
+    margin-bottom: 4px;
+    
+}
+
+
+.view-only-green-edit:hover {
+    padding-top: 34px;
+    padding-right: 20px;
+    padding-left: 20px;
+    background-color: blue;
+    border: none;
+    margin-right: 0px;
+    margin-bottom: 4px;
+}
+
+.grayout {
+    padding-top: 34px;
+    padding-right: 20px;
+    padding-left: 20px;
+    background-color: #c7c9cc;
+    border: none;
+    margin-right: 0px;
+    margin-bottom: 4px;
+}
+
 .clicked-square{
     padding-top: 34px;
     padding-right: 20px;
@@ -338,6 +370,7 @@
     margin-right: 0px;
     margin-bottom: 4px;
     pointer-events: none;
+    
 }
 
 
@@ -351,6 +384,8 @@
     margin-bottom: 4px;
     pointer-events: none;
 }
+
+
 
 
 
