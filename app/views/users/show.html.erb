@@ -6,7 +6,9 @@
         <div style="margin-left: 16px">
           <h2><%= @user.role %></h2>
           <h1><%= @user.nickname %></h1>
+          <% if !@team.nil? %>
           <p><%= @team[0].game.title%></p>
+          <% end %>
           <%# <h5 class="text-white">(Core Hours HERE)</h5> %>
         </div>
       </div>

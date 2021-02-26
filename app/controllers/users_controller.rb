@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     @invite = Invite.where(user_id: @user)
     if !@invite[0].nil?
       @team = Team.where(id: @invite[0].team_id)
-    else
+    elsif !@user.team_id.nil?
       @team = Team.where(id: @user.team_id)
     end
     if !@user.team_id.nil?
