@@ -450,7 +450,7 @@
 
           <div> <br>
           <h3 class="card-outer-header">CURRENT APPLICANTS</h3>
-          <% @accepted_member.each do |invite| %>
+          <% @pending_member.each do |invite| %>
 
             <div class="card-product-two text-left card-inner">
               <img class="card-member-avatar" src="<%= invite.user.avatar %>" alt="<%= invite.user.nickname %>">
@@ -479,17 +479,18 @@
         </div>
         <br>
     
-        <div class="card-product-two text-left card-inner">
-          <img style="border-radius:50%;height:200px;width:200px;" src="<%= @user[0].avatar %>" alt="<%= @user[0].nickname %>">
-            <div class="card-inner-header">
-              <p class="card-member-role"><%= @user[0].role %></p>
-              <h4><%= link_to @user[0].nickname, user_path(@user[0]) %></h4>
-              <%# <h6><%= invite.user.bio %>
-              <%= link_to "Discord", @user[0].discord %>
-            </div>
-        </div><br>
+        
         <div class="p-3 background-gradient-members">
           <h3 class="card-outer-header"><i class="fas fa-user-friends  pr-1"></i> MEMBERS</h3>
+          <div class="card-product-two text-left card-inner">
+              <img class="card-member-avatar" src="<%= @user[0].avatar %>" alt="<%= @user[0].nickname %>">
+              <div class="card-inner-header">
+                <p class="card-member-role"><%= @user[0].role %></p>
+                <h4 class="card-inner-header"><%= link_to @user[0].nickname, user_path(@user[0]) %></h4>
+                <%# <h6><%= invite.user.bio %>
+                <%#=link_to "Discord", invite.user.discord %>
+              </div>
+            </div>
           <% @accepted_member.each do |invite| %>
             <div class="card-product-two text-left card-inner">
               <img class="card-member-avatar" src="<%= invite.user.avatar %>" alt="<%= invite.user.nickname %>">
