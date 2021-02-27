@@ -276,7 +276,7 @@ User.create(
   password: 123456,
   nickname: "Aurora Vesper",
   avatar: vesper,
-  bio: "Just look at my stats and start crying since you will never get as good as me.",
+  bio: "Playing FF since 2019. Maybe not the best, but daily online! High level Healer and if necessary can be Tank too!",
   discord: "https://discord.gg/crazyLWT",
   role: role[1]
 )
