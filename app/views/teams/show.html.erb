@@ -455,13 +455,13 @@
             </div>
             <br>
           <% @accepted_member.each do |invite| %>
-            <div class="card-product-two text-left" style="border-radius:4px;">
+            <div class="card-product-two text-left card-inner">
               <img style="border-radius:50%;height:200px;width:200px;" src="<%= invite.user.avatar %>" alt="<%= invite.user.username %>">
-              <div class="card-product-infos">
+              <div class="card-inner-header">
+                <p class="card-member-role"><%= invite.user.role %></p>
                 <h4><%= link_to invite.user.username, user_path(invite.user) %></h4>
                 <%# <h6><%= invite.user.bio %>
                 <%= link_to "Discord", invite.user.discord %>
-                <p>Role: <%= invite.user.role %></p>
               </div>
             </div><br>
           <% end %>
@@ -470,9 +470,9 @@
           <div class="p-3">
           <h3 class="text-white text-left">CURRENT APPLICANTS</h3>
           <% @pending_member.each do |invite| %>
-            <div class="card-product-two text-left" style="border-radius:4px;">
+            <div class="card-product-two text-left card-inner" style="border-radius:4px;">
               <img style="border-radius:50%;height:200px;width:200px;" src="<%= invite.user.avatar %>" alt="<%= invite.user.nickname %>">
-              <div class="card-product-infos">
+              <div class="card-inner card-inner-header card">
                 <h4><%= link_to invite.user.nickname, user_path(invite.user) %></h4>
                 <%= link_to "Discord", invite.user.discord %>
                 <br>Role Integer (DEBUG): <%= invite.status %>
