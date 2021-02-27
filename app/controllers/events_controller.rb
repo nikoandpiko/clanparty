@@ -13,7 +13,8 @@ class EventsController < ApplicationController
     authorize @event
 
     if @event.save
-      redirect_to team_path(@team), notice: "Event added!"
+      sleep(1.5)
+      redirect_to team_path(@team)
     else
       render :new
     end

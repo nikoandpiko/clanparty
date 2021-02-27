@@ -25,6 +25,13 @@
 // External imports
 import "bootstrap";
 import { displayScheduler } from "../components/displaySchedule";
+import { initSweetalert } from '../plugins/init_sweetalert';
+
+initSweetalert('#sweet-alert-event', {
+  text: "Event created!",
+  icon: "success",
+  button: false
+});
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
