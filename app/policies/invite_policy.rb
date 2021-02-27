@@ -5,12 +5,8 @@ class InvitePolicy < ApplicationPolicy
     end
   end
 
-  def create?
+  def update?
     true
-  end
-
-  def new?
-    create?
   end
 
   def edit?

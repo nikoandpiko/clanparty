@@ -18,9 +18,10 @@
 
 .schedule-grid-show {
     width: 400px;
+    height: 650px;
     position: relative;
-    top: -340px;
-    right: -50px;
+    top: 20px;
+    right: -35px;
 
 }
 
@@ -40,6 +41,58 @@
     padding-right: 20px;
     padding-left: 20px;
     background-color: grey;
+    border: none;
+    margin-right: 0px;
+    margin-bottom: 4px;
+}
+
+.view-only-green-edit {
+    padding-top: 34px;
+    padding-right: 20px;
+    padding-left: 20px;
+    background-color: #3644ff;
+    border: none;
+    margin-right: 0px;
+    margin-bottom: 4px;
+    
+}
+
+
+.view-only-green-edit:hover {
+    padding-top: 34px;
+    padding-right: 20px;
+    padding-left: 20px;
+    background-color: #3644ff;
+    border: none;
+    margin-right: 0px;
+    margin-bottom: 4px;
+}
+
+.grayout {
+    padding-top: 34px;
+    padding-right: 20px;
+    padding-left: 20px;
+    background-color: #747dfa;
+    border: none;
+    margin-right: 0px;
+    margin-bottom: 4px;
+}
+
+.grayout2 {
+    padding-top: 34px;
+    padding-right: 20px;
+    padding-left: 20px;
+    background-color: #c7c9cc;
+    border: none;
+    margin-right: 0px;
+    margin-bottom: 4px;
+}
+
+.grayout3 {
+    padding-top: 34px;
+    padding-right: 20px;
+    padding-left: 20px;
+    background-color: #c7c9cc;
     border: none;
     margin-right: 0px;
     margin-bottom: 4px;
@@ -89,46 +142,46 @@
 
 .monday {
     position: absolute;
-    top: -20px;
+    top: -25px;
     left: 28px;
 
 }
 
 .tuesday {
     position: absolute;
-    top: -20px;
+    top: -25px;
     left: 76px;
 }
 
 .wednesday {
     position: absolute;
-    top: -20px;
+    top: -25px;
     left: 118px;
 }
 
 .thursday {
     position: absolute;
-    top: -20px;
-    left: 161px;
+    top: -25px;
+    left: 166px;
 }
 
 .friday {
     position: absolute;
-    top: -20px;
+    top: -25px;
     left: 211px;
 }
 
 .saturday {
     position: absolute;
-    top: -20px;
-    left: 250px;
+    top: -25px;
+    left: 255px;
 
 }
 
 .sunday {
     position: absolute;
-    top: -20px;
-    left: 292px;
+    top: -25px;
+    left: 301px;
 }
 
 .monday-squares {
@@ -202,6 +255,77 @@
     top: 0px;
 }
 
+.monday-squares1 {
+    display: flex;
+    flex-direction: column;
+    width: 40px;
+    margin-top: 4px;
+    position: absolute;
+    left: 15px;
+    top: 0px;
+}
+
+.tuesday-squares1 {
+    display: flex;
+    flex-direction: column;
+    width: 40px;
+    margin-top: 4px;
+    position: absolute;
+    left: 60px;
+    top: 0px;
+
+}
+
+.wednesday-squares1 {
+    display: flex;
+    flex-direction: column;
+    width: 40px;
+    margin-top: 4px;
+    position: absolute;
+    left: 105px;
+    top: 0px;
+}
+
+.thursday-squares1 {
+    display: flex;
+    flex-direction: column;
+    width: 40px;
+    margin-top: 4px;
+    position: absolute;
+    left: 150px;
+    top: 0px;
+}
+
+.friday-squares1 {
+    display: flex;
+    flex-direction: column;
+    width: 40px;
+    margin-top: 4px;
+    position: absolute;
+    left: 195px;
+    top: 0px;
+}
+
+.saturday-squares1 {
+    display: flex;
+    flex-direction: column;
+    width: 40px;
+    margin-top: 4px;
+    position: absolute;
+    left: 240px;
+    top: 0px;
+}
+
+.sunday-squares1 {
+    display: flex;
+    flex-direction: column;
+    width: 40px;
+    margin-top: 4px;
+    position: absolute;
+    left: 285px;
+    top: 0px;
+}
+
 
 
 
@@ -218,72 +342,72 @@
 .hour1 {
     position: absolute;
     left: -34px;
-    top: 10px;
+    top: 5px;
 }
 .hour2 {
     position: absolute;
     left: -34px;
-    top: 54px;
+    top: 47px;
 }
 .hour3 {
     position: absolute;
     left: -34px;
-    top: 98px;
+    top: 91px;
 }
 .hour4 {
     position: absolute;
      left: -34px;
-     top: 142px;
+     top: 136px;
 }
 .hour5 {
     position: absolute;
      left: -34px;
-     top: 186px;
+     top: 178px;
 }
 .hour6 {
     position: absolute;
      left: -34px;
-     top: 230px;
+     top: 222px;
 }
 .hour7 {
     position: absolute;
      left: -34px;
-     top: 274px;
+     top: 266px;
 }
 .hour8 {
     position: absolute;
      left: -34px;
-     top: 318px;
+     top: 310px;
 }
 .hour9 {
     position: absolute;
      left: -34px;
-     top: 362px;
+     top: 354px;
 }
 .hour10 {
     position: absolute;
      left: -34px;
-     top: 406px;
+     top: 398px;
 }
 .hour11 {
     position: absolute;
      left: -34px;
-     top: 450px;
+     top: 442px;
 }
 .hour12 {
     position: absolute;
      left: -34px;
-     top: 494px;
+     top: 486px;
 }
 .hour13 {
     position: absolute;
      left: -34px;
-     top: 538px;
+     top: 530px;
 }
 .hour14 {
     position: absolute;
      left: -34px;
-     top: 582px;
+     top: 574px;
 }
 
 
@@ -337,6 +461,7 @@
     margin-right: 0px;
     margin-bottom: 4px;
     pointer-events: none;
+    
 }
 
 
@@ -350,6 +475,12 @@
     margin-bottom: 4px;
     pointer-events: none;
 }
+
+.schedule-modal {
+    background-color: #080808;
+}
+
+
 
 
 

@@ -7,6 +7,17 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    
+    @invite = Invite.where(user_id: @user)
+    if !@invite[0].nil?
+      @team = Team.where(id: @invite[0].team_id)
+    elsif !@user.team_id.nil?
+      @team = Team.where(id: @user.team_id)
+    end
+    if !@user.team_id.nil?
+      @accepted_member = Invite.accepted.where(team: @team)
+    end
+    @events = Event.where(team_id: @team)
     authorize @user
   end
 
@@ -30,6 +41,11 @@ class UsersController < ApplicationController
 
   def edit_schedule
     @user = User.find(params[:id])
+    if !@user.team_id.nil?
+      @team = Team.where(id: @user.team_id)
+      @accepted_member = Invite.accepted.where(team: @team)
+    end
+     @events = Event.where(team_id: @team)
     authorize @user
   end
 

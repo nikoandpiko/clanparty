@@ -15,6 +15,7 @@
   text-shadow: 0px 2px 2px #00000080;
 }
 
+
 .card-inner-header h2 {
   font-family: Helvetica Neue Bold;
   font-size: 24px;
@@ -52,9 +53,21 @@
   color: #FF368D;
 }
 
+.background-gradient-schedule-user {
+  background: linear-gradient(to bottom, #BF00FF,#361075);
+  border-radius: 6px;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 16px;
+  padding-bottom: 100px;
+}
+
 .background-gradient-schedule {
   background: linear-gradient(to bottom, #BF00FF,#361075);
   border-radius: 6px;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 16px;
 }
 
 .background-gradient-events {
@@ -192,13 +205,9 @@
 }
 
 .user-show-card-schedule {
-  margin-top: 20px;
   width: 440px;
   height: 800px;
-  margin-bottom: 20px;
-  margin-left: 10px;
-  margin-right: 10px;
-  background-color: black;
+  background-color: #080808;
 }
 
 .user-show-card-schedule p{
@@ -246,10 +255,24 @@ background-size: 1800% 1800%;
 }
 
 .card-category {
-  height: 180px;
+  height: 300px;
   width: 100%;
   margin-bottom: 10px;
   padding: 10px;
+  
+}
+
+.event-img {
+  height: 100px;
+  width: 100.5%;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.9)), url("https://i.imgur.com/i33sm1X.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  border-top-left-radius:6px;
+  border-top-right-radius:6px;
 }
 
 .truncate {
@@ -260,5 +283,9 @@ background-size: 1800% 1800%;
 
 .edit-schedule-card {
   height: 700px;
-  background-color: black;
+  background-color: #080808;
+}
+
+.event-image {
+  background-size: cover;
 }
