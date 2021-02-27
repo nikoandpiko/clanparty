@@ -441,19 +441,9 @@
           </div>
         </div>
         <br>
+
         <div class="p-3 background-gradient-members">
           <h3 class="card-outer-header"><i class="fas fa-user-friends  pr-1"></i> MEMBERS</h3>
-          <div class="card-product-two text-left" style="border-radius:4px;">
-              <img style="border-radius:50%;height:200px;width:200px;" src="<%= @team.user.avatar %>" alt="<%= @team.user.nickname %>">
-              <div class="card-product-infos">
-              <%# TODO: add some team leader indicator %>
-                <h4><%= link_to @team.user.nickname, user_path(@team.user) %></h4>
-                <%# <h6><%= invite.user.bio %>
-                <%= link_to "Discord", @team.user.discord %>
-                <p>Role: <%= @team.user.role %></p>
-              </div>
-            </div>
-            <br>
           <% @accepted_member.each do |invite| %>
             <div class="card-product-two text-left card-inner">
               <img style="border-radius:50%;height:200px;width:200px;" src="<%= invite.user.avatar %>" alt="<%= invite.user.username %>">
@@ -466,7 +456,6 @@
             </div><br>
           <% end %>
 
-          <br>
           <div class="p-3">
           <h3 class="text-white text-left">CURRENT APPLICANTS</h3>
           <% @pending_member.each do |invite| %>
@@ -497,23 +486,6 @@
         </div>
         </div>
       </div><br>
-
-      <div class="p-3 background-gradient-members">
-        <h3 class="card-outer-header"><i class="fas fa-user-friends  pr-1"></i> MEMBERS</h3>
-        <% @accepted_member.each do |invite| %>
-          <div class="card-product-two text-left" style="border-radius:4px;">
-            <img style="border-radius:50%;height:200px;width:200px;" src="<%= invite.user.avatar %>" alt="<%= invite.user.nickname %>">
-            <div class="card-product-infos">
-              <h4><%= link_to invite.user.nickname, user_path(invite.user) %></h4>
-              <%# <h6><%= invite.user.bio %>
-              <%= link_to "Discord", invite.user.discord %>
-              <br>Role Integer (DEBUG): <%= invite.status %>
-              <p>Role: <%= invite.user.role %></p>
-            </div>
-          </div>
-          <br>
-        <% end %>
-      </div>
 
   </div>
 
