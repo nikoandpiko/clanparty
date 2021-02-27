@@ -1,10 +1,12 @@
 puts "Cleaning up database"
 
+
 Event.destroy_all
 Invite.destroy_all
+# User.all.order(id: :desc).each{ |user| user.delete }
+User.delete_all
 Team.destroy_all
 Game.destroy_all
-User.destroy_all
 
 puts "All clean"
 
@@ -87,8 +89,11 @@ puts "Done"
 puts "Creating Teams"
 users_for_seed = User.all
 8.times do
+  # number = 1
+  # n = User.first.id + number
   status = [0, 1] # 0 is closed, 1 is open, 2 pending?
   user = users_for_seed.sample
+  # id = user.id + n
   Team.create(
     name: Faker::Games::StreetFighter.stage,
     avatar: Faker::Avatar.image,
@@ -100,6 +105,7 @@ users_for_seed = User.all
   )
   team = Team.last
   user.update(team_id: team.id)
+  # number += 1
 end
 puts "Done"
 
@@ -185,114 +191,115 @@ sille = "https://img2.finalfantasyxiv.com/f/7317268cbe7945c16096518be14fce10_7bb
 hanska = "https://img2.finalfantasyxiv.com/f/f25a935a9b6eeb8a7392afe69166939f_7bb6b1e488f0e4f01c5314d010b60f31fc0_96x96.jpg"
 vesper = "https://img2.finalfantasyxiv.com/f/4dfd463580443d92244b2e0005623173_7bb6b1e488f0e4f01c5314d010b60f31fc0_96x96.jpg"
 
+
 puts "Creating 8 Users with proper Avatar"
 User.create(
   username: "Tenchu",
   email: "tenchu@1.com",
   password: 123456,
-  nickname: "Tenchu",
+  nickname: "Tenchu Muyo",
   avatar: tenchu,
   bio: "Just look at my stats and start crying since you will never get as good as me.",
   discord: "https://discord.gg/crazyLWT",
-  role: role.sample
+  role: role[0]
 )
 
 User.create(
   username: "Lumina",
   email: "lumina@1.com",
   password: 123456,
-  nickname: "lumina",
+  nickname: "Lumina Moonfang",
   avatar: lumina,
   bio: "Just look at my stats and start crying since you will never get as good as me.",
   discord: "https://discord.gg/crazyLWT",
-  role: role.sample
+  role: role[1]
 )
 
 User.create(
-  username: "Alphi",
+  username: "Alphiria",
   email: "alphi@1.com",
   password: 123456,
-  nickname: "Alphi",
+  nickname: "Alphiria Reinhir",
   avatar: alphi,
   bio: "Just look at my stats and start crying since you will never get as good as me.",
   discord: "https://discord.gg/crazyLWT",
-  role: role.sample
+  role: role[2]
 )
 
 User.create(
-  username: "Kiri",
+  username: "Kiriri",
   email: "kiri@1.com",
   password: 123456,
-  nickname: "Kiri",
+  nickname: "Kiriri Kiri",
   avatar: kiri,
   bio: "Just look at my stats and start crying since you will never get as good as me.",
   discord: "https://discord.gg/crazyLWT",
-  role: role.sample
+  role: role[2]
 )
 
 User.create(
   username: "Lucis",
   email: "lucis@1.com",
   password: 123456,
-  nickname: "Lucis",
+  nickname: "Lucis Ventus",
   avatar: lucis,
   bio: "Just look at my stats and start crying since you will never get as good as me.",
   discord: "https://discord.gg/crazyLWT",
-  role: role.sample
+  role: role[0]
 )
 
 User.create(
   username: "Sille",
   email: "sille@1.com",
   password: 123456,
-  nickname: "Sille",
+  nickname: "Sille Kupo",
   avatar: sille,
   bio: "Just look at my stats and start crying since you will never get as good as me.",
   discord: "https://discord.gg/crazyLWT",
-  role: role.sample
+  role: role[2]
 )
 
 User.create(
   username: "Hanska",
   email: "hanska@1.com",
   password: 123456,
-  nickname: "Hanska",
+  nickname: "Hanska Bhelen",
   avatar: hanska,
   bio: "Just look at my stats and start crying since you will never get as good as me.",
   discord: "https://discord.gg/crazyLWT",
-  role: role.sample
+  role: role[2]
 )
 
 User.create(
-  username: "Vesper",
+  username: "Aurora",
   email: "vesper@1.com",
   password: 123456,
-  nickname: "Vesper",
+  nickname: "Aurora Vesper",
   avatar: vesper,
   bio: "Just look at my stats and start crying since you will never get as good as me.",
   discord: "https://discord.gg/crazyLWT",
-  role: role.sample
+  role: role[1]
 )
 
 puts "Done"
 
 puts "Creating Team with special special Team-leader"
 
-8.times do
-  status = [0, 1] # 0 is closed, 1 is open, 2 pending?
-  user_special = User.find_by(username: "Tenchu")
-  Team.create(
-    name: "Swordies",
-    avatar: "https://www.pngfind.com/pngs/m/446-4461774_final-fantasy-gilgamesh-swords-hd-png-download.png",
-    bio: "TEAM: Together Everyone Achieves More.",
-    discord: "https://discord.gg/thisshouldnotworkhopefullyteams",
-    status: 1,
-    user_id: user_special.id,
-    game_id: Game.last.id
-  )
-  team = Team.last
-  user_special.update(team_id: team.id)
-end
+status = [0, 1] # 0 is closed, 1 is open, 2 pending?
+user_special = User.find_by(username: "Tenchu")
+old_pic = "https://www.pngfind.com/pngs/m/446-4461774_final-fantasy-gilgamesh-swords-hd-png-download.png"
+new_pic = "https://assets.rpglogs.com/img/ff/bosses/75-icon.jpg"
+Team.create(
+  name: "Fatebreaker Savage",
+  avatar: new_pic,
+  bio: "TEAM: Together Everyone Achieves More.",
+  discord: "https://discord.gg/thisshouldnotworkhopefullyteams",
+  status: 1,
+  user_id: user_special.id,
+  game_id: Game.last.id
+)
+team = Team.last
+user_special.update(team_id: team.id)
 
 puts "Done"
 
@@ -300,12 +307,12 @@ puts "Creating accepted invites to special team"
 
 team_special = Team.last
 user_1 = User.find_by(username: "Lumina")
-user_2 = User.find_by(username: "Alphi")
-user_3 = User.find_by(username: "Kiri")
+user_2 = User.find_by(username: "Alphiria")
+user_3 = User.find_by(username: "Kiriri")
 user_4 = User.find_by(username: "Lucis")
 user_5 = User.find_by(username: "Sille")
 user_6 = User.find_by(username: "Hanska")
-user_7 = User.find_by(username: "Vesper")
+user_7 = User.find_by(username: "Aurora")
 
 if user_1.team_id.nil?
   Invite.create(
@@ -347,15 +354,15 @@ if user_5.team_id.nil?
   )
 end
 
-puts "Creating pending invite to special team"
-
 if user_6.team_id.nil?
   Invite.create(
-    status: 2,
+    status: 1,
     user: user_6,
     team: team_special
   )
 end
+puts "Creating pending invite to special team"
+
 
 if user_7.team_id.nil?
   Invite.create(
@@ -365,23 +372,73 @@ if user_7.team_id.nil?
   )
 end
 
+User.create(
+  username: "Ludacris",
+  email: "ludacris@1.com",
+  password: 123456,
+  nickname: "Ludacris Angmar",
+  avatar: Faker::Avatar.image,
+  bio: "Pro Gamer since 2008. Teams only win because of my skills. Not wasting my time with loosers. Only winner teams please. LETS GO AND RAID!",
+  discord: "https://discord.gg/crazyLWT",
+  role: role[1]
+)
+
+user_9 = User.find_by(username: "Ludacris")
+if user_9.team_id.nil?
+  Invite.create(
+    status: 2,
+    user: user_9,
+    team: team_special
+  )
+end
+
+
+
 puts "Done"
 
 puts "Creating events for special team"
 
-3.times do
-  days_times_events = []
-  days_times_events << random_start_end_time(rand(8..21), rand(8..21))
-  day = 1..7
-  teams_for_seed = Team.all
-  Event.create(
-    name: Faker::Games::Fallout.quote,
-    description: Faker::Games::Overwatch.quote,
-    day: rand(day),
-    start_time: days_times_events[0][0],
-    end_time: days_times_events[0][1],
-    team_id: team_special.id
-  )
-end
+days_times_events = []
+days_times_events << random_start_end_time(rand(8..21), rand(8..21))
+day = 1..7
+teams_for_seed = Team.all
+Event.create(
+  name: content[2],
+  description: Faker::Games::Overwatch.quote,
+  day: rand(day),
+  start_time: days_times_events[0][0],
+  end_time: days_times_events[0][1],
+  team_id: team_special.id
+)
+
+Event.create(
+  name: content[4],
+  description: Faker::Games::Overwatch.quote,
+  day: rand(day),
+  start_time: days_times_events[0][0],
+  end_time: days_times_events[0][1],
+  team_id: team_special.id
+)
+
+Event.create(
+  name: content[1],
+  description: Faker::Games::Overwatch.quote,
+  day: rand(day),
+  start_time: days_times_events[0][0],
+  end_time: days_times_events[0][1],
+  team_id: team_special.id
+)
+
+
+puts "Creating team without user id"
+
+Team.create(
+  name: "Loosies",
+  avatar: "https://www.pngfind.com/pngs/m/446-4461774_final-fantasy-gilgamesh-swords-hd-png-download.png",
+  bio: "We shouldnt exist!",
+  discord: "https://discord.gg/thisshouldnotworkhopefullyteams",
+  status: 1,
+  game_id: Game.last.id
+)
 
 puts "All finished"

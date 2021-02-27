@@ -6,6 +6,8 @@ class User < ApplicationRecord
   has_many :invites
   # has_one :team, -> { where user_id != nil }
   #  has_one_attached :avatar # for cloudinary only
+  belongs_to :team, optional: true
+  has_one :team, dependent: :destroy
 
   validates :username, presence: true
 
