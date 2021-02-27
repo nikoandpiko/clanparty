@@ -10,4 +10,5 @@ class Team < ApplicationRecord
   validates :bio, presence: true
   validates :discord, presence: true
   validates :status, presence: true
+  validates :user_id, presence: true
 end
