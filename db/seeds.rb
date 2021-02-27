@@ -1,10 +1,12 @@
 puts "Cleaning up database"
 
+
 Event.destroy_all
 Invite.destroy_all
+# User.all.order(id: :desc).each{ |user| user.delete }
+User.delete_all
 Team.destroy_all
 Game.destroy_all
-User.destroy_all
 
 puts "All clean"
 
@@ -383,5 +385,16 @@ puts "Creating events for special team"
     team_id: team_special.id
   )
 end
+
+puts "Creating team without user id"
+
+Team.create(
+  name: "Loosies",
+  avatar: "https://www.pngfind.com/pngs/m/446-4461774_final-fantasy-gilgamesh-swords-hd-png-download.png",
+  bio: "We shouldnt exist!",
+  discord: "https://discord.gg/thisshouldnotworkhopefullyteams",
+  status: 1,
+  game_id: Game.last.id
+)
 
 puts "All finished"
