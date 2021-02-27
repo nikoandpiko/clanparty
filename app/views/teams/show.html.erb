@@ -400,7 +400,7 @@
           <% @team.events.each do |event| %>
             <div class="text-white text-left">
               <div class="text-white text-left p-3 card-inner card-inner-header card">
-                <div class="event-img">
+                <div class="event-img" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= Event::EVENT_IMAGE[event.name] %>)">
                   <h4 class="card-outer-header text-right truncate pt-5 px-3" style=""><%= event.description %></h4>
                 </div>
                 <br>
@@ -478,7 +478,7 @@
         </div>
         </div>
         <br>
-    
+
         <div class="card-product-two text-left card-inner">
           <img style="border-radius:50%;height:200px;width:200px;" src="<%= @user[0].avatar %>" alt="<%= @user[0].nickname %>">
             <div class="card-inner-header">
@@ -524,8 +524,8 @@
     sunday_end = "<%= j @user[0].sunday_end.to_s %>";
 
     console.log(monday_start)
-  
-    
+
+
 <% end %>
 
 
@@ -543,7 +543,7 @@ displaySchedule();
     const saturdaySquares = document.getElementById("saturday-squares").querySelectorAll("button");
     const sundaySquares = document.getElementById("sunday-squares").querySelectorAll("button");
 
-    
+
     function grayMondaySquareMaker(number) {
        mondaySquares[number-1].classList.remove("view-only-green")
     }
@@ -579,28 +579,28 @@ displaySchedule();
 //reformats monday data for iteration
     if (monday_start == "") {
       monday_start = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
-    } 
+    }
     if (monday_end == "") {
         monday_end = []
-    } 
+    }
     if (tuesday_start == "") {
       tuesday_start = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
-    } 
+    }
     if (tuesday_end == "") {
         tuesday_end = []
     }
     if (wednesday_start == "") {
       wednesday_start = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
-    } 
+    }
     if (wednesday_end == "") {
         wednesday_end = []
     }
     if (thursday_start == "") {
       thursday_start = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
-    } 
+    }
     if (thursday_end == "") {
       thursday_end = []
-    } 
+    }
     if (friday_start == "") {
         friday_start = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
     }
@@ -609,13 +609,13 @@ displaySchedule();
     }
     if (saturday_start == "") {
       saturday_start = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
-    } 
+    }
     if (saturday_end == "") {
         saturday_end = []
     }
     if (sunday_start == "") {
       sunday_start = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
-    } 
+    }
     if (sunday_end == "") {
         sunday_end = []
     }
@@ -679,7 +679,7 @@ displaySchedule();
       } else if (monday_end == "2000-01-01 08:00:00 UTC") {
         monday_end = [1]
       }
-      
+
 
 //reformats tuesday data for iteration
    if (tuesday_start == "2000-01-01 08:00:00 UTC") {
@@ -802,7 +802,7 @@ displaySchedule();
     } else if (wednesday_end == "2000-01-01 08:00:00 UTC") {
       wednesday_end = [1]
     }
-    
+
 
     //reformats thursday data for iteration
     if (thursday_start == "2000-01-01 08:00:00 UTC") {
