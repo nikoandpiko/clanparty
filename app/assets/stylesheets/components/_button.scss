@@ -1,3 +1,39 @@
+.btn:hover {
+    text-decoration: none;
+    box-shadow: 4px 4px 4px #00000080;
+}
+
+.btn-pink {
+    padding: 4px;
+    background-color: #FF368D;
+    border: none;
+    font-family: "Tungsten";
+    text-shadow: 0px 2px 2px #00000080;
+    color: white;
+    font-size: 24px;
+    border-radius: 6px;
+    box-shadow: 2px 2px 4px #00000080;
+}
+
+.btn-accept {
+    width: 194px;
+    color: white;
+    background-color: #3644ff;
+    box-shadow: 2px 2px 4px #00000080;
+    border-radius: 6px;
+    margin-top: -6px;
+}
+
+.btn-deny {
+    width: 194px;
+    color: #fff;
+    background-color: #FF368D;
+    box-shadow: 2px 2px 4px #00000080;
+    margin-left: 4px;
+    border-radius: 6px;
+    margin-top: -6px;
+}
+
 .edit-profile-button {
     position: absolute;
     bottom: -210px;
@@ -39,17 +75,19 @@
 }
 
 .edit-schedule-button3 {
+    padding: 4px;
     background-color: #3644ff;
     border: none;
     position: absolute;
-    bottom: -72px;
+    bottom: -56px;
     right: 0px;
-    width: 400px;
+    width: 403px;
     font-family: "Tungsten";
-    text-shadow: 0px 2px 2px #000000;
+    text-shadow: 0px 2px 2px #00000080;
     color: white;
-    font-size: 40px;
-    border-radius: 8px;
+    font-size: 24px;
+    border-radius: 6px;
+    box-shadow: 2px 2px 4px #00000080;
 }
  
 .edit-schedule-button4 {
