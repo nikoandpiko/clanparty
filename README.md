@@ -1,1 +1,3 @@
-Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/rails-templates), created by the [Le Wagon coding bootcamp](https://www.lewagon.com) team.
+# clanparty 🎉
+
+### An app that allows you to find other people to play games with that fits *your* schedule!
