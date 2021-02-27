@@ -13,10 +13,10 @@
         <% if user_signed_in? %>
           <li class="nav-item active">
           <% invite = Invite.find_by(user_id: current_user.id) %>
-          <% if invite.nil? || invite.status == 0 || invite.status == 2 %>
-              <%= link_to "FIND A TEAM", teams_path, class: "btn btn-outline-warning mr-3", style:"font-weight:bold;border-radius:0.4em;" %>
-            <% elsif !current_user.team_id.nil? %>
+          <% if !current_user.team_id.nil? %>
               <%= link_to "MY TEAM", team_path(current_user.team_id), class: "btn btn-outline-warning mr-3", style:"font-weight:bold;border-radius:0.4em;" %>
+            <% elsif invite.nil? || invite.status == 0 || invite.status == 2 %>
+              <%= link_to "FIND A TEAM", teams_path, class: "btn btn-outline-warning mr-3", style:"font-weight:bold;border-radius:0.4em;" %>
             <% else %>
               <%= link_to "MY TEAM", team_path(Invite.find_by(user_id: current_user.id).team_id), class: "btn btn-outline-warning mr-3", style:"font-weight:bold;border-radius:0.4em;" %>
             <% end %>
