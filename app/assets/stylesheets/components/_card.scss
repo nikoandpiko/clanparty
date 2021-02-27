@@ -42,6 +42,27 @@
 
 .card-inner {
   border-radius:6px;
+  background-color:#0D0D0DF2;
+  box-shadow: 2px 2px 4px #00000080;
+}
+
+.card-day {
+  font-family: Helvetica Neue Condensed Black;
+  font-size: 32px;
+  color: white;
+  margin-bottom: -8px;
+}
+
+.card-event-header {
+  font-family: Helvetica Neue Medium;
+  font-size: 16px;
+  color: white;
+  margin-left: 20px;
+}
+
+.card-category {
+  width: 100%;
+  padding: 10px;
   background-color: #0D0D0DF2;
   box-shadow: 2px 2px 4px #00000080;
 }
@@ -59,15 +80,22 @@
   padding-left: 16px;
   padding-right: 16px;
   padding-top: 16px;
-  padding-bottom: 100px;
-}
-
+  padding-bottom: 90px;
+  }
+  
 .background-gradient-schedule {
   background: linear-gradient(to bottom, #BF00FF,#361075);
   border-radius: 6px;
   padding-left: 16px;
   padding-right: 16px;
   padding-top: 16px;
+}
+
+.card-secondary-text {
+  font-family: Helvetica Neue Regular;
+  font-size: 16px;
+  color: #808080;
+  padding-left: 40px;
 }
 
 .background-gradient-events {
@@ -254,13 +282,6 @@ background-size: 1800% 1800%;
     100%{background-position:0% 82%}
 }
 
-.card-category {
-  height: 300px;
-  width: 100%;
-  margin-bottom: 10px;
-  padding: 10px;
-  
-}
 
 .event-img {
   height: 100px;
