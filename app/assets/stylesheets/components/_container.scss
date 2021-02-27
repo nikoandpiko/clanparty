@@ -46,6 +46,58 @@
     margin-bottom: 4px;
 }
 
+.view-only-green-edit {
+    padding-top: 34px;
+    padding-right: 20px;
+    padding-left: 20px;
+    background-color: #3644ff;
+    border: none;
+    margin-right: 0px;
+    margin-bottom: 4px;
+    
+}
+
+
+.view-only-green-edit:hover {
+    padding-top: 34px;
+    padding-right: 20px;
+    padding-left: 20px;
+    background-color: #3644ff;
+    border: none;
+    margin-right: 0px;
+    margin-bottom: 4px;
+}
+
+.grayout {
+    padding-top: 34px;
+    padding-right: 20px;
+    padding-left: 20px;
+    background-color: #747dfa;
+    border: none;
+    margin-right: 0px;
+    margin-bottom: 4px;
+}
+
+.grayout2 {
+    padding-top: 34px;
+    padding-right: 20px;
+    padding-left: 20px;
+    background-color: #c7c9cc;
+    border: none;
+    margin-right: 0px;
+    margin-bottom: 4px;
+}
+
+.grayout3 {
+    padding-top: 34px;
+    padding-right: 20px;
+    padding-left: 20px;
+    background-color: #c7c9cc;
+    border: none;
+    margin-right: 0px;
+    margin-bottom: 4px;
+}
+
 .clicked-square{
     padding-top: 34px;
     padding-right: 20px;
@@ -203,6 +255,77 @@
     top: 0px;
 }
 
+.monday-squares1 {
+    display: flex;
+    flex-direction: column;
+    width: 40px;
+    margin-top: 4px;
+    position: absolute;
+    left: 15px;
+    top: 0px;
+}
+
+.tuesday-squares1 {
+    display: flex;
+    flex-direction: column;
+    width: 40px;
+    margin-top: 4px;
+    position: absolute;
+    left: 60px;
+    top: 0px;
+
+}
+
+.wednesday-squares1 {
+    display: flex;
+    flex-direction: column;
+    width: 40px;
+    margin-top: 4px;
+    position: absolute;
+    left: 105px;
+    top: 0px;
+}
+
+.thursday-squares1 {
+    display: flex;
+    flex-direction: column;
+    width: 40px;
+    margin-top: 4px;
+    position: absolute;
+    left: 150px;
+    top: 0px;
+}
+
+.friday-squares1 {
+    display: flex;
+    flex-direction: column;
+    width: 40px;
+    margin-top: 4px;
+    position: absolute;
+    left: 195px;
+    top: 0px;
+}
+
+.saturday-squares1 {
+    display: flex;
+    flex-direction: column;
+    width: 40px;
+    margin-top: 4px;
+    position: absolute;
+    left: 240px;
+    top: 0px;
+}
+
+.sunday-squares1 {
+    display: flex;
+    flex-direction: column;
+    width: 40px;
+    margin-top: 4px;
+    position: absolute;
+    left: 285px;
+    top: 0px;
+}
+
 
 
 
@@ -350,6 +473,12 @@
     margin-bottom: 4px;
     pointer-events: none;
 }
+
+.schedule-modal {
+    background-color: #080808;
+}
+
+
 
 
 

@@ -13,6 +13,7 @@ class TeamsController < ApplicationController
     @pending_member = Invite.pending.where(team_id: @team.id)
     @declined_member = Invite.declined.where(team_id: @team.id)
     @event = Event.new
+    @invite = Invite.new
     authorize @team
   end
 
