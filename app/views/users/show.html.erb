@@ -9,6 +9,10 @@
           <% if !@team.nil? %>
             <p><%= @team[0].game.title%></p>
           <% end %>
+          <% if !@user.server.nil? %>
+            <p>Server: <%= @user.server %></p>
+            <p>Performance Avg.: <%= @user.stats %></p>
+          <% end %>
           <%# <h5 class="text-white">(Core Hours HERE)</h5> %>
         </div>
       </div>

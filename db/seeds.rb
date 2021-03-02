@@ -203,7 +203,8 @@ User.create(
   bio: "Just look at my stats and start crying since you will never get as good as me.",
   discord: "https://discord.gg/crazyLWT",
   role: role[0],
-  server: "Tonberry"
+  server: "Tonberry",
+  stats: 81
 )
 
 User.create(
@@ -214,7 +215,9 @@ User.create(
   avatar: lumina,
   bio: "Just look at my stats and start crying since you will never get as good as me.",
   discord: "https://discord.gg/crazyLWT",
-  role: role[1]
+  role: role[1],
+  server: "Tonberry",
+  stats: 99
 )
 
 User.create(
@@ -225,7 +228,9 @@ User.create(
   avatar: alphi,
   bio: "Just look at my stats and start crying since you will never get as good as me.",
   discord: "https://discord.gg/crazyLWT",
-  role: role[2]
+  role: role[2],
+  server: "Tonberry",
+  stats: 99
 )
 
 User.create(
@@ -236,7 +241,9 @@ User.create(
   avatar: kiri,
   bio: "Just look at my stats and start crying since you will never get as good as me.",
   discord: "https://discord.gg/crazyLWT",
-  role: role[2]
+  role: role[2],
+  server: "Tonberry",
+  stats: 94
 )
 
 User.create(
@@ -247,7 +254,9 @@ User.create(
   avatar: lucis,
   bio: "Just look at my stats and start crying since you will never get as good as me.",
   discord: "https://discord.gg/crazyLWT",
-  role: role[0]
+  role: role[0],
+  server: "Tonberry",
+  stats: 80
 )
 
 User.create(
@@ -258,7 +267,9 @@ User.create(
   avatar: sille,
   bio: "Just look at my stats and start crying since you will never get as good as me.",
   discord: "https://discord.gg/crazyLWT",
-  role: role[2]
+  role: role[2],
+  server: "Tonberry",
+  stats: 76
 )
 
 User.create(
@@ -269,7 +280,9 @@ User.create(
   avatar: hanska,
   bio: "Just look at my stats and start crying since you will never get as good as me.",
   discord: "https://discord.gg/crazyLWT",
-  role: role[2]
+  role: role[2],
+  server: "Tonberry",
+  stats: 84
 )
 
 User.create(
@@ -280,7 +293,9 @@ User.create(
   avatar: vesper,
   bio: "Playing FF since 2019. Maybe not the best, but daily online! High level Healer and if necessary can be Tank too!",
   discord: "https://discord.gg/crazyLWT",
-  role: role[1]
+  role: role[1],
+  server: "Tonberry",
+  stats: 80
 )
 
 puts "Done"
@@ -382,7 +397,9 @@ User.create(
   avatar: Faker::Avatar.image,
   bio: "Pro Gamer since 2008. Teams only win because of my skills. Not wasting my time with loosers. Only winner teams please. LETS GO AND RAID!",
   discord: "https://discord.gg/crazyLWT",
-  role: role[1]
+  role: role[1],
+  server: "Tonberry",
+  stats: 74
 )
 
 user_9 = User.find_by(username: "Ludacris")
