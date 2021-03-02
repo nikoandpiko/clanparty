@@ -201,7 +201,8 @@ User.create(
   avatar: tenchu,
   bio: "Just look at my stats and start crying since you will never get as good as me.",
   discord: "https://discord.gg/crazyLWT",
-  role: role[0]
+  role: role[0],
+  server: "Tonberry"
 )
 
 User.create(
