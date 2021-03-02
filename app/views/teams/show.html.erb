@@ -419,7 +419,7 @@
                 <% elsif event.day == 7 %>
                   <h4 class="card-day"> <i class="far fa-clock"></i> Saturday</h4>
                 <% end %>
-                <h3 class="card-secondary-text pt-2"> <%= event.start_time.strftime("%h 4") %>, <%= event.start_time.strftime("%I:%M") %> - <%= event.end_time.strftime("%I:%M") %> JST</h3>
+                <h3 class="card-secondary-text pt-2"> <%= event.start_time.strftime("%I:%M") %> - <%= event.end_time.strftime("%I:%M") %> JST</h3>
                 <%# Name and Description are reversed until seed is updated %>
                 <img style="height:auto;width:348px; padding-top: 8px;" src="https://p82.f1.n0.cdn.getcloudapp.com/items/9Zu8yvRB/070473f2-cc57-4d36-93ee-3fa9b528b6c5.png?source=viewer&v=c47174317c1e3f6ff90a5509b015462a" alt=""><br>
                 <h6 class="card-event-header"><i class="fas fa-bullseye"></i> Awesome Event</h6>
@@ -449,7 +449,7 @@
           </div>
 
           <div> <br>
-          <h3 class="card-outer-header">CURRENT APPLICANTS</h3>
+          <h3 class="card-outer-header">CURRENT APPLICANTS (<%= @pending_member.count %>) </h3>
           <% @pending_member.each do |invite| %>
 
             <div class="card-product-two text-left card-inner">
@@ -481,7 +481,7 @@
 
 
         <div class="p-3 background-gradient-members">
-          <h3 class="card-outer-header"><i class="fas fa-user-friends  pr-1"></i> MEMBERS</h3>
+          <h3 class="card-outer-header"><i class="fas fa-user-friends  pr-1"></i> MEMBERS (<%= @accepted_member.count + 1 %>) </h3>
           <div class="card-product-two text-left card-inner">
               <img class="card-member-avatar" src="<%= @user[0].avatar %>" alt="<%= @user[0].nickname %>">
               <div class="card-inner-header">

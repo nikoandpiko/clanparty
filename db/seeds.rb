@@ -160,7 +160,8 @@ puts "Creating Events"
   day = 1..7
   teams_for_seed = Team.all
   Event.create(
-    name: Faker::Games::Fallout.quote,
+    # name: Faker::Games::Fallout.quote,
+    name: content.sample,
     description: Faker::Games::Overwatch.quote,
     day: rand(day),
     start_time: days_times_events[0][0],
