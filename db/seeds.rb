@@ -37,7 +37,8 @@ end
   7.times do
     days_times << random_start_end_time(rand(8..21), rand(8..21))
   end
-
+  random_stats = rand(57..98)
+  random_servers = ["Tonberry", "Ramuh", "Kujata", "Gungnir"]
   User.create(
     username: Faker::Games::Witcher.monster,
     email: "#{n+=1}@#{n+=1}.com",
@@ -60,7 +61,9 @@ end
     friday_start: days_times[5][0],
     friday_end: days_times[5][1],
     saturday_start: days_times[6][0],
-    saturday_end: days_times[6][1]
+    saturday_end: days_times[6][1],
+    stats: random_stats,
+    server: random_servers[0]
   )
 end
 puts "Done"
