@@ -868,13 +868,13 @@
          
           
           function clickchecker(square) {
-            if (square.classList.contains("clicked-square")) {
+            if (square.classList.contains("clicked-square-event")) {
                 square.classList.add("first-selection")
             }
           }
           
           function eventDataSubmitter(square) {
-            if (square.classList.contains("clicked-square")) {
+            if (square.classList.contains("clicked-square-event")) {
                 dataSubmitter.push(square)
             }
           }
@@ -882,11 +882,11 @@
           
           function goingupRangemaker(square,index) {
             if (firstClickedUp > index && index > currentSquareHoveredIndexDown) {
-                  square.classList.add("range-connecter");
+                  square.classList.add("range-connecter-event");
             }
             currentSquareHovered.addEventListener("click", function() {
               if (firstClickedUp > index && index > currentSquareHoveredIndexDown) {
-                  square.classList.add("clicked-square");
+                  square.classList.add("clicked-square-event");
               }
             });
           }
@@ -895,7 +895,7 @@
           
               var parent = event.currentTarget.parentElement;
           
-              if (square.classList.contains("clicked-square")) {
+              if (square.classList.contains("clicked-square-event")) {
                 firstClickedDown = index
                 firstClickedUp = index
               }
@@ -932,13 +932,13 @@
           
           
               if (firstClickedDown < index && index < currentSquareHoveredIndexDown)  {
-                  square.classList.add("range-connecter");
+                  square.classList.add("range-connecter-event");
           
               }
           
               currentSquareHovered.addEventListener("click", function() {
                 if (firstClickedDown < index && index < currentSquareHoveredIndexDown) {
-                  square.classList.add("clicked-square");
+                  square.classList.add("clicked-square-event");
                 }
               });
           
@@ -947,8 +947,8 @@
           
           
           function rangedestroyer(square) {
-              if (!square.classList.contains("clicked-square")) {
-                square.classList.remove("range-connecter");
+              if (!square.classList.contains("clicked-square-event")) {
+                square.classList.remove("range-connecter-event");
               }
           }
           
@@ -971,11 +971,11 @@
           function buttontoggle() {
             var parent = event.currentTarget.parentElement;
             parent.querySelectorAll("button").forEach(clickchecker)
-            event.currentTarget.classList.toggle("clicked-square");
+            event.currentTarget.classList.toggle("clicked-square-event");
             event.currentTarget.classList.remove("not-clicked");
           
-            if (event.currentTarget.nextElementSibling.classList.contains("clicked-square") && event.currentTarget.previousElementSibling.classList.contains("clicked-square")) {
-              event.currentTarget.classList.add("clicked-square")
+            if (event.currentTarget.nextElementSibling.classList.contains("clicked-square-event") && event.currentTarget.previousElementSibling.classList.contains("clicked-square-event")) {
+              event.currentTarget.classList.add("clicked-square-event")
             }
           }
           
