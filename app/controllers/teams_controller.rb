@@ -9,11 +9,13 @@ class TeamsController < ApplicationController
   def show
     @team = Team.find(params[:id])
     @user = User.where(team_id: @team.id)
+    @event = Event.new
+    @invite = Invite.new
     @accepted_member = Invite.accepted.where(team_id: @team.id)
     @pending_member = Invite.pending.where(team_id: @team.id)
     @declined_member = Invite.declined.where(team_id: @team.id)
-    @event = Event.new
-    @invite = Invite.new
+    # @unassigned_member = Invite.unassigned.where(team_id: @team.id)
+    @applicant = current_user
     authorize @team
   end
 
