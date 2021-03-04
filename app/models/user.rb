@@ -22,4 +22,8 @@ class User < ApplicationRecord
   def declined
     Invite.declined.find_by(user: self).team
   end
+
+  # def unassigned
+  #   Invite.unassigned.find_by(user: self).team
+  # end
 end

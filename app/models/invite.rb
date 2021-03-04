@@ -3,6 +3,7 @@ class Invite < ApplicationRecord
   belongs_to :user
   scope :accepted, -> { where(status: 1) } # accepted
   scope :pending, -> { where(status: 2) } # pending
+  # scope :unassigned, -> { where(status: 3) } # hasn't applied
   scope :declined, -> { where(status: 0) } # declined
 
   validates :status, presence: true

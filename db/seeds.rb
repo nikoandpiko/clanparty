@@ -155,6 +155,19 @@ puts "Creating declined Invites"
 end
 puts "Done"
 
+puts "Creating unassigned Invites"
+10.times do
+  user = users_for_seed.sample
+
+  if user.team_id.nil?
+    Invite.create(
+      status: 3,
+      user: users_for_seed.sample
+    )
+  end
+end
+puts "Done"
+
 # Events
 puts "Creating Events"
 50.times do
@@ -464,3 +477,39 @@ Team.create(
 )
 
 puts "All finished"
+
+2.times do
+  # valid start and end time
+  # each weekday start and end time
+  usernamez = ["WOW", "YEAH"]
+  days_times = []
+  7.times do
+    days_times << random_start_end_time(rand(8..21), rand(8..21))
+  end
+
+  User.create(
+    username: usernamez.sample,
+    email: "#{n += 1}@#{n += 1}.com",
+    password: "123456",
+    avatar: Faker::Avatar.image,
+    nickname: Faker::Games::ElderScrolls.first_name,
+    bio: Faker::Quote.matz,
+    discord: "https://discord.gg/thisshouldnotworkhopefully",
+    role: role.sample,
+    sunday_start: days_times[0][0],
+    sunday_end: days_times[0][1],
+    monday_start: days_times[1][0],
+    monday_end: days_times[1][1],
+    tuesday_start: days_times[2][0],
+    tuesday_end: days_times[2][1],
+    wednesday_start: days_times[3][0],
+    wednesday_end: days_times[3][1],
+    thursday_start: days_times[4][0],
+    thursday_end: days_times[4][1],
+    friday_start: days_times[5][0],
+    friday_end: days_times[5][1],
+    saturday_start: days_times[6][0],
+    saturday_end: days_times[6][1]
+  )
+end
+puts "Done"

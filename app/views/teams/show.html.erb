@@ -443,8 +443,15 @@
             <br>
             <% if @team.status == 0 %>
               <%= link_to "CURRENTLY FULL", '#', class: "btn btn-warning mr-3 disabled btn-block", style:"font-weight:bold;border-radius:0.4em;" %>
-            <% else %>
-              <%= link_to "APPLY TO JOIN", teams_path, class: "btn btn-pink mr-3 btn-block" %>
+            <% elsif Invite.find_by(user_id: current_user.id).nil? && Invite.where(status: 0) %>
+              <%# <%= link_to "CLICK TO APPLY", team_path(@team), class: "btn btn-warning mr-3 active btn-block", style:"font-weight:bold;border-radius:0.4em;" %>
+              <%# Invite.find_by(user_id: current_user.id) %>
+              <%# <% @unassigned_member.each do |unassigned| %>
+              <%= simple_form_for [ @team, Invite.new ] do |f| %>
+              <%# <%= button_tag type: :submit, class: "btn btn-pink mr-3 btn-block" do %>
+              <%= f.submit "APPLY TO JOIN", class: "btn btn-pink mr-3 btn-block" %>
+                <%# <%= f.input :status, input_html: { value: 2 }, as: :hidden %>
+              <% end %>
             <% end %>
           </div>
 
@@ -471,7 +478,7 @@
               <%= button_tag type: :submit, class: "btn btn-deny" do %>
               <i class="fas fa-user-times"></i>
               <% end %>
-                <%= f.input :status, wrapper_html: { class: "m-0 "}, input_html: { value: 3, class: "w-100" }, as: :hidden %>
+                <%= f.input :status, wrapper_html: { class: "m-0 "}, input_html: { value: 0, class: "w-100" }, as: :hidden %>
               <% end %>
             </div><br>
           <% end %>
