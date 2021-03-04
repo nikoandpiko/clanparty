@@ -25,7 +25,6 @@
         <div class="modal-body no-padding">
           <%= simple_form_for [ @team, @event ] do |f| %>
           <%= f.input :name, label: "Event", collection: ["The Sirensong Sea", "Amaurot", "The Dying Gasp", "Anamnesis Anyder", "Mt. Gulg"] %>
-          <%= f.input :description, placeholder: "This is a weekly event to ensure our group gets the best gear." %>
           <%# < f.input :day, collection: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]  %>
           <%# event will have a day picked by scheduler dont need to save the day/input  %>
           <%= f.input :start_time, :as => :hidden %>
@@ -274,12 +273,19 @@
                           <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit event-modal 13", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
                           <% end %>
                         </div>
+                        
                     </div>
+                   
                   </div>
+      
                 </div>
+                
               </div>
+   
           </div>
+         
         </div>
+         <%= f.input :description, placeholder: "This is a weekly event to ensure our group gets the best gear." %>
           
          
             <div class="modal-footer p-0">
