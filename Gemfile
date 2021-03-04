@@ -22,6 +22,8 @@ gem 'redis', '~> 4.0'
 gem 'faker'
 # Web Scraping
 gem 'nokogiri'
+gem 'discordrb'
+gem 'discordrb-webhooks'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
