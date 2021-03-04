@@ -16,6 +16,7 @@ class InvitesController < ApplicationController
       )
     authorize @invite
     if @invite.save
+      sleep(1.5)
       redirect_to team_path(@team)
     else
       redirect_to teams_path

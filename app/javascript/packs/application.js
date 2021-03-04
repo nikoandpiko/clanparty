@@ -33,6 +33,12 @@ initSweetalert('#sweet-alert-event', {
   button: false
 });
 
+initSweetalert('#sweet-alert-apply', {
+  text: "Successfully applied!",
+  icon: "success",
+  button: false
+});
+
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
