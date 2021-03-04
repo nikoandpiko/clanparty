@@ -30,6 +30,7 @@
           <%# event will have a day picked by scheduler dont need to save the day/input  %>
           <%= f.input :start_time, :as => :hidden %>
           <%= f.input :end_time, :as => :hidden %>
+          <%= f.input :day, :as => :hidden %>
           <%# These will be hidden inputs and the scheduler will input their values %>
 
           <div class="container edit-profile-container">
@@ -282,7 +283,7 @@
           
          
             <div class="modal-footer p-0">
-              <%= f.button :submit, "Create Event", id:"sweet-alert-event", class: "btn btn-dark btn-lg btn-block m-0 mb-2" %>
+              <%= f.button :submit, "Create Event", id:"sweet-alert-event", class: "btn btn-dark btn-lg btn-block m-0 mb-2", onclick: "valueSetter()" %>
               <button type="button" class="btn btn-secondary btn-lg btn-block m-0" data-dismiss="modal">Go Back</button>
               <%# :onclick => "timeSubmitter(); This button will have an onclick that will submit the start and end time values %>
             </div>
@@ -864,6 +865,12 @@
           const EndAttribute = document.createAttribute("value");
           const EndInput = document.getElementById("event_end_time");
           EndInput.setAttributeNode(EndAttribute);
+
+          const DayAttribute = document.createAttribute("value");
+          const DayInput = document.getElementById("event_day");
+          DayInput.setAttributeNode(DayAttribute);
+
+          let dayFinder = false
           
          
           
@@ -876,6 +883,7 @@
           function eventDataSubmitter(square) {
             if (square.classList.contains("clicked-square-event")) {
                 dataSubmitter.push(square)
+                dayFinder = true
             }
           }
           
@@ -981,17 +989,24 @@
           
           function valueSetter() {
             mondaySquares.forEach(eventDataSubmitter);
-            if (StartInput.value == "") {
+            DayInput.value = parseInt(2)
+            if (dayFinder == false) {
+              DayInput.value = parseInt(3)
               tuesdaySquares.forEach(eventDataSubmitter);
-              if (StartInput.value == "") {
+              if (dayFinder == false) {
+                DayInput.value = parseInt(4)
                 wednesdaySquares.forEach(eventDataSubmitter);
-                if (StartInput.value == "") {
+                if (dayFinder == false) {
+                  DayInput.value = parseInt(5)
                   thursdaySquares.forEach(eventDataSubmitter);
-                  if (StartInput.value == "") {
+                  if (dayFinder == false) {
+                    DayInput.value = parseInt(6)
                     fridaySquares.forEach(eventDataSubmitter);
-                    if (StartInput.value == "") {
+                    if (dayFinder == false) {
+                      DayInput.value = parseInt(7)
                       saturdaySquares.forEach(eventDataSubmitter);
-                      if (StartInput.value == "") {
+                      if (dayFinder == false) {
+                        DayInput.value = parseInt(1)
                         sundaySquares.forEach(eventDataSubmitter);
 
                       }
@@ -1002,66 +1017,66 @@
             } 
           
             if (dataSubmitter[0].classList.contains("0")) {
-                StartInput.value = "8:00"
-              } else if (dataSubmitter[0].classList.contains("1")) {
-                StartInput.value = "9:00"
-              } else if (dataSubmitter[0].classList.contains("2")) {
                 StartInput.value = "10:00"
-              } else if (dataSubmitter[0].classList.contains("3")) {
+              } else if (dataSubmitter[0].classList.contains("1")) {
                 StartInput.value = "11:00"
-              } else if (dataSubmitter[0].classList.contains("4")) {
+              } else if (dataSubmitter[0].classList.contains("2")) {
                 StartInput.value = "12:00"
-              } else if (dataSubmitter[0].classList.contains("5")) {
+              } else if (dataSubmitter[0].classList.contains("3")) {
                 StartInput.value = "13:00"
-              } else if (dataSubmitter[0].classList.contains("6")) {
+              } else if (dataSubmitter[0].classList.contains("4")) {
                 StartInput.value = "14:00"
-              } else if (dataSubmitter[0].classList.contains("7")) {
+              } else if (dataSubmitter[0].classList.contains("5")) {
                 StartInput.value = "15:00"
-              } else if (dataSubmitter[0].classList.contains("8")) {
+              } else if (dataSubmitter[0].classList.contains("6")) {
                 StartInput.value = "16:00"
-              } else if (dataSubmitter[0].classList.contains("9")) {
+              } else if (dataSubmitter[0].classList.contains("7")) {
                 StartInput.value = "17:00"
-              } else if (dataSubmitter[0].classList.contains("10")) {
+              } else if (dataSubmitter[0].classList.contains("8")) {
                 StartInput.value = "18:00"
-              } else if (dataSubmitter[0].classList.contains("11")) {
+              } else if (dataSubmitter[0].classList.contains("9")) {
                 StartInput.value = "19:00"
-              } else if (dataSubmitter[0].classList.contains("12")) {
+              } else if (dataSubmitter[0].classList.contains("10")) {
                 StartInput.value = "20:00"
+              } else if (dataSubmitter[0].classList.contains("11")) {
+                StartInput.value = "21:00"
               } else if (dataSubmitter[0].classList.contains("12")) {
                 StartInput.value = "21:00"
+              } else if (dataSubmitter[0].classList.contains("12")) {
+                StartInput.value = "22:00"
               } else if (dataSubmitter[0].classList.contains("13")) {
-                StartInput.value = "21:00"
-              } else if (dataSubmitter[0].classList.contains("13"))
+                StartInput.value = "23:00"
+              } 
           
-          
+        
             if (dataSubmitter[dataSubmitter.length - 1].classList.contains("0")) {
-                mondayEndInput.value = "8:00"
+                EndInput.value = "10:00"
               } else if (dataSubmitter[dataSubmitter.length - 1].classList.contains("1")) {
-                mondayEndInput.value = "9:00"
+                EndInput.value = "11:00"
               } else if (dataSubmitter[dataSubmitter.length - 1].classList.contains("2")) {
-                mondayEndInput.value = "10:00"
+                EndInput.value = "12:00"
               } else if (dataSubmitter[dataSubmitter.length - 1].classList.contains("3")) {
-                mondayEndInput.value = "11:00"
+                EndInput.value = "13:00"
               } else if (dataSubmitter[dataSubmitter.length - 1].classList.contains("4")) {
-                mondayEndInput.value = "12:00"
+                EndInput.value = "14:00"
               } else if (dataSubmitter[dataSubmitter.length - 1].classList.contains("5")) {
-                mondayEndInput.value = "13:00"
+                EndInput.value = "15:00"
               } else if (dataSubmitter[dataSubmitter.length - 1].classList.contains("6")) {
-                mondayEndInput.value = "14:00"
+                EndInput.value = "16:00"
               } else if (dataSubmitter[dataSubmitter.length - 1].classList.contains("7")) {
-                mondayEndInput.value = "15:00"
+                EndInput.value = "17:00"
               } else if (dataSubmitter[dataSubmitter.length - 1].classList.contains("8")) {
-                mondayEndInput.value = "16:00"
+                EndInput.value = "18:00"
               } else if (dataSubmitter[dataSubmitter.length - 1].classList.contains("9")) {
-                mondayEndInput.value = "17:00"
+                EndInput.value = "19:00"
               } else if (dataSubmitter[dataSubmitter.length - 1].classList.contains("10")) {
-                mondayEndInput.value = "18:00"
+                EndInput.value = "20:00"
               } else if (dataSubmitter[dataSubmitter.length - 1].classList.contains("11")) {
-                mondayEndInput.value = "19:00"
+                EndInput.value = "21:00"
               } else if (dataSubmitter[dataSubmitter.length - 1].classList.contains("12")) {
-                mondayEndInput.value = "20:00"
+                EndInput.value = "22:00"
               } else if (dataSubmitter[dataSubmitter.length - 1].classList.contains("13")) {
-                mondayEndInput.value = "21:00"
+                EndInput.value = "23:00"
               }
           }
 

@@ -16,7 +16,8 @@ class EventsController < ApplicationController
       sleep(1.5)
       redirect_to team_path(@team)
     else
-      render :new
+      redirect_to team_path(@team), notice: "Please enter all information"
+      raise
     end
   end
 
