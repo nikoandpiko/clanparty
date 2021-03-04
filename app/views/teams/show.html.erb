@@ -273,21 +273,21 @@
                           <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit event-modal 13", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
                           <% end %>
                         </div>
-                        
+
                     </div>
-                   
+
                   </div>
-      
+
                 </div>
-                
+
               </div>
-   
+
           </div>
-         
+
         </div>
          <%= f.input :description, placeholder: "This is a weekly event to ensure our group gets the best gear." %>
-          
-         
+
+
             <div class="modal-footer p-0">
               <%= f.button :submit, "Create Event", id:"sweet-alert-event", class: "btn btn-dark btn-lg btn-block m-0 mb-2", onclick: "valueSetter()" %>
               <button type="button" class="btn btn-secondary btn-lg btn-block m-0" data-dismiss="modal">Go Back</button>
@@ -709,7 +709,7 @@
               <%# <% @unassigned_member.each do |unassigned| %>
               <%= simple_form_for [ @team, Invite.new ] do |f| %>
               <%# <%= button_tag type: :submit, class: "btn btn-pink mr-3 btn-block" do %>
-              <%= f.submit "APPLY TO JOIN", class: "btn btn-pink mr-3 btn-block" %>
+              <%= f.submit "APPLY TO JOIN", id:"sweet-alert-apply", class: "btn btn-pink mr-3 btn-block" %>
                 <%# <%= f.input :status, input_html: { value: 2 }, as: :hidden %>
               <% end %>
             <% end %>
@@ -855,7 +855,7 @@
 
 
 <script>
-//event time submitter function: 
+//event time submitter function:
           const mondaySquares = document.getElementById("monday-squares").querySelectorAll("button");
           const tuesdaySquares = document.getElementById("tuesday-squares").querySelectorAll("button");
           const wednesdaySquares = document.getElementById("wednesday-squares").querySelectorAll("button");
@@ -863,18 +863,18 @@
           const fridaySquares = document.getElementById("friday-squares").querySelectorAll("button");
           const saturdaySquares = document.getElementById("saturday-squares").querySelectorAll("button");
           const sundaySquares = document.getElementById("sunday-squares").querySelectorAll("button");
-          
+
           let firstClickedDown = 50
           let firstClickedUp = -50
           let currentSquareHovered = null
           let currentSquareHoveredIndexDown = 50
           let currentSquareHoveredIndexUp = -50
           let dataSubmitter = []
-          
+
           const StartAttribute = document.createAttribute("value");
           const StartInput = document.getElementById("event_start_time");
           StartInput.setAttributeNode(StartAttribute);
-          
+
           const EndAttribute = document.createAttribute("value");
           const EndInput = document.getElementById("event_end_time");
           EndInput.setAttributeNode(EndAttribute);
@@ -884,23 +884,23 @@
           DayInput.setAttributeNode(DayAttribute);
 
           let dayFinder = false
-          
-         
-          
+
+
+
           function clickchecker(square) {
             if (square.classList.contains("clicked-square-event")) {
                 square.classList.add("first-selection")
             }
           }
-          
+
           function eventDataSubmitter(square) {
             if (square.classList.contains("clicked-square-event")) {
                 dataSubmitter.push(square)
                 dayFinder = true
             }
           }
-          
-          
+
+
           function goingupRangemaker(square,index) {
             if (firstClickedUp > index && index > currentSquareHoveredIndexDown) {
                   square.classList.add("range-connecter-event");
@@ -911,16 +911,16 @@
               }
             });
           }
-          
+
           function rangemaker(square, index) {
-          
+
               var parent = event.currentTarget.parentElement;
-          
+
               if (square.classList.contains("clicked-square-event")) {
                 firstClickedDown = index
                 firstClickedUp = index
               }
-          
+
               if (currentSquareHovered.classList.contains("0")) {
                 currentSquareHoveredIndexDown = 0
               } else if (currentSquareHovered.classList.contains("1")) {
@@ -950,36 +950,36 @@
               } else if (currentSquareHovered.classList.contains("13")) {
                 currentSquareHoveredIndexDown = 13
               }
-          
-          
+
+
               if (firstClickedDown < index && index < currentSquareHoveredIndexDown)  {
                   square.classList.add("range-connecter-event");
-          
+
               }
-          
+
               currentSquareHovered.addEventListener("click", function() {
                 if (firstClickedDown < index && index < currentSquareHoveredIndexDown) {
                   square.classList.add("clicked-square-event");
                 }
               });
-          
+
               parent.querySelectorAll("button").forEach(goingupRangemaker);
           }
-          
-          
+
+
           function rangedestroyer(square) {
               if (!square.classList.contains("clicked-square-event")) {
                 square.classList.remove("range-connecter-event");
               }
           }
-          
+
           function hover() {
               currentSquareHovered = event.currentTarget
               var parent = event.currentTarget.parentElement;
               parent.querySelectorAll("button").forEach(rangemaker);
           }
-          
-          
+
+
           function hoveroff() {
             var parent = event.currentTarget.parentElement;
             alreadyClicked= false
@@ -987,19 +987,19 @@
             firstClickedDown = 50
             firstClickedUp = -50
           }
-          
-          
+
+
           function buttontoggle() {
             var parent = event.currentTarget.parentElement;
             parent.querySelectorAll("button").forEach(clickchecker)
             event.currentTarget.classList.toggle("clicked-square-event");
             event.currentTarget.classList.remove("not-clicked");
-          
+
             if (event.currentTarget.nextElementSibling.classList.contains("clicked-square-event") && event.currentTarget.previousElementSibling.classList.contains("clicked-square-event")) {
               event.currentTarget.classList.add("clicked-square-event")
             }
           }
-          
+
           function valueSetter() {
             mondaySquares.forEach(eventDataSubmitter);
             DayInput.value = parseInt(2)
@@ -1024,11 +1024,11 @@
 
                       }
                     }
-                  }   
+                  }
                 }
               }
-            } 
-          
+            }
+
             if (dataSubmitter[0].classList.contains("0")) {
                 StartInput.value = "10:00"
               } else if (dataSubmitter[0].classList.contains("1")) {
@@ -1059,9 +1059,9 @@
                 StartInput.value = "22:00"
               } else if (dataSubmitter[0].classList.contains("13")) {
                 StartInput.value = "23:00"
-              } 
-          
-        
+              }
+
+
             if (dataSubmitter[dataSubmitter.length - 1].classList.contains("0")) {
                 EndInput.value = "10:00"
               } else if (dataSubmitter[dataSubmitter.length - 1].classList.contains("1")) {
@@ -1107,9 +1107,9 @@ document.addEventListener("DOMContentLoaded", function() {
             const fridaySquares1 = document.getElementById("friday-squares1").querySelectorAll("button");
             const saturdaySquares1 = document.getElementById("saturday-squares1").querySelectorAll("button");
             const sundaySquares1 = document.getElementById("sunday-squares1").querySelectorAll("button");
-          
+
           function arrayMaker(element) {
-          
+
               if (element == "") {
                 element = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
                 }
@@ -1198,7 +1198,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 let count = 0
                 for (console.log("runnin loop"); count < array1.length; count ++) {
               console.log(count)
-          
+
               console.log(array1[count])
               console.log(array2[count])
               if (notDups.length > count) {
@@ -1396,7 +1396,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-//for event modal squares 
+//for event modal squares
 
 function displayEventModalSchedule() {
           console.log("hi")
@@ -1407,9 +1407,9 @@ function displayEventModalSchedule() {
             const fridaySquares = document.getElementById("friday-squares").querySelectorAll("button");
             const saturdaySquares = document.getElementById("saturday-squares").querySelectorAll("button");
             const sundaySquares = document.getElementById("sunday-squares").querySelectorAll("button");
-          
+
           function arrayMaker(element) {
-          
+
               if (element == "") {
                 element = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
                 }
@@ -1498,7 +1498,7 @@ function displayEventModalSchedule() {
                 let count = 0
                 for (console.log("runnin loop"); count < array1.length; count ++) {
               console.log(count)
-          
+
               console.log(array1[count])
               console.log(array2[count])
               if (notDups.length > count) {
