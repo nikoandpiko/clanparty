@@ -23,11 +23,7 @@
     <div class="row justify-content-around">
       <div class="col-md-6">
         <div class="background-gradient-schedule-user">
-          <% if !@user.team_id.nil? %>
-            <h2 class="card-outer-header"><i class="far fa-calendar pr-1"></i> YOUR TEAM'S SCHEDULE</h2>
-          <% else %>
             <h2 class="card-outer-header"><i class="far fa-calendar pr-1"></i> YOUR SCHEDULE</h2>
-          <% end %>
           <div class="text-white text-left p-3 card-inner card-inner-header card">
             <h2>Core Hours</h2>
             <div class="schedule-grid-show">
@@ -267,7 +263,7 @@
                 <% end %>
               </div>
             </div>
-            <button onclick="displayModalSchedule()" type="button" class="edit-schedule-button3 text-center" data-toggle="modal" data-target="#editscheduleModal">
+            <button type="button" class="edit-schedule-button3 text-center" data-toggle="modal" data-target="#editscheduleModal">
               UPDATE SCHEDULE
             </button>
           </div>
@@ -335,11 +331,7 @@
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content schedule-modal">
       <div class="modal-header">
-        <% if !@user.team_id.nil? %>
-          <h2 class="card-outer-header"> EDIT YOUR TEAM'S SCHEDULE</h2>
-        <%else %>
           <h2 class="card-outer-header"> EDIT YOUR SCHEDULE</h2>
-        <% end %>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -378,7 +370,7 @@
                         <p class="saturday">S</p>
                         <p class="sunday">S</p>
                       </div>
-                      <% if @user.team_id.nil? %>
+                     
                         <div class="monday-squares1" id="monday-squares1">
                           <%= button_tag type: 'button', class: "btn shadow-none grid-square 0", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
                           <% end %>
@@ -588,219 +580,7 @@
                           <% end %>
                           <%= button_tag type: 'button', class: "btn shadow-none grid-square 13", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
                           <% end %>
-                        </div>
-                      <% else %>
-                        <div class="monday-squares1" id="monday-squares1">
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit 0", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit 1", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit 2", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit 3", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit 4", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit 5", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit 6", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit 7", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit 8", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit 9", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit 10", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit 11", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit 12", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit 13", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                        </div>
-                        <div class="tuesday-squares1" id="tuesday-squares1">
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit 0", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit 1", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit 2", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit 3", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit 4", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit 5", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit 6", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit 7", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit 8", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit 9", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit 10", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit 11", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit 12", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit 13", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                        </div>
-                        <div class="wednesday-squares1" id="wednesday-squares1">
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit 0", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit 1", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit 2", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit 3", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit 4", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit 5", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit 6", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit 7", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit 8", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit 9", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit 10", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit 11", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit 12", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit 13", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                        </div>
-                        <div class="thursday-squares1" id="thursday-squares1">
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit 0", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit 1", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit 2", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit 3", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit 4", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit 5", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit 6", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit 7", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit 8", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit 9", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit 10", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit 11", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit 12", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit 13", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                        </div>
-                        <div class="friday-squares1" id="friday-squares1">
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit 0", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit 1", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit 2", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit 3", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit 4", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit 5", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit 6", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit 7", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit 8", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit 9", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit 10", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit 11", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit 12", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit 13", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                        </div>
-                        <div class="saturday-squares1" id="saturday-squares1">
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit 0", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit 1", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit 2", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit 3", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit 4", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit 5", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit 6", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit 7", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit 8", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit 9", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit 10", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit 11", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit 12", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit 13", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                        </div>
-                        <div class="sunday-squares1" id="sunday-squares1">
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit 0", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit 1", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit 2", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit 3", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit 4", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit 5", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit 6", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit 7", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit 8", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit 9", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit 10", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit 11", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit 12", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit 13", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                        </div>
-                      <% end %>
+                        </div>         
                     </div>
                   </div>
                 </div>
@@ -886,6 +666,20 @@
               sunday_e.push(sunday_end)
             <% end %>
           <% end %>
+              monday_s.push(monday_start_show)
+              monday_e.push(monday_end_show)
+              tuesday_s.push(tuesday_start_show)
+              tuesday_e.push(tuesday_end_show)
+              wednesday_s.push(wednesday_start_show)
+              wednesday_e.push(wednesday_end_show)
+              thursday_s.push(thursday_start_show)
+              thursday_e.push(thursday_end_show)
+              friday_s.push(friday_start_show)
+              friday_e.push(friday_end_show)
+              saturday_s.push(saturday_start_show)
+              saturday_e.push(saturday_end_show)
+              sunday_s.push(sunday_start_show)
+              sunday_e.push(sunday_end_show)
         <% end %>
         <script>
           const mondaySquares = document.getElementById("monday-squares1").querySelectorAll("button");
