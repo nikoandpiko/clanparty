@@ -121,6 +121,38 @@
   border-radius: 6px;
 }
 
+
+// Parse Backgrounds
+
+.background-gradient-pink {
+  background: linear-gradient(to bottom, #FD3986, #A20442);
+  border-radius: 6px;
+}
+
+.background-gradient-orange {
+  background: linear-gradient(to bottom, #FF5100, #97370A);
+  border-radius: 6px;
+}
+
+.background-gradient-purple {
+  background: linear-gradient(to bottom, #BF00FF, #4F006A);
+  border-radius: 6px;
+}
+
+.background-gradient-blue {
+  background: linear-gradient(to bottom, #3644FF, #1E268D);
+  border-radius: 6px;
+}
+
+.background-gradient-green {
+  background: linear-gradient(to bottom, #5ECC32, #1F6D00);
+  border-radius: 6px;
+}
+
+.background-gradient-grey {
+  background: linear-gradient(to bottom, #808080, #212121);
+  border-radius: 6px;
+}
 // Generic Preset Classes
 
 
