@@ -1,5 +1,4 @@
 <div class="container">
-
   <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://p82.f1.n0.cdn.getcloudapp.com/items/YEuXB4Pj/725a5ca9-290c-406a-99ce-3f3aea2529ae.png?source=viewer&v=733bc8b84c6772f52aaef17de2a7035f);">
     <div class="container">
       <div class="card-product p-1 text-left" style="background-color:transparent;">
@@ -10,7 +9,7 @@
     </div>
   </div>
 
-  <ul class="nav nav-tabs border-0" id="myTab" role="tablist">
+  <ul class="nav nav-tabs border-0" id="myTab" role="tablist" style="margin-bottom: 30px">
     <li class="nav-item">
       <a class="nav-link active" id="team-tab" data-toggle="tab" href="#team" role="tab" aria-controls="team" aria-selected="true">Teams</a>
     </li>
@@ -21,18 +20,21 @@
 </div>
 <div class="tab-content" id="myTabContent">
   <div class="tab-pane fade show active" id="team" role="tabpanel" aria-labelledby="team-tab">
-    <div class="team-cards-grid container">
+    <div class="team-cards-grid container" style="margin-top: -30px">
       <% @teams.each do |team| %>
-        <div class="card border-0 mb-3">
-          <div class="card-body d-flex card-rainbow-gradient-border" style="background-color: #000000;"> <% old_color="#252830" %>
+        <div class="p-3 background-gradient-purple mb-3">
+          <div class="card-body d-flex card-inner"> <% old_color="#252830" %>
             <img src="<%= team.avatar %>" alt="<%= team.name %>" style="height:80px;width:80px;border-radius:50%;">
             <div class="ml-2">
-              <h5 class="card-title"><%= link_to team.name, team_path(team) %></h5>
+              <p class="card-member-role">Final Fantasy XIV</p>
+              <h5 class="card-inner-header"><%= link_to team.name, team_path(team) %></h5>
               <h6 class="card-subtitle text-muted mb-2"><i class="far fa-calendar"></i>
                 <% schedule_image = ["https://p82.f1.n0.cdn.getcloudapp.com/items/P8uk622q/b82d1154-75bb-417b-804a-ac81125756f5.png?source=viewer&v=183e8b6eebbe0bda6043b1aa448e0845", "https://p82.f1.n0.cdn.getcloudapp.com/items/GGu6E75q/fbc8aab0-c3d2-46a4-b623-2512a8cdb545.png?source=viewer&v=36457909afbfe99044472904f0c916c5", "https://p82.f1.n0.cdn.getcloudapp.com/items/rRukNgzq/ff493556-96fb-4b30-9e69-dc6d6a540239.png?source=viewer&v=d2c8a5f3480208e5296a3ce2d3b79bc3"] %>
                 <% sample = schedule_image.sample %>
                 <% if sample == schedule_image[2] %>
                   <%= 3 %>
+                 <% elsif sample == schedule_image[0] %>
+                  <%= 5 %>
                 <% else %>
                   <%= 4 %>
                 <% end %>
@@ -46,7 +48,7 @@
                 <% end %>
                 h / <i class="far fa-user"></i> <%= team.invites.accepted.count %> player<% if team.invites.accepted.count > 1 %><%= "s" %><% end %></h6>
               <!-- <p class="card-text text-dark">CORE HOURS</p> -->
-              <img src="<%= sample %>" alt="Schedule" style="width:15em;">
+              <img src="<%= sample %>" alt="Schedule" style="width:350px;">
             </div>
           </div>
         </div>
@@ -55,21 +57,38 @@
   </div>
   <div class="tab-pane fade" id="user" role="tabpanel" aria-labelledby="user-tab">
     <div class="tab-pane fade show active" id="team" role="tabpanel" aria-labelledby="team-tab">
-      <div class="team-cards-grid container">
+      <div class="team-cards-grid container" style="margin-top: -30px">
         <% @users.each do |user| %>
-          <div class="card mb-3">
-            <div class="card-body d-flex">
+          <div class="p-3 background-gradient-orange mb-3">
+            <div class="card-body d-flex card-inner">
               <img src="<%= user.avatar %>" alt="<%= user.username %>" style="height:80px;width:80px;border-radius:50%;">
               <div class="ml-2">
+                <p class="card-member-role"><%= user.role %></p>
                 <h5 class="card-title"><%= link_to user.username, user_path(user) %>
-                  <a href="<%= user.discord %> " style="color: Mediumslateblue;">
-                    <i class="fab fa-discord fa-fw"></i></a>
+                 <!--  <a href="<%= user.discord %> " style="color: Mediumslateblue;">
+                    <i class="fab fa-discord fa-fw"></i></a> -->
                 </h5>
                 <%# <h6 class="card-subtitle text-muted mb-2"><%= user.bio %>
-                <div class="d-flex">
-                  <p class="text-dark"><%= user.role %></p>
-                </div>
-                <p class="card-text text-dark">CORE HOURS</p>
+                <h6 class="card-subtitle text-muted mb-2"><i class="far fa-calendar"></i>
+                <% schedule_image = ["https://p82.f1.n0.cdn.getcloudapp.com/items/P8uk622q/b82d1154-75bb-417b-804a-ac81125756f5.png?source=viewer&v=183e8b6eebbe0bda6043b1aa448e0845", "https://p82.f1.n0.cdn.getcloudapp.com/items/GGu6E75q/fbc8aab0-c3d2-46a4-b623-2512a8cdb545.png?source=viewer&v=36457909afbfe99044472904f0c916c5", "https://p82.f1.n0.cdn.getcloudapp.com/items/rRukNgzq/ff493556-96fb-4b30-9e69-dc6d6a540239.png?source=viewer&v=d2c8a5f3480208e5296a3ce2d3b79bc3"] %>
+                <% sample = schedule_image.sample %>
+                <% if sample == schedule_image[2] %>
+                  <%= 3 %>
+                 <% elsif sample == schedule_image[0] %>
+                  <%= 5 %>
+                <% else %>
+                  <%= 4 %>
+                <% end %>
+                days / <i class="far fa-clock"></i>
+                <% if sample == schedule_image[2] %>
+                  <%= "20-24" %>
+                <% elsif sample == schedule_image[1] %>
+                  <%= "18-22" %>
+                <% else %>
+                  <%= "19-23" %>
+                <% end %>
+              </h6>
+              <img src="<%= sample %>" alt="Schedule" style="width:350px;">
               </div>
             </div>
           </div>
