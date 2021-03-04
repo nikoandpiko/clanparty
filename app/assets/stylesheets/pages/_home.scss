@@ -5,3 +5,38 @@
   -o-background-size: cover;
   background-size: cover;
 }
+
+.landing-video {
+padding-top: 63px;
+ width: 100vw;
+ height: 100vh;
+ position: absolute;
+ object-fit: cover;
+ top: 0;
+ z-index: -2;
+}
+
+.landing-video-wrapper {
+height: 100vh;
+}
+
+.centrifuge {
+  position: absolute;
+  width: 500px;
+  height: 70px;
+  top: 50%;
+  left: 42%;
+  margin-left: -50px;
+  margin-top: -25px;
+}
+
+.overlay {
+  z-index: 0;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: #0000;
+  position: absolute;
+  opacity: .4;
+}
