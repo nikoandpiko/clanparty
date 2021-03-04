@@ -681,7 +681,7 @@
             </div>
             <br>
           <% end %>
-          <button  type="button" class="btn btn-pink mr-3 btn-block" data-toggle="modal" data-target="#eventModal">
+          <button onclick="displayEventModalSchedule()"  type="button" class="btn btn-pink mr-3 btn-block" data-toggle="modal" data-target="#eventModal">
             Create New Event
           </button>
         </div>
@@ -856,12 +856,6 @@
           let currentSquareHoveredIndexDown = 50
           let currentSquareHoveredIndexUp = -50
           let dataSubmitter = []
-          let dataSubmitterTuesday = []
-          let dataSubmitterWednesday = []
-          let dataSubmitterThursday = []
-          let dataSubmitterFriday = []
-          let dataSubmitterSaturday = []
-          let dataSubmitterSunday = []
           
           const StartAttribute = document.createAttribute("value");
           const StartInput = document.getElementById("event_start_time");
@@ -885,36 +879,6 @@
             }
           }
           
-          function scheduleDataSetterTuesday(square) {
-            if (square.classList.contains("clicked-square")) {
-                dataSubmitterTuesday.push(square)
-            }
-          }
-          function scheduleDataSetterWednesday(square) {
-            if (square.classList.contains("clicked-square")) {
-                dataSubmitterWednesday.push(square)
-            }
-          }
-          function scheduleDataSetterThursday(square) {
-            if (square.classList.contains("clicked-square")) {
-                dataSubmitterThursday.push(square)
-            }
-          }
-          function scheduleDataSetterFriday(square) {
-            if (square.classList.contains("clicked-square")) {
-                dataSubmitterFriday.push(square)
-            }
-          }
-          function scheduleDataSetterSaturday(square) {
-            if (square.classList.contains("clicked-square")) {
-                dataSubmitterSaturday.push(square)
-            }
-          }
-          function scheduleDataSetterSunday(square) {
-            if (square.classList.contains("clicked-square")) {
-                dataSubmitterSunday.push(square)
-            }
-          }
           
           function goingupRangemaker(square,index) {
             if (firstClickedUp > index && index > currentSquareHoveredIndexDown) {
@@ -1015,40 +979,59 @@
             }
           }
           
-          function mondaySubmitButtonHover() {
+          function valueSetter() {
             mondaySquares.forEach(eventDataSubmitter);
+            if (StartInput.value == "") {
+              tuesdaySquares.forEach(eventDataSubmitter);
+              if (StartInput.value == "") {
+                wednesdaySquares.forEach(eventDataSubmitter);
+                if (StartInput.value == "") {
+                  thursdaySquares.forEach(eventDataSubmitter);
+                  if (StartInput.value == "") {
+                    fridaySquares.forEach(eventDataSubmitter);
+                    if (StartInput.value == "") {
+                      saturdaySquares.forEach(eventDataSubmitter);
+                      if (StartInput.value == "") {
+                        sundaySquares.forEach(eventDataSubmitter);
+
+                      }
+                    }
+                  }   
+                }
+              }
+            } 
           
             if (dataSubmitter[0].classList.contains("0")) {
-                mondayStartInput.value = "8:00"
+                StartInput.value = "8:00"
               } else if (dataSubmitter[0].classList.contains("1")) {
-                mondayStartInput.value = "9:00"
+                StartInput.value = "9:00"
               } else if (dataSubmitter[0].classList.contains("2")) {
-                mondayStartInput.value = "10:00"
+                StartInput.value = "10:00"
               } else if (dataSubmitter[0].classList.contains("3")) {
-                mondayStartInput.value = "11:00"
+                StartInput.value = "11:00"
               } else if (dataSubmitter[0].classList.contains("4")) {
-                mondayStartInput.value = "12:00"
+                StartInput.value = "12:00"
               } else if (dataSubmitter[0].classList.contains("5")) {
-                mondayStartInput.value = "13:00"
+                StartInput.value = "13:00"
               } else if (dataSubmitter[0].classList.contains("6")) {
-                mondayStartInput.value = "14:00"
+                StartInput.value = "14:00"
               } else if (dataSubmitter[0].classList.contains("7")) {
-                mondayStartInput.value = "15:00"
+                StartInput.value = "15:00"
               } else if (dataSubmitter[0].classList.contains("8")) {
-                mondayStartInput.value = "16:00"
+                StartInput.value = "16:00"
               } else if (dataSubmitter[0].classList.contains("9")) {
-                mondayStartInput.value = "17:00"
+                StartInput.value = "17:00"
               } else if (dataSubmitter[0].classList.contains("10")) {
-                mondayStartInput.value = "18:00"
+                StartInput.value = "18:00"
               } else if (dataSubmitter[0].classList.contains("11")) {
-                mondayStartInput.value = "19:00"
+                StartInput.value = "19:00"
               } else if (dataSubmitter[0].classList.contains("12")) {
-                mondayStartInput.value = "20:00"
+                StartInput.value = "20:00"
               } else if (dataSubmitter[0].classList.contains("12")) {
-                mondayStartInput.value = "21:00"
+                StartInput.value = "21:00"
               } else if (dataSubmitter[0].classList.contains("13")) {
-                mondayStartInput.value = "21:00"
-              }
+                StartInput.value = "21:00"
+              } else if (dataSubmitter[0].classList.contains("13"))
           
           
             if (dataSubmitter[dataSubmitter.length - 1].classList.contains("0")) {
@@ -1080,420 +1063,7 @@
               } else if (dataSubmitter[dataSubmitter.length - 1].classList.contains("13")) {
                 mondayEndInput.value = "21:00"
               }
-          
           }
-          
-          function tuesdaySubmitButtonHover() {
-            tuesdaySquares.forEach(scheduleDataSetterTuesday);
-          
-          
-            if (dataSubmitterTuesday[0].classList.contains("0")) {
-                tuesdayStartInput.value = "8:00"
-              } else if (dataSubmitterTuesday[0].classList.contains("1")) {
-                tuesdayStartInput.value = "9:00"
-              } else if (dataSubmitterTuesday[0].classList.contains("2")) {
-                tuesdayStartInput.value = "10:00"
-              } else if (dataSubmitterTuesday[0].classList.contains("3")) {
-                tuesdayStartInput.value = "11:00"
-              } else if (dataSubmitterTuesday[0].classList.contains("4")) {
-                tuesdayStartInput.value = "12:00"
-              } else if (dataSubmitterTuesday[0].classList.contains("5")) {
-                tuesdayStartInput.value = "13:00"
-              } else if (dataSubmitterTuesday[0].classList.contains("6")) {
-                tuesdayStartInput.value = "14:00"
-              } else if (dataSubmitterTuesday[0].classList.contains("7")) {
-                tuesdayStartInput.value = "15:00"
-              } else if (dataSubmitterTuesday[0].classList.contains("8")) {
-                tuesdayStartInput.value = "16:00"
-              } else if (dataSubmitterTuesday[0].classList.contains("9")) {
-                tuesdayStartInput.value = "17:00"
-              } else if (dataSubmitterTuesday[0].classList.contains("10")) {
-                tuesdayStartInput.value = "18:00"
-              } else if (dataSubmitterTuesday[0].classList.contains("11")) {
-                tuesdayStartInput.value = "19:00"
-              } else if (dataSubmitterTuesday[0].classList.contains("12")) {
-                tuesdayStartInput.value = "20:00"
-              } else if (dataSubmitterTuesday[0].classList.contains("13")) {
-                tuesdayStartInput.value = "21:00"
-              }
-          
-            if (dataSubmitterTuesday[dataSubmitterTuesday.length - 1].classList.contains("0")) {
-                tuesdayEndInput.value = "8:00"
-              } else if (dataSubmitterTuesday[dataSubmitterTuesday.length - 1].classList.contains("1")) {
-                tuesdayEndInput.value = "9:00"
-              } else if (dataSubmitterTuesday[dataSubmitterTuesday.length - 1].classList.contains("2")) {
-                tuesdayEndInput.value = "10:00"
-              } else if (dataSubmitterTuesday[dataSubmitterTuesday.length - 1].classList.contains("3")) {
-                tuesdayEndInput.value = "11:00"
-              } else if (dataSubmitterTuesday[dataSubmitterTuesday.length - 1].classList.contains("4")) {
-                tuesdayEndInput.value = "12:00"
-              } else if (dataSubmitterTuesday[dataSubmitterTuesday.length - 1].classList.contains("5")) {
-                tuesdayEndInput.value = "13:00"
-              } else if (dataSubmitterTuesday[dataSubmitterTuesday.length - 1].classList.contains("6")) {
-                tuesdayEndInput.value = "14:00"
-              } else if (dataSubmitterTuesday[dataSubmitterTuesday.length - 1].classList.contains("7")) {
-                tuesdayEndInput.value = "15:00"
-              } else if (dataSubmitterTuesday[dataSubmitterTuesday.length - 1].classList.contains("8")) {
-                tuesdayEndInput.value = "16:00"
-              } else if (dataSubmitterTuesday[dataSubmitterTuesday.length - 1].classList.contains("9")) {
-                tuesdayEndInput.value = "17:00"
-              } else if (dataSubmitterTuesday[dataSubmitterTuesday.length - 1].classList.contains("10")) {
-                tuesdayEndInput.value = "18:00"
-              } else if (dataSubmitterTuesday[dataSubmitterTuesday.length - 1].classList.contains("11")) {
-                tuesdayEndInput.value = "19:00"
-              } else if (dataSubmitterTuesday[dataSubmitterTuesday.length - 1].classList.contains("12")) {
-                tuesdayEndInput.value = "20:00"
-              } else if (dataSubmitterTuesday[dataSubmitterTuesday.length - 1].classList.contains("13")) {
-                tuesdayEndInput.value = "21:00"
-              }
-          
-          }
-          
-          function wednesdaySubmitButtonHover() {
-            wednesdaySquares.forEach(scheduleDataSetterWednesday);
-          
-          
-            if (dataSubmitterWednesday[0].classList.contains("0")) {
-                wednesdayStartInput.value = "8:00"
-              } else if (dataSubmitterWednesday[0].classList.contains("1")) {
-                wednesdayStartInput.value = "9:00"
-              } else if (dataSubmitterWednesday[0].classList.contains("2")) {
-                wednesdayStartInput.value = "10:00"
-              } else if (dataSubmitterWednesday[0].classList.contains("3")) {
-                wednesdayStartInput.value = "11:00"
-              } else if (dataSubmitterWednesday[0].classList.contains("4")) {
-                wednesdayStartInput.value = "12:00"
-              } else if (dataSubmitterWednesday[0].classList.contains("5")) {
-                wednesdayStartInput.value = "13:00"
-              } else if (dataSubmitterWednesday[0].classList.contains("6")) {
-                wednesdayStartInput.value = "14:00"
-              } else if (dataSubmitterWednesday[0].classList.contains("7")) {
-                wednesdayStartInput.value = "15:00"
-              } else if (dataSubmitterWednesday[0].classList.contains("8")) {
-                wednesdayStartInput.value = "16:00"
-              } else if (dataSubmitterWednesday[0].classList.contains("9")) {
-                wednesdayStartInput.value = "17:00"
-              } else if (dataSubmitterWednesday[0].classList.contains("10")) {
-                wednesdayStartInput.value = "18:00"
-              } else if (dataSubmitterWednesday[0].classList.contains("11")) {
-                wednesdayStartInput.value = "19:00"
-              } else if (dataSubmitterWednesday[0].classList.contains("12")) {
-                wednesdayStartInput.value = "20:00"
-              } else if (dataSubmitterWednesday[0].classList.contains("13")) {
-                wednesdayStartInput.value = "21:00"
-              }
-          
-            if (dataSubmitterWednesday[dataSubmitterWednesday.length - 1].classList.contains("0")) {
-                wednesdayEndInput.value = "8:00"
-              } else if (dataSubmitterWednesday[dataSubmitterWednesday.length - 1].classList.contains("1")) {
-                wednesdayEndInput.value = "9:00"
-              } else if (dataSubmitterWednesday[dataSubmitterWednesday.length - 1].classList.contains("2")) {
-                wednesdayEndInput.value = "10:00"
-              } else if (dataSubmitterWednesday[dataSubmitterWednesday.length - 1].classList.contains("3")) {
-                wednesdayEndInput.value = "11:00"
-              } else if (dataSubmitterWednesday[dataSubmitterWednesday.length - 1].classList.contains("4")) {
-                wednesdayEndInput.value = "12:00"
-              } else if (dataSubmitterWednesday[dataSubmitterWednesday.length - 1].classList.contains("5")) {
-                wednesdayEndInput.value = "13:00"
-              } else if (dataSubmitterWednesday[dataSubmitterWednesday.length - 1].classList.contains("6")) {
-                wednesdayEndInput.value = "14:00"
-              } else if (dataSubmitterWednesday[dataSubmitterWednesday.length - 1].classList.contains("7")) {
-                wednesdayEndInput.value = "15:00"
-              } else if (dataSubmitterWednesday[dataSubmitterWednesday.length - 1].classList.contains("8")) {
-                wednesdayEndInput.value = "16:00"
-              } else if (dataSubmitterWednesday[dataSubmitterWednesday.length - 1].classList.contains("9")) {
-                wednesdayEndInput.value = "17:00"
-              } else if (dataSubmitterWednesday[dataSubmitterWednesday.length - 1].classList.contains("10")) {
-                wednesdayEndInput.value = "18:00"
-              } else if (dataSubmitterWednesday[dataSubmitterWednesday.length - 1].classList.contains("11")) {
-                wednesdayEndInput.value = "19:00"
-              } else if (dataSubmitterWednesday[dataSubmitterWednesday.length - 1].classList.contains("12")) {
-                wednesdayEndInput.value = "20:00"
-              } else if (dataSubmitterWednesday[dataSubmitterWednesday.length - 1].classList.contains("13")) {
-                wednesdayEndInput.value = "21:00"
-              }
-          
-          }
-          
-          function thursdaySubmitButtonHover() {
-            thursdaySquares.forEach(scheduleDataSetterThursday);
-          
-          
-            if (dataSubmitterThursday[0].classList.contains("0")) {
-                thursdayStartInput.value = "8:00"
-              } else if (dataSubmitterThursday[0].classList.contains("1")) {
-                thursdayStartInput.value = "9:00"
-              } else if (dataSubmitterThursday[0].classList.contains("2")) {
-                thursdayStartInput.value = "10:00"
-              } else if (dataSubmitterThursday[0].classList.contains("3")) {
-                thursdayStartInput.value = "11:00"
-              } else if (dataSubmitterThursday[0].classList.contains("4")) {
-                thursdayStartInput.value = "12:00"
-              } else if (dataSubmitterThursday[0].classList.contains("5")) {
-                thursdayStartInput.value = "13:00"
-              } else if (dataSubmitterThursday[0].classList.contains("6")) {
-                thursdayStartInput.value = "14:00"
-              } else if (dataSubmitterThursday[0].classList.contains("7")) {
-                thursdayStartInput.value = "15:00"
-              } else if (dataSubmitterThursday[0].classList.contains("8")) {
-                thursdayStartInput.value = "16:00"
-              } else if (dataSubmitterThursday[0].classList.contains("9")) {
-                thursdayStartInput.value = "17:00"
-              } else if (dataSubmitterThursday[0].classList.contains("10")) {
-                thursdayStartInput.value = "18:00"
-              } else if (dataSubmitterThursday[0].classList.contains("11")) {
-                thursdayStartInput.value = "19:00"
-              } else if (dataSubmitterThursday[0].classList.contains("12")) {
-                thursdayStartInput.value = "20:00"
-              } else if (dataSubmitterThursday[0].classList.contains("13")) {
-                thursdayStartInput.value = "21:00"
-              }
-          
-            if (dataSubmitterThursday[dataSubmitterThursday.length - 1].classList.contains("0")) {
-                thursdayEndInput.value = "8:00"
-              } else if (dataSubmitterThursday[dataSubmitterThursday.length - 1].classList.contains("1")) {
-                thursdayEndInput.value = "9:00"
-              } else if (dataSubmitterThursday[dataSubmitterThursday.length - 1].classList.contains("2")) {
-                thursdayEndInput.value = "10:00"
-              } else if (dataSubmitterThursday[dataSubmitterThursday.length - 1].classList.contains("3")) {
-                thursdayEndInput.value = "11:00"
-              } else if (dataSubmitterThursday[dataSubmitterThursday.length - 1].classList.contains("4")) {
-                thursdayEndInput.value = "12:00"
-              } else if (dataSubmitterThursday[dataSubmitterThursday.length - 1].classList.contains("5")) {
-                thursdayEndInput.value = "13:00"
-              } else if (dataSubmitterThursday[dataSubmitterThursday.length - 1].classList.contains("6")) {
-                thursdayEndInput.value = "14:00"
-              } else if (dataSubmitterThursday[dataSubmitterThursday.length - 1].classList.contains("7")) {
-                thursdayEndInput.value = "15:00"
-              } else if (dataSubmitterThursday[dataSubmitterThursday.length - 1].classList.contains("8")) {
-                thursdayEndInput.value = "16:00"
-              } else if (dataSubmitterThursday[dataSubmitterThursday.length - 1].classList.contains("9")) {
-                thursdayEndInput.value = "17:00"
-              } else if (dataSubmitterThursday[dataSubmitterThursday.length - 1].classList.contains("10")) {
-                thursdayEndInput.value = "18:00"
-              } else if (dataSubmitterThursday[dataSubmitterThursday.length - 1].classList.contains("11")) {
-                thursdayEndInput.value = "19:00"
-              } else if (dataSubmitterThursday[dataSubmitterThursday.length - 1].classList.contains("12")) {
-                thursdayEndInput.value = "20:00"
-              } else if (dataSubmitterThursday[dataSubmitterThursday.length - 1].classList.contains("13")) {
-                thursdayEndInput.value = "21:00"
-              }
-          
-          }
-          
-          function fridaySubmitButtonHover() {
-            fridaySquares.forEach(scheduleDataSetterFriday);
-          
-          
-            if (dataSubmitterFriday[0].classList.contains("0")) {
-                fridayStartInput.value = "8:00"
-              } else if (dataSubmitterFriday[0].classList.contains("1")) {
-                fridayStartInput.value = "9:00"
-              } else if (dataSubmitterFriday[0].classList.contains("2")) {
-                fridayStartInput.value = "10:00"
-              } else if (dataSubmitterFriday[0].classList.contains("3")) {
-                fridayStartInput.value = "11:00"
-              } else if (dataSubmitterFriday[0].classList.contains("4")) {
-                fridayStartInput.value = "12:00"
-              } else if (dataSubmitterFriday[0].classList.contains("5")) {
-                fridayStartInput.value = "13:00"
-              } else if (dataSubmitterFriday[0].classList.contains("6")) {
-                fridayStartInput.value = "14:00"
-              } else if (dataSubmitterFriday[0].classList.contains("7")) {
-                fridayStartInput.value = "15:00"
-              } else if (dataSubmitterFriday[0].classList.contains("8")) {
-                fridayStartInput.value = "16:00"
-              } else if (dataSubmitterFriday[0].classList.contains("9")) {
-                fridayStartInput.value = "17:00"
-              } else if (dataSubmitterFriday[0].classList.contains("10")) {
-                fridayStartInput.value = "18:00"
-              } else if (dataSubmitterFriday[0].classList.contains("11")) {
-                fridayStartInput.value = "19:00"
-              } else if (dataSubmitterFriday[0].classList.contains("12")) {
-                fridayStartInput.value = "20:00"
-              } else if (dataSubmitterFriday[0].classList.contains("13")) {
-                fridayStartInput.value = "21:00"
-              }
-          
-            if (dataSubmitterFriday[dataSubmitterFriday.length - 1].classList.contains("0")) {
-                fridayEndInput.value = "8:00"
-              } else if (dataSubmitterFriday[dataSubmitterFriday.length - 1].classList.contains("1")) {
-                fridayEndInput.value = "9:00"
-              } else if (dataSubmitterFriday[dataSubmitterFriday.length - 1].classList.contains("2")) {
-                fridayEndInput.value = "10:00"
-              } else if (dataSubmitterFriday[dataSubmitterFriday.length - 1].classList.contains("3")) {
-                fridayEndInput.value = "11:00"
-              } else if (dataSubmitterFriday[dataSubmitterFriday.length - 1].classList.contains("4")) {
-                fridayEndInput.value = "12:00"
-              } else if (dataSubmitterFriday[dataSubmitterFriday.length - 1].classList.contains("5")) {
-                fridayEndInput.value = "13:00"
-              } else if (dataSubmitterFriday[dataSubmitterFriday.length - 1].classList.contains("6")) {
-                fridayEndInput.value = "14:00"
-              } else if (dataSubmitterFriday[dataSubmitterFriday.length - 1].classList.contains("7")) {
-                fridayEndInput.value = "15:00"
-              } else if (dataSubmitterFriday[dataSubmitterFriday.length - 1].classList.contains("8")) {
-                fridayEndInput.value = "16:00"
-              } else if (dataSubmitterFriday[dataSubmitterFriday.length - 1].classList.contains("9")) {
-                fridayEndInput.value = "17:00"
-              } else if (dataSubmitterFriday[dataSubmitterFriday.length - 1].classList.contains("10")) {
-                fridayEndInput.value = "18:00"
-              } else if (dataSubmitterFriday[dataSubmitterFriday.length - 1].classList.contains("11")) {
-                fridayEndInput.value = "19:00"
-              } else if (dataSubmitterFriday[dataSubmitterFriday.length - 1].classList.contains("12")) {
-                fridayEndInput.value = "20:00"
-              } else if (dataSubmitterFriday[dataSubmitterFriday.length - 1].classList.contains("13")) {
-                fridayEndInput.value = "21:00"
-              }
-          
-          }
-          
-          function saturdaySubmitButtonHover() {
-            saturdaySquares.forEach(scheduleDataSetterSaturday);
-          
-          
-            if (dataSubmitterSaturday[0].classList.contains("0")) {
-                saturdayStartInput.value = "8:00"
-              } else if (dataSubmitterSaturday[0].classList.contains("1")) {
-                saturdayStartInput.value = "9:00"
-              } else if (dataSubmitterSaturday[0].classList.contains("2")) {
-                saturdayStartInput.value = "10:00"
-              } else if (dataSubmitterSaturday[0].classList.contains("3")) {
-                saturdayStartInput.value = "11:00"
-              } else if (dataSubmitterSaturday[0].classList.contains("4")) {
-                saturdayStartInput.value = "12:00"
-              } else if (dataSubmitterSaturday[0].classList.contains("5")) {
-                saturdayStartInput.value = "13:00"
-              } else if (dataSubmitterSaturday[0].classList.contains("6")) {
-                saturdayStartInput.value = "14:00"
-              } else if (dataSubmitterSaturday[0].classList.contains("7")) {
-                saturdayStartInput.value = "15:00"
-              } else if (dataSubmitterSaturday[0].classList.contains("8")) {
-                saturdayStartInput.value = "16:00"
-              } else if (dataSubmitterSaturday[0].classList.contains("9")) {
-                saturdayStartInput.value = "17:00"
-              } else if (dataSubmitterSaturday[0].classList.contains("10")) {
-                saturdayStartInput.value = "18:00"
-              } else if (dataSubmitterSaturday[0].classList.contains("11")) {
-                saturdayStartInput.value = "19:00"
-              } else if (dataSubmitterSaturday[0].classList.contains("12")) {
-                saturdayStartInput.value = "20:00"
-              } else if (dataSubmitterSaturday[0].classList.contains("13")) {
-                saturdayStartInput.value = "21:00"
-              }
-          
-            if (dataSubmitterSaturday[dataSubmitterSaturday.length - 1].classList.contains("0")) {
-                saturdayEndInput.value = "8:00"
-              } else if (dataSubmitterSaturday[dataSubmitterSaturday.length - 1].classList.contains("1")) {
-                saturdayEndInput.value = "9:00"
-              } else if (dataSubmitterSaturday[dataSubmitterSaturday.length - 1].classList.contains("2")) {
-                saturdayEndInput.value = "10:00"
-              } else if (dataSubmitterSaturday[dataSubmitterSaturday.length - 1].classList.contains("3")) {
-                saturdayEndInput.value = "11:00"
-              } else if (dataSubmitterSaturday[dataSubmitterSaturday.length - 1].classList.contains("4")) {
-                saturdayEndInput.value = "12:00"
-              } else if (dataSubmitterSaturday[dataSubmitterSaturday.length - 1].classList.contains("5")) {
-                saturdayEndInput.value = "13:00"
-              } else if (dataSubmitterSaturday[dataSubmitterSaturday.length - 1].classList.contains("6")) {
-                saturdayEndInput.value = "14:00"
-              } else if (dataSubmitterSaturday[dataSubmitterSaturday.length - 1].classList.contains("7")) {
-                saturdayEndInput.value = "15:00"
-              } else if (dataSubmitterSaturday[dataSubmitterSaturday.length - 1].classList.contains("8")) {
-                saturdayEndInput.value = "16:00"
-              } else if (dataSubmitterSaturday[dataSubmitterSaturday.length - 1].classList.contains("9")) {
-                saturdayEndInput.value = "17:00"
-              } else if (dataSubmitterSaturday[dataSubmitterSaturday.length - 1].classList.contains("10")) {
-                saturdayEndInput.value = "18:00"
-              } else if (dataSubmitterSaturday[dataSubmitterSaturday.length - 1].classList.contains("11")) {
-                saturdayEndInput.value = "19:00"
-              } else if (dataSubmitterSaturday[dataSubmitterSaturday.length - 1].classList.contains("12")) {
-                saturdayEndInput.value = "20:00"
-              } else if (dataSubmitterSaturday[dataSubmitterSaturday.length - 1].classList.contains("13")) {
-                saturdayEndInput.value = "21:00"
-              }
-          
-          }
-          
-          function sundaySubmitButtonHover() {
-            sundaySquares.forEach(scheduleDataSetterSunday);
-          
-          
-            if (dataSubmitterSunday[0].classList.contains("0")) {
-                sundayStartInput.value = "8:00"
-              } else if (dataSubmitterSunday[0].classList.contains("1")) {
-                sundayStartInput.value = "9:00"
-              } else if (dataSubmitterSunday[0].classList.contains("2")) {
-                sundayStartInput.value = "10:00"
-              } else if (dataSubmitterSunday[0].classList.contains("3")) {
-                sundayStartInput.value = "11:00"
-              } else if (dataSubmitterSunday[0].classList.contains("4")) {
-                sundayStartInput.value = "12:00"
-              } else if (dataSubmitterSunday[0].classList.contains("5")) {
-                sundayStartInput.value = "13:00"
-              } else if (dataSubmitterSunday[0].classList.contains("6")) {
-                sundayStartInput.value = "14:00"
-              } else if (dataSubmitterSunday[0].classList.contains("7")) {
-                sundayStartInput.value = "15:00"
-              } else if (dataSubmitterSunday[0].classList.contains("8")) {
-                sundayStartInput.value = "16:00"
-              } else if (dataSubmitterSunday[0].classList.contains("9")) {
-                sundayStartInput.value = "17:00"
-              } else if (dataSubmitterSunday[0].classList.contains("10")) {
-                sundayStartInput.value = "18:00"
-              } else if (dataSubmitterSunday[0].classList.contains("11")) {
-                sundayStartInput.value = "19:00"
-              } else if (dataSubmitterSunday[0].classList.contains("12")) {
-                sundayStartInput.value = "20:00"
-              } else if (dataSubmitterSunday[0].classList.contains("13")) {
-                sundayStartInput.value = "21:00"
-              }
-          
-            if (dataSubmitterSunday[dataSubmitterSunday.length - 1].classList.contains("0")) {
-                sundayEndInput.value = "8:00"
-              } else if (dataSubmitterSunday[dataSubmitterSunday.length - 1].classList.contains("1")) {
-                sundayEndInput.value = "9:00"
-              } else if (dataSubmitterSunday[dataSubmitterSunday.length - 1].classList.contains("2")) {
-                sundayEndInput.value = "10:00"
-              } else if (dataSubmitterSunday[dataSubmitterSunday.length - 1].classList.contains("3")) {
-                sundayEndInput.value = "11:00"
-              } else if (dataSubmitterSunday[dataSubmitterSunday.length - 1].classList.contains("4")) {
-                sundayEndInput.value = "12:00"
-              } else if (dataSubmitterSunday[dataSubmitterSunday.length - 1].classList.contains("5")) {
-                sundayEndInput.value = "13:00"
-              } else if (dataSubmitterSunday[dataSubmitterSunday.length - 1].classList.contains("6")) {
-                sundayEndInput.value = "14:00"
-              } else if (dataSubmitterSunday[dataSubmitterSunday.length - 1].classList.contains("7")) {
-                sundayEndInput.value = "15:00"
-              } else if (dataSubmitterSunday[dataSubmitterSunday.length - 1].classList.contains("8")) {
-                sundayEndInput.value = "16:00"
-              } else if (dataSubmitterSunday[dataSubmitterSunday.length - 1].classList.contains("9")) {
-                sundayEndInput.value = "17:00"
-              } else if (dataSubmitterSunday[dataSubmitterSunday.length - 1].classList.contains("10")) {
-                sundayEndInput.value = "18:00"
-              } else if (dataSubmitterSunday[dataSubmitterSunday.length - 1].classList.contains("11")) {
-                sundayEndInput.value = "19:00"
-              } else if (dataSubmitterSunday[dataSubmitterSunday.length - 1].classList.contains("12")) {
-                sundayEndInput.value = "20:00"
-              } else if (dataSubmitterSunday[dataSubmitterSunday.length - 1].classList.contains("13")) {
-                sundayEndInput.value = "21:00"
-              }
-          }
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 document.addEventListener("DOMContentLoaded", function() {
           displayModalSchedule();
@@ -1794,6 +1364,307 @@ document.addEventListener("DOMContentLoaded", function() {
                   notDupsSaturday.forEach(greenifyer1Sat)
                   notDupsSunday.forEach(greenifyer1Sun)
                   }
+
+
+
+
+//for event modal squares 
+
+function displayEventModalSchedule() {
+          console.log("hi")
+            const mondaySquares = document.getElementById("monday-squares").querySelectorAll("button");
+            const tuesdaySquares = document.getElementById("tuesday-squares").querySelectorAll("button");
+            const wednesdaySquares = document.getElementById("wednesday-squares").querySelectorAll("button");
+            const thursdaySquares = document.getElementById("thursday-squares").querySelectorAll("button");
+            const fridaySquares = document.getElementById("friday-squares").querySelectorAll("button");
+            const saturdaySquares = document.getElementById("saturday-squares").querySelectorAll("button");
+            const sundaySquares = document.getElementById("sunday-squares").querySelectorAll("button");
+          
+          function arrayMaker(element) {
+          
+              if (element == "") {
+                element = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+                }
+                if (element == "2000-01-01 08:00:00 UTC") {
+                element = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+                } else if (element == "2000-01-01 09:00:00 UTC") {
+                element = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+                } else if (element == "2000-01-01 10:00:00 UTC") {
+                element = [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+                } else if (element == "2000-01-01 11:00:00 UTC") {
+                element = [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+                } else if (element == "2000-01-01 12:00:00 UTC") {
+                element = [5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+                } else if (element == "2000-01-01 13:00:00 UTC") {
+                element = [6, 7, 8, 9, 10, 11, 12, 13, 14]
+                } else if (element == "2000-01-01 14:00:00 UTC") {
+                element = [7, 8, 9, 10, 11, 12, 13, 14]
+                } else if (element == "2000-01-01 15:00:00 UTC") {
+                element = [8, 9, 10, 11, 12, 13, 14]
+                } else if (element == "2000-01-01 16:00:00 UTC") {
+                element = [9, 10, 11, 12, 13, 14]
+                } else if (element == "2000-01-01 17:00:00 UTC") {
+                element = [10, 11, 12, 13, 14]
+                } else if (element == "2000-01-01 18:00:00 UTC") {
+                element = [11, 12, 13, 14]
+                } else if (element == "2000-01-01 19:00:00 UTC") {
+                element = [12, 13, 14]
+                } else if (element == "2000-01-01 20:00:00 UTC") {
+                element = [13, 14]
+                } else if (element == "2000-01-01 21:00:00 UTC") {
+                element = [14]
+                }
+                return element
+                }
+                function arrayMakerEnd(element) {
+                if (element == "") {
+                element = []
+                }
+                if (element == "2000-01-01 21:00:00 UTC") {
+                element = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+                } else if (element == "2000-01-01 20:00:00 UTC") {
+                element = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+                } else if (element == "2000-01-01 19:00:00 UTC") {
+                element = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+                } else if (element == "2000-01-01 18:00:00 UTC") {
+                element = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+                } else if (element == "2000-01-01 17:00:00 UTC") {
+                element = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+                } else if (element == "2000-01-01 16:00:00 UTC") {
+                element = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+                } else if (element == "2000-01-01 15:00:00 UTC") {
+                element = [1, 2, 3, 4, 5, 6, 7, 8]
+                } else if (element == "2000-01-01 14:00:00 UTC") {
+                element = [1, 2, 3, 4, 5, 6, 7]
+                } else if (element == "2000-01-01 13:00:00 UTC") {
+                element = [1, 2, 3, 4, 5, 6]
+                } else if (element == "2000-01-01 12:00:00 UTC") {
+                element = [1, 2, 3, 4, 5]
+                } else if (element == "2000-01-01 11:00:00 UTC") {
+                element = [1, 2, 3, 4]
+                } else if (element == "2000-01-01 10:00:00 UTC") {
+                element = [1, 2, 3]
+                } else if (element == "2000-01-01 09:00:00 UTC") {
+                element = [1, 2]
+                } else if (element == "2000-01-01 08:00:00 UTC") {
+                element = [1]
+                }
+                return element
+                }
+                monday_s = monday_s.map(arrayMaker)
+                tuesday_s = tuesday_s.map(arrayMaker)
+                wednesday_s = wednesday_s.map(arrayMaker)
+                thursday_s = thursday_s.map(arrayMaker)
+                friday_s = friday_s.map(arrayMaker)
+                saturday_s = saturday_s.map(arrayMaker)
+                sunday_s = sunday_s.map(arrayMaker)
+                monday_e = monday_e.map(arrayMakerEnd)
+                tuesday_e = tuesday_e.map(arrayMakerEnd)
+                wednesday_e = wednesday_e.map(arrayMakerEnd)
+                thursday_e = thursday_e.map(arrayMakerEnd)
+                friday_e = friday_e.map(arrayMakerEnd)
+                saturday_e = saturday_e.map(arrayMakerEnd)
+                sunday_e = sunday_e.map(arrayMakerEnd)
+                let notDups = []
+                function grayerArrayGetter(array1, array2) {
+                let count = 0
+                for (console.log("runnin loop"); count < array1.length; count ++) {
+              console.log(count)
+          
+              console.log(array1[count])
+              console.log(array2[count])
+              if (notDups.length > count) {
+                  notDups = []
+                  }
+                  let grayerStart = array1[count].filter(val => !array2[count].includes(val));
+                  let grayerEnd = array2[count].filter(val => !array1[count].includes(val));
+                  let grayerArray = grayerEnd.concat(grayerStart);
+                  console.log(grayerArray)
+                  notDups.push(grayerArray)
+                  }
+                  return notDups
+                  }
+                  // need to gray out these squares. Each time it grays it it makes it less green.
+                  // when second click is registered, it removes these classes for the row that was clicked.
+                  let notDupsMonday = grayerArrayGetter(monday_s, monday_e);
+                  let notDupsTuesday = grayerArrayGetter(tuesday_s, tuesday_e);
+                  let notDupsWednesday = grayerArrayGetter(wednesday_s, wednesday_e);
+                  let notDupsThursday = grayerArrayGetter(thursday_s, thursday_e);
+                  let notDupsFriday = grayerArrayGetter(friday_s, friday_e);
+                  let notDupsSaturday = grayerArrayGetter(saturday_s, saturday_e);
+                  let notDupsSunday = grayerArrayGetter(sunday_s, sunday_e);
+                  let grayedTimes = 0
+                  //THIS WILL MAKE OBJECTS GREYER
+                  function greenifyerMon(arrayElement) {
+                  grayedTimes = 0
+                  if (!mondaySquares[arrayElement-1].classList.contains("grayout")) {
+                  mondaySquares[arrayElement-1].classList.add("grayout")
+                  grayedTimes = 1
+                  } else if (mondaySquares[arrayElement-1].classList.contains("grayout") && !mondaySquares[arrayElement-1].classList.contains("grayout2")){
+                  mondaySquares[arrayElement-1].classList.add("grayout2")
+                  mondaySquares[arrayElement-1].classList.remove("grayout")
+                  grayedTimes = 2
+                  } else if (mondaySquares[arrayElement-1].classList.contains("grayout2")){
+                  mondaySquares[arrayElement-1].classList.add("grayout3")
+                  mondaySquares[arrayElement-1].classList.remove("grayout2")
+                  grayedTimes = 3
+                  } else if (mondaySquares[arrayElement-1].classList.contains("grayout3")){
+                  grayedTimes = 100
+                  } else {
+                  grayedTimes = 0
+                  }
+                  // OUTSIDE OF ITERATION MAKE ALL SQUARES HAVE A DEFAULT SUPER GREEN/PERFECT MATCH CLASS.
+                  }
+                  function greenifyerTue(arrayElement) {
+                  grayedTimes = 0
+                  if (!tuesdaySquares[arrayElement-1].classList.contains("grayout")) {
+                  tuesdaySquares[arrayElement-1].classList.add("grayout")
+                  grayedTimes = 1
+                  } else if (tuesdaySquares[arrayElement-1].classList.contains("grayout") && !tuesdaySquares[arrayElement-1].classList.contains("grayout2")){
+                  tuesdaySquares[arrayElement-1].classList.add("grayout2")
+                  tuesdaySquares[arrayElement-1].classList.remove("grayout")
+                  grayedTimes = 2
+                  } else if (tuesdaySquares[arrayElement-1].classList.contains("grayout2")){
+                  tuesdaySquares[arrayElement-1].classList.add("grayout3")
+                  tuesdaySquares[arrayElement-1].classList.remove("grayout2")
+                  grayedTimes = 3
+                  } else if (tuesdaySquares[arrayElement-1].classList.contains("grayout3")){
+                  grayedTimes = 100
+                  } else {
+                  grayedTimes = 0
+                  }
+                  // OUTSIDE OF ITERATION MAKE ALL SQUARES HAVE A DEFAULT SUPER GREEN/PERFECT MATCH CLASS.
+                  }
+                  function greenifyerWed(arrayElement) {
+                  grayedTimes = 0
+                  if (!wednesdaySquares[arrayElement-1].classList.contains("grayout")) {
+                  wednesdaySquares[arrayElement-1].classList.add("grayout")
+                  grayedTimes = 1
+                  } else if (wednesdaySquares[arrayElement-1].classList.contains("grayout") && !wednesdaySquares[arrayElement-1].classList.contains("grayout2")){
+                  wednesdaySquares[arrayElement-1].classList.add("grayout2")
+                  wednesdaySquares[arrayElement-1].classList.remove("grayout")
+                  grayedTimes = 2
+                  } else if (wednesdaySquares[arrayElement-1].classList.contains("grayout2")){
+                  wednesdaySquares[arrayElement-1].classList.add("grayout3")
+                  wednesdaySquares[arrayElement-1].classList.remove("grayout2")
+                  grayedTimes = 3
+                  } else if (wednesdaySquares[arrayElement-1].classList.contains("grayout3")){
+                  grayedTimes = 100
+                  } else {
+                  grayedTimes = 0
+                  }
+                  // OUTSIDE OF ITERATION MAKE ALL SQUARES HAVE A DEFAULT SUPER GREEN/PERFECT MATCH CLASS.
+                  }
+                  function greenifyerThur(arrayElement) {
+                  grayedTimes = 0
+                  if (!thursdaySquares[arrayElement-1].classList.contains("grayout")) {
+                  thursdaySquares[arrayElement-1].classList.add("grayout")
+                  grayedTimes = 1
+                  } else if (thursdaySquares[arrayElement-1].classList.contains("grayout") && !thursdaySquares[arrayElement-1].classList.contains("grayout2")){
+                  thursdaySquares[arrayElement-1].classList.add("grayout2")
+                  thursdaySquares[arrayElement-1].classList.remove("grayout")
+                  grayedTimes = 2
+                  } else if (thursdaySquares[arrayElement-1].classList.contains("grayout2")){
+                  thursdaySquares[arrayElement-1].classList.add("grayout3")
+                  thursdaySquares[arrayElement-1].classList.remove("grayout2")
+                  grayedTimes = 3
+                  } else if (thursdaySquares[arrayElement-1].classList.contains("grayout3")){
+                  grayedTimes = 100
+                  } else {
+                  grayedTimes = 0
+                  }
+                  // OUTSIDE OF ITERATION MAKE ALL SQUARES HAVE A DEFAULT SUPER GREEN/PERFECT MATCH CLASS.
+                  }
+                  function greenifyerFri(arrayElement) {
+                  grayedTimes = 0
+                  if (!fridaySquares[arrayElement-1].classList.contains("grayout")) {
+                  fridaySquares[arrayElement-1].classList.add("grayout")
+                  grayedTimes = 1
+                  } else if (fridaySquares[arrayElement-1].classList.contains("grayout") && !fridaySquares[arrayElement-1].classList.contains("grayout2")){
+                  fridaySquares[arrayElement-1].classList.add("grayout2")
+                  fridaySquares[arrayElement-1].classList.remove("grayout")
+                  grayedTimes = 2
+                  } else if (fridaySquares[arrayElement-1].classList.contains("grayout2")){
+                  fridaySquares[arrayElement-1].classList.add("grayout3")
+                  fridaySquares[arrayElement-1].classList.remove("grayout2")
+                  grayedTimes = 3
+                  } else if (fridaySquares[arrayElement-1].classList.contains("grayout3")){
+                  grayedTimes = 100
+                  } else {
+                  grayedTimes = 0
+                  }
+                  // OUTSIDE OF ITERATION MAKE ALL SQUARES HAVE A DEFAULT SUPER GREEN/PERFECT MATCH CLASS.
+                  }
+                  function greenifyerSat(arrayElement) {
+                  grayedTimes = 0
+                  if (!saturdaySquares[arrayElement-1].classList.contains("grayout")) {
+                  saturdaySquares[arrayElement-1].classList.add("grayout")
+                  grayedTimes = 1
+                  } else if (saturdaySquares[arrayElement-1].classList.contains("grayout") && !saturdaySquares[arrayElement-1].classList.contains("grayout2")){
+                  saturdaySquares[arrayElement-1].classList.add("grayout2")
+                  saturdaySquares[arrayElement-1].classList.remove("grayout")
+                  grayedTimes = 2
+                  } else if (saturdaySquares[arrayElement-1].classList.contains("grayout2")){
+                  saturdaySquares[arrayElement-1].classList.add("grayout3")
+                  saturdaySquares[arrayElement-1].classList.remove("grayout2")
+                  grayedTimes = 3
+                  } else if (saturdaySquares[arrayElement-1].classList.contains("grayout3")){
+                  grayedTimes = 100
+                  } else {
+                  grayedTimes = 0
+                  }
+                  // OUTSIDE OF ITERATION MAKE ALL SQUARES HAVE A DEFAULT SUPER GREEN/PERFECT MATCH CLASS.
+                  }
+                  function greenifyerSun(arrayElement) {
+                  grayedTimes = 0
+                  if (!sundaySquares[arrayElement-1].classList.contains("grayout")) {
+                  sundaySquares[arrayElement-1].classList.add("grayout")
+                  grayedTimes = 1
+                  } else if (sundaySquares[arrayElement-1].classList.contains("grayout") && !sundaySquares[arrayElement-1].classList.contains("grayout2")){
+                  sundaySquares[arrayElement-1].classList.add("grayout2")
+                  sundaySquares[arrayElement-1].classList.remove("grayout")
+                  grayedTimes = 2
+                  } else if (sundaySquares[arrayElement-1].classList.contains("grayout2")){
+                  sundaySquares[arrayElement-1].classList.add("grayout3")
+                  sundaySquares[arrayElement-1].classList.remove("grayout2")
+                  grayedTimes = 3
+                  } else if (sundaySquares[arrayElement-1].classList.contains("grayout3")){
+                  grayedTimes = 100
+                  } else {
+                  grayedTimes = 0
+                  }
+                  // OUTSIDE OF ITERATION MAKE ALL SQUARES HAVE A DEFAULT SUPER GREEN/PERFECT MATCH CLASS.
+                  }
+                  function greenifyer1Mon(array) {
+                  array.forEach(greenifyerMon)
+                  }
+                  function greenifyer1Tue(array) {
+                  array.forEach(greenifyerTue)
+                  }
+                  function greenifyer1Wed(array) {
+                  array.forEach(greenifyerWed)
+                  }
+                  function greenifyer1Thur(array) {
+                  array.forEach(greenifyerThur)
+                  }
+                  function greenifyer1Fri(array) {
+                  array.forEach(greenifyerFri)
+                  }
+                  function greenifyer1Sat(array) {
+                  array.forEach(greenifyerSat)
+                  }
+                  function greenifyer1Sun(array) {
+                  array.forEach(greenifyerSun)
+                  }
+                  notDupsMonday.forEach(greenifyer1Mon)
+                  notDupsTuesday.forEach(greenifyer1Tue)
+                  notDupsWednesday.forEach(greenifyer1Wed)
+                  notDupsThursday.forEach(greenifyer1Thur)
+                  notDupsFriday.forEach(greenifyer1Fri)
+                  notDupsSaturday.forEach(greenifyer1Sat)
+                  notDupsSunday.forEach(greenifyer1Sun)
+                  }
+
 
 
 </script>
