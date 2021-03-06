@@ -29,6 +29,7 @@
           <%= f.input :end_time, :as => :hidden %>
           <%= f.input :day, :as => :hidden %>
           <%# These will be hidden inputs and the scheduler will input their values %>
+         
 
           <div class="container edit-profile-container">
           <div class="container edit-profile-container">
@@ -421,7 +422,7 @@
                 <% elsif event.day == 7 %>
                   <h4 class="card-day"> <i class="far fa-clock"></i> Saturday</h4>
                 <% end %>
-                <h3 class="card-secondary-text pt-2"> <%= event.start_time.strftime("%I:%M") %> - <%= event.end_time.strftime("%I:%M") %> JST</h3>
+                <h3 class="card-secondary-text pt-2"> <%= "#{event.start_time.strftime("%I:%M")}pm" %> - <%= "#{event.end_time.strftime("%I:%M")}pm" %> JST</h3>
                 <%# Name and Description are reversed until seed is updated %>
                 <img style="height:auto;width:348px; padding-top: 8px;" src="https://p82.f1.n0.cdn.getcloudapp.com/items/9Zu8yvRB/070473f2-cc57-4d36-93ee-3fa9b528b6c5.png?source=viewer&v=c47174317c1e3f6ff90a5509b015462a" alt=""><br>
                 <h6 class="card-event-header"><i class="fas fa-bullseye"></i> Awesome Event</h6>
@@ -641,6 +642,16 @@
             if (square.classList.contains("clicked-square-event")) {
                 square.classList.add("first-selection")
             }
+            square.classList.add("keep-active")
+          }
+        
+          function eventDisabler(square) {
+            if (!square.classList.contains("keep-active")) {
+              
+                square.classList.add("disabler")
+                
+            }
+
           }
 
           function eventDataSubmitter(square) {
@@ -727,13 +738,25 @@
 
           function buttontoggle() {
             var parent = event.currentTarget.parentElement;
-            parent.querySelectorAll("button").forEach(clickchecker)
+            parent.querySelectorAll("button").forEach(clickchecker);
+
+            var allTheButtons = parent.parentElement.querySelectorAll("button");
+            allTheButtons.forEach(eventDisabler);
+
+
             event.currentTarget.classList.toggle("clicked-square-event");
             event.currentTarget.classList.remove("not-clicked");
 
             if (event.currentTarget.nextElementSibling.classList.contains("clicked-square-event") && event.currentTarget.previousElementSibling.classList.contains("clicked-square-event")) {
               event.currentTarget.classList.add("clicked-square-event")
             }
+
+
+
+
+
+
+
           }
 
           function valueSetter() {

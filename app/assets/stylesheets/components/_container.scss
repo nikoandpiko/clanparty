@@ -502,3 +502,14 @@
     text-shadow: 0px 2px 2px #00000080;
 }
 
+
+
+.disabler {
+    padding: 16px;
+    margin-right: 8px;
+    margin-bottom: 8px;
+    background-color: #0c0c0c;
+    border: none;
+    border-radius: 6px;
+    pointer-events: none;
+}
