@@ -76,9 +76,9 @@ class InvitesController < ApplicationController
       builder.add_embed do |embed|
         embed.color = 65321
         embed.title = "Future events"
-        embed.url = "<#817030626846048306>"
+        # embed.url = "<#817030626846048306>"
         # change LINK to clanparty.net later!!!
-        embed.description = "You have been accepted. #{user.nickname} be sure to check out events. Trial events are MUST!"
+        embed.description = "You have been accepted. #{user.nickname} be sure to check out events channel. Trial events are MUST!"
         embed.timestamp = Time.now
       end
     end
