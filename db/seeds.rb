@@ -217,7 +217,7 @@ User.create(
   nickname: "Tenchu Muyo",
   avatar: tenchu,
   bio: "Just look at my stats and start crying since you will never get as good as me.",
-  discord: "https://discord.gg/crazyLWT",
+  discord: "Tenchu2x#5477",
   role: role[0],
   server: "Tonberry",
   stats: 81
