@@ -15,6 +15,7 @@ class EventsController < ApplicationController
     if @event.save
       sleep(1.5)
       redirect_to team_path(@team)
+     
     else
       redirect_to team_path(@team), notice: "Please enter all information"
       raise

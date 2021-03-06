@@ -603,7 +603,7 @@
                 <%= f.button :submit, "CONFIRM SCHEDULE", class: "edit-schedule-button4", :onclick => "mondaySubmitButtonHover(); tuesdaySubmitButtonHover(); wednesdaySubmitButtonHover(); thursdaySubmitButtonHover(); fridaySubmitButtonHover(); saturdaySubmitButtonHover(); sundaySubmitButtonHover()" %>
               </div>
             <% end %>
-          </div>
+          </div> 
         </div>
         <%= javascript_tag do %>
           monday_start_show = "<%= j @user.monday_start.to_s %>";
