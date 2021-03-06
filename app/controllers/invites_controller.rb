@@ -61,7 +61,7 @@ class InvitesController < ApplicationController
         embed.title = "Waiting for approval"
         embed.url = "https://clanparty.herokuapp.com/teams/#{team.id}/"
         # change LINK to clanparty.net later!!!
-        embed.description = "[#{user.nickname}](https://clanparty.herokuapp.com/teams/#{user.id}/) would like to join the team!"
+        embed.description = "[#{user.nickname}](https://clanparty.herokuapp.com/teams/#{user.id}/) would like to join the team!\n\nVote:\n✅ or ✘"
         embed.timestamp = Time.now
       end
     end
