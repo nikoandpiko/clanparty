@@ -18,7 +18,7 @@ class EventsController < ApplicationController
       # raise
       sent_event_discord(@event.name, @event.description, @event.day, @event.start_time, @event.end_time, @team)
       redirect_to team_path(@team)
-     
+
     else
       redirect_to team_path(@team), notice: "Please try again"
     end
@@ -60,7 +60,7 @@ class EventsController < ApplicationController
 
     client = Discordrb::Webhooks::Client.new(url: WEBHOOK_URL)
     client.execute do |builder|
-      builder.content = "@here NEW Event!"
+      builder.content = "@everyone NEW Event!"
       builder.add_embed do |embed|
         embed.title = event_title
         embed.color = 16056575
