@@ -59,7 +59,7 @@ class EventsController < ApplicationController
 
     client = Discordrb::Webhooks::Client.new(url: WEBHOOK_URL)
     client.execute do |builder|
-      builder.content = "@here NEW Event!"
+      builder.content = "@everyone NEW Event!"
       builder.add_embed do |embed|
         embed.title = event_title
         embed.color = 16056575
