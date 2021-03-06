@@ -11,8 +11,9 @@
 .schedule-grid {
     width: 400px;
     position: relative;
-    top: -135px;
+    top: -137px;
     left: 70px;
+    
 }
 
 .schedule-grid-edit {
@@ -429,7 +430,7 @@
     padding: 16px;
     margin-right: 8px;
     margin-bottom: 8px;
-    background-color: #9adf80;
+    background-color: #1b3b0f;
     border: none;
     border-radius: 6px;
 }
@@ -472,7 +473,10 @@
     background-color: #3644FF ;
     border: none;
     border-radius: 6px;
+}
 
+.grid-square:active {
+    background-color: #050e83;
 }
 
 
@@ -489,6 +493,12 @@
     left: 7px;
 }
 
-
-
+.modal-content {
+    border-radius: 8px;
+    color: white;
+    font-family: Helvetica Neue Bold;
+    font-size: 24px;
+    color: white;
+    text-shadow: 0px 2px 2px #00000080;
+}
 

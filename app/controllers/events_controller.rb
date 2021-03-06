@@ -17,8 +17,7 @@ class EventsController < ApplicationController
       redirect_to team_path(@team)
      
     else
-      redirect_to team_path(@team), notice: "Please enter all information"
-      raise
+      redirect_to team_path(@team), notice: "Please try again"
     end
   end
 
