@@ -16,21 +16,20 @@
   <div class="modal fade" id="eventModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLongTitle">Enter the Event Details</h5>
+        <div class="modal-body np-3 background-gradient-events">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
+              <span aria-hidden="true">&times;</span>
           </button>
-        </div>
-        <div class="modal-body no-padding">
+            <h2 class="modal-title card-outer-header" id="exampleModalLongTitle"><i class="far fa-calendar-check pr-1"></i> ENTER EVENT DETAILS</h2>
           <%= simple_form_for [ @team, @event ] do |f| %>
-          <%= f.input :name, label: "Event", collection: ["The Sirensong Sea", "Amaurot", "The Dying Gasp", "Anamnesis Anyder", "Mt. Gulg"] %>
+          <%= f.input :name, label: "Event", collection: ["The Sirensong Sea", "Amaurot", "The Dying Gasp", "Anamnesis Anyder", "Mt. Gulg"], class: "text-white" %>
           <%# < f.input :day, collection: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]  %>
           <%# event will have a day picked by scheduler dont need to save the day/input  %>
           <%= f.input :start_time, :as => :hidden %>
           <%= f.input :end_time, :as => :hidden %>
           <%= f.input :day, :as => :hidden %>
           <%# These will be hidden inputs and the scheduler will input their values %>
+         
 
           <div class="container edit-profile-container">
           <div class="container edit-profile-container">
@@ -38,14 +37,7 @@
                 <div class="card-product user-show-card-schedule card-rainbow-gradient-border">
                   <div class="schedule-grid">
                     <div class="col-xl-12 lg-12">
-                      <div class="hours">
-                        <p class="hour1">10:00</p>
-                        <p class="hour2">11:00</p>
-                        <p class="hour3">12:00</p>
-                        <p class="hour4">13:00</p>
-                        <p class="hour5">14:00</p>
-                        <p class="hour6">15:00</p>
-                        <p class="hour7">16:00</p>
+                      <div class="hours-modal">
                         <p class="hour8">17:00</p>
                         <p class="hour9">18:00</p>
                         <p class="hour10">19:00</p>
@@ -54,7 +46,7 @@
                         <p class="hour13">22:00</p>
                         <p class="hour14">23:00</p>
                       </div>
-                      <div class="days">
+                      <div class="days-modal">
                         <p class="monday">M</p>
                         <p class="tuesday">T</p>
                         <p class="wednesday">W</p>
@@ -78,20 +70,6 @@
                           <% end %>
                           <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit event-modal 6", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
                           <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit event-modal 7", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit event-modal 8", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit event-modal 9", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit event-modal 10", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit event-modal 11", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit event-modal 12", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit event-modal 13", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
                         </div>
                         <div class="tuesday-squares" id="tuesday-squares">
                           <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit event-modal 0", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
@@ -107,20 +85,6 @@
                           <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit event-modal 5", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
                           <% end %>
                           <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit event-modal 6", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit event-modal 7", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit event-modal 8", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit event-modal 9", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit event-modal 10", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit event-modal 11", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit event-modal 12", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit event-modal 13", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
                           <% end %>
                         </div>
                         <div class="wednesday-squares" id="wednesday-squares">
@@ -138,20 +102,6 @@
                           <% end %>
                           <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit event-modal 6", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
                           <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit event-modal 7", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit event-modal 8", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit event-modal 9", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit event-modal 10", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit event-modal 11", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit event-modal 12", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit event-modal 13", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
                         </div>
                         <div class="thursday-squares" id="thursday-squares">
                           <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit event-modal 0", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
@@ -167,20 +117,6 @@
                           <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit event-modal 5", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
                           <% end %>
                           <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit event-modal 6", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit event-modal 7", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit event-modal 8", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit event-modal 9", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit event-modal 10", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit event-modal 11", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit event-modal 12", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit event-modal 13", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
                           <% end %>
                         </div>
                         <div class="friday-squares" id="friday-squares">
@@ -198,20 +134,6 @@
                           <% end %>
                           <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit event-modal 6", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
                           <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit event-modal 7", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit event-modal 8", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit event-modal 9", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit event-modal 10", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit event-modal 11", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit event-modal 12", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit event-modal 13", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
                         </div>
                         <div class="saturday-squares" id="saturday-squares">
                           <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit event-modal 0", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
@@ -227,20 +149,6 @@
                           <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit event-modal 5", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
                           <% end %>
                           <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit event-modal 6", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit event-modal 7", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit event-modal 8", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit event-modal 9", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit event-modal 10", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit event-modal 11", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit event-modal 12", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit event-modal 13", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
                           <% end %>
                         </div>
                         <div class="sunday-squares" id="sunday-squares">
@@ -258,20 +166,6 @@
                           <% end %>
                           <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit event-modal 6", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
                           <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit event-modal 7", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit event-modal 8", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit event-modal 9", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit event-modal 10", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit event-modal 11", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit event-modal 12", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
-                          <%= button_tag type: 'button', class: "btn shadow-none grid-square view-only-green-edit event-modal 13", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
-                          <% end %>
                         </div>
 
                     </div>
@@ -286,13 +180,9 @@
 
         </div>
          <%= f.input :description, placeholder: "This is a weekly event to ensure our group gets the best gear." %>
-
-
-            <div class="modal-footer p-0">
-              <%= f.button :submit, "Create Event", id:"sweet-alert-event", class: "btn btn-dark btn-lg btn-block m-0 mb-2", onclick: "valueSetter()" %>
-              <button type="button" class="btn btn-secondary btn-lg btn-block m-0" data-dismiss="modal">Go Back</button>
+              <%= f.button :submit, "SUBMIT EVENT", id:"sweet-alert-event", class: "btn btn-pink mr-3 btn-block", onclick: "valueSetter()" %>
+  
               <%# :onclick => "timeSubmitter(); This button will have an onclick that will submit the start and end time values %>
-            </div>
           <% end %>
         </div>
       </div>
@@ -308,13 +198,6 @@
             <h2>Core Hours</h2>
               <div class="schedule-grid-show">
                 <div class="hours">
-                <p class="hour1">10:00</p>
-                <p class="hour2">11:00</p>
-                <p class="hour3">12:00</p>
-                <p class="hour4">13:00</p>
-                <p class="hour5">14:00</p>
-                <p class="hour6">15:00</p>
-                <p class="hour7">16:00</p>
                 <p class="hour8">17:00</p>
                 <p class="hour9">18:00</p>
                 <p class="hour10">19:00</p>
@@ -333,6 +216,8 @@
                 <p class="sunday">S</p>
                 </div>
                 <div class="monday-squares1" id="monday-squares1">
+              
+
                 <%= button_tag type: 'button', class: "btn shadow-none grid-square 0 view-only view-only-green-edit" do %>
 
                 <% end %>
@@ -352,32 +237,12 @@
 
                 <% end %>
                 <%= button_tag type: 'button', class: "btn shadow-none grid-square 6 view-only view-only-green-edit" do %>
-
-                <% end %>
-
-                <%= button_tag type: 'button', class: "btn shadow-none grid-square 7 view-only view-only-green-edit" do %>
-
-                <% end %>
-                <%= button_tag type: 'button', class: "btn shadow-none grid-square 8 view-only view-only-green-edit" do %>
-
-                <% end %>
-                <%= button_tag type: 'button', class: "btn shadow-none grid-square 9 view-only view-only-green-edit" do %>
-
-                <% end %>
-                <%= button_tag type: 'button', class: "btn shadow-none grid-square 10 view-only view-only-green-edit" do %>
-
-                <% end %>
-                <%= button_tag type: 'button', class: "btn shadow-none grid-square 11 view-only view-only-green-edit" do %>
-
-                <% end %>
-                <%= button_tag type: 'button', class: "btn shadow-none grid-square 12 view-only view-only-green-edit" do %>
-
-                <% end %>
-                <%= button_tag type: 'button', class: "btn shadow-none grid-square 13 view-only view-only-green-edit" do %>
 
                 <% end %>
                 </div>
                 <div class="tuesday-squares1" id="tuesday-squares1">
+              
+
                 <%= button_tag type: 'button', class: "btn shadow-none grid-square 0 view-only view-only-green-edit" do %>
 
                 <% end %>
@@ -397,32 +262,12 @@
 
                 <% end %>
                 <%= button_tag type: 'button', class: "btn shadow-none grid-square 6 view-only view-only-green-edit" do %>
-
-                <% end %>
-
-                <%= button_tag type: 'button', class: "btn shadow-none grid-square 7 view-only view-only-green-edit" do %>
-
-                <% end %>
-                <%= button_tag type: 'button', class: "btn shadow-none grid-square 8 view-only view-only-green-edit" do %>
-
-                <% end %>
-                <%= button_tag type: 'button', class: "btn shadow-none grid-square 9 view-only view-only-green-edit" do %>
-
-                <% end %>
-                <%= button_tag type: 'button', class: "btn shadow-none grid-square 10 view-only view-only-green-edit" do %>
-
-                <% end %>
-                <%= button_tag type: 'button', class: "btn shadow-none grid-square 11 view-only view-only-green-edit" do %>
-
-                <% end %>
-                <%= button_tag type: 'button', class: "btn shadow-none grid-square 12 view-only view-only-green-edit" do %>
-
-                <% end %>
-                <%= button_tag type: 'button', class: "btn shadow-none grid-square 13 view-only view-only-green-edit" do %>
 
                 <% end %>
                 </div>
                 <div class="wednesday-squares1" id="wednesday-squares1">
+              
+
                 <%= button_tag type: 'button', class: "btn shadow-none grid-square 0 view-only view-only-green-edit" do %>
 
                 <% end %>
@@ -442,32 +287,12 @@
 
                 <% end %>
                 <%= button_tag type: 'button', class: "btn shadow-none grid-square 6 view-only view-only-green-edit" do %>
-
-                <% end %>
-
-                <%= button_tag type: 'button', class: "btn shadow-none grid-square 7 view-only view-only-green-edit" do %>
-
-                <% end %>
-                <%= button_tag type: 'button', class: "btn shadow-none grid-square 8 view-only view-only-green-edit" do %>
-
-                <% end %>
-                <%= button_tag type: 'button', class: "btn shadow-none grid-square 9 view-only view-only-green-edit" do %>
-
-                <% end %>
-                <%= button_tag type: 'button', class: "btn shadow-none grid-square 10 view-only view-only-green-edit" do %>
-
-                <% end %>
-                <%= button_tag type: 'button', class: "btn shadow-none grid-square 11 view-only view-only-green-edit" do %>
-
-                <% end %>
-                <%= button_tag type: 'button', class: "btn shadow-none grid-square 12 view-only view-only-green-edit" do %>
-
-                <% end %>
-                <%= button_tag type: 'button', class: "btn shadow-none grid-square 13 view-only view-only-green-edit" do %>
 
                 <% end %>
                 </div>
                 <div class="thursday-squares1" id="thursday-squares1">
+              
+
                 <%= button_tag type: 'button', class: "btn shadow-none grid-square 0 view-only view-only-green-edit" do %>
 
                 <% end %>
@@ -487,32 +312,12 @@
 
                 <% end %>
                 <%= button_tag type: 'button', class: "btn shadow-none grid-square 6 view-only view-only-green-edit" do %>
-
-                <% end %>
-
-                <%= button_tag type: 'button', class: "btn shadow-none grid-square 7 view-only view-only-green-edit" do %>
-
-                <% end %>
-                <%= button_tag type: 'button', class: "btn shadow-none grid-square 8 view-only view-only-green-edit" do %>
-
-                <% end %>
-                <%= button_tag type: 'button', class: "btn shadow-none grid-square 9 view-only view-only-green-edit" do %>
-
-                <% end %>
-                <%= button_tag type: 'button', class: "btn shadow-none grid-square 10 view-only view-only-green-edit" do %>
-
-                <% end %>
-                <%= button_tag type: 'button', class: "btn shadow-none grid-square 11 view-only view-only-green-edit" do %>
-
-                <% end %>
-                <%= button_tag type: 'button', class: "btn shadow-none grid-square 12 view-only view-only-green-edit" do %>
-
-                <% end %>
-                <%= button_tag type: 'button', class: "btn shadow-none grid-square 13 view-only view-only-green-edit" do %>
 
                 <% end %>
                 </div>
                 <div class="friday-squares1" id="friday-squares1">
+              
+
                 <%= button_tag type: 'button', class: "btn shadow-none grid-square 0 view-only view-only-green-edit" do %>
 
                 <% end %>
@@ -532,32 +337,12 @@
 
                 <% end %>
                 <%= button_tag type: 'button', class: "btn shadow-none grid-square 6 view-only view-only-green-edit" do %>
-
-                <% end %>
-
-                <%= button_tag type: 'button', class: "btn shadow-none grid-square 7 view-only view-only-green-edit" do %>
-
-                <% end %>
-                <%= button_tag type: 'button', class: "btn shadow-none grid-square 8 view-only view-only-green-edit" do %>
-
-                <% end %>
-                <%= button_tag type: 'button', class: "btn shadow-none grid-square 9 view-only view-only-green-edit" do %>
-
-                <% end %>
-                <%= button_tag type: 'button', class: "btn shadow-none grid-square 10 view-only view-only-green-edit" do %>
-
-                <% end %>
-                <%= button_tag type: 'button', class: "btn shadow-none grid-square 11 view-only view-only-green-edit" do %>
-
-                <% end %>
-                <%= button_tag type: 'button', class: "btn shadow-none grid-square 12 view-only view-only-green-edit" do %>
-
-                <% end %>
-                <%= button_tag type: 'button', class: "btn shadow-none grid-square 13 view-only view-only-green-edit" do %>
 
                 <% end %>
                 </div>
                 <div class="saturday-squares1" id="saturday-squares1">
+              
+
                 <%= button_tag type: 'button', class: "btn shadow-none grid-square 0 view-only view-only-green-edit" do %>
 
                 <% end %>
@@ -577,32 +362,12 @@
 
                 <% end %>
                 <%= button_tag type: 'button', class: "btn shadow-none grid-square 6 view-only view-only-green-edit" do %>
-
-                <% end %>
-
-                <%= button_tag type: 'button', class: "btn shadow-none grid-square 7 view-only view-only-green-edit" do %>
-
-                <% end %>
-                <%= button_tag type: 'button', class: "btn shadow-none grid-square 8 view-only view-only-green-edit" do %>
-
-                <% end %>
-                <%= button_tag type: 'button', class: "btn shadow-none grid-square 9 view-only view-only-green-edit" do %>
-
-                <% end %>
-                <%= button_tag type: 'button', class: "btn shadow-none grid-square 10 view-only view-only-green-edit" do %>
-
-                <% end %>
-                <%= button_tag type: 'button', class: "btn shadow-none grid-square 11 view-only view-only-green-edit" do %>
-
-                <% end %>
-                <%= button_tag type: 'button', class: "btn shadow-none grid-square 12 view-only view-only-green-edit" do %>
-
-                <% end %>
-                <%= button_tag type: 'button', class: "btn shadow-none grid-square 13 view-only view-only-green-edit" do %>
 
                 <% end %>
                 </div>
                 <div class="sunday-squares1" id="sunday-squares1">
+              
+
                 <%= button_tag type: 'button', class: "btn shadow-none grid-square 0 view-only view-only-green-edit" do %>
 
                 <% end %>
@@ -622,28 +387,6 @@
 
                 <% end %>
                 <%= button_tag type: 'button', class: "btn shadow-none grid-square 6 view-only view-only-green-edit" do %>
-
-                <% end %>
-
-                <%= button_tag type: 'button', class: "btn shadow-none grid-square 7 view-only view-only-green-edit" do %>
-
-                <% end %>
-                <%= button_tag type: 'button', class: "btn shadow-none grid-square 8 view-only view-only-green-edit" do %>
-
-                <% end %>
-                <%= button_tag type: 'button', class: "btn shadow-none grid-square 9 view-only view-only-green-edit" do %>
-
-                <% end %>
-                <%= button_tag type: 'button', class: "btn shadow-none grid-square 10 view-only view-only-green-edit" do %>
-
-                <% end %>
-                <%= button_tag type: 'button', class: "btn shadow-none grid-square 11 view-only view-only-green-edit" do %>
-
-                <% end %>
-                <%= button_tag type: 'button', class: "btn shadow-none grid-square 12 view-only view-only-green-edit" do %>
-
-                <% end %>
-                <%= button_tag type: 'button', class: "btn shadow-none grid-square 13 view-only view-only-green-edit" do %>
 
                 <% end %>
 
@@ -679,7 +422,7 @@
                 <% elsif event.day == 7 %>
                   <h4 class="card-day"> <i class="far fa-clock"></i> Saturday</h4>
                 <% end %>
-                <h3 class="card-secondary-text pt-2"> <%= event.start_time.strftime("%I:%M") %> - <%= event.end_time.strftime("%I:%M") %> JST</h3>
+                <h3 class="card-secondary-text pt-2"> <%= "#{event.start_time.strftime("%I:%M")}pm" %> - <%= "#{event.end_time.strftime("%I:%M")}pm" %> JST</h3>
                 <%# Name and Description are reversed until seed is updated %>
                 <img style="height:auto;width:348px; padding-top: 8px;" src="https://p82.f1.n0.cdn.getcloudapp.com/items/9Zu8yvRB/070473f2-cc57-4d36-93ee-3fa9b528b6c5.png?source=viewer&v=c47174317c1e3f6ff90a5509b015462a" alt=""><br>
                 <h6 class="card-event-header"><i class="fas fa-bullseye"></i> Awesome Event</h6>
@@ -689,7 +432,7 @@
             <br>
           <% end %>
           <button onclick="displayEventModalSchedule()"  type="button" class="btn btn-pink mr-3 btn-block" data-toggle="modal" data-target="#eventModal">
-            Create New Event
+            CREATE NEW EVENT
           </button>
         </div>
       </div>
@@ -868,6 +611,14 @@
           const saturdaySquares = document.getElementById("saturday-squares").querySelectorAll("button");
           const sundaySquares = document.getElementById("sunday-squares").querySelectorAll("button");
 
+          const mondaySquares1 = document.getElementById("monday-squares1").querySelectorAll("button");
+          const tuesdaySquares1 = document.getElementById("tuesday-squares1").querySelectorAll("button");
+          const wednesdaySquares1 = document.getElementById("wednesday-squares1").querySelectorAll("button");
+          const thursdaySquares1 = document.getElementById("thursday-squares1").querySelectorAll("button");
+          const fridaySquares1 = document.getElementById("friday-squares1").querySelectorAll("button");
+          const saturdaySquares1 = document.getElementById("saturday-squares1").querySelectorAll("button");
+          const sundaySquares1 = document.getElementById("sunday-squares1").querySelectorAll("button");
+
           let firstClickedDown = 50
           let firstClickedUp = -50
           let currentSquareHovered = null
@@ -895,6 +646,16 @@
             if (square.classList.contains("clicked-square-event")) {
                 square.classList.add("first-selection")
             }
+            square.classList.add("keep-active")
+          }
+        
+          function eventDisabler(square) {
+            if (!square.classList.contains("keep-active")) {
+              
+                square.classList.add("disabler")
+                
+            }
+
           }
 
           function eventDataSubmitter(square) {
@@ -939,20 +700,6 @@
                 currentSquareHoveredIndexDown = 5
               } else if (currentSquareHovered.classList.contains("6")) {
                 currentSquareHoveredIndexDown = 6
-              } else if (currentSquareHovered.classList.contains("7")) {
-                currentSquareHoveredIndexDown = 7
-              } else if (currentSquareHovered.classList.contains("8")) {
-                currentSquareHoveredIndexDown = 8
-              } else if (currentSquareHovered.classList.contains("9")) {
-                currentSquareHoveredIndexDown = 9
-              } else if (currentSquareHovered.classList.contains("10")) {
-                currentSquareHoveredIndexDown = 10
-              } else if (currentSquareHovered.classList.contains("11")) {
-                currentSquareHoveredIndexDown = 11
-              } else if (currentSquareHovered.classList.contains("12")) {
-                currentSquareHoveredIndexDown = 12
-              } else if (currentSquareHovered.classList.contains("13")) {
-                currentSquareHoveredIndexDown = 13
               }
 
 
@@ -995,13 +742,25 @@
 
           function buttontoggle() {
             var parent = event.currentTarget.parentElement;
-            parent.querySelectorAll("button").forEach(clickchecker)
+            parent.querySelectorAll("button").forEach(clickchecker);
+
+            var allTheButtons = parent.parentElement.querySelectorAll("button");
+            allTheButtons.forEach(eventDisabler);
+
+
             event.currentTarget.classList.toggle("clicked-square-event");
             event.currentTarget.classList.remove("not-clicked");
 
             if (event.currentTarget.nextElementSibling.classList.contains("clicked-square-event") && event.currentTarget.previousElementSibling.classList.contains("clicked-square-event")) {
               event.currentTarget.classList.add("clicked-square-event")
             }
+
+
+
+
+
+
+
           }
 
           function valueSetter() {
@@ -1034,65 +793,35 @@
             }
 
             if (dataSubmitter[0].classList.contains("0")) {
-                StartInput.value = "10:00"
-              } else if (dataSubmitter[0].classList.contains("1")) {
-                StartInput.value = "11:00"
-              } else if (dataSubmitter[0].classList.contains("2")) {
-                StartInput.value = "12:00"
-              } else if (dataSubmitter[0].classList.contains("3")) {
-                StartInput.value = "13:00"
-              } else if (dataSubmitter[0].classList.contains("4")) {
-                StartInput.value = "14:00"
-              } else if (dataSubmitter[0].classList.contains("5")) {
-                StartInput.value = "15:00"
-              } else if (dataSubmitter[0].classList.contains("6")) {
-                StartInput.value = "16:00"
-              } else if (dataSubmitter[0].classList.contains("7")) {
                 StartInput.value = "17:00"
-              } else if (dataSubmitter[0].classList.contains("8")) {
+              } else if (dataSubmitter[0].classList.contains("1")) {
                 StartInput.value = "18:00"
-              } else if (dataSubmitter[0].classList.contains("9")) {
+              } else if (dataSubmitter[0].classList.contains("2")) {
                 StartInput.value = "19:00"
-              } else if (dataSubmitter[0].classList.contains("10")) {
+              } else if (dataSubmitter[0].classList.contains("3")) {
                 StartInput.value = "20:00"
-              } else if (dataSubmitter[0].classList.contains("11")) {
+              } else if (dataSubmitter[0].classList.contains("4")) {
                 StartInput.value = "21:00"
-              } else if (dataSubmitter[0].classList.contains("12")) {
-                StartInput.value = "21:00"
-              } else if (dataSubmitter[0].classList.contains("12")) {
+              } else if (dataSubmitter[0].classList.contains("5")) {
                 StartInput.value = "22:00"
-              } else if (dataSubmitter[0].classList.contains("13")) {
+              } else if (dataSubmitter[0].classList.contains("6")) {
                 StartInput.value = "23:00"
               }
 
 
             if (dataSubmitter[dataSubmitter.length - 1].classList.contains("0")) {
-                EndInput.value = "10:00"
-              } else if (dataSubmitter[dataSubmitter.length - 1].classList.contains("1")) {
-                EndInput.value = "11:00"
-              } else if (dataSubmitter[dataSubmitter.length - 1].classList.contains("2")) {
-                EndInput.value = "12:00"
-              } else if (dataSubmitter[dataSubmitter.length - 1].classList.contains("3")) {
-                EndInput.value = "13:00"
-              } else if (dataSubmitter[dataSubmitter.length - 1].classList.contains("4")) {
-                EndInput.value = "14:00"
-              } else if (dataSubmitter[dataSubmitter.length - 1].classList.contains("5")) {
-                EndInput.value = "15:00"
-              } else if (dataSubmitter[dataSubmitter.length - 1].classList.contains("6")) {
-                EndInput.value = "16:00"
-              } else if (dataSubmitter[dataSubmitter.length - 1].classList.contains("7")) {
                 EndInput.value = "17:00"
-              } else if (dataSubmitter[dataSubmitter.length - 1].classList.contains("8")) {
+              } else if (dataSubmitter[dataSubmitter.length - 1].classList.contains("1")) {
                 EndInput.value = "18:00"
-              } else if (dataSubmitter[dataSubmitter.length - 1].classList.contains("9")) {
+              } else if (dataSubmitter[dataSubmitter.length - 1].classList.contains("2")) {
                 EndInput.value = "19:00"
-              } else if (dataSubmitter[dataSubmitter.length - 1].classList.contains("10")) {
+              } else if (dataSubmitter[dataSubmitter.length - 1].classList.contains("3")) {
                 EndInput.value = "20:00"
-              } else if (dataSubmitter[dataSubmitter.length - 1].classList.contains("11")) {
+              } else if (dataSubmitter[dataSubmitter.length - 1].classList.contains("4")) {
                 EndInput.value = "21:00"
-              } else if (dataSubmitter[dataSubmitter.length - 1].classList.contains("12")) {
+              } else if (dataSubmitter[dataSubmitter.length - 1].classList.contains("5")) {
                 EndInput.value = "22:00"
-              } else if (dataSubmitter[dataSubmitter.length - 1].classList.contains("13")) {
+              } else if (dataSubmitter[dataSubmitter.length - 1].classList.contains("6")) {
                 EndInput.value = "23:00"
               }
           }
@@ -1104,81 +833,47 @@ document.addEventListener("DOMContentLoaded", function() {
 
           function displayModalSchedule() {
           console.log("hi")
-            const mondaySquares1 = document.getElementById("monday-squares1").querySelectorAll("button");
-            const tuesdaySquares1 = document.getElementById("tuesday-squares1").querySelectorAll("button");
-            const wednesdaySquares1 = document.getElementById("wednesday-squares1").querySelectorAll("button");
-            const thursdaySquares1 = document.getElementById("thursday-squares1").querySelectorAll("button");
-            const fridaySquares1 = document.getElementById("friday-squares1").querySelectorAll("button");
-            const saturdaySquares1 = document.getElementById("saturday-squares1").querySelectorAll("button");
-            const sundaySquares1 = document.getElementById("sunday-squares1").querySelectorAll("button");
+            
 
           function arrayMaker(element) {
 
               if (element == "") {
-                element = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+                element = [1, 2, 3, 4, 5, 6, 7]
                 }
-                if (element == "2000-01-01 08:00:00 UTC") {
-                element = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
-                } else if (element == "2000-01-01 09:00:00 UTC") {
-                element = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
-                } else if (element == "2000-01-01 10:00:00 UTC") {
-                element = [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
-                } else if (element == "2000-01-01 11:00:00 UTC") {
-                element = [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
-                } else if (element == "2000-01-01 12:00:00 UTC") {
-                element = [5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
-                } else if (element == "2000-01-01 13:00:00 UTC") {
-                element = [6, 7, 8, 9, 10, 11, 12, 13, 14]
-                } else if (element == "2000-01-01 14:00:00 UTC") {
-                element = [7, 8, 9, 10, 11, 12, 13, 14]
-                } else if (element == "2000-01-01 15:00:00 UTC") {
-                element = [8, 9, 10, 11, 12, 13, 14]
-                } else if (element == "2000-01-01 16:00:00 UTC") {
-                element = [9, 10, 11, 12, 13, 14]
-                } else if (element == "2000-01-01 17:00:00 UTC") {
-                element = [10, 11, 12, 13, 14]
+                if (element == "2000-01-01 17:00:00 UTC") {
+                element = [1, 2, 3, 4, 5, 6, 7]
                 } else if (element == "2000-01-01 18:00:00 UTC") {
-                element = [11, 12, 13, 14]
+                element = [2, 3, 4, 5, 6, 7]
                 } else if (element == "2000-01-01 19:00:00 UTC") {
-                element = [12, 13, 14]
+                element = [3, 4, 5, 6, 7]
                 } else if (element == "2000-01-01 20:00:00 UTC") {
-                element = [13, 14]
+                element = [4, 5, 6, 7]
                 } else if (element == "2000-01-01 21:00:00 UTC") {
-                element = [14]
+                element = [5, 6, 7]
+                } else if (element == "2000-01-01 22:00:00 UTC") {
+                element = [6, 7]
+                } else if (element == "2000-01-01 23:00:00 UTC") {
+                element = [7]
                 }
                 return element
                 }
-                function arrayMakerEnd(element) {
+            function arrayMakerEnd(element) {
                 if (element == "") {
                 element = []
                 }
-                if (element == "2000-01-01 21:00:00 UTC") {
-                element = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
-                } else if (element == "2000-01-01 20:00:00 UTC") {
-                element = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
-                } else if (element == "2000-01-01 19:00:00 UTC") {
-                element = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
-                } else if (element == "2000-01-01 18:00:00 UTC") {
-                element = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
-                } else if (element == "2000-01-01 17:00:00 UTC") {
-                element = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-                } else if (element == "2000-01-01 16:00:00 UTC") {
-                element = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-                } else if (element == "2000-01-01 15:00:00 UTC") {
-                element = [1, 2, 3, 4, 5, 6, 7, 8]
-                } else if (element == "2000-01-01 14:00:00 UTC") {
+                if (element == "2000-01-01 23:00:00 UTC") {
                 element = [1, 2, 3, 4, 5, 6, 7]
-                } else if (element == "2000-01-01 13:00:00 UTC") {
+                } else if (element == "2000-01-01 22:00:00 UTC") {
                 element = [1, 2, 3, 4, 5, 6]
-                } else if (element == "2000-01-01 12:00:00 UTC") {
+                } else if (element == "2000-01-01 21:00:00 UTC") {
                 element = [1, 2, 3, 4, 5]
-                } else if (element == "2000-01-01 11:00:00 UTC") {
+                } else if (element == "2000-01-01 20:00:00 UTC") {
                 element = [1, 2, 3, 4]
-                } else if (element == "2000-01-01 10:00:00 UTC") {
+                } else if (element == "2000-01-01 19:00:00 UTC") {
                 element = [1, 2, 3]
-                } else if (element == "2000-01-01 09:00:00 UTC") {
+                } else if (element == "2000-01-01 18:00:00 UTC") {
                 element = [1, 2]
-                } else if (element == "2000-01-01 08:00:00 UTC") {
+                } else if (element == "2000-01-01 17:00:00 UTC") {
                 element = [1]
                 }
                 return element
@@ -1403,7 +1098,7 @@ document.addEventListener("DOMContentLoaded", function() {
 //for event modal squares
 
 function displayEventModalSchedule() {
-          console.log("hi")
+          console.log("main show hi")
             const mondaySquares = document.getElementById("monday-squares").querySelectorAll("button");
             const tuesdaySquares = document.getElementById("tuesday-squares").querySelectorAll("button");
             const wednesdaySquares = document.getElementById("wednesday-squares").querySelectorAll("button");
@@ -1415,71 +1110,43 @@ function displayEventModalSchedule() {
           function arrayMaker(element) {
 
               if (element == "") {
-                element = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+                element = [1, 2, 3, 4, 5, 6, 7]
                 }
-                if (element == "2000-01-01 08:00:00 UTC") {
-                element = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
-                } else if (element == "2000-01-01 09:00:00 UTC") {
-                element = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
-                } else if (element == "2000-01-01 10:00:00 UTC") {
-                element = [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
-                } else if (element == "2000-01-01 11:00:00 UTC") {
-                element = [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
-                } else if (element == "2000-01-01 12:00:00 UTC") {
-                element = [5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
-                } else if (element == "2000-01-01 13:00:00 UTC") {
-                element = [6, 7, 8, 9, 10, 11, 12, 13, 14]
-                } else if (element == "2000-01-01 14:00:00 UTC") {
-                element = [7, 8, 9, 10, 11, 12, 13, 14]
-                } else if (element == "2000-01-01 15:00:00 UTC") {
-                element = [8, 9, 10, 11, 12, 13, 14]
-                } else if (element == "2000-01-01 16:00:00 UTC") {
-                element = [9, 10, 11, 12, 13, 14]
-                } else if (element == "2000-01-01 17:00:00 UTC") {
-                element = [10, 11, 12, 13, 14]
+                if (element == "2000-01-01 17:00:00 UTC") {
+                element = [1, 2, 3, 4, 5, 6, 7]
                 } else if (element == "2000-01-01 18:00:00 UTC") {
-                element = [11, 12, 13, 14]
+                element = [2, 3, 4, 5, 6, 7]
                 } else if (element == "2000-01-01 19:00:00 UTC") {
-                element = [12, 13, 14]
+                element = [3, 4, 5, 6, 7]
                 } else if (element == "2000-01-01 20:00:00 UTC") {
-                element = [13, 14]
+                element = [4, 5, 6, 7]
                 } else if (element == "2000-01-01 21:00:00 UTC") {
+                element = [5, 6, 7]
+                } else if (element == "2000-01-01 22:00:00 UTC") {
+                element = [6, 7]
+                } else if (element == "2000-01-01 23:00:00 UTC") {
                 element = [14]
                 }
                 return element
                 }
-                function arrayMakerEnd(element) {
+            function arrayMakerEnd(element) {
                 if (element == "") {
                 element = []
                 }
-                if (element == "2000-01-01 21:00:00 UTC") {
-                element = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
-                } else if (element == "2000-01-01 20:00:00 UTC") {
-                element = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
-                } else if (element == "2000-01-01 19:00:00 UTC") {
-                element = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
-                } else if (element == "2000-01-01 18:00:00 UTC") {
-                element = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
-                } else if (element == "2000-01-01 17:00:00 UTC") {
-                element = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-                } else if (element == "2000-01-01 16:00:00 UTC") {
-                element = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-                } else if (element == "2000-01-01 15:00:00 UTC") {
-                element = [1, 2, 3, 4, 5, 6, 7, 8]
-                } else if (element == "2000-01-01 14:00:00 UTC") {
+                if (element == "2000-01-01 23:00:00 UTC") {
                 element = [1, 2, 3, 4, 5, 6, 7]
-                } else if (element == "2000-01-01 13:00:00 UTC") {
+                } else if (element == "2000-01-01 22:00:00 UTC") {
                 element = [1, 2, 3, 4, 5, 6]
-                } else if (element == "2000-01-01 12:00:00 UTC") {
+                } else if (element == "2000-01-01 21:00:00 UTC") {
                 element = [1, 2, 3, 4, 5]
-                } else if (element == "2000-01-01 11:00:00 UTC") {
+                } else if (element == "2000-01-01 20:00:00 UTC") {
                 element = [1, 2, 3, 4]
-                } else if (element == "2000-01-01 10:00:00 UTC") {
+                } else if (element == "2000-01-01 19:00:00 UTC") {
                 element = [1, 2, 3]
-                } else if (element == "2000-01-01 09:00:00 UTC") {
+                } else if (element == "2000-01-01 18:00:00 UTC") {
                 element = [1, 2]
-                } else if (element == "2000-01-01 08:00:00 UTC") {
-                element = [1]
+                } else if (element == "2000-01-01 17:00:00 UTC") {
+                element = [8]
                 }
                 return element
                 }
@@ -1516,6 +1183,8 @@ function displayEventModalSchedule() {
                   }
                   return notDups
                   }
+
+            
                   // need to gray out these squares. Each time it grays it it makes it less green.
                   // when second click is registered, it removes these classes for the row that was clicked.
                   let notDupsMonday = grayerArrayGetter(monday_s, monday_e);

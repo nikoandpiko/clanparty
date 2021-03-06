@@ -18,8 +18,9 @@ class EventsController < ApplicationController
       # raise
       sent_event_discord(@event.name, @event.description, @event.day, @event.start_time, @event.end_time, @team)
       redirect_to team_path(@team)
+     
     else
-      redirect_to team_path(@team), notice: "Please enter all information"
+      redirect_to team_path(@team), notice: "Please try again"
     end
   end
 

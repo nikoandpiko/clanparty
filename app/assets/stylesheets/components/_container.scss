@@ -11,8 +11,9 @@
 .schedule-grid {
     width: 400px;
     position: relative;
-    top: -325px;
-    left: 52px;
+    top: -137px;
+    left: 70px;
+    
 }
 
 .schedule-grid-edit {
@@ -24,7 +25,7 @@
 
 .schedule-grid-show {
     width: 400px;
-    height: 600px;
+    height: 310px;
     position: relative;
     top: 20px;
     right: -35px;
@@ -36,7 +37,7 @@
     padding: 16px;
     margin-right: 8px;
     margin-bottom: 8px;
-    background-color: #c7c9cc;
+    background-color: #212121;
     border: none;
     border-radius: 6px;
 }
@@ -45,7 +46,7 @@
     padding: 16px;
     margin-right: 8px;
     margin-bottom: 8px;
-    background-color: #c7c9cc;
+    background-color: #212121;
     border: none;
     border-radius: 6px;
 }
@@ -293,75 +294,41 @@
 }
 
 
-.hour1 {
-    position: absolute;
-    left: -34px;
-    top: 7px;
-}
-.hour2 {
-    position: absolute;
-    left: -34px;
-    top: 48px;
-}
-.hour3 {
-    position: absolute;
-    left: -34px;
-    top: 87px;
-}
-.hour4 {
-    position: absolute;
-     left: -34px;
-     top: 126px;
-}
-.hour5 {
-    position: absolute;
-     left: -34px;
-     top: 165px;
-}
-.hour6 {
-    position: absolute;
-     left: -34px;
-     top: 205px;
-}
-.hour7 {
-    position: absolute;
-     left: -34px;
-     top: 246px;
-}
+
 .hour8 {
     position: absolute;
      left: -34px;
-     top: 287px;
+     top: 0px;
 }
 .hour9 {
     position: absolute;
      left: -34px;
-     top: 327px;
+     top: 40px;
 }
 .hour10 {
     position: absolute;
      left: -34px;
-     top: 367px;
+     top: 80px;
 }
 .hour11 {
     position: absolute;
      left: -34px;
-     top: 406px;
+     top: 120px;
 }
 .hour12 {
     position: absolute;
      left: -34px;
-     top: 446px;
+     top: 160px;
 }
 .hour13 {
     position: absolute;
      left: -34px;
-     top: 486px;
+     top: 200px;
 }
 .hour14 {
     position: absolute;
      left: -34px;
-     top: 525px;
+     top: 240px;
 }
 
 
@@ -386,7 +353,7 @@
 
 .view-only {
     padding: 16px;
-    background-color: #c7c9cc;
+    background-color: #212121;
     border: none;
     margin-right: 8px;
     margin-bottom: 8px;
@@ -397,7 +364,7 @@
 
 .view-only:hover {
     padding: 16px;
-    background-color: #c7c9cc;
+    background-color: #212121;
     border: none;
     margin-right: 8px;
     margin-bottom: 8px;
@@ -463,7 +430,7 @@
     padding: 16px;
     margin-right: 8px;
     margin-bottom: 8px;
-    background-color: #9adf80;
+    background-color: #1b3b0f;
     border: none;
     border-radius: 6px;
 }
@@ -474,7 +441,7 @@
     padding: 16px;
     margin-right: 8px;
     margin-bottom: 8px;
-    background-color: #c7c9cc;
+    background-color: #212121;
     border: none;
     border-radius: 6px;
 }
@@ -483,7 +450,7 @@
     padding: 16px;
     margin-right: 8px;
     margin-bottom: 8px;
-    background-color: #c7c9cc;
+    background-color: #212121;
     border: none;
     border-radius: 6px;
 }
@@ -506,12 +473,43 @@
     background-color: #3644FF ;
     border: none;
     border-radius: 6px;
+}
 
+.grid-square:active {
+    background-color: #050e83;
+}
+
+
+.days-modal {
+    position: absolute;
+    top: 6px;
+    left: 0px;
+
+}
+
+.hours-modal {
+    position: absolute;
+    top: 10px;
+    left: 7px;
+}
+
+.modal-content {
+    border-radius: 8px;
+    color: white;
+    font-family: Helvetica Neue Bold;
+    font-size: 24px;
+    color: white;
+    text-shadow: 0px 2px 2px #00000080;
 }
 
 
 
-
-
-
-
+.disabler {
+    padding: 16px;
+    margin-right: 8px;
+    margin-bottom: 8px;
+    background-color: #0c0c0c;
+    border: none;
+    border-radius: 6px;
+    pointer-events: none;
+}

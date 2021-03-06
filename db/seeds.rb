@@ -35,7 +35,7 @@ end
   # each weekday start and end time
   days_times = []
   7.times do
-    days_times << random_start_end_time(rand(8..21), rand(8..21))
+    days_times << random_start_end_time(rand(17..23), rand(17..23))
   end
   random_stats = rand(57..98)
   random_servers = ["Tonberry", "Ramuh", "Kujata", "Gungnir"]
