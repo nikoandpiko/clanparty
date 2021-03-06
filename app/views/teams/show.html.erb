@@ -444,7 +444,7 @@
             <p>We are currently open for recruitment and are looking for all classes. All members are required to be available at least three times per week for two to three hours.</p>
             <a href="<%= @team.discord %> " style="color: Mediumslateblue;"><i class="fab fa-discord fa-fw"></i>Discord</a>
             <br>
-            <% if @team.status == 0 %>
+            <% if @team.status == 0 || current_user.nil? %>
               <%= link_to "CURRENTLY FULL", '#', class: "btn btn-warning mr-3 disabled btn-block", style:"font-weight:bold;border-radius:0.4em;" %>
             <% elsif Invite.find_by(user_id: current_user.id).nil? && Invite.where(status: 0) %>
               <%# <%= link_to "CLICK TO APPLY", team_path(@team), class: "btn btn-warning mr-3 active btn-block", style:"font-weight:bold;border-radius:0.4em;" %>
@@ -455,6 +455,8 @@
               <%= f.submit "APPLY TO JOIN", id:"sweet-alert-apply", class: "btn btn-pink mr-3 btn-block" %>
                 <%# <%= f.input :status, input_html: { value: 2 }, as: :hidden %>
               <% end %>
+              <% else %>
+              <%= link_to "CURRENTLY FULL", '#', class: "btn btn-warning mr-3 disabled btn-block", style:"font-weight:bold;border-radius:0.4em;" %>
             <% end %>
           </div>
 
@@ -470,6 +472,7 @@
                 <%#= link_to "Discord", invite.user.discord %>
               </div>
             </div>
+            <% if current_user == @user[0] %>
             <div class="d-flex justify-content-center">
             <%= simple_form_for ( invite ), html: { class: "w-50"} do |f| %>
               <%= button_tag type: :submit, class: "btn btn-accept" do %>
@@ -484,6 +487,7 @@
                 <%= f.input :status, wrapper_html: { class: "m-0 "}, input_html: { value: 0, class: "w-100" }, as: :hidden %>
               <% end %>
             </div><br>
+          <% end %>
           <% end %>
         </div>
         </div>
