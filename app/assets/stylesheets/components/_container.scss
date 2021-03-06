@@ -11,8 +11,8 @@
 .schedule-grid {
     width: 400px;
     position: relative;
-    top: -325px;
-    left: 52px;
+    top: -135px;
+    left: 70px;
 }
 
 .schedule-grid-edit {
@@ -24,7 +24,7 @@
 
 .schedule-grid-show {
     width: 400px;
-    height: 600px;
+    height: 310px;
     position: relative;
     top: 20px;
     right: -35px;
@@ -293,75 +293,41 @@
 }
 
 
-.hour1 {
-    position: absolute;
-    left: -34px;
-    top: 7px;
-}
-.hour2 {
-    position: absolute;
-    left: -34px;
-    top: 48px;
-}
-.hour3 {
-    position: absolute;
-    left: -34px;
-    top: 87px;
-}
-.hour4 {
-    position: absolute;
-     left: -34px;
-     top: 126px;
-}
-.hour5 {
-    position: absolute;
-     left: -34px;
-     top: 165px;
-}
-.hour6 {
-    position: absolute;
-     left: -34px;
-     top: 205px;
-}
-.hour7 {
-    position: absolute;
-     left: -34px;
-     top: 246px;
-}
+
 .hour8 {
     position: absolute;
      left: -34px;
-     top: 287px;
+     top: 0px;
 }
 .hour9 {
     position: absolute;
      left: -34px;
-     top: 327px;
+     top: 40px;
 }
 .hour10 {
     position: absolute;
      left: -34px;
-     top: 367px;
+     top: 80px;
 }
 .hour11 {
     position: absolute;
      left: -34px;
-     top: 406px;
+     top: 120px;
 }
 .hour12 {
     position: absolute;
      left: -34px;
-     top: 446px;
+     top: 160px;
 }
 .hour13 {
     position: absolute;
      left: -34px;
-     top: 486px;
+     top: 200px;
 }
 .hour14 {
     position: absolute;
      left: -34px;
-     top: 525px;
+     top: 240px;
 }
 
 
@@ -510,7 +476,18 @@
 }
 
 
+.days-modal {
+    position: absolute;
+    top: 6px;
+    left: 0px;
 
+}
+
+.hours-modal {
+    position: absolute;
+    top: 10px;
+    left: 7px;
+}
 
 
 
