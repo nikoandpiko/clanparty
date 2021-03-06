@@ -32,11 +32,32 @@ class EventsController < ApplicationController
   def event_params
     params.require(:event).permit(:name, :description, :day, :start_time, :end_time)
   end
-  # WEBHOOK_URL = ENV["DISCORD_URL"]
-  WEBHOOK_URL = 'https://discord.com/api/webhooks/817030712401330176/_rXms5NGitxqwPbyoBXu-teAcYi3zZJN7TrDDAlzWLe_UJyJZy3mDTTJ34nwaYQLOllX'.freeze
+
+  def day_time(day)
+    day_time = case day
+    when 2
+      "Monday"
+    when 3
+      "Tuesday"
+    when 4
+      "Wednesday"
+    when 5
+      "Thursday"
+    when 6
+      "Friday"
+    when 7
+      "Saturday"
+    when 1
+      "Sunday"
+    end
+    return day_time
+  end
+  WEBHOOK_URL = ENV["DISCORD_URL"]
+  # WEBHOOK_URL = 'https://discord.com/api/webhooks/817030712401330176/_rXms5NGitxqwPbyoBXu-teAcYi3zZJN7TrDDAlzWLe_UJyJZy3mDTTJ34nwaYQLOllX'.freeze
 
   def sent_event_discord(event_title, description, day, start_time, end_time, team)
     require 'discordrb/webhooks'
+    # weekday = day_time(day)
 
     client = Discordrb::Webhooks::Client.new(url: WEBHOOK_URL)
     client.execute do |builder|
@@ -46,8 +67,8 @@ class EventsController < ApplicationController
         embed.url = "https://clanparty.herokuapp.com/teams#{team.id}/"
         # change LINK to clanparty.net later!!!
         embed.description = "#{description}!"
-        embed.add_field(name: 'Day', value: day, inline: true)
-        embed.add_field(name: 'Time', value: "#{start_time} - #{end_time}", inline: true)
+        embed.add_field(name: 'Day', value: day_time(day), inline: true)
+        embed.add_field(name: 'Time', value: "#{start_time.strftime('%H:%M')} - #{end_time.strftime('%H:%M')}", inline: true)
         embed.image = Discordrb::Webhooks::EmbedImage.new(url: Event::EVENT_IMAGE[event_title])
         embed.timestamp = Time.now
       end
