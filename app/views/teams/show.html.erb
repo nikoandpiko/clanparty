@@ -641,21 +641,19 @@
           let dayFinder = false
 
 
-
+         
           function clickchecker(square) {
             if (square.classList.contains("clicked-square-event")) {
                 square.classList.add("first-selection")
+                clickedSquare = true
             }
             square.classList.add("keep-active")
           }
         
           function eventDisabler(square) {
             if (!square.classList.contains("keep-active")) {
-              
                 square.classList.add("disabler")
-                
             }
-
           }
 
           function eventDataSubmitter(square) {
