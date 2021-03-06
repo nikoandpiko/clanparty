@@ -53,18 +53,16 @@ class EventsController < ApplicationController
     return day_time
   end
   WEBHOOK_URL = ENV["DISCORD_URL"]
-  # WEBHOOK_URL = 'https://discord.com/api/webhooks/817030712401330176/_rXms5NGitxqwPbyoBXu-teAcYi3zZJN7TrDDAlzWLe_UJyJZy3mDTTJ34nwaYQLOllX'.freeze
 
   def sent_event_discord(event_title, description, day, start_time, end_time, team)
     require 'discordrb/webhooks'
-    # weekday = day_time(day)
 
     client = Discordrb::Webhooks::Client.new(url: WEBHOOK_URL)
     client.execute do |builder|
-      builder.content = "Z@Zhere NEW Event!"
+      builder.content = "@here NEW Event!"
       builder.add_embed do |embed|
         embed.title = event_title
-        embed.url = "https://clanparty.herokuapp.com/teams#{team.id}/"
+        embed.url = "https://clanparty.herokuapp.com/teams/#{team.id}/"
         # change LINK to clanparty.net later!!!
         embed.description = "#{description}!"
         embed.add_field(name: 'Day', value: day_time(day), inline: true)
