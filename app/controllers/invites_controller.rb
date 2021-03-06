@@ -34,6 +34,11 @@ class InvitesController < ApplicationController
     # @specific_team = Invite.where(team_id: @team)
     @invite.update(invite_params)
     session[:return_to] ||= request.referer
+    if @invite.status == 1
+      accepted_discord(@invite.user)
+    elsif @invite.status == 0
+      declined_discord(@invite.user, @invite.team)
+    end
     redirect_to session.delete(:return_to), notice: "Status updated!"
   end
 
@@ -45,32 +50,52 @@ class InvitesController < ApplicationController
 
   WEBHOOK_URL = ENV["DISCORD_URL2"].freeze
 
-  # def please_get_to_work
-  #   require 'discordrb/webhooks'
-
-
-  #   client = Discordrb::Webhooks::Client.new(url: WEBHOOK_URL)
-  #   client.execute do |builder|
-  #     builder.content = 'Hello world!'
-  #     builder.add_embed do |embed|
-  #       embed.title = 'Embed title'
-  #       embed.description = 'Embed description'
-  #       embed.timestamp = Time.now
-  #     end
-  #   end
-  # end
-
   def application_discord(user, team)
     require 'discordrb/webhooks'
 
     client = Discordrb::Webhooks::Client.new(url: WEBHOOK_URL)
     client.execute do |builder|
-      builder.content = "@administrator NEW Application!"
+      builder.content = "<@&817023909378654228> NEW Application!"
       builder.add_embed do |embed|
+        embed.color = 2815
         embed.title = "Waiting for approval"
         embed.url = "https://clanparty.herokuapp.com/teams/#{team.id}/"
         # change LINK to clanparty.net later!!!
-        embed.description = "[#{user.username}](https://clanparty.herokuapp.com/teams/#{user.id}/) would like to join the team!"
+        embed.description = "[#{user.nickname}](https://clanparty.herokuapp.com/teams/#{user.id}/) would like to join the team!"
+        embed.timestamp = Time.now
+      end
+    end
+  end
+
+  def accepted_discord(user)
+    require 'discordrb/webhooks'
+
+    client = Discordrb::Webhooks::Client.new(url: WEBHOOK_URL)
+    client.execute do |builder|
+      builder.content = "<@!#{user.discord}> Congratulations!"
+      builder.add_embed do |embed|
+        embed.color = 65321
+        embed.title = "Future events"
+        embed.url = "<#817030626846048306>"
+        # change LINK to clanparty.net later!!!
+        embed.description = "You have been accepted. #{user.nickname} be sure to check out events. Trial events are MUST!"
+        embed.timestamp = Time.now
+      end
+    end
+  end
+
+  def declined_discord(user, team)
+    require 'discordrb/webhooks'
+
+    client = Discordrb::Webhooks::Client.new(url: WEBHOOK_URL)
+    client.execute do |builder|
+      builder.content = "<@!#{user.discord}> Denied!"
+      builder.add_embed do |embed|
+        embed.color = 16711680
+        embed.title = "Denied to join team"
+        embed.url = "https://clanparty.herokuapp.com/teams/#{team.id}/"
+        # change LINK to clanparty.net later!!!
+        embed.description = "Your request has unfortunately been denied. We kindly ask you to leave the channel!"
         embed.timestamp = Time.now
       end
     end

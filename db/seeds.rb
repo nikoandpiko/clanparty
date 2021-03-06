@@ -494,7 +494,7 @@ puts "All finished"
     avatar: Faker::Avatar.image,
     nickname: Faker::Games::ElderScrolls.first_name,
     bio: Faker::Quote.matz,
-    discord: "https://discord.gg/thisshouldnotworkhopefully",
+    discord: "712233485753909319",
     role: role.sample,
     sunday_start: days_times[0][0],
     sunday_end: days_times[0][1],
