@@ -217,7 +217,7 @@ User.create(
   nickname: "Tenchu Muyo",
   avatar: tenchu,
   bio: "Just look at my stats and start crying since you will never get as good as me.",
-  discord: "https://discord.gg/crazyLWT",
+  discord: "Tenchu2x#5477",
   role: role[0],
   server: "Tonberry",
   stats: 81
@@ -308,7 +308,7 @@ User.create(
   nickname: "Aurora Vesper",
   avatar: vesper,
   bio: "Playing FF since 2019. Maybe not the best, but daily online! High level Healer and if necessary can be Tank too!",
-  discord: "https://discord.gg/crazyLWT",
+  discord: "204311541561032704",
   role: role[1],
   server: "Tonberry",
   stats: 80
@@ -326,7 +326,7 @@ Team.create(
   name: "Fatebreaker Savage",
   avatar: new_pic,
   bio: "TEAM: Together Everyone Achieves More.",
-  discord: "https://discord.gg/thisshouldnotworkhopefullyteams",
+  discord: "https://discord.gg/Gw8cmHShnV",
   status: 1,
   user_id: user_special.id,
   game_id: Game.last.id
@@ -412,7 +412,7 @@ User.create(
   nickname: "Ludacris Angmar",
   avatar: Faker::Avatar.image,
   bio: "Pro Gamer since 2008. Teams only win because of my skills. Not wasting my time with loosers. Only winner teams please. LETS GO AND RAID!",
-  discord: "https://discord.gg/crazyLWT",
+  discord: "263239572270481408",
   role: role[1],
   server: "Tonberry",
   stats: 74
@@ -494,7 +494,7 @@ puts "All finished"
     avatar: Faker::Avatar.image,
     nickname: Faker::Games::ElderScrolls.first_name,
     bio: Faker::Quote.matz,
-    discord: "https://discord.gg/thisshouldnotworkhopefully",
+    discord: "712233485753909319",
     role: role.sample,
     sunday_start: days_times[0][0],
     sunday_end: days_times[0][1],
