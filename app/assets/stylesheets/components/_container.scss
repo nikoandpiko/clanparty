@@ -425,6 +425,15 @@
     border-radius: 6px;
 }
 
+.event-modal:active {
+    padding: 16px;
+    margin-right: 8px;
+    margin-bottom: 8px;
+    background-color: #050e83;
+    border: none;
+    border-radius: 6px;
+}
+
 
 .grayout {
     padding: 16px;
@@ -475,9 +484,6 @@
     border-radius: 6px;
 }
 
-.grid-square:active {
-    background-color: #050e83;
-}
 
 
 .days-modal {
