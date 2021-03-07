@@ -4,6 +4,34 @@ class TeamsController < ApplicationController
   def index
     @teams = policy_scope(Team)
     @users = User.all
+
+    @each_teams_members = []
+    @teams.each do |team|
+      @accepted_members = Invite.accepted.where(team_id: team.id)
+      @team_leader = User.where(team_id: team.id)
+      @accepted_members.each do |invite|
+        @user = invite.user
+        @each_teams_members << @user
+        
+      end
+      @each_teams_members << @team_leader[0]
+    end
+
+    # @each_teams_members.each_with_index do |member, index|
+    #   if !member.team_id.nil?
+    #     @each_teams_members.slice(", ")
+    #   end
+
+ raise
+   
+    end
+
+# NEED TO SPLIT MEMBERS INTO SEPARATE ELEMENTS
+
+
+   
+
+
   end
 
   def show

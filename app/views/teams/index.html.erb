@@ -21,7 +21,10 @@
 <div class="tab-content" id="myTabContent">
   <div class="tab-pane fade show active" id="team" role="tabpanel" aria-labelledby="team-tab">
     <div class="team-cards-grid container" style="margin-top: -30px">
+    <% counter = 0 %>
       <% @teams.each do |team| %>
+
+         
         <div class="p-3 background-gradient-purple mb-3">
           <div class="card-body d-flex card-inner"> <% old_color="#252830" %>
             <img src="<%= team.avatar %>" alt="<%= team.name %>" style="height:80px;width:80px;border-radius:50%;">
@@ -95,3 +98,4 @@
         <% end %>
       </div>
     </div>
+
