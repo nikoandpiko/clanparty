@@ -508,6 +508,20 @@
     text-shadow: 0px 2px 2px #00000080;
 }
 
+.modal-content button {
+    color: rgba(255, 255, 255, 0.637);
+}
+
+
+.close {
+    opacity: 80% !important;
+}
+
+.close:hover {
+    opacity: 50% !important;
+    color: rgba(255, 255, 255, 0.637) !important;
+}
+
 
 
 .disabler {
@@ -519,3 +533,4 @@
     border-radius: 6px;
     pointer-events: none;
 }
+
