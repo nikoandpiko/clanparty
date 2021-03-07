@@ -23,7 +23,8 @@
     <div class="team-cards-grid container" style="margin-top: -30px">
       <% @teams.each do |team| %>
         <div class="p-3 background-gradient-purple mb-3">
-          <div class="card-body d-flex card-inner"> <% old_color="#252830" %>
+          <h2 class="card-outer-header"><i class="fas fa-user-plus pr-1"></i> SEEKING</h2>
+          <div class="card-team d-flex card-inner"> <% old_color="#252830" %>
             <img src="<%= team.avatar %>" alt="<%= team.name %>" style="height:80px;width:80px;border-radius:50%;">
             <div class="ml-2">
               <p class="card-member-role">Final Fantasy XIV</p>
@@ -48,7 +49,7 @@
                 <% end %>
                 h / <i class="far fa-user"></i> <%= team.invites.accepted.count %> player<% if team.invites.accepted.count > 1 %><%= "s" %><% end %></h6>
               <!-- <p class="card-text text-dark">CORE HOURS</p> -->
-              <img src="<%= sample %>" alt="Schedule" style="width:350px;">
+              <img src="<%= sample %>" alt="Schedule" style="width:300px;">
             </div>
           </div>
         </div>
