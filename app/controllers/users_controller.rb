@@ -7,8 +7,10 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    
+
     @invite = Invite.where(user_id: @user)
+    @buh = Invite.where(params[:team_id])
+
     if !@invite[0].nil?
       @team = Team.where(id: @invite[0].team_id)
     elsif !@user.team_id.nil?
