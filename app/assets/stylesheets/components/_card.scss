@@ -1,5 +1,11 @@
 // Clanparty Classes
+.card {
+  border: 1px solid #212121;
+}
 
+.card-team {
+  padding-top: 16px;
+}
 
 .team-header p {
   font-family: Helvetica Neue Regular;
@@ -279,7 +285,7 @@
   border-radius: 8px;
   margin-bottom: 10px;
   box-shadow: 2px 2px 4px #00000080;
-  
+
 }
 
 .user-show-card-schedule p{

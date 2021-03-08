@@ -1,15 +1,15 @@
 <div class="landing-video-wrapper">
   <%= video_tag "landing2.mp4", autoplay: :autoplay, loop: :loop, muted: :muted, class:"landing-video overlay" %>
-  <div class="container marginpad">
+  <div class="container marginpad banner">
     <h1>FIND PEOPLE TO RAID WITH!</h1>
     <div>
     <p class="flex-grow-1 p-1 bg-warning barwidth"></p>
     </div>
     <p>Clanparty helps you find and create teams to play with on your schedule</p>
-    <a class="btn btn-warning mr-3" href="http://localhost:3000/users/sign_up" role="button">START NOW</a>
-    <a class="btn btn-warning mr-3" href="http://localhost:3000/teams" role="button">EXPLORE TEAMS</a>
+    <a class="btn btn-pink mr-3 px-5" href="http://www.clanparty.net/users/sign_up" role="button">SIGN UP</a>
+    <a class="btn btn-blue mr-3 px-5" href="http://www.clanparty.net/teams" role="button">FIND A TEAM</a>
   </div>
-  <div class="container mt-5">
-    <%= image_tag "landing_info.png", class:"landing-info mt-5" %>
-  </div>
+</div>
+<div class="container">
+  <%= image_tag "landing_info.png", class:"landing-info" %>
 </div>

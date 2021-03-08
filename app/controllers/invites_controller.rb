@@ -61,7 +61,7 @@ class InvitesController < ApplicationController
         embed.title = "Waiting for approval"
         embed.url = "https://clanparty.herokuapp.com/teams/#{team.id}/"
         # change LINK to clanparty.net later!!!
-        embed.description = "[#{user.nickname}](https://clanparty.herokuapp.com/teams/#{user.id}/) would like to join the team!"
+        embed.description = "[#{user.nickname}](https://clanparty.herokuapp.com/teams/#{user.id}/) would like to join the team!\n\nVote:\n:white_check_mark: or :x:"
         embed.timestamp = Time.now
       end
     end
@@ -75,7 +75,7 @@ class InvitesController < ApplicationController
       builder.content = "<@!#{user.discord}> Congratulations!"
       builder.add_embed do |embed|
         embed.color = 65321
-        embed.title = "Future events"
+        embed.title = "Check out events channel"
         # embed.url = "<#817030626846048306>"
         # change LINK to clanparty.net later!!!
         embed.description = "You have been accepted. #{user.nickname} be sure to check out events channel. Trial events are MUST!"
