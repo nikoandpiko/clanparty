@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   # root to: 'teams#index'
   root to: 'pages#home'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  resources :teams, except: [ :edit, :update, :delete ] do
+  resources :teams, except: [ :delete ] do
     resources :invites, except: [ :delete, :update, :edit ]
     resources :events,  only: [ :new, :create ]
     # resources :users, only: [ :delete ]

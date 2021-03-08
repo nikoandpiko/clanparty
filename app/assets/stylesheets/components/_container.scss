@@ -425,6 +425,15 @@
     border-radius: 6px;
 }
 
+.event-modal:active {
+    padding: 16px;
+    margin-right: 8px;
+    margin-bottom: 8px;
+    background-color: #050e83;
+    border: none;
+    border-radius: 6px;
+}
+
 
 .grayout {
     padding: 16px;
@@ -475,9 +484,6 @@
     border-radius: 6px;
 }
 
-.grid-square:active {
-    background-color: #050e83;
-}
 
 
 .days-modal {
@@ -502,6 +508,20 @@
     text-shadow: 0px 2px 2px #00000080;
 }
 
+.modal-content button {
+    color: rgba(255, 255, 255, 0.637);
+}
+
+
+.close {
+    opacity: 80% !important;
+}
+
+.close:hover {
+    opacity: 50% !important;
+    color: rgba(255, 255, 255, 0.637) !important;
+}
+
 
 
 .disabler {
@@ -512,4 +532,126 @@
     border: none;
     border-radius: 6px;
     pointer-events: none;
+}
+
+.hidden {
+    color: black;
+}
+
+.hidden:hover {
+    color: black;
+}
+
+.index {
+    padding: 20px;
+    margin-right: 6px;
+    margin-bottom: 8px;
+
+}
+
+.day-grid {
+    position: relative;
+    top: 40px;
+    left: -60px;
+    width: 150%;
+    display: none;
+    
+}
+
+.day-grid-enabled {
+    position: relative;
+    top: 40px;
+    left: -60px;
+    width: 150%;
+    display: block;
+    
+}
+
+.caret-button {
+    position: relative;
+    top: -20px;
+    right: -270px;
+    background-color:#140c16 ;
+    border: none;
+}
+
+.clicked-caret {
+    position: relative;
+    top: 50px;
+    right: -270px;
+    background-color:#140c16 ;
+    border: none;
+    transform: rotate(180deg);
+}
+
+.fa-caret-down {
+    font-size: 30px;
+    color: rgb(170, 168, 168);
+}
+
+.caret-button:hover {
+    .fa-caret-down{
+        color: rgb(228, 220, 220);
+    }
+    
+}
+
+.caret-button:active {
+    .fa-caret-down{
+        color: rgb(151, 149, 149);
+    }
+}
+
+
+
+
+.monday1 {
+    position: absolute;
+    top: -22px;
+    left: 15px;
+    color: white;
+
+}
+
+.tuesday1 {
+    position: absolute;
+    top: -22px;
+    left: 67px;
+    color: white;
+}
+
+.wednesday1 {
+    position: absolute;
+    top: -22px;
+    left: 115px;
+    color: white;
+}
+
+.thursday1 {
+    position: absolute;
+    top: -22px;
+    left: 167px;
+    color: white;
+}
+
+.friday1 {
+    position: absolute;
+    top: -22px;
+    left: 217px;
+    color: white;
+}
+
+.saturday1 {
+    position: absolute;
+    top: -22px;
+    left: 267px;
+    color: white;
+
+}
+
+.sunday1 {
+    position: absolute;
+    top: -22px;
+    left: 317px;
+    color: white;
 }

@@ -1,9 +1,12 @@
 class TeamsController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :index, :show ]
+  skip_before_action :verify_authenticity_token
+
 
   def index
     @teams = policy_scope(Team)
     @users = User.all
+    
   end
 
   def show
@@ -46,9 +49,22 @@ class TeamsController < ApplicationController
     end
   end
 
+  def edit
+    @team = Team.find(params[:id])
+    authorize @team
+  end
+
+  def update
+    @team = Team.find(params[:id])
+    authorize @team
+    @team.update(team_params)
+    redirect_to team_path(@team)
+
+  end
   private
 
   def team_params
-    params.require(:team).permit(:game_id, :name, :status, :discord, :bio, :avatar)
+    params.require(:team).permit(:game_id, :name, :status, :discord, :bio, :avatar, :monday_start, :monday_end, :tuesday_start, :tuesday_end, :wednesday_start, :wednesday_end, :thursday_start,
+    :thursday_end, :friday_start, :friday_end, :saturday_start, :saturday_end, :sunday_start, :sunday_end, :monday, :tuesday, :wednesday, :thursday, :friday, :saturday, :sunday)
   end
 end
