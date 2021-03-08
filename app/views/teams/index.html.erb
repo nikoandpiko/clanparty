@@ -26,14 +26,24 @@
 
          
         <div class="p-3 background-gradient-purple mb-3">
-          <div class="card-body d-flex card-inner"> <% old_color="#252830" %>
+          <div class="card-body d-flex card-inner-team-index"> <% old_color="#252830" %>
             <img src="<%= team.avatar %>" alt="<%= team.name %>" style="height:80px;width:80px;border-radius:50%;">
             <div class="ml-2">
               <p class="card-member-role">Final Fantasy XIV</p>
               <h5 class="card-inner-header"><%= link_to team.name, team_path(team) %></h5>
-              <h6 class="card-subtitle text-muted mb-2"><i class="far fa-calendar"></i>
+              <% counter = 0 %>
+              <% team.monday == true ? counter += 1 : counter = counter  %>
+              <% team.tuesday == true ? counter += 1 : counter = counter %>
+              <% team.wednesday == true ? counter += 1 : counter = counter %>
+              <% team.thursday == true ? counter += 1 : counter = counter %>
+              <% team.friday == true ? counter += 1 : counter = counter %>
+              <% team.saturday == true ? counter += 1 : counter = counter %>
+              <% team.sunday == true ? counter += 1 : counter = counter %>   
+              <h6 class="card-subtitle text-muted mb-2"><i class="far fa-calendar ml-1"></i> <%= "#{counter} days" %>   <i class="far fa-user ml-2"></i> <%= team.invites.accepted.count + 1 %>
+              <i class="fas fa-clock ml-2"></i></h6>
+    
               <div class="day-grid">
-                <div class="days">
+                <div class="days1">
                   <p class="monday1">M</p>
                   <p class="tuesday1">T</p>
                   <p class="wednesday1">W</p>
@@ -79,10 +89,10 @@
                 <% end %>
               </div>
          
-                h / <i class="far fa-user"></i> <%= team.invites.accepted.count %> player<% if team.invites.accepted.count > 1 %><%= "s" %><% end %></h6>
+               
               <!-- <p class="card-text text-dark">CORE HOURS</p> -->
       
-              <button class="caret-button" type="button" data-toggle="dropdown">
+              <button class="caret-button" type="button" data-toggle="dropdown" onclick="cardExpander();">
                <i class="fas fa-caret-down"></i>
               </button>
             </div>
@@ -189,6 +199,15 @@
 
 
 <script>
+function cardExpander(); {
+  
+
+
+}
+
+
+
+
 
 
 document.addEventListener("DOMContentLoaded", function() {

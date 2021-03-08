@@ -543,24 +543,25 @@
 }
 
 .index {
-    padding: 22px;
-    margin-right: 8px;
+    padding: 20px;
+    margin-right: 6px;
     margin-bottom: 8px;
 
 }
 
 .day-grid {
     position: relative;
-    top: 50px;
-    left: -80px;
+    top: 40px;
+    left: -60px;
     width: 150%;
+    display: none;
     
 }
 
 .caret-button {
     position: relative;
-    top: 10px;
-    right: -260px;
+    top: -20px;
+    right: -270px;
     background-color:#140c16 ;
     border: none;
 }
@@ -588,44 +589,51 @@
 
 .monday1 {
     position: absolute;
-    top: -25px;
-    left: 25px;
+    top: -22px;
+    left: 15px;
+    color: white;
 
 }
 
 .tuesday1 {
     position: absolute;
-    top: -25px;
-    left: 73px;
+    top: -22px;
+    left: 67px;
+    color: white;
 }
 
 .wednesday1 {
     position: absolute;
-    top: -25px;
+    top: -22px;
     left: 115px;
+    color: white;
 }
 
 .thursday1 {
     position: absolute;
-    top: -25px;
-    left: 163px;
+    top: -22px;
+    left: 167px;
+    color: white;
 }
 
 .friday1 {
     position: absolute;
-    top: -25px;
-    left: 208px;
+    top: -22px;
+    left: 217px;
+    color: white;
 }
 
 .saturday1 {
     position: absolute;
-    top: -25px;
-    left: 252px;
+    top: -22px;
+    left: 267px;
+    color: white;
 
 }
 
 .sunday1 {
     position: absolute;
-    top: -25px;
-    left: 298px;
+    top: -22px;
+    left: 317px;
+    color: white;
 }
