@@ -8,8 +8,11 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
 
+    @current_member = Invite.find_by(user_id: @user)
+    @teammates = Invite.where(team_id: @current_member.team_id)
+    @xy = @teammates.where(status: 1)
+
     @invite = Invite.where(user_id: @user)
-    @buh = Invite.where(params[:team_id])
 
     if !@invite[0].nil?
       @team = Team.where(id: @invite[0].team_id)

@@ -242,8 +242,9 @@
         </div><br>
 
         <div class="p-3 background-gradient-members-two">
-          <h2 class="card-outer-header"><i class="fas fa-user-friends pr-1"></i> CURRENT TEAM MEMBERS</h2>
-          <% unless @user.team_id.nil? != current_user %>
+          <h2 class="card-outer-header"><i class="fas fa-user-friends pr-1"></i> CURRENT TEAM MEMBERS (<%= @xy.count - 1 %>) </h2>
+          <%# Below was originally != current_user ... Unsure which is needed if any. %>
+          <% unless @user.team_id.nil? != @user %>
           <div class="card-product-two text-left card-inner">
             <img class="card-member-avatar" src="<%= @user[0].avatar %>" alt="<%= @user[0].nickname %>">
             <div class="card-inner-header">
@@ -252,7 +253,8 @@
             </div>
           </div>
           <% end %>
-          <% @buh.each do |invite| %>
+          <% @xy.each do |invite| %>
+          <% next if invite.user == @user %>
             <div class="card-product-two text-left card-inner">
               <img class="card-member-avatar" src="<%= invite.user.avatar %>" alt="<%= invite.user.nickname %>">
               <div class="card-inner-header">
