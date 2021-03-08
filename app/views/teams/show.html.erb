@@ -732,8 +732,10 @@ function scheduleDataSetterSunday(square) {
 function mondaySubmitButtonHover() {
   mondaySquares1.forEach(scheduleDataSetterMonday);
      console.log("hey")
-
-  if (dataSubmitterMonday[0].classList.contains("0")) {
+if (dataSubmitterMonday[0] == null) {
+  mondayStartInput.value = "null"
+}
+  else if (dataSubmitterMonday[0].classList.contains("0")) {
       mondayStartInput.value = "17:00"
     } else if (dataSubmitterMonday[0].classList.contains("1")) {
       mondayStartInput.value = "18:00"
@@ -749,8 +751,10 @@ function mondaySubmitButtonHover() {
       mondayStartInput.value = "23:00"
     }
 
-
-  if (dataSubmitterMonday[dataSubmitterMonday.length - 1].classList.contains("0")) {
+if (dataSubmitterMonday[dataSubmitterMonday.length - 1] == null) {
+  mondayEndInput.value = "null"
+}
+  else if (dataSubmitterMonday[dataSubmitterMonday.length - 1].classList.contains("0")) {
       mondayEndInput.value = "19:00"
     } else if (dataSubmitterMonday[dataSubmitterMonday.length - 1].classList.contains("1")) {
       mondayEndInput.value = "20:00"
@@ -771,8 +775,10 @@ function mondaySubmitButtonHover() {
 function tuesdaySubmitButtonHover() {
   tuesdaySquares1.forEach(scheduleDataSetterTuesday);
 
-
-  if (dataSubmitterTuesday[0].classList.contains("0")) {
+if (dataSubmitterTuesday[0] == null) {
+  tuesdayStartInput.value = "null"
+}
+  else if (dataSubmitterTuesday[0].classList.contains("0")) {
       tuesdayStartInput.value = "17:00"
     } else if (dataSubmitterTuesday[0].classList.contains("1")) {
       tuesdayStartInput.value = "18:00"
@@ -787,8 +793,10 @@ function tuesdaySubmitButtonHover() {
     } else if (dataSubmitterTuesday[0].classList.contains("6")) {
       tuesdayStartInput.value = "23:00"
     }
-
-  if (dataSubmitterTuesday[dataSubmitterTuesday.length - 1].classList.contains("0")) {
+if (dataSubmitterTuesday[dataSubmitterTuesday.length - 1] == null) {
+  tuesdayEndInput.value = "null"
+}
+  else if (dataSubmitterTuesday[dataSubmitterTuesday.length - 1].classList.contains("0")) {
       tuesdayEndInput.value = "17:00"
     } else if (dataSubmitterTuesday[dataSubmitterTuesday.length - 1].classList.contains("1")) {
       tuesdayEndInput.value = "18:00"
@@ -809,8 +817,10 @@ function tuesdaySubmitButtonHover() {
 function wednesdaySubmitButtonHover() {
   wednesdaySquares1.forEach(scheduleDataSetterWednesday);
 
-
-  if (dataSubmitterWednesday[0].classList.contains("0")) {
+if (dataSubmitterWednesday[0] == null) {
+  wednesdayStartInput.value = "null"
+}
+  else if (dataSubmitterWednesday[0].classList.contains("0")) {
       wednesdayStartInput.value = "17:00"
     } else if (dataSubmitterWednesday[0].classList.contains("1")) {
       wednesdayStartInput.value = "18:00"
@@ -825,8 +835,10 @@ function wednesdaySubmitButtonHover() {
     } else if (dataSubmitterWednesday[0].classList.contains("6")) {
       wednesdayStartInput.value = "23:00"
     }
-
-  if (dataSubmitterWednesday[dataSubmitterWednesday.length - 1].classList.contains("0")) {
+if (dataSubmitterWednesday[dataSubmitterWednesday.length - 1] == null) {
+  wednesdayEndInput.value = "null"
+}
+  else if (dataSubmitterWednesday[dataSubmitterWednesday.length - 1].classList.contains("0")) {
       wednesdayEndInput.value = "17:00"
     } else if (dataSubmitterWednesday[dataSubmitterWednesday.length - 1].classList.contains("1")) {
       wednesdayEndInput.value = "18:00"
@@ -847,8 +859,10 @@ function wednesdaySubmitButtonHover() {
 function thursdaySubmitButtonHover() {
   thursdaySquares1.forEach(scheduleDataSetterThursday);
 
-
-  if (dataSubmitterThursday[0].classList.contains("0")) {
+if (dataSubmitterThursday[0] == null) {
+  thursdayStartInput.value = "null"
+}
+  else if (dataSubmitterThursday[0].classList.contains("0")) {
       thursdayStartInput.value = "17:00"
     } else if (dataSubmitterThursday[0].classList.contains("1")) {
       thursdayStartInput.value = "18:00"
@@ -863,8 +877,10 @@ function thursdaySubmitButtonHover() {
     } else if (dataSubmitterThursday[0].classList.contains("6")) {
       thursdayStartInput.value = "23:00"
     }
-
-  if (dataSubmitterThursday[dataSubmitterThursday.length - 1].classList.contains("0")) {
+if (dataSubmitterThursday[dataSubmitterThursday.length - 1] == null) {
+  thursdayEndInput.value = "null"
+}
+  else if (dataSubmitterThursday[dataSubmitterThursday.length - 1].classList.contains("0")) {
       thursdayEndInput.value = "17:00"
     } else if (dataSubmitterThursday[dataSubmitterThursday.length - 1].classList.contains("1")) {
       thursdayEndInput.value = "18:00"
@@ -885,8 +901,10 @@ function thursdaySubmitButtonHover() {
 function fridaySubmitButtonHover() {
   fridaySquares1.forEach(scheduleDataSetterFriday);
 
-
-  if (dataSubmitterFriday[0].classList.contains("0")) {
+if (dataSubmitterFriday[0] == null) {
+  fridayStartInput.value = "null"
+}
+  else if (dataSubmitterFriday[0].classList.contains("0")) {
       fridayStartInput.value = "17:00"
     } else if (dataSubmitterFriday[0].classList.contains("1")) {
       fridayStartInput.value = "18:00"
@@ -901,8 +919,10 @@ function fridaySubmitButtonHover() {
     } else if (dataSubmitterFriday[0].classList.contains("6")) {
       fridayStartInput.value = "23:00"
     }
-
-  if (dataSubmitterFriday[dataSubmitterFriday.length - 1].classList.contains("0")) {
+if (dataSubmitterFriday[dataSubmitterFriday.length - 1] == null) {
+  fridayEndInput.value = "null"
+}
+  else if (dataSubmitterFriday[dataSubmitterFriday.length - 1].classList.contains("0")) {
       fridayEndInput.value = "17:00"
     } else if (dataSubmitterFriday[dataSubmitterFriday.length - 1].classList.contains("1")) {
       fridayEndInput.value = "18:00"
@@ -923,8 +943,10 @@ function fridaySubmitButtonHover() {
 function saturdaySubmitButtonHover() {
   saturdaySquares1.forEach(scheduleDataSetterSaturday);
 
-
-  if (dataSubmitterSaturday[0].classList.contains("0")) {
+if (dataSubmitterSaturday[0] == null) {
+  saturdayStartInput.value = "null"
+}
+  else if (dataSubmitterSaturday[0].classList.contains("0")) {
       saturdayStartInput.value = "17:00"
     } else if (dataSubmitterSaturday[0].classList.contains("1")) {
       saturdayStartInput.value = "18:00"
@@ -939,8 +961,10 @@ function saturdaySubmitButtonHover() {
     } else if (dataSubmitterSaturday[0].classList.contains("6")) {
       saturdayStartInput.value = "23:00"
     }
-
-  if (dataSubmitterSaturday[dataSubmitterSaturday.length - 1].classList.contains("0")) {
+if (dataSubmitterSaturday[dataSubmitterSaturday.length - 1] == null) {
+  saturdayEndInput.value = "null"
+}
+  else if (dataSubmitterSaturday[dataSubmitterSaturday.length - 1].classList.contains("0")) {
       saturdayEndInput.value = "17:00"
     } else if (dataSubmitterSaturday[dataSubmitterSaturday.length - 1].classList.contains("1")) {
       saturdayEndInput.value = "18:00"
@@ -961,8 +985,10 @@ function saturdaySubmitButtonHover() {
 function sundaySubmitButtonHover() {
   sundaySquares1.forEach(scheduleDataSetterSunday);
 console.log("sunday")
-
-  if (dataSubmitterSunday[0].classList.contains("0")) {
+if (dataSubmitterSunday[0] == null) {
+  sundayStartInput.value = "null"
+}
+  else if (dataSubmitterSunday[0].classList.contains("0")) {
       sundayStartInput.value = "17:00"
     } else if (dataSubmitterSunday[0].classList.contains("1")) {
       sundayStartInput.value = "18:00"
@@ -977,8 +1003,10 @@ console.log("sunday")
     } else if (dataSubmitterSunday[0].classList.contains("6")) {
       sundayStartInput.value = "23:00"
     }
-
-  if (dataSubmitterSunday[dataSubmitterSunday.length - 1].classList.contains("0")) {
+if (dataSubmitterSunday[dataSubmitterSunday.length - 1] == null) {
+  sundayEndInput.value = "null"
+}
+  else if (dataSubmitterSunday[dataSubmitterSunday.length - 1].classList.contains("0")) {
       sundayEndInput.value = "17:00"
     } else if (dataSubmitterSunday[dataSubmitterSunday.length - 1].classList.contains("1")) {
       sundayEndInput.value = "18:00"
@@ -1007,10 +1035,10 @@ window.onload = function() {
   fridaySubmitButtonHover();
   saturdaySubmitButtonHover();
   sundaySubmitButtonHover();
-  
+   document.getElementById('edit_team').submit();
    }, 1000);
 
-          
+   
 }
 
 

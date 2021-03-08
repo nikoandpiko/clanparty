@@ -1,5 +1,7 @@
 class TeamsController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :index, :show ]
+  skip_before_action :verify_authenticity_token
+
 
   def index
     @teams = policy_scope(Team)
@@ -47,6 +49,17 @@ class TeamsController < ApplicationController
     end
   end
 
+  def edit
+    @team = Team.find(params[:id])
+    authorize @team
+  end
+
+  def update
+    @team = Team.find(params[:id])
+    authorize @team
+    @team.update(team_params)
+    redirect_to team_path(@team)
+  end
   private
 
   def team_params
