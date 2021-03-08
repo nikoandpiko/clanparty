@@ -552,7 +552,7 @@
 .day-grid {
     position: relative;
     top: 40px;
-    left: -60px;
+    left: -45px;
     width: 150%;
     display: none;
     
@@ -561,7 +561,7 @@
 .day-grid-enabled {
     position: relative;
     top: 40px;
-    left: -60px;
+    left: -45px;
     width: 150%;
     display: block;
     
@@ -570,15 +570,15 @@
 .caret-button {
     position: relative;
     top: -20px;
-    right: -270px;
+    right: -290px;
     background-color:#140c16 ;
     border: none;
 }
 
 .clicked-caret {
     position: relative;
-    top: 50px;
-    right: -270px;
+    top: 38px;
+    right: -290px;
     background-color:#140c16 ;
     border: none;
     transform: rotate(180deg);

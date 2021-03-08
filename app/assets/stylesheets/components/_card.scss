@@ -361,6 +361,12 @@ background-size: 1800% 1800%;
   background-size: cover;
 }
 
+.card-inner {
+  border-radius:6px;
+  background-color:#0D0D0DF2;
+  box-shadow: 2px 2px 4px #00000080;
+}
+
 
 .card-inner-team-index {
   border-radius:6px;
@@ -373,6 +379,6 @@ background-size: 1800% 1800%;
   border-radius:6px;
   background-color:#0D0D0DF2;
   box-shadow: 2px 2px 4px #00000080;
-  height: 240px;
+  height: 220px;
 
 }
