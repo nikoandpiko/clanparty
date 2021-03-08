@@ -541,3 +541,91 @@
 .hidden:hover {
     color: black;
 }
+
+.index {
+    padding: 22px;
+    margin-right: 8px;
+    margin-bottom: 8px;
+
+}
+
+.day-grid {
+    position: relative;
+    top: 50px;
+    left: -80px;
+    width: 150%;
+    
+}
+
+.caret-button {
+    position: relative;
+    top: 10px;
+    right: -260px;
+    background-color:#140c16 ;
+    border: none;
+}
+
+.fa-caret-down {
+    font-size: 30px;
+    color: rgb(170, 168, 168);
+}
+
+.caret-button:hover {
+    .fa-caret-down{
+        color: rgb(228, 220, 220);
+    }
+    
+}
+
+.caret-button:active {
+    .fa-caret-down{
+        color: rgb(151, 149, 149);
+    }
+}
+
+
+
+
+.monday1 {
+    position: absolute;
+    top: -25px;
+    left: 25px;
+
+}
+
+.tuesday1 {
+    position: absolute;
+    top: -25px;
+    left: 73px;
+}
+
+.wednesday1 {
+    position: absolute;
+    top: -25px;
+    left: 115px;
+}
+
+.thursday1 {
+    position: absolute;
+    top: -25px;
+    left: 163px;
+}
+
+.friday1 {
+    position: absolute;
+    top: -25px;
+    left: 208px;
+}
+
+.saturday1 {
+    position: absolute;
+    top: -25px;
+    left: 252px;
+
+}
+
+.sunday1 {
+    position: absolute;
+    top: -25px;
+    left: 298px;
+}
