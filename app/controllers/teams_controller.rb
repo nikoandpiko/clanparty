@@ -59,10 +59,12 @@ class TeamsController < ApplicationController
     authorize @team
     @team.update(team_params)
     redirect_to team_path(@team)
+
   end
   private
 
   def team_params
-    params.require(:team).permit(:game_id, :name, :status, :discord, :bio, :avatar)
+    params.require(:team).permit(:game_id, :name, :status, :discord, :bio, :avatar, :monday_start, :monday_end, :tuesday_start, :tuesday_end, :wednesday_start, :wednesday_end, :thursday_start,
+    :thursday_end, :friday_start, :friday_end, :saturday_start, :saturday_end, :sunday_start, :sunday_end, :monday, :tuesday, :wednesday, :thursday, :friday, :saturday, :sunday)
   end
 end

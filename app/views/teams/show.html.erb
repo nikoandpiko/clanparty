@@ -44,7 +44,7 @@
                         <p class="hour11">20:00</p>
                         <p class="hour12">21:00</p>
                         <p class="hour13">22:00</p>
-                        <p class="hour14">23:00</p>
+                        <p class="hour14" onhover="submitter();">23:00</p>
                       </div>
                       <div class="days-modal">
                         <p class="monday">M</p>
@@ -522,7 +522,9 @@
   </div>
   </div>
 
-  <%= simple_form_for(@team, remote: true) do |f| %>
+  <a class="hidden" href="#" onClick="submitter();"> click me </a>
+
+  <%= simple_form_for([@team], remote: true, url: "/teams/#{@team.id}", html: { id: :edit_team})  do |f| %>
     <%= f.input :monday_start, :as => :hidden %>
     <%= f.input :monday_end, :as => :hidden %>
     <%= f.input :tuesday_start, :as => :hidden %>
@@ -537,6 +539,13 @@
     <%= f.input :saturday_end, :as => :hidden %>
     <%= f.input :sunday_start, :as => :hidden %>
     <%= f.input :sunday_end, :as => :hidden %>
+    <%= f.input :monday, :as => :hidden %>
+    <%= f.input :tuesday, :as => :hidden %>
+    <%= f.input :wednesday, :as => :hidden %>
+    <%= f.input :thursday, :as => :hidden %>
+    <%= f.input :friday, :as => :hidden %>
+    <%= f.input :saturday, :as => :hidden %>
+    <%= f.input :sunday, :as => :hidden %>
   <% end %>
 
   <%= javascript_tag do %>
@@ -686,6 +695,37 @@ const sunEndAttribute = document.createAttribute("value");
 const sundayEndInput = document.getElementById("team_sunday_end");
 sundayEndInput.setAttributeNode(sunEndAttribute);
 
+
+
+const monBoolAttribute = document.createAttribute("value");
+const mondayBoolInput = document.getElementById("team_monday");
+mondayBoolInput.setAttributeNode(monBoolAttribute);
+
+const tueBoolAttribute = document.createAttribute("value");
+const tuesdayBoolInput = document.getElementById("team_tuesday");
+tuesdayBoolInput.setAttributeNode(tueBoolAttribute);
+
+const wedBoolAttribute = document.createAttribute("value");
+const wednesdayBoolInput = document.getElementById("team_wednesday");
+wednesdayBoolInput.setAttributeNode(wedBoolAttribute);
+
+const thurBoolAttribute = document.createAttribute("value");
+const thursdayBoolInput = document.getElementById("team_thursday");
+thursdayBoolInput.setAttributeNode(thurBoolAttribute);
+
+const friBoolAttribute = document.createAttribute("value");
+const fridayBoolInput = document.getElementById("team_friday");
+fridayBoolInput.setAttributeNode(friBoolAttribute);
+
+const satBoolAttribute = document.createAttribute("value");
+const saturdayBoolInput = document.getElementById("team_saturday");
+saturdayBoolInput.setAttributeNode(satBoolAttribute);
+
+
+const sunBoolAttribute = document.createAttribute("value");
+const sundayBoolInput = document.getElementById("team_sunday");
+sundayBoolInput.setAttributeNode(sunBoolAttribute);
+
 function clickchecker(square) {
   if (square.classList.contains("clicked-square")) {
       square.classList.add("first-selection")
@@ -733,7 +773,7 @@ function mondaySubmitButtonHover() {
   mondaySquares1.forEach(scheduleDataSetterMonday);
      console.log("hey")
 if (dataSubmitterMonday[0] == null) {
-  mondayStartInput.value = "null"
+  mondayStartInput.value = null
 }
   else if (dataSubmitterMonday[0].classList.contains("0")) {
       mondayStartInput.value = "17:00"
@@ -752,7 +792,7 @@ if (dataSubmitterMonday[0] == null) {
     }
 
 if (dataSubmitterMonday[dataSubmitterMonday.length - 1] == null) {
-  mondayEndInput.value = "null"
+  mondayEndInput.value = null
 }
   else if (dataSubmitterMonday[dataSubmitterMonday.length - 1].classList.contains("0")) {
       mondayEndInput.value = "19:00"
@@ -770,13 +810,19 @@ if (dataSubmitterMonday[dataSubmitterMonday.length - 1] == null) {
       mondayEndInput.value = "23:00"
     }
 
+  if (dataSubmitterMonday[dataSubmitterMonday.length - 1] == null && dataSubmitterMonday[0] == null) {
+    mondayBoolInput.value = false
+  } else {
+    mondayBoolInput.value = true
+  }
+
 }
 
 function tuesdaySubmitButtonHover() {
   tuesdaySquares1.forEach(scheduleDataSetterTuesday);
 
 if (dataSubmitterTuesday[0] == null) {
-  tuesdayStartInput.value = "null"
+  tuesdayStartInput.value = null
 }
   else if (dataSubmitterTuesday[0].classList.contains("0")) {
       tuesdayStartInput.value = "17:00"
@@ -794,7 +840,7 @@ if (dataSubmitterTuesday[0] == null) {
       tuesdayStartInput.value = "23:00"
     }
 if (dataSubmitterTuesday[dataSubmitterTuesday.length - 1] == null) {
-  tuesdayEndInput.value = "null"
+  tuesdayEndInput.value = null
 }
   else if (dataSubmitterTuesday[dataSubmitterTuesday.length - 1].classList.contains("0")) {
       tuesdayEndInput.value = "17:00"
@@ -812,13 +858,20 @@ if (dataSubmitterTuesday[dataSubmitterTuesday.length - 1] == null) {
       tuesdayEndInput.value = "23:00"
     }
 
+if (dataSubmitterTuesday[dataSubmitterTuesday.length - 1] == null && dataSubmitterTuesday[0] == null) {
+    tuesdayBoolInput.value = false
+  } else {
+    tuesdayBoolInput.value = true
+  }
+
+
 }
 
 function wednesdaySubmitButtonHover() {
   wednesdaySquares1.forEach(scheduleDataSetterWednesday);
 
 if (dataSubmitterWednesday[0] == null) {
-  wednesdayStartInput.value = "null"
+  wednesdayStartInput.value = null
 }
   else if (dataSubmitterWednesday[0].classList.contains("0")) {
       wednesdayStartInput.value = "17:00"
@@ -836,7 +889,7 @@ if (dataSubmitterWednesday[0] == null) {
       wednesdayStartInput.value = "23:00"
     }
 if (dataSubmitterWednesday[dataSubmitterWednesday.length - 1] == null) {
-  wednesdayEndInput.value = "null"
+  wednesdayEndInput.value = null
 }
   else if (dataSubmitterWednesday[dataSubmitterWednesday.length - 1].classList.contains("0")) {
       wednesdayEndInput.value = "17:00"
@@ -854,13 +907,20 @@ if (dataSubmitterWednesday[dataSubmitterWednesday.length - 1] == null) {
       wednesdayEndInput.value = "23:00"
     }
 
+if (dataSubmitterWednesday[dataSubmitterWednesday.length - 1] == null && dataSubmitterWednesday[0] == null) {
+    wednesdayBoolInput.value = false
+  } else {
+    wednesdayBoolInput.value = true
+  }
+
+
 }
 
 function thursdaySubmitButtonHover() {
   thursdaySquares1.forEach(scheduleDataSetterThursday);
 
 if (dataSubmitterThursday[0] == null) {
-  thursdayStartInput.value = "null"
+  thursdayStartInput.value = null
 }
   else if (dataSubmitterThursday[0].classList.contains("0")) {
       thursdayStartInput.value = "17:00"
@@ -878,7 +938,7 @@ if (dataSubmitterThursday[0] == null) {
       thursdayStartInput.value = "23:00"
     }
 if (dataSubmitterThursday[dataSubmitterThursday.length - 1] == null) {
-  thursdayEndInput.value = "null"
+  thursdayEndInput.value = null
 }
   else if (dataSubmitterThursday[dataSubmitterThursday.length - 1].classList.contains("0")) {
       thursdayEndInput.value = "17:00"
@@ -896,13 +956,20 @@ if (dataSubmitterThursday[dataSubmitterThursday.length - 1] == null) {
       thursdayEndInput.value = "23:00"
     }
 
+if (dataSubmitterThursday[dataSubmitterThursday.length - 1] == null && dataSubmitterThursday[0] == null) {
+    thursdayBoolInput.value = false
+  } else {
+    thursdayBoolInput.value = true
+  }
+
+
 }
 
 function fridaySubmitButtonHover() {
   fridaySquares1.forEach(scheduleDataSetterFriday);
 
 if (dataSubmitterFriday[0] == null) {
-  fridayStartInput.value = "null"
+  fridayStartInput.value = null
 }
   else if (dataSubmitterFriday[0].classList.contains("0")) {
       fridayStartInput.value = "17:00"
@@ -920,7 +987,7 @@ if (dataSubmitterFriday[0] == null) {
       fridayStartInput.value = "23:00"
     }
 if (dataSubmitterFriday[dataSubmitterFriday.length - 1] == null) {
-  fridayEndInput.value = "null"
+  fridayEndInput.value = null
 }
   else if (dataSubmitterFriday[dataSubmitterFriday.length - 1].classList.contains("0")) {
       fridayEndInput.value = "17:00"
@@ -938,13 +1005,20 @@ if (dataSubmitterFriday[dataSubmitterFriday.length - 1] == null) {
       fridayEndInput.value = "23:00"
     }
 
+if (dataSubmitterFriday[dataSubmitterFriday.length - 1] == null && dataSubmitterFriday[0] == null) {
+    fridayBoolInput.value = false
+  } else {
+    fridayBoolInput.value = true
+  }
+
+
 }
 
 function saturdaySubmitButtonHover() {
   saturdaySquares1.forEach(scheduleDataSetterSaturday);
 
 if (dataSubmitterSaturday[0] == null) {
-  saturdayStartInput.value = "null"
+  saturdayStartInput.value = null
 }
   else if (dataSubmitterSaturday[0].classList.contains("0")) {
       saturdayStartInput.value = "17:00"
@@ -962,7 +1036,7 @@ if (dataSubmitterSaturday[0] == null) {
       saturdayStartInput.value = "23:00"
     }
 if (dataSubmitterSaturday[dataSubmitterSaturday.length - 1] == null) {
-  saturdayEndInput.value = "null"
+  saturdayEndInput.value = null
 }
   else if (dataSubmitterSaturday[dataSubmitterSaturday.length - 1].classList.contains("0")) {
       saturdayEndInput.value = "17:00"
@@ -980,13 +1054,19 @@ if (dataSubmitterSaturday[dataSubmitterSaturday.length - 1] == null) {
       saturdayEndInput.value = "23:00"
     }
 
+if (dataSubmitterSaturday[dataSubmitterSaturday.length - 1] == null && dataSubmitterSaturday[0] == null) {
+    saturdayBoolInput.value = false
+  } else {
+    saturdayBoolInput.value = true
+  }
+
 }
 
 function sundaySubmitButtonHover() {
   sundaySquares1.forEach(scheduleDataSetterSunday);
 console.log("sunday")
 if (dataSubmitterSunday[0] == null) {
-  sundayStartInput.value = "null"
+  sundayStartInput.value = null
 }
   else if (dataSubmitterSunday[0].classList.contains("0")) {
       sundayStartInput.value = "17:00"
@@ -1004,7 +1084,7 @@ if (dataSubmitterSunday[0] == null) {
       sundayStartInput.value = "23:00"
     }
 if (dataSubmitterSunday[dataSubmitterSunday.length - 1] == null) {
-  sundayEndInput.value = "null"
+  sundayEndInput.value = null
 }
   else if (dataSubmitterSunday[dataSubmitterSunday.length - 1].classList.contains("0")) {
       sundayEndInput.value = "17:00"
@@ -1022,23 +1102,38 @@ if (dataSubmitterSunday[dataSubmitterSunday.length - 1] == null) {
       sundayEndInput.value = "23:00"
     }
  
+if (dataSubmitterSunday[dataSubmitterSunday.length - 1] == null && dataSubmitterSunday[0] == null) {
+    sundayBoolInput.value = false
+  } else {
+    sundayBoolInput.value = true
+  }
+
+
 }
 
 
 
-window.onload = function() {
-
-  setTimeout(function(){ mondaySubmitButtonHover();
+document.addEventListener("DOMContentLoaded", function() {
+          setTimeout(function(){ mondaySubmitButtonHover();
   tuesdaySubmitButtonHover();
   wednesdaySubmitButtonHover();
   thursdaySubmitButtonHover();
   fridaySubmitButtonHover();
   saturdaySubmitButtonHover();
   sundaySubmitButtonHover();
-   document.getElementById('edit_team').submit();
-   }, 1000);
+  
+   }, 300);
+});
+
+  
 
    
+
+const form = document.getElementById('edit_team')
+
+function submitter(){ 
+form.submit();
+console.log("yo")
 }
 
 

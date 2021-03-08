@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_08_100638) do
+ActiveRecord::Schema.define(version: 2021_03_08_135325) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -90,6 +90,13 @@ ActiveRecord::Schema.define(version: 2021_03_08_100638) do
     t.string "friday_end"
     t.string "saturday_end"
     t.string "sunday_end"
+    t.boolean "monday", default: false
+    t.boolean "tuesday", default: false
+    t.boolean "wednesday", default: false
+    t.boolean "thursday", default: false
+    t.boolean "friday", default: false
+    t.boolean "saturday", default: false
+    t.boolean "sunday", default: false
     t.index ["game_id"], name: "index_teams_on_game_id"
     t.index ["user_id"], name: "index_teams_on_user_id"
   end
