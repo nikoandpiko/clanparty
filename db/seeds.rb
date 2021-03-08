@@ -88,18 +88,16 @@ Game.create(
 )
 puts "Done"
 
+team_avatars = ["https://p56.f1.n0.cdn.getcloudapp.com/items/KouZRv5y/f56173f2-9f65-4517-bfc7-f5131614d778.png?source=viewer&v=f539594bf7f8cae6e0b8135e94ea45d3", "https://p56.f1.n0.cdn.getcloudapp.com/items/7Kupw7w7/4d2316b1-ce09-4327-9ff7-7a8131cae156.png?v=5a429682c85b0b16390490620f114670", "https://p56.f1.n0.cdn.getcloudapp.com/items/E0u9NDNg/7dc60225-dc10-43a4-8a68-081e5bdae894.png?v=844ba18244dacf2993f05bbffeb774cb", "https://p56.f1.n0.cdn.getcloudapp.com/items/OAugdpdO/b6aaa139-ad5f-4b62-9130-61f8a2d77bbe.png?source=viewer&v=0544fcf6fa673ad08fd0f02a5d89e82d", "https://p56.f1.n0.cdn.getcloudapp.com/items/kpu7zpzB/8e22f29a-3e14-4c4c-b23e-273124c2c2e5.png?v=aa4be8a1385517727cc6523f6f6882a6", "https://p56.f1.n0.cdn.getcloudapp.com/items/jkuejz0B/7ecf6b02-9ffa-4261-84c9-489cc302e466.png?v=5047114880564b11ced43f6b43795111", "https://p56.f1.n0.cdn.getcloudapp.com/items/WnuB5LWD/28279e45-ce88-4e0e-a7c9-494ce97657f3.png?v=3c9cb7153b6c0f2b37ae09a366877a61", "https://p56.f1.n0.cdn.getcloudapp.com/items/bLugNXZ2/4328c4ba-8b8b-4b49-b6a6-675100478fd8.png?v=320ad518f62a448557fa35052d404caf"]
 # Teams
 puts "Creating Teams"
 users_for_seed = User.all
 8.times do
-  # number = 1
-  # n = User.first.id + number
   status = [0, 1] # 0 is closed, 1 is open, 2 pending?
   user = users_for_seed.sample
-  # id = user.id + n
   Team.create(
     name: Faker::Games::StreetFighter.stage,
-    avatar: Faker::Avatar.image,
+    avatar: team_avatars.shuffle!.pop,
     bio: Faker::Games::StreetFighter.quote,
     discord: "https://discord.gg/thisshouldnotworkhopefullyteams",
     status: status.sample,
@@ -108,7 +106,6 @@ users_for_seed = User.all
   )
   team = Team.last
   user.update(team_id: team.id)
-  # number += 1
 end
 puts "Done"
 
@@ -321,7 +318,8 @@ puts "Creating Team with special special Team-leader"
 status = [0, 1] # 0 is closed, 1 is open, 2 pending?
 user_special = User.find_by(username: "Tenchu")
 old_pic = "https://www.pngfind.com/pngs/m/446-4461774_final-fantasy-gilgamesh-swords-hd-png-download.png"
-new_pic = "https://assets.rpglogs.com/img/ff/bosses/75-icon.jpg"
+new_pic2 = "https://assets.rpglogs.com/img/ff/bosses/75-icon.jpg"
+new_pic = "https://p56.f1.n0.cdn.getcloudapp.com/items/xQunkGk5/1348a123-e9b1-45b9-b5f0-753877cea6ca.png?source=viewer&v=89c1c68cf6be9bb60184e3d8cb58091e"
 Team.create(
   name: "Fatebreaker Savage",
   avatar: new_pic,
