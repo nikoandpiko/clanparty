@@ -396,7 +396,7 @@
         </div>
         <br>
         <div class="p-3 background-gradient-events">
-          <h2 class="card-outer-header"><i class="far fa-calendar-check pr-1"></i>  UPCOMING EVENTS</h2>
+          <h2 class="card-outer-header"><i class="far fa-calendar-check pr-1"></i>  UPCOMING EVENTS (<%= @team.events.count %>) </h2>
           <% @team.events.each do |event| %>
             <div class="text-white text-left">
               <div class="text-white text-left p-3 card-inner card-inner-header card">
@@ -431,9 +431,11 @@
             </div>
             <br>
           <% end %>
+          <% unless current_user.nil? %>
           <button onclick="displayEventModalSchedule()"  type="button" class="btn btn-pink mr-3 btn-block" data-toggle="modal" data-target="#eventModal">
             CREATE NEW EVENT
           </button>
+          <% end %>
         </div>
       </div>
 
@@ -446,7 +448,7 @@
             <br>
             <% if @team.status == 0 %>
               <%= link_to "CURRENTLY FULL", '#', class: "btn btn-warning mr-3 disabled btn-block", style:"font-weight:bold;border-radius:0.4em;" %>
-            <% elsif Invite.find_by(user_id: current_user.id).nil? && Invite.where(status: 0) %>
+            <% elsif current_user.nil? || Invite.find_by(user_id: current_user.id).nil? && Invite.where(status: 0) %>
               <%# <%= link_to "CLICK TO APPLY", team_path(@team), class: "btn btn-warning mr-3 active btn-block", style:"font-weight:bold;border-radius:0.4em;" %>
               <%# Invite.find_by(user_id: current_user.id) %>
               <%# <% @unassigned_member.each do |unassigned| %>
