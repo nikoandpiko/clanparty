@@ -244,13 +244,13 @@
   </div>
 </div>
 <div class="modal fade" id="editscheduleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content schedule-modal">
-      <div class="modal-header">
-          <h2 class="card-outer-header"> EDIT YOUR SCHEDULE</h2>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-body np-3 background-gradient-events">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+          </button>
+            <h2 class="modal-title card-outer-header" id="exampleModalLongTitle"><i class="far fa-calendar-check pr-1"></i> ENTER EVENT DETAILS</h2>
       </div>
       <div class="modal-body no-padding">
         <div class="container edit-profile-container">
@@ -411,7 +411,7 @@
                 <%= f.input :saturday_end, :as => :hidden %>
                 <%= f.input :sunday_start, :as => :hidden %>
                 <%= f.input :sunday_end, :as => :hidden %>
-                <%= f.button :submit, "CONFIRM SCHEDULE", class: "edit-schedule-button4", :onclick => "mondaySubmitButtonHover(); tuesdaySubmitButtonHover(); wednesdaySubmitButtonHover(); thursdaySubmitButtonHover(); fridaySubmitButtonHover(); saturdaySubmitButtonHover(); sundaySubmitButtonHover()" %>
+                <%= f.button :submit, "SUBMIT SCHEDULE", class: "edit-schedule-button4", id:"sweet-alert-schedule", :onclick => "mondaySubmitButtonHover(); tuesdaySubmitButtonHover(); wednesdaySubmitButtonHover(); thursdaySubmitButtonHover(); fridaySubmitButtonHover(); saturdaySubmitButtonHover(); sundaySubmitButtonHover()" %>
               </div>
             <% end %>
           </div> 
