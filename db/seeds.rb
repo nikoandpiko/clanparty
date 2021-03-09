@@ -420,7 +420,7 @@ User.create(
   nickname: "Ludacris Angmar",
   avatar: Faker::Avatar.image,
   bio: "Pro Gamer since 2008. Teams only win because of my skills. Not wasting my time with loosers. Only winner teams please. LETS GO AND RAID!",
-  discord: "263239572270481408",
+  discord: "812607345414766602",
   role: role[1],
   server: "Tonberry",
   stats: 74
