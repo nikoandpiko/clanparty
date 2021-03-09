@@ -30,12 +30,12 @@ def random_start_end_time(start_time, end_time)
     return array
   end
 end
-80.times do
+60.times do
   # valid start and end time
   # each weekday start and end time
   days_times = []
   7.times do
-    days_times << random_start_end_time(rand(17..23), rand(17..23))
+    days_times << random_start_end_time(rand(17..22), rand(18..23))
   end
   random_stats = rand(57..98)
   random_servers = ["Tonberry", "Ramuh", "Kujata", "Gungnir"]
@@ -68,16 +68,20 @@ end
 end
 puts "Done"
 
-puts "Create User without schedule"
-User.create(
-  username: "CrazyGamer",
-  email: "1@1.com",
-  password: 123456,
-  nickname: "KillOnDemand",
-  bio: "Just look at my stats and start crying since you will never get as good as me.",
-  discord: "https://discord.gg/crazyLWT",
-  role: role.sample
-)
+
+
+
+
+# puts "Create User without schedule"
+# User.create(
+#   username: "CrazyGamer",
+#   email: "1@1.com",
+#   password: 123456,
+#   nickname: "KillOnDemand",
+#   bio: "Just look at my stats and start crying since you will never get as good as me.",
+#   discord: "https://discord.gg/crazyLWT",
+#   role: role.sample
+# )
 # Games only FFXIV for now
 puts "Creating Game"
 content = ["The Sirensong Sea", "Amaurot", "The Dying Gasp", "Anamnesis Anyder", "Mt. Gulg"]
@@ -88,11 +92,11 @@ Game.create(
 )
 puts "Done"
 
-team_avatars = ["https://p56.f1.n0.cdn.getcloudapp.com/items/KouZRv5y/f56173f2-9f65-4517-bfc7-f5131614d778.png?source=viewer&v=f539594bf7f8cae6e0b8135e94ea45d3", "https://p56.f1.n0.cdn.getcloudapp.com/items/7Kupw7w7/4d2316b1-ce09-4327-9ff7-7a8131cae156.png?v=5a429682c85b0b16390490620f114670", "https://p56.f1.n0.cdn.getcloudapp.com/items/E0u9NDNg/7dc60225-dc10-43a4-8a68-081e5bdae894.png?v=844ba18244dacf2993f05bbffeb774cb", "https://p56.f1.n0.cdn.getcloudapp.com/items/OAugdpdO/b6aaa139-ad5f-4b62-9130-61f8a2d77bbe.png?source=viewer&v=0544fcf6fa673ad08fd0f02a5d89e82d", "https://p56.f1.n0.cdn.getcloudapp.com/items/kpu7zpzB/8e22f29a-3e14-4c4c-b23e-273124c2c2e5.png?v=aa4be8a1385517727cc6523f6f6882a6", "https://p56.f1.n0.cdn.getcloudapp.com/items/jkuejz0B/7ecf6b02-9ffa-4261-84c9-489cc302e466.png?v=5047114880564b11ced43f6b43795111", "https://p56.f1.n0.cdn.getcloudapp.com/items/WnuB5LWD/28279e45-ce88-4e0e-a7c9-494ce97657f3.png?v=3c9cb7153b6c0f2b37ae09a366877a61", "https://p56.f1.n0.cdn.getcloudapp.com/items/bLugNXZ2/4328c4ba-8b8b-4b49-b6a6-675100478fd8.png?v=320ad518f62a448557fa35052d404caf"]
+team_avatars = ["https://p56.f1.n0.cdn.getcloudapp.com/items/KouZRv5y/f56173f2-9f65-4517-bfc7-f5131614d778.png?source=viewer&v=f539594bf7f8cae6e0b8135e94ea45d3", "https://p56.f1.n0.cdn.getcloudapp.com/items/E0u9NDNg/7dc60225-dc10-43a4-8a68-081e5bdae894.png?v=844ba18244dacf2993f05bbffeb774cb", "https://p56.f1.n0.cdn.getcloudapp.com/items/OAugdpdO/b6aaa139-ad5f-4b62-9130-61f8a2d77bbe.png?source=viewer&v=0544fcf6fa673ad08fd0f02a5d89e82d", "https://p56.f1.n0.cdn.getcloudapp.com/items/kpu7zpzB/8e22f29a-3e14-4c4c-b23e-273124c2c2e5.png?v=aa4be8a1385517727cc6523f6f6882a6", "https://p56.f1.n0.cdn.getcloudapp.com/items/jkuejz0B/7ecf6b02-9ffa-4261-84c9-489cc302e466.png?v=5047114880564b11ced43f6b43795111", "https://p56.f1.n0.cdn.getcloudapp.com/items/WnuB5LWD/28279e45-ce88-4e0e-a7c9-494ce97657f3.png?v=3c9cb7153b6c0f2b37ae09a366877a61", "https://p56.f1.n0.cdn.getcloudapp.com/items/bLugNXZ2/4328c4ba-8b8b-4b49-b6a6-675100478fd8.png?v=320ad518f62a448557fa35052d404caf"]
 # Teams
 puts "Creating Teams"
 users_for_seed = User.all
-8.times do
+7.times do
   status = [0, 1] # 0 is closed, 1 is open, 2 pending?
   user = users_for_seed.sample
   Team.create(
@@ -107,13 +111,19 @@ users_for_seed = User.all
   team = Team.last
   user.update(team_id: team.id)
 end
+
+
+
+
+
+
 puts "Done"
 
 # Invites
 #Creating teams with members via invites (status 0 declined, 1 accepted, 2 pending?)
 puts "Creating Teams with members"
 teams_for_seed = Team.all
-30.times do
+40.times do
   user = users_for_seed.sample
 
   if user.team_id.nil?
@@ -126,7 +136,7 @@ teams_for_seed = Team.all
 end
 
 puts "Creating pending Invites"
-15.times do
+10.times do
   user = users_for_seed.sample
 
   if user.team_id.nil?
@@ -139,7 +149,7 @@ puts "Creating pending Invites"
 end
 
 puts "Creating declined Invites"
-10.times do
+5.times do
   user = users_for_seed.sample
 
   if user.team_id.nil?
@@ -214,7 +224,7 @@ User.create(
   nickname: "Tenchu Muyo",
   avatar: tenchu,
   bio: "Just look at my stats and start crying since you will never get as good as me.",
-  discord: "Tenchu2x#5477",
+  discord: "361828201426714625",
   role: role[0],
   server: "Tonberry",
   stats: 81
@@ -474,7 +484,7 @@ Team.create(
   game_id: Game.last.id
 )
 
-puts "All finished"
+puts "creating spec user"
 
 2.times do
   # valid start and end time
@@ -482,7 +492,7 @@ puts "All finished"
   usernamez = ["WOW", "YEAH"]
   days_times = []
   7.times do
-    days_times << random_start_end_time(rand(8..21), rand(8..21))
+    days_times << random_start_end_time(rand(17..19), rand(20..23))
   end
 
   User.create(
@@ -511,3 +521,267 @@ puts "All finished"
   )
 end
 puts "Done"
+
+puts "Rival users"
+
+puts "Creating 8 rival Users with proper Avatar"
+days_times = []
+days_times << random_start_end_time(rand(17..19), rand(20..23))
+User.create(
+  username: "Mucho",
+  email: "mucho@1.com",
+  password: 123456,
+  nickname: "Mucho Beno",
+  avatar: tenchu,
+  bio: "Just look at my stats and start crying since you will never get as good as me.",
+  discord: "invalid",
+  role: role[0],
+  server: "Tonberry",
+  stats: 98,
+  monday_start: days_times[0][0],
+  monday_end: days_times[0][1],
+  wednesday_start: days_times[0][0],
+  wednesday_end: days_times[0][1],
+  thursday_start: days_times[0][0],
+  thursday_end: days_times[0][1],
+  saturday_start: days_times[0][0],
+  saturday_end: days_times[0][1]
+)
+
+User.create(
+  username: "Lexar",
+  email: "lexar@1.com",
+  password: 123456,
+  nickname: "Lexar Lunar",
+  avatar: lumina,
+  bio: "Just look at my stats and start crying since you will never get as good as me.",
+  discord: "https://discord.gg/crazyLWT",
+  role: role[1],
+  server: "Tonberry",
+  stats: 94,
+  monday_start: days_times[0][0],
+  monday_end: days_times[0][1],
+  wednesday_start: days_times[0][0],
+  wednesday_end: days_times[0][1],
+  thursday_start: days_times[0][0],
+  thursday_end: days_times[0][1],
+  saturday_start: days_times[0][0],
+  saturday_end: days_times[0][1]
+)
+
+User.create(
+  username: "Rudis",
+  email: "rudis@1.com",
+  password: 123456,
+  nickname: "Rudis Willo",
+  avatar: alphi,
+  bio: "Just look at my stats and start crying since you will never get as good as me.",
+  discord: "https://discord.gg/crazyLWT",
+  role: role[2],
+  server: "Tonberry",
+  stats: 78,
+  monday_start: days_times[0][0],
+  monday_end: days_times[0][1],
+  wednesday_start: days_times[0][0],
+  wednesday_end: days_times[0][1],
+  thursday_start: days_times[0][0],
+  thursday_end: days_times[0][1],
+  saturday_start: days_times[0][0],
+  saturday_end: days_times[0][1]
+)
+
+User.create(
+  username: "Kuririn",
+  email: "kuririn@1.com",
+  password: 123456,
+  nickname: "Kuririn Dragon",
+  avatar: kiri,
+  bio: "Just look at my stats and start crying since you will never get as good as me.",
+  discord: "https://discord.gg/crazyLWT",
+  role: role[2],
+  server: "Tonberry",
+  stats: 69,
+  monday_start: days_times[0][0],
+  monday_end: days_times[0][1],
+  wednesday_start: days_times[0][0],
+  wednesday_end: days_times[0][1],
+  thursday_start: days_times[0][0],
+  thursday_end: days_times[0][1],
+  saturday_start: days_times[0][0],
+  saturday_end: days_times[0][1]
+)
+
+User.create(
+  username: "Lanze",
+  email: "lanze@1.com",
+  password: 123456,
+  nickname: "Lanze Long",
+  avatar: lucis,
+  bio: "Just look at my stats and start crying since you will never get as good as me.",
+  discord: "https://discord.gg/crazyLWT",
+  role: role[1],
+  server: "Tonberry",
+  stats: 82,
+  monday_start: days_times[0][0],
+  monday_end: days_times[0][1],
+  wednesday_start: days_times[0][0],
+  wednesday_end: days_times[0][1],
+  thursday_start: days_times[0][0],
+  thursday_end: days_times[0][1],
+  saturday_start: days_times[0][0],
+  saturday_end: days_times[0][1]
+)
+
+User.create(
+  username: "Miller",
+  email: "miller@1.com",
+  password: 123456,
+  nickname: "Miller Jo",
+  avatar: sille,
+  bio: "Just look at my stats and start crying since you will never get as good as me.",
+  discord: "https://discord.gg/crazyLWT",
+  role: role[2],
+  server: "Tonberry",
+  stats: 72,
+  monday_start: days_times[0][0],
+  monday_end: days_times[0][1],
+  wednesday_start: days_times[0][0],
+  wednesday_end: days_times[0][1],
+  thursday_start: days_times[0][0],
+  thursday_end: days_times[0][1],
+  saturday_start: days_times[0][0],
+  saturday_end: days_times[0][1]
+)
+
+User.create(
+  username: "Tokeo",
+  email: "tokeo@1.com",
+  password: 123456,
+  nickname: "Tokeo Jerusalem",
+  avatar: hanska,
+  bio: "Just look at my stats and start crying since you will never get as good as me.",
+  discord: "https://discord.gg/crazyLWT",
+  role: role[2],
+  server: "Tonberry",
+  stats: 89,
+  monday_start: days_times[0][0],
+  monday_end: days_times[0][1],
+  wednesday_start: days_times[0][0],
+  wednesday_end: days_times[0][1],
+  thursday_start: days_times[0][0],
+  thursday_end: days_times[0][1],
+  saturday_start: days_times[0][0],
+  saturday_end: days_times[0][1]
+)
+
+
+puts "Creating Special Team"
+pics = "https://hananon.com/wp-content/uploads/2018/05/hananon_avatar_round_500px.png"
+
+status = [0, 1] # 0 is closed, 1 is open, 2 pending?
+user_special2 = User.find_by(username: "Mucho")
+Team.create(
+  name: "Meme Breakers",
+  avatar: pics,
+  bio: "To the infinity and beyond!",
+  discord: "wontwork",
+  status: 1,
+  user_id: user_special2.id,
+  game_id: Game.last.id
+)
+team = Team.last
+user_special2.update(team_id: team.id)
+
+
+team_special2 = Team.last
+user_10 = User.find_by(username: "Lexar")
+user_11 = User.find_by(username: "Rudis")
+user_12 = User.find_by(username: "Kuririn")
+user_13 = User.find_by(username: "Lanze")
+user_14 = User.find_by(username: "Miller")
+user_15 = User.find_by(username: "Tokeo")
+
+puts "seeding rival team with members"
+
+if user_10.team_id.nil?
+  Invite.create(
+    status: 1,
+    user: user_10,
+    team: team_special2
+  )
+end
+
+if user_11.team_id.nil?
+  Invite.create(
+    status: 1,
+    user: user_11,
+    team: team_special2
+  )
+end
+
+if user_12.team_id.nil?
+  Invite.create(
+    status: 1,
+    user: user_12,
+    team: team_special2
+  )
+end
+
+if user_13.team_id.nil?
+  Invite.create(
+    status: 1,
+    user: user_13,
+    team: team_special2
+  )
+end
+
+if user_14.team_id.nil?
+  Invite.create(
+    status: 1,
+    user: user_14,
+    team: team_special2
+  )
+end
+
+if user_15.team_id.nil?
+  Invite.create(
+    status: 1,
+    user: user_15,
+    team: team_special2
+  )
+end
+
+puts "Creating events for special team2"
+
+days_times_events = []
+days_times_events << random_start_end_time(rand(8..21), rand(8..21))
+day = 1..7
+Event.create(
+  name: content[3],
+  description: Faker::Games::Overwatch.quote,
+  day: rand(day),
+  start_time: days_times_events[0][0],
+  end_time: days_times_events[0][1],
+  team_id: team_special2.id
+)
+
+Event.create(
+  name: content[0],
+  description: Faker::Games::Overwatch.quote,
+  day: rand(day),
+  start_time: days_times_events[0][0],
+  end_time: days_times_events[0][1],
+  team_id: team_special2.id
+)
+
+Event.create(
+  name: content[2],
+  description: Faker::Games::Overwatch.quote,
+  day: rand(day),
+  start_time: days_times_events[0][0],
+  end_time: days_times_events[0][1],
+  team_id: team_special2.id
+)
+
+
+puts "All finished"
