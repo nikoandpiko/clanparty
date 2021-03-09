@@ -17,3 +17,34 @@
   background-color: transparent;
   border: 1px solid #FF368D;
 }
+
+.nav-link {
+    display: block;
+    padding: 0.5rem 5rem;
+    border-radius: 6px;
+  }
+
+.nav-tabs .nav-link {
+    font-family: Tungsten;
+    text-shadow: 0px 2px 2px #00000080;
+    color: white;
+    font-size: 24px;
+    margin-top: -100px;
+    border-radius: 6px;
+    background-color: #FF5200;
+    margin-right: 12px;
+  }
+
+  .nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
+    color: #ffffff;
+    background-color: #bb00fa;
+}
+
+.nav-tabs .nav-link.active {
+    font-family: Tungsten;
+    text-shadow: 0px 2px 2px #00000080;
+    color: white;
+    font-size: 24px;
+    border: 0px solid;
+}
+

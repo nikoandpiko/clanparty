@@ -13,7 +13,7 @@
     position: relative;
     top: -137px;
     left: 70px;
-    
+
 }
 
 .schedule-grid-edit {
@@ -69,7 +69,7 @@
     background-color: #5ECC32;
     border: none;
     border-radius: 6px;
-  
+
 }
 
 
@@ -556,7 +556,7 @@
     width: 150%;
     opacity: 0%;
     transition: all 0.5s;
-    
+
 }
 
 .day-grid-enabled {
@@ -566,13 +566,13 @@
     width: 150%;
     opacity: 100%;
     transition: all 3s;
-    
+
 }
 
 .caret-button {
     position: relative;
     top: -60px;
-    right: -290px;
+    right: -280px;
     background-color:transparent !important ;
     border: none;
     transition: all 1s;
@@ -581,7 +581,7 @@
 .clicked-caret {
     position: relative;
     top: 38px;
-    right: -290px;
+    right: -288px;
     background-color:transparent !important ;
     border: none;
     transform: rotate(180deg);
@@ -597,7 +597,7 @@
     .fa-caret-down{
         color: rgb(228, 220, 220);
     }
-    
+
 }
 
 .caret-button:active {

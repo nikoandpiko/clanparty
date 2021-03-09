@@ -29,7 +29,7 @@
           <%= f.input :end_time, :as => :hidden %>
           <%= f.input :day, :as => :hidden %>
           <%# These will be hidden inputs and the scheduler will input their values %>
-         
+
 
           <div class="container edit-profile-container">
           <div class="container edit-profile-container">
@@ -181,7 +181,7 @@
         </div>
          <%= f.input :description, placeholder: "This is a weekly event to ensure our group gets the best gear." %>
               <%= f.button :submit, "SUBMIT EVENT", id:"sweet-alert-event", class: "btn btn-pink mr-3 btn-block", onclick: "valueSetter()" %>
-  
+
               <%# :onclick => "timeSubmitter(); This button will have an onclick that will submit the start and end time values %>
           <% end %>
         </div>
@@ -216,7 +216,7 @@
                 <p class="sunday">S</p>
                 </div>
                 <div class="monday-squares1" id="monday-squares1">
-              
+
 
                 <%= button_tag type: 'button', class: "btn shadow-none grid-square 0 view-only view-only-green-edit data-class" do %>
 
@@ -241,7 +241,7 @@
                 <% end %>
                 </div>
                 <div class="tuesday-squares1" id="tuesday-squares1">
-              
+
 
                 <%= button_tag type: 'button', class: "btn shadow-none grid-square 0 view-only view-only-green-edit data-class" do %>
 
@@ -266,7 +266,7 @@
                 <% end %>
                 </div>
                 <div class="wednesday-squares1" id="wednesday-squares1">
-              
+
 
                 <%= button_tag type: 'button', class: "btn shadow-none grid-square 0 view-only view-only-green-edit data-class" do %>
 
@@ -291,7 +291,7 @@
                 <% end %>
                 </div>
                 <div class="thursday-squares1" id="thursday-squares1">
-              
+
 
                 <%= button_tag type: 'button', class: "btn shadow-none grid-square 0 view-only view-only-green-edit data-class" do %>
 
@@ -316,7 +316,7 @@
                 <% end %>
                 </div>
                 <div class="friday-squares1" id="friday-squares1">
-              
+
 
                 <%= button_tag type: 'button', class: "btn shadow-none grid-square 0 view-only view-only-green-edit data-class" do %>
 
@@ -341,7 +341,7 @@
                 <% end %>
                 </div>
                 <div class="saturday-squares1" id="saturday-squares1">
-              
+
 
                 <%= button_tag type: 'button', class: "btn shadow-none grid-square 0 view-only view-only-green-edit data-class" do %>
 
@@ -366,7 +366,7 @@
                 <% end %>
                 </div>
                 <div class="sunday-squares1" id="sunday-squares1">
-              
+
 
                 <%= button_tag type: 'button', class: "btn shadow-none grid-square 0 view-only view-only-green-edit data-class" do %>
 
@@ -444,7 +444,7 @@
             <p>We are currently open for recruitment and are looking for all classes. All members are required to be available at least three times per week for two to three hours.</p>
             <a href="<%= @team.discord %> " style="color: Mediumslateblue;"><i class="fab fa-discord fa-fw"></i>Discord</a>
             <br>
-            <% if @team.status == 0 || current_user.nil? %>
+            <% if @team.status == 0 %>
               <%= link_to "CURRENTLY FULL", '#', class: "btn btn-warning mr-3 disabled btn-block", style:"font-weight:bold;border-radius:0.4em;" %>
             <% elsif Invite.find_by(user_id: current_user.id).nil? && Invite.where(status: 0) %>
               <%# <%= link_to "CLICK TO APPLY", team_path(@team), class: "btn btn-warning mr-3 active btn-block", style:"font-weight:bold;border-radius:0.4em;" %>
@@ -1101,7 +1101,7 @@ if (dataSubmitterSunday[dataSubmitterSunday.length - 1] == null) {
     } else if (dataSubmitterSunday[dataSubmitterSunday.length - 1].classList.contains("6")) {
       sundayEndInput.value = "23:00"
     }
- 
+
 if (dataSubmitterSunday[dataSubmitterSunday.length - 1] == null && dataSubmitterSunday[0] == null) {
     sundayBoolInput.value = false
   } else {
@@ -1121,17 +1121,17 @@ document.addEventListener("DOMContentLoaded", function() {
   fridaySubmitButtonHover();
   saturdaySubmitButtonHover();
   sundaySubmitButtonHover();
-  
+
    }, 300);
 });
 
-  
 
-   
+
+
 
 const form = document.getElementById('edit_team')
 
-function submitter(){ 
+function submitter(){
 form.submit();
 console.log("yo")
 }
@@ -1220,7 +1220,7 @@ console.log("yo")
           let dayFinder = false
 
 
-         
+
           function clickchecker(square) {
             if (square.classList.contains("clicked-square-event")) {
                 square.classList.add("first-selection")
@@ -1228,7 +1228,7 @@ console.log("yo")
             }
             square.classList.add("keep-active")
           }
-        
+
           function eventDisabler(square) {
             if (!square.classList.contains("keep-active")) {
                 square.classList.add("disabler")
@@ -1410,7 +1410,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
           function displayModalSchedule() {
           console.log("hi")
-            
+
 
           function arrayMaker(element) {
 
@@ -1768,7 +1768,7 @@ function displayEventModalSchedule() {
                   return notDups
                   }
 
-            
+
                   // need to gray out these squares. Each time it grays it it makes it less green.
                   // when second click is registered, it removes these classes for the row that was clicked.
                   let notDupsMonday = grayerArrayGetter(monday_s, monday_e);
