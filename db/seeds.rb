@@ -88,7 +88,7 @@ Game.create(
 )
 puts "Done"
 
-team_avatars = ["https://p56.f1.n0.cdn.getcloudapp.com/items/KouZRv5y/f56173f2-9f65-4517-bfc7-f5131614d778.png?source=viewer&v=f539594bf7f8cae6e0b8135e94ea45d3", "https://p56.f1.n0.cdn.getcloudapp.com/items/7Kupw7w7/4d2316b1-ce09-4327-9ff7-7a8131cae156.png?v=5a429682c85b0b16390490620f114670", "https://p56.f1.n0.cdn.getcloudapp.com/items/E0u9NDNg/7dc60225-dc10-43a4-8a68-081e5bdae894.png?v=844ba18244dacf2993f05bbffeb774cb", "https://p56.f1.n0.cdn.getcloudapp.com/items/OAugdpdO/b6aaa139-ad5f-4b62-9130-61f8a2d77bbe.png?source=viewer&v=0544fcf6fa673ad08fd0f02a5d89e82d", "https://p56.f1.n0.cdn.getcloudapp.com/items/kpu7zpzB/8e22f29a-3e14-4c4c-b23e-273124c2c2e5.png?v=aa4be8a1385517727cc6523f6f6882a6", "https://p56.f1.n0.cdn.getcloudapp.com/items/jkuejz0B/7ecf6b02-9ffa-4261-84c9-489cc302e466.png?v=5047114880564b11ced43f6b43795111", "https://p56.f1.n0.cdn.getcloudapp.com/items/WnuB5LWD/28279e45-ce88-4e0e-a7c9-494ce97657f3.png?v=3c9cb7153b6c0f2b37ae09a366877a61", "https://p56.f1.n0.cdn.getcloudapp.com/items/bLugNXZ2/4328c4ba-8b8b-4b49-b6a6-675100478fd8.png?v=320ad518f62a448557fa35052d404caf"]
+team_avatars = ["https://p56.f1.n0.cdn.getcloudapp.com/items/KouZRv5y/f56173f2-9f65-4517-bfc7-f5131614d778.png?source=viewer&v=f539594bf7f8cae6e0b8135e94ea45d3", "https://hananon.com/wp-content/uploads/2018/05/hananon_avatar_round_500px.png", "https://p56.f1.n0.cdn.getcloudapp.com/items/E0u9NDNg/7dc60225-dc10-43a4-8a68-081e5bdae894.png?v=844ba18244dacf2993f05bbffeb774cb", "https://p56.f1.n0.cdn.getcloudapp.com/items/OAugdpdO/b6aaa139-ad5f-4b62-9130-61f8a2d77bbe.png?source=viewer&v=0544fcf6fa673ad08fd0f02a5d89e82d", "https://p56.f1.n0.cdn.getcloudapp.com/items/kpu7zpzB/8e22f29a-3e14-4c4c-b23e-273124c2c2e5.png?v=aa4be8a1385517727cc6523f6f6882a6", "https://p56.f1.n0.cdn.getcloudapp.com/items/jkuejz0B/7ecf6b02-9ffa-4261-84c9-489cc302e466.png?v=5047114880564b11ced43f6b43795111", "https://p56.f1.n0.cdn.getcloudapp.com/items/WnuB5LWD/28279e45-ce88-4e0e-a7c9-494ce97657f3.png?v=3c9cb7153b6c0f2b37ae09a366877a61", "https://p56.f1.n0.cdn.getcloudapp.com/items/bLugNXZ2/4328c4ba-8b8b-4b49-b6a6-675100478fd8.png?v=320ad518f62a448557fa35052d404caf"]
 # Teams
 puts "Creating Teams"
 users_for_seed = User.all
@@ -214,7 +214,7 @@ User.create(
   nickname: "Tenchu Muyo",
   avatar: tenchu,
   bio: "Just look at my stats and start crying since you will never get as good as me.",
-  discord: "Tenchu2x#5477",
+  discord: "361828201426714625",
   role: role[0],
   server: "Tonberry",
   stats: 81
