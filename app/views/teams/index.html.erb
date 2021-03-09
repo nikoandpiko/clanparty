@@ -21,88 +21,94 @@
 <div class="tab-content" id="myTabContent">
   <div class="tab-pane fade show active" id="team" role="tabpanel" aria-labelledby="team-tab">
     <div class="team-cards-grid container" style="margin-top: -30px">
+      
     <% counter = 0 %>
       <% @teams.each do |team| %>
+      <div class="row">
+      <div class="col-lg-12">
 
-         
-        <div class="p-3 background-gradient-purple mb-3">
-          <h2 class="card-outer-header"><i class="fas fa-user-plus pr-1"></i> SEEKING</h2>
-          <div class="card-team d-flex card-inner-team-index"> <% old_color="#252830" %>
+        
+          <div class="p-3 background-gradient-purple mb-3">
+            <h2 class="card-outer-header"><i class="fas fa-user-plus pr-1"></i> SEEKING</h2>
+            <div class="card-team d-flex card-inner-team-index"> <% old_color="#252830" %>
 
-            <img src="<%= team.avatar %>" alt="<%= team.name %>" style="height:80px;width:80px;border-radius:50%;">
-            <div class="ml-2">
-              <p class="card-member-role">Final Fantasy XIV</p>
-              <h5 class="card-inner-header"><%= link_to team.name, team_path(team) %></h5>
-              <% counter = 0 %>
-              <% team.monday == true ? counter += 1 : counter = counter  %>
-              <% team.tuesday == true ? counter += 1 : counter = counter %>
-              <% team.wednesday == true ? counter += 1 : counter = counter %>
-              <% team.thursday == true ? counter += 1 : counter = counter %>
-              <% team.friday == true ? counter += 1 : counter = counter %>
-              <% team.saturday == true ? counter += 1 : counter = counter %>
-              <% team.sunday == true ? counter += 1 : counter = counter %>   
-              <h6 class="card-subtitle text-muted mb-2"><i class="far fa-user ml-2"></i> <%= team.invites.accepted.count + 1 %> <i class="far fa-calendar ml-1"></i> <%= "#{counter} days" %>   
-              <i class="fas fa-clock ml-2"></i><%= team.wednesday_start%> - <%= team.wednesday_end %>  </h6>
-    
-              <div class="day-grid">
-                <div class="days1">
-                  <p class="monday1">M</p>
-                  <p class="tuesday1">T</p>
-                  <p class="wednesday1">W</p>
-                  <p class="thursday1">T</p>
-                  <p class="friday1">F</p>
-                  <p class="saturday1">S</p>
-                  <p class="sunday1">S</p>
-                </div>
-                <% if team.monday == true %>
-                <%= button_tag type: 'button', class: "btn shadow-none grid-square 0 view-only view-only-green-edit data-class index" do %><% end %>
-                <% else  %>
-                <%= button_tag type: 'button', class: "btn shadow-none grid-square 0 view-only view-only-green-edit grayout2 index" do %><% end %>
-                <% end %>
-                <% if team.tuesday == true %>
-                <%= button_tag type: 'button', class: "btn shadow-none grid-square 0 view-only view-only-green-edit data-class index" do %><% end %>
-                <% else  %>
-                <%= button_tag type: 'button', class: "btn shadow-none grid-square 0 view-only view-only-green-edit grayout2 index" do %><% end %>
-                <% end %>
-                <% if team.wednesday == true %>
-                <%= button_tag type: 'button', class: "btn shadow-none grid-square 0 view-only view-only-green-edit data-class index" do %><% end %>
-                <% else  %>
-                <%= button_tag type: 'button', class: "btn shadow-none grid-square 0 view-only view-only-green-edit grayout2 index" do %><% end %>
-                <% end %>
-                <% if team.thursday == true %>
-                <%= button_tag type: 'button', class: "btn shadow-none grid-square 0 view-only view-only-green-edit data-class index" do %><% end %>
-                <% else  %>
-                <%= button_tag type: 'button', class: "btn shadow-none grid-square 0 view-only view-only-green-edit grayout2 index" do %><% end %>
-                <% end %>
-                <% if team.friday == true %>
-                <%= button_tag type: 'button', class: "btn shadow-none grid-square 0 view-only view-only-green-edit data-class index" do %><% end %>
-                <% else  %>
-                <%= button_tag type: 'button', class: "btn shadow-none grid-square 0 view-only view-only-green-edit grayout2 index" do %><% end %>
-                <% end %>
-                <% if team.saturday == true %>
-                <%= button_tag type: 'button', class: "btn shadow-none grid-square 0 view-only view-only-green-edit data-class index" do %><% end %>
-                <% else  %>
-                <%= button_tag type: 'button', class: "btn shadow-none grid-square 0 view-only view-only-green-edit grayout2 index" do %><% end %>
-                <% end %>
-                <% if team.sunday == true %>
-                <%= button_tag type: 'button', class: "btn shadow-none grid-square 0 view-only view-only-green-edit data-class index" do %><% end %>
-                <% else  %>
-                <%= button_tag type: 'button', class: "btn shadow-none grid-square 0 view-only view-only-green-edit grayout2 index" do %><% end %>
-                <% end %>
-              </div>
-         
-               
-              <!-- <p class="card-text text-dark">CORE HOURS</p> -->
-
+              <img src="<%= team.avatar %>" alt="<%= team.name %>" style="height:80px;width:80px;border-radius:50%;">
+              <div class="ml-2">
+                <p class="card-member-role">Final Fantasy XIV</p>
+                <h5 class="card-inner-header"><%= link_to team.name, team_path(team) %></h5>
+                <% counter = 0 %>
+                <% team.monday == true ? counter += 1 : counter = counter  %>
+                <% team.tuesday == true ? counter += 1 : counter = counter %>
+                <% team.wednesday == true ? counter += 1 : counter = counter %>
+                <% team.thursday == true ? counter += 1 : counter = counter %>
+                <% team.friday == true ? counter += 1 : counter = counter %>
+                <% team.saturday == true ? counter += 1 : counter = counter %>
+                <% team.sunday == true ? counter += 1 : counter = counter %>   
+                <h6 class="card-subtitle text-muted mb-2"><i class="far fa-user ml-2"></i> <%= team.invites.accepted.count + 1 %> <i class="far fa-calendar ml-1"></i> <%= "#{counter} days" %>   
+                <i class="fas fa-clock ml-2"></i><%= team.wednesday_start%> - <%= team.wednesday_end %>  </h6>
       
-              <button class="caret-button" type="button" data-toggle="dropdown" onclick="cardExpander();">
-               <i class="fas fa-caret-down"></i>
-              </button>
+                <div class="day-grid">
+                  <div class="days1">
+                    <p class="monday1">M</p>
+                    <p class="tuesday1">T</p>
+                    <p class="wednesday1">W</p>
+                    <p class="thursday1">T</p>
+                    <p class="friday1">F</p>
+                    <p class="saturday1">S</p>
+                    <p class="sunday1">S</p>
+                  </div>
+                  <% if team.monday == true %>
+                  <%= button_tag type: 'button', class: "btn shadow-none grid-square 0 view-only view-only-green-edit data-class index" do %><% end %>
+                  <% else  %>
+                  <%= button_tag type: 'button', class: "btn shadow-none grid-square 0 view-only view-only-green-edit grayout2 index" do %><% end %>
+                  <% end %>
+                  <% if team.tuesday == true %>
+                  <%= button_tag type: 'button', class: "btn shadow-none grid-square 0 view-only view-only-green-edit data-class index" do %><% end %>
+                  <% else  %>
+                  <%= button_tag type: 'button', class: "btn shadow-none grid-square 0 view-only view-only-green-edit grayout2 index" do %><% end %>
+                  <% end %>
+                  <% if team.wednesday == true %>
+                  <%= button_tag type: 'button', class: "btn shadow-none grid-square 0 view-only view-only-green-edit data-class index" do %><% end %>
+                  <% else  %>
+                  <%= button_tag type: 'button', class: "btn shadow-none grid-square 0 view-only view-only-green-edit grayout2 index" do %><% end %>
+                  <% end %>
+                  <% if team.thursday == true %>
+                  <%= button_tag type: 'button', class: "btn shadow-none grid-square 0 view-only view-only-green-edit data-class index" do %><% end %>
+                  <% else  %>
+                  <%= button_tag type: 'button', class: "btn shadow-none grid-square 0 view-only view-only-green-edit grayout2 index" do %><% end %>
+                  <% end %>
+                  <% if team.friday == true %>
+                  <%= button_tag type: 'button', class: "btn shadow-none grid-square 0 view-only view-only-green-edit data-class index" do %><% end %>
+                  <% else  %>
+                  <%= button_tag type: 'button', class: "btn shadow-none grid-square 0 view-only view-only-green-edit grayout2 index" do %><% end %>
+                  <% end %>
+                  <% if team.saturday == true %>
+                  <%= button_tag type: 'button', class: "btn shadow-none grid-square 0 view-only view-only-green-edit data-class index" do %><% end %>
+                  <% else  %>
+                  <%= button_tag type: 'button', class: "btn shadow-none grid-square 0 view-only view-only-green-edit grayout2 index" do %><% end %>
+                  <% end %>
+                  <% if team.sunday == true %>
+                  <%= button_tag type: 'button', class: "btn shadow-none grid-square 0 view-only view-only-green-edit data-class index" do %><% end %>
+                  <% else  %>
+                  <%= button_tag type: 'button', class: "btn shadow-none grid-square 0 view-only view-only-green-edit grayout2 index" do %><% end %>
+                  <% end %>
+                </div>
+          
+                
+                <!-- <p class="card-text text-dark">CORE HOURS</p> -->
 
+        
+                <button class="caret-button" type="button" data-toggle="dropdown" onclick="cardExpander();">
+                <i class="fas fa-caret-down"></i>
+                </button>
+
+              </div>
             </div>
           </div>
         </div>
+      </div>
       <% end %>
+     
     </div>
   </div>
   <div class="tab-pane fade" id="user" role="tabpanel" aria-labelledby="user-tab">
