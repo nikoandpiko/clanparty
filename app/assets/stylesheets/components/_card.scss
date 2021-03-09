@@ -369,11 +369,12 @@ background-size: 1800% 1800%;
 
 
 .card-inner-team-index {
+  padding-left: 12px;
   border-radius:6px;
   background-color:#0D0D0DF2;
   box-shadow: 2px 2px 4px #00000080;
   height: 120px;
-  transition: all 1s;
+  transition: all 0.6s;
 }
 
 .taller-inner-card {
