@@ -8,9 +8,26 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
 
-    @current_member = Invite.find_by(user_id: @user)
-    @teammates = Invite.where(team_id: @current_member.team_id)
-    @xy = @teammates.where(status: 1)
+
+    @invite_check = Invite.find_by(user_id: current_user.id)
+
+   if !current_user.team_id.nil?
+    @current_team = Team.find_by(user_id: @user)
+    @teamleader = @user
+    @team_members_all = Invite.where(team_id: @current_team.id)
+    @leader_teammates = @team_members_all.where(status: 1)
+
+    elsif @invite_check.nil? || @invite_check.status == 0 || @invite_check.status == 2 || @invite_check.status == 3
+
+    else
+    @current_invite = Invite.find_by(user_id: @user)
+    @teammates = Invite.where(team_id: @current_invite.team_id)
+    @member_teammates = @teammates.where(status: 1)
+
+    @current_team = Team.find(@current_invite.team_id)
+    @leader = User.where(team_id: @current_team)
+
+    end
 
     @invite = Invite.where(user_id: @user)
 
