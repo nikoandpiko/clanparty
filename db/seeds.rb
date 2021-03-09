@@ -38,7 +38,7 @@ logs_pics = ["https://img2.finalfantasyxiv.com/f/e668c247e191bceb03b523a66050377
   # each weekday start and end time
   days_times = []
   7.times do
-    days_times << random_start_end_time(rand(17..22), rand(18..23))
+    days_times << random_start_end_time(rand(17..21), rand(19..23))
   end
   random_stats = rand(57..98)
   random_servers = ["Tonberry", "Ramuh", "Kujata", "Gungnir"]
@@ -185,7 +185,7 @@ puts "Done"
 puts "Creating Events"
 50.times do
   days_times_events = []
-  days_times_events << random_start_end_time(rand(8..21), rand(8..21))
+  days_times_events << random_start_end_time(rand(17..19), rand(20..23))
   day = 1..7
   teams_for_seed = Team.all
   Event.create(
@@ -448,7 +448,7 @@ puts "Done"
 puts "Creating events for special team"
 
 days_times_events = []
-days_times_events << random_start_end_time(rand(8..21), rand(8..21))
+days_times_events << random_start_end_time(rand(17..19), rand(20..23))
 day = 1..7
 teams_for_seed = Team.all
 Event.create(
@@ -760,7 +760,7 @@ end
 puts "Creating events for special team2"
 
 days_times_events = []
-days_times_events << random_start_end_time(rand(8..21), rand(8..21))
+days_times_events << random_start_end_time(rand(17..19), rand(20..23))
 day = 1..7
 Event.create(
   name: content[3],
