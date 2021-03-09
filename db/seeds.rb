@@ -46,7 +46,7 @@ logs_pics = ["https://img2.finalfantasyxiv.com/f/e668c247e191bceb03b523a66050377
     username: Faker::Games::Witcher.monster,
     email: "#{n+=1}@#{n+=1}.com",
     password: "123456",
-    avatar: Faker::Avatar.image, #logs_pics.shuffle!.pop, #
+    avatar: logs_pics.shuffle!.pop, #Faker::Avatar.image, #
     nickname: Faker::Games::ElderScrolls.first_name,
     bio: Faker::Quote.matz,
     discord: "https://discord.gg/thisshouldnotworkhopefully",
@@ -791,3 +791,193 @@ Event.create(
 
 
 puts "All finished"
+sleep 2
+puts "Just kiding"
+sleep 1
+
+puts "Creating 4 IT Geniuses"
+role = ["Rubyist"]
+days_times = []
+days_times << random_start_end_time(rand(17..17), rand(23..23))
+User.create(
+  username: "Nicholas",
+  email: "nick@1.com",
+  password: 123456,
+  nickname: "Nicholas Roma",
+  avatar: "https://avatars.githubusercontent.com/u/54879724?s=460&u=b0d85f45a7bab8a8ec522838e8110951139cfb7d&v=4",
+  bio: "I live to code",
+  discord: "invalid",
+  role: role[0],
+  server: "Hall of Legend Coders",
+  stats: 999,
+  sunday_start: days_times[0][0],
+  sunday_end: days_times[0][1],
+  monday_start: days_times[0][0],
+  monday_end: days_times[0][1],
+  tuesday_start: days_times[0][0],
+  tuesday_end: days_times[0][1],
+  wednesday_start: days_times[0][0],
+  wednesday_end: days_times[0][1],
+  thursday_start: days_times[0][0],
+  thursday_end: days_times[0][1],
+  friday_start: days_times[0][0],
+  friday_end: days_times[0][1],
+  saturday_start: days_times[0][0],
+  saturday_end: days_times[0][1],
+)
+
+User.create(
+  username: "David",
+  email: "david@1.com",
+  password: 123456,
+  nickname: "David Smith",
+  avatar: "https://avatars.githubusercontent.com/u/71424368?s=460&u=73787337799ac5046bf3825b1f1635be1adbfb27&v=4",
+  bio: "Code is my second name",
+  discord: "invalid",
+  role: role[0],
+  server: "Hall of Legend Coders",
+  stats: 999,
+  sunday_start: days_times[0][0],
+  sunday_end: days_times[0][1],
+  monday_start: days_times[0][0],
+  monday_end: days_times[0][1],
+  tuesday_start: days_times[0][0],
+  tuesday_end: days_times[0][1],
+  wednesday_start: days_times[0][0],
+  wednesday_end: days_times[0][1],
+  thursday_start: days_times[0][0],
+  thursday_end: days_times[0][1],
+  friday_start: days_times[0][0],
+  friday_end: days_times[0][1],
+  saturday_start: days_times[0][0],
+  saturday_end: days_times[0][1],
+)
+
+User.create(
+  username: "Jacob",
+  email: "jacob@1.com",
+  password: 123456,
+  nickname: "Jacob Iyamu",
+  avatar: "https://avatars.githubusercontent.com/u/26868632?s=460&u=829860186770e44913c02d869cdb50de4b9972c5&v=4",
+  bio: "I designed you on Figma before you were born",
+  discord: "invalid",
+  role: role[0],
+  server: "Hall of Legend Coders",
+  stats: 999,
+  sunday_start: days_times[0][0],
+  sunday_end: days_times[0][1],
+  monday_start: days_times[0][0],
+  monday_end: days_times[0][1],
+  tuesday_start: days_times[0][0],
+  tuesday_end: days_times[0][1],
+  wednesday_start: days_times[0][0],
+  wednesday_end: days_times[0][1],
+  thursday_start: days_times[0][0],
+  thursday_end: days_times[0][1],
+  friday_start: days_times[0][0],
+  friday_end: days_times[0][1],
+  saturday_start: days_times[0][0],
+  saturday_end: days_times[0][1],
+)
+
+User.create(
+  username: "Lawrence",
+  email: "lawrence@1.com",
+  password: 123456,
+  nickname: "Lawrence Kroll",
+  avatar: "https://avatars.githubusercontent.com/u/65147229?s=460&u=a9b519719ca69000fdde3afee373e07e642bda42&v=4",
+  bio: "The complexer the easier",
+  discord: "invalid",
+  role: role[0],
+  server: "Hall of Legend Coders",
+  stats: 999,
+  sunday_start: days_times[0][0],
+  sunday_end: days_times[0][1],
+  monday_start: days_times[0][0],
+  monday_end: days_times[0][1],
+  tuesday_start: days_times[0][0],
+  tuesday_end: days_times[0][1],
+  wednesday_start: days_times[0][0],
+  wednesday_end: days_times[0][1],
+  thursday_start: days_times[0][0],
+  thursday_end: days_times[0][1],
+  friday_start: days_times[0][0],
+  friday_end: days_times[0][1],
+  saturday_start: days_times[0][0],
+  saturday_end: days_times[0][1],
+)
+
+user_special3 = User.find_by(username: "Jacob")
+Team.create(
+  name: "Code Kings",
+  avatar: "http://codeking.cloud/CodeKing_simple.png",
+  bio: "CODE: Cool On Demand Engineers",
+  discord: "https://discord.gg/Gw8cmHShnV",
+  status: 0,
+  user_id: user_special3.id,
+  game_id: Game.last.id
+)
+team = Team.last
+user_special3.update(team_id: team.id)
+
+
+team_special3 = Team.last
+user_20 = User.find_by(username: "Nicholas")
+user_21 = User.find_by(username: "David")
+user_22 = User.find_by(username: "Lawrence")
+
+if user_20.team_id.nil?
+  Invite.create(
+    status: 1,
+    user: user_20,
+    team: team_special3
+  )
+end
+
+if user_21.team_id.nil?
+  Invite.create(
+    status: 1,
+    user: user_21,
+    team: team_special3
+  )
+end
+
+if user_22.team_id.nil?
+  Invite.create(
+    status: 1,
+    user: user_22,
+    team: team_special3
+  )
+end
+
+days_times_events = []
+days_times_events << random_start_end_time(rand(17..19), rand(20..23))
+day = 1..7
+Event.create(
+  name: content[3],
+  description: "Hacking into the Future",
+  day: rand(day),
+  start_time: days_times_events[0][0],
+  end_time: days_times_events[0][1],
+  team_id: team_special3.id
+)
+
+Event.create(
+  name: content[3],
+  description: "Type or you will be typed",
+  day: rand(day),
+  start_time: days_times_events[0][0],
+  end_time: days_times_events[0][1],
+  team_id: team_special3.id
+)
+
+Event.create(
+  name: content[3],
+  description: "Wanna play? No! We are CODING!",
+  day: rand(day),
+  start_time: days_times_events[0][0],
+  end_time: days_times_events[0][1],
+  team_id: team_special3.id
+)
+
+puts "Now its done!"
