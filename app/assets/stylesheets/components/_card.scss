@@ -127,6 +127,11 @@
   border-radius: 6px;
 }
 
+.background-gradient-members-two {
+  background: linear-gradient(to bottom, #4E03FF, #361075 );
+  border-radius: 6px;
+}
+
 
 // Parse Backgrounds
 
@@ -222,7 +227,7 @@
   height: 200px;
   display: flex;
   align-items: center;
-  width: 50%;
+  width: 60%;
 }
 
 .card-product-two {
@@ -369,11 +374,13 @@ background-size: 1800% 1800%;
 
 
 .card-inner-team-index {
+  padding-left: 12px;
   border-radius:6px;
   background-color:#0D0D0DF2;
   box-shadow: 2px 2px 4px #00000080;
   height: 220px;
-  transition: all 1s;
+  transition: all 0.5s;
+
 }
 
 .taller-inner-card {

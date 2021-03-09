@@ -1,9 +1,10 @@
 <div class="container">
   <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://p82.f1.n0.cdn.getcloudapp.com/items/YEuXB4Pj/725a5ca9-290c-406a-99ce-3f3aea2529ae.png?source=viewer&v=733bc8b84c6772f52aaef17de2a7035f);">
     <div class="container">
-      <div class="card-product p-1 text-left" style="background-color:transparent;">
-        <div>
-          <h1 style="color:white;">Find your Team to raid with</h1>
+      <div class="p-1 text-left" style="background-color:transparent;">
+        <div class="banner">
+          <h1>Find your Team to raid with</h1>
+          <p class="flex-grow-1 p-1 bg-warning barwidth"></p>
         </div>
       </div>
     </div>
@@ -11,10 +12,10 @@
 
   <ul class="nav nav-tabs border-0" id="myTab" role="tablist" style="margin-bottom: 30px">
     <li class="nav-item">
-      <a class="nav-link active" id="team-tab" data-toggle="tab" href="#team" role="tab" aria-controls="team" aria-selected="true">Teams</a>
+      <a class="nav-link active" id="team-tab" data-toggle="tab" href="#team" role="tab" aria-controls="team" aria-selected="true">Find a Team</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" id="user-tab" data-toggle="tab" href="#user" role="tab" aria-controls="user" aria-selected="false">Users</a>
+      <a class="nav-link" id="user-tab" data-toggle="tab" href="#user" role="tab" aria-controls="user" aria-selected="false">Find a Member</a>
     </li>
   </ul>
 </div>
@@ -26,6 +27,7 @@
       <% @teams.each do |team| %>
       <div class="row">
       <div class="col-lg-12">
+
 
         
           <div class="p-3 background-gradient-purple mb-3">
@@ -165,7 +167,7 @@ function cardExpander() {
   event.currentTarget.classList.toggle("clicked-caret")
 
   event.currentTarget.previousElementSibling.classList.toggle("day-grid-enabled")
-  
+
 
 
 }
