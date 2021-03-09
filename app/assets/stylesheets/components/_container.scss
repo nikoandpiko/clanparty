@@ -554,7 +554,8 @@
     top: 40px;
     left: -45px;
     width: 150%;
-    display: none;
+    opacity: 0%;
+    transition: all 0.5s;
     
 }
 
@@ -563,25 +564,28 @@
     top: 40px;
     left: -45px;
     width: 150%;
-    display: block;
+    opacity: 100%;
+    transition: all 3s;
     
 }
 
 .caret-button {
     position: relative;
-    top: -20px;
+    top: -60px;
     right: -290px;
-    background-color:#140c16 ;
+    background-color:transparent !important ;
     border: none;
+    transition: all 1s;
 }
 
 .clicked-caret {
     position: relative;
     top: 38px;
     right: -290px;
-    background-color:#140c16 ;
+    background-color:transparent !important ;
     border: none;
     transform: rotate(180deg);
+    transition: all 1s;
 }
 
 .fa-caret-down {
