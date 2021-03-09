@@ -1,0 +1,21 @@
+<div class="p-3 background-gradient-members-two">
+  <h2 class="card-outer-header"><i class="fas fa-user-friends pr-1"></i> CURRENT TEAM MEMBERS (<%= @member_teammates.count %>) </h2>
+  <%# Below was originally != current_user ... Unsure which is needed if any. %>
+  <div class="card-product-two text-left card-inner">
+    <img class="card-member-avatar" src="<%= @leader[0].avatar %>" alt="<%= @leader[0].nickname %>">
+    <div class="card-inner-header">
+      <p class="card-member-role"><%= @leader[0].role %></p>
+      <h4 class="card-inner-header"><%= link_to @leader[0].nickname, user_path(@leader[0]) %></h4>
+    </div>
+  </div>
+  <% @member_teammates.each do |invite| %>
+  <% next if invite.user == @user %>
+    <div class="card-product-two text-left card-inner">
+      <img class="card-member-avatar" src="<%= invite.user.avatar %>" alt="<%= invite.user.nickname %>">
+      <div class="card-inner-header">
+        <p class="card-member-role"><%= invite.user.role %></p>
+        <h4 class="card-inner-header"><%= link_to invite.user.nickname, user_path(invite.user) %></h4>
+      </div>
+    </div>
+  <% end %>
+</div>
