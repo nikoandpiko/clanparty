@@ -38,7 +38,7 @@ logs_pics = ["https://img2.finalfantasyxiv.com/f/e668c247e191bceb03b523a66050377
   # each weekday start and end time
   days_times = []
   7.times do
-    days_times << random_start_end_time(rand(17..21), rand(19..23))
+    days_times << random_start_end_time(rand(17..20), rand(20..23))
   end
   random_stats = rand(57..98)
   random_servers = ["Tonberry", "Ramuh", "Kujata", "Gungnir"]
@@ -46,7 +46,7 @@ logs_pics = ["https://img2.finalfantasyxiv.com/f/e668c247e191bceb03b523a66050377
     username: Faker::Games::Witcher.monster,
     email: "#{n+=1}@#{n+=1}.com",
     password: "123456",
-    avatar: logs_pics.shuffle!.pop, #Faker::Avatar.image, #
+    avatar: Faker::Avatar.image, #logs_pics.shuffle!.pop, #
     nickname: Faker::Games::ElderScrolls.first_name,
     bio: Faker::Quote.matz,
     discord: "https://discord.gg/thisshouldnotworkhopefully",
@@ -63,8 +63,8 @@ logs_pics = ["https://img2.finalfantasyxiv.com/f/e668c247e191bceb03b523a66050377
     thursday_end: days_times[4][1],
     friday_start: days_times[5][0],
     friday_end: days_times[5][1],
-    saturday_start: days_times[6][0],
-    saturday_end: days_times[6][1],
+    saturday_start: days_times[0][0],
+    saturday_end: days_times[0][1],
     stats: random_stats,
     server: random_servers[0]
   )
