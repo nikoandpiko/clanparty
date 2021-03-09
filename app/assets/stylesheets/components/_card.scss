@@ -1,5 +1,11 @@
 // Clanparty Classes
+.card {
+  border: 1px solid #212121;
+}
 
+.card-team {
+  padding-top: 16px;
+}
 
 .team-header p {
   font-family: Helvetica Neue Regular;
@@ -42,7 +48,7 @@
   color: white;
 }
 
-.card-inner {
+.card-inner-team {
   border-radius:6px;
   background-color:#0D0D0DF2;
   box-shadow: 2px 2px 4px #00000080;
@@ -358,4 +364,28 @@ background-size: 1800% 1800%;
 
 .event-image {
   background-size: cover;
+}
+
+.card-inner {
+  border-radius:6px;
+  background-color:#0D0D0DF2;
+  box-shadow: 2px 2px 4px #00000080;
+}
+
+
+.card-inner-team-index {
+  border-radius:6px;
+  background-color:#0D0D0DF2;
+  box-shadow: 2px 2px 4px #00000080;
+  height: 120px;
+  transition: all 1s;
+}
+
+.taller-inner-card {
+  border-radius:6px;
+  background-color:#0D0D0DF2;
+  box-shadow: 2px 2px 4px #00000080;
+  height: 220px;
+  transition: all 1s;
+
 }

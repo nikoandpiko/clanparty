@@ -4,8 +4,8 @@ class UsersController < ApplicationController
   def index
     @users = User.all
   end
-
-  def show
+  
+    def show
     @user = User.find(params[:id])
 
 
@@ -42,7 +42,7 @@ class UsersController < ApplicationController
     @events = Event.where(team_id: @team)
     authorize @user
   end
-
+  
   def new
     @user = User.new
     authorize @user
@@ -67,12 +67,12 @@ class UsersController < ApplicationController
       @team = Team.where(id: @user.team_id)
       @accepted_member = Invite.accepted.where(team: @team)
     end
-     @events = Event.where(team_id: @team)
+    @events = Event.where(team_id: @team)
     authorize @user
   end
 
   def update_schedule
-     @user = User.find(params[:id])
+    @user = User.find(params[:id])
     authorize @user
     @user.update(user_params)
     redirect_to user_path(@user)
@@ -82,7 +82,7 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:nickname, :bio, :discord, :role, :monday_start, :monday_end, :tuesday_start, :tuesday_end, :wednesday_start, :wednesday_end, :thursday_start,
-    :thursday_end, :friday_start, :friday_end, :saturday_start, :saturday_end, :sunday_start, :sunday_end)
+                                 :thursday_end, :friday_start, :friday_end, :saturday_start, :saturday_end, :sunday_start, :sunday_end)
   end
 
 end
