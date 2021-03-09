@@ -564,21 +564,21 @@
 .caret-button {
     position: relative;
     top: 38px;
-    right: -300px;
+    right: -290px;
     background-color:transparent !important ;
     border: none;
-    transition: all 1s;
+    transition: all 0.5s;
 }
 
 .clicked-caret {
     position: relative;
 
     top: 220px;
-    right: -300px;
+    right: -290px;
     background-color:transparent !important ;
     border: none;
     transform: rotate(180deg);
-    transition: all 1s;
+    transition: all 0.5s;
 }
 
 .fa-caret-down {
