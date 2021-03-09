@@ -46,7 +46,7 @@ logs_pics = ["https://img2.finalfantasyxiv.com/f/e668c247e191bceb03b523a66050377
     username: Faker::Games::Witcher.monster,
     email: "#{n+=1}@#{n+=1}.com",
     password: "123456",
-    avatar: logs_pics.shuffle!.pop,
+    avatar: logs_pics.shuffle!.pop, #Faker::Avatar.image, #
     nickname: Faker::Games::ElderScrolls.first_name,
     bio: Faker::Quote.matz,
     discord: "https://discord.gg/thisshouldnotworkhopefully",
@@ -98,12 +98,14 @@ puts "Done"
 team_avatars = ["https://p56.f1.n0.cdn.getcloudapp.com/items/KouZRv5y/f56173f2-9f65-4517-bfc7-f5131614d778.png?source=viewer&v=f539594bf7f8cae6e0b8135e94ea45d3", "https://p56.f1.n0.cdn.getcloudapp.com/items/E0u9NDNg/7dc60225-dc10-43a4-8a68-081e5bdae894.png?v=844ba18244dacf2993f05bbffeb774cb", "https://p56.f1.n0.cdn.getcloudapp.com/items/OAugdpdO/b6aaa139-ad5f-4b62-9130-61f8a2d77bbe.png?source=viewer&v=0544fcf6fa673ad08fd0f02a5d89e82d", "https://p56.f1.n0.cdn.getcloudapp.com/items/kpu7zpzB/8e22f29a-3e14-4c4c-b23e-273124c2c2e5.png?v=aa4be8a1385517727cc6523f6f6882a6", "https://p56.f1.n0.cdn.getcloudapp.com/items/jkuejz0B/7ecf6b02-9ffa-4261-84c9-489cc302e466.png?v=5047114880564b11ced43f6b43795111", "https://p56.f1.n0.cdn.getcloudapp.com/items/WnuB5LWD/28279e45-ce88-4e0e-a7c9-494ce97657f3.png?v=3c9cb7153b6c0f2b37ae09a366877a61", "https://p56.f1.n0.cdn.getcloudapp.com/items/bLugNXZ2/4328c4ba-8b8b-4b49-b6a6-675100478fd8.png?v=320ad518f62a448557fa35052d404caf"]
 # Teams
 puts "Creating Teams"
+
+team_names = ["Lost Shadows", "Organ Death Pipes", "CoronaKillerZ", "King Henry's widows", "Burpamore", "Sublimers", "RiseNdie"]
 users_for_seed = User.all
 7.times do
-  status = [0, 1] # 0 is closed, 1 is open, 2 pending?
+  status = [0, 1, 1] # 0 is closed, 1 is open, 2 pending?
   user = users_for_seed.sample
   Team.create(
-    name: Faker::Games::StreetFighter.stage,
+    name: team_names.shuffle!.pop, #Faker::Games::StreetFighter.stage,
     avatar: team_avatars.shuffle!.pop,
     bio: Faker::Games::StreetFighter.quote,
     discord: "https://discord.gg/thisshouldnotworkhopefullyteams",
@@ -139,10 +141,11 @@ teams_for_seed = Team.all
 end
 
 puts "Creating pending Invites"
-10.times do
+12.times do
+  team_invite = teams_for_seed.sample
   user = users_for_seed.sample
 
-  if user.team_id.nil?
+  if user.team_id.nil? && team_invite.status == 1
     Invite.create(
       status: 2,
       user: users_for_seed.sample,
