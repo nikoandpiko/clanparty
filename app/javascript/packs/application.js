@@ -24,7 +24,7 @@
 
 // External imports
 import "bootstrap";
-import { displayScheduler } from "../components/displaySchedule";
+// import { displayScheduler } from "../components/displaySchedule";
 import { initSweetalert } from '../plugins/init_sweetalert';
 
 initSweetalert('#sweet-alert-event', {
@@ -35,6 +35,12 @@ initSweetalert('#sweet-alert-event', {
 
 initSweetalert('#sweet-alert-apply', {
   text: "Successfully applied!",
+  icon: "success",
+  button: false
+});
+
+initSweetalert('#sweet-alert-schedule', {
+  text: "Schedule Updated!",
   icon: "success",
   button: false
 });

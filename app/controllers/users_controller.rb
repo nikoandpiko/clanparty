@@ -58,6 +58,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     authorize @user
     @user.update(user_params)
+    sleep(1.5)
     redirect_to user_path(@user)
   end
 
@@ -75,6 +76,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     authorize @user
     @user.update(user_params)
+    
     redirect_to user_path(@user)
   end
 

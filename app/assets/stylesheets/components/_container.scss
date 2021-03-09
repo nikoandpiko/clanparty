@@ -111,7 +111,7 @@
 .wednesday {
     position: absolute;
     top: -25px;
-    left: 115px;
+    left: 116px;
 }
 
 .thursday {
@@ -554,25 +554,17 @@
     top: 40px;
     left: -45px;
     width: 150%;
-    opacity: 0%;
+    opacity: 100%;
     transition: all 0.5s;
 
 }
 
-.day-grid-enabled {
-    position: relative;
-    top: 40px;
-    left: -45px;
-    width: 150%;
-    opacity: 100%;
-    transition: all 3s;
 
-}
 
 .caret-button {
     position: relative;
-    top: -60px;
-    right: -280px;
+    top: 38px;
+    right: -300px;
     background-color:transparent !important ;
     border: none;
     transition: all 1s;
@@ -580,8 +572,9 @@
 
 .clicked-caret {
     position: relative;
-    top: 38px;
-    right: -288px;
+
+    top: 220px;
+    right: -300px;
     background-color:transparent !important ;
     border: none;
     transform: rotate(180deg);
@@ -659,3 +652,9 @@
     left: 317px;
     color: white;
 }
+
+
+.user-schedule-modal {
+    height: 500px;
+}
+
