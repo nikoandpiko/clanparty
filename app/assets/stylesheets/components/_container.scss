@@ -664,13 +664,14 @@
     bottom: 60px;
     left: 60px;
     opacity: 0%;
+    z-index: -1;
     transition: all 0.1s;
-    z-index: 0;
 }
 
 .clicked-content-cards {
     opacity: 100%;
-    transition: all 1.5s;
+    transition: opacity 1.5s;
+    z-index: 0;
 }
 
 .content-header {
