@@ -552,7 +552,7 @@
 .day-grid {
     position: relative;
     top: 40px;
-    left: -45px;
+    left: -80px;
     width: 150%;
     opacity: 100%;
     transition: all 0.5s;
@@ -565,7 +565,7 @@
 .caret-button {
     position: relative;
     top: 38px;
-    right: -290px;
+    right: -265px;
     background-color:transparent !important ;
     border: none;
     transition: all 0.4s;
@@ -575,7 +575,7 @@
     position: relative;
 
     top: 320px;
-    right: -290px;
+    right: -265px;
     background-color:transparent !important ;
     border: none;
     transform: rotate(180deg);
@@ -605,7 +605,7 @@
 
 .monday1 {
     position: absolute;
-    top: -22px;
+    top: -27px;
     left: 15px;
     color: white;
 
@@ -613,35 +613,35 @@
 
 .tuesday1 {
     position: absolute;
-    top: -22px;
+    top: -27px;
     left: 67px;
     color: white;
 }
 
 .wednesday1 {
     position: absolute;
-    top: -22px;
+    top: -27px;
     left: 115px;
     color: white;
 }
 
 .thursday1 {
     position: absolute;
-    top: -22px;
+    top: -27px;
     left: 167px;
     color: white;
 }
 
 .friday1 {
     position: absolute;
-    top: -22px;
+    top: -27px;
     left: 217px;
     color: white;
 }
 
 .saturday1 {
     position: absolute;
-    top: -22px;
+    top: -27px;
     left: 267px;
     color: white;
 
@@ -649,7 +649,7 @@
 
 .sunday1 {
     position: absolute;
-    top: -22px;
+    top: -27px;
     left: 317px;
     color: white;
 }
@@ -662,7 +662,7 @@
 .content-cards {
     position: absolute;
     bottom: 60px;
-    left: 78px;
+    left: 60px;
     opacity: 0%;
     transition: all 0.1s;
     z-index: 0;
