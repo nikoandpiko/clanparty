@@ -59,9 +59,9 @@ class InvitesController < ApplicationController
       builder.add_embed do |embed|
         embed.color = 2815
         embed.title = "Waiting for approval"
-        embed.url = "https://clanparty.herokuapp.com/teams/#{team.id}/"
+        embed.url = "http://www.clanparty.net/teams/#{team.id}/"
         # change LINK to clanparty.net later!!!
-        embed.description = "[#{user.nickname}](https://clanparty.herokuapp.com/teams/#{user.id}/) would like to join the team!\n\nVote:\n:white_check_mark: or :x:"
+        embed.description = "[#{user.nickname}](http://www.clanparty.net/users/#{user.id}/) would like to join the team!\n\nVote:\n:white_check_mark: or :x:"
         embed.timestamp = Time.now
       end
     end
@@ -93,7 +93,7 @@ class InvitesController < ApplicationController
       builder.add_embed do |embed|
         embed.color = 16711680
         embed.title = "Denied to join team"
-        embed.url = "https://clanparty.herokuapp.com/teams/#{team.id}/"
+        embed.url = "http://www.clanparty.net/teams/#{team.id}/"
         # change LINK to clanparty.net later!!!
         embed.description = "Your request has unfortunately been denied. We kindly ask you to leave the channel!"
         embed.timestamp = Time.now

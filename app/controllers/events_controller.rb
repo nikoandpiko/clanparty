@@ -64,7 +64,7 @@ class EventsController < ApplicationController
       builder.add_embed do |embed|
         embed.title = event_title
         embed.color = 16056575
-        embed.url = "https://clanparty.herokuapp.com/teams/#{team.id}/"
+        embed.url = "http://www.clanparty.net/teams/#{team.id}/"
         # change LINK to clanparty.net later!!!
         embed.description = "#{description}!"
         embed.add_field(name: 'Day', value: day_time(day), inline: true)

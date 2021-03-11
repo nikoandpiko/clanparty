@@ -790,15 +790,18 @@ Event.create(
 )
 
 
-puts "All finished"
-sleep 2
-puts "Just kiding"
-sleep 1
+# puts "All finished"
+# sleep 2
+# puts "Just kiding"
+# sleep 1
 
 puts "Creating 4 IT Geniuses"
-role = ["Rubyist"]
-days_times = []
-days_times << random_start_end_time(rand(17..17), rand(23..23))
+# role = ["Rubyist"]
+sat = []
+# days_times << random_start_end_time(rand(17..17), rand(22..22))
+tue_thu = []
+tue_thu << random_start_end_time(rand(19..17), rand(22..22))
+sat << random_start_end_time(rand(17..17), rand(23..23))
 User.create(
   username: "Nicholas",
   email: "nick@1.com",
@@ -807,23 +810,15 @@ User.create(
   avatar: "https://avatars.githubusercontent.com/u/54879724?s=460&u=b0d85f45a7bab8a8ec522838e8110951139cfb7d&v=4",
   bio: "I live to code",
   discord: "invalid",
-  role: role[0],
+  role: "Lead Developer",
   server: "Hall of Legend Coders",
   stats: 999,
-  sunday_start: days_times[0][0],
-  sunday_end: days_times[0][1],
-  monday_start: days_times[0][0],
-  monday_end: days_times[0][1],
-  tuesday_start: days_times[0][0],
-  tuesday_end: days_times[0][1],
-  wednesday_start: days_times[0][0],
-  wednesday_end: days_times[0][1],
-  thursday_start: days_times[0][0],
-  thursday_end: days_times[0][1],
-  friday_start: days_times[0][0],
-  friday_end: days_times[0][1],
-  saturday_start: days_times[0][0],
-  saturday_end: days_times[0][1],
+  tuesday_start: tue_thu[0][0],
+  tuesday_end: tue_thu[0][1],
+  thursday_start: tue_thu[0][0],
+  thursday_end: tue_thu[0][1],
+  saturday_start: sat[0][0],
+  saturday_end: sat[0][1],
 )
 
 User.create(
@@ -834,23 +829,15 @@ User.create(
   avatar: "https://avatars.githubusercontent.com/u/71424368?s=460&u=73787337799ac5046bf3825b1f1635be1adbfb27&v=4",
   bio: "Code is my second name",
   discord: "invalid",
-  role: role[0],
+  role: "Backend Lead",
   server: "Hall of Legend Coders",
   stats: 999,
-  sunday_start: days_times[0][0],
-  sunday_end: days_times[0][1],
-  monday_start: days_times[0][0],
-  monday_end: days_times[0][1],
-  tuesday_start: days_times[0][0],
-  tuesday_end: days_times[0][1],
-  wednesday_start: days_times[0][0],
-  wednesday_end: days_times[0][1],
-  thursday_start: days_times[0][0],
-  thursday_end: days_times[0][1],
-  friday_start: days_times[0][0],
-  friday_end: days_times[0][1],
-  saturday_start: days_times[0][0],
-  saturday_end: days_times[0][1],
+  tuesday_start: tue_thu[0][0],
+  tuesday_end: tue_thu[0][1],
+  thursday_start: tue_thu[0][0],
+  thursday_end: tue_thu[0][1],
+  saturday_start: sat[0][0],
+  saturday_end: sat[0][1],
 )
 
 User.create(
@@ -861,23 +848,15 @@ User.create(
   avatar: "https://avatars.githubusercontent.com/u/26868632?s=460&u=829860186770e44913c02d869cdb50de4b9972c5&v=4",
   bio: "I designed you on Figma before you were born",
   discord: "invalid",
-  role: role[0],
+  role: "Frontend Lead",
   server: "Hall of Legend Coders",
   stats: 999,
-  sunday_start: days_times[0][0],
-  sunday_end: days_times[0][1],
-  monday_start: days_times[0][0],
-  monday_end: days_times[0][1],
-  tuesday_start: days_times[0][0],
-  tuesday_end: days_times[0][1],
-  wednesday_start: days_times[0][0],
-  wednesday_end: days_times[0][1],
-  thursday_start: days_times[0][0],
-  thursday_end: days_times[0][1],
-  friday_start: days_times[0][0],
-  friday_end: days_times[0][1],
-  saturday_start: days_times[0][0],
-  saturday_end: days_times[0][1],
+  tuesday_start: tue_thu[0][0],
+  tuesday_end: tue_thu[0][1],
+  thursday_start: tue_thu[0][0],
+  thursday_end: tue_thu[0][1],
+  saturday_start: sat[0][0],
+  saturday_end: sat[0][1],
 )
 
 User.create(
@@ -888,29 +867,21 @@ User.create(
   avatar: "https://avatars.githubusercontent.com/u/65147229?s=460&u=a9b519719ca69000fdde3afee373e07e642bda42&v=4",
   bio: "The complexer the easier",
   discord: "invalid",
-  role: role[0],
+  role: "Project Manager",
   server: "Hall of Legend Coders",
   stats: 999,
-  sunday_start: days_times[0][0],
-  sunday_end: days_times[0][1],
-  monday_start: days_times[0][0],
-  monday_end: days_times[0][1],
-  tuesday_start: days_times[0][0],
-  tuesday_end: days_times[0][1],
-  wednesday_start: days_times[0][0],
-  wednesday_end: days_times[0][1],
-  thursday_start: days_times[0][0],
-  thursday_end: days_times[0][1],
-  friday_start: days_times[0][0],
-  friday_end: days_times[0][1],
-  saturday_start: days_times[0][0],
-  saturday_end: days_times[0][1],
+  tuesday_start: tue_thu[0][0],
+  tuesday_end: tue_thu[0][1],
+  thursday_start: tue_thu[0][0],
+  thursday_end: tue_thu[0][1],
+  saturday_start: sat[0][0],
+  saturday_end: sat[0][1],
 )
 
 user_special3 = User.find_by(username: "Jacob")
 Team.create(
   name: "Code Kings",
-  avatar: "http://codeking.cloud/CodeKing_simple.png",
+  avatar: "https://d92mrp7hetgfk.cloudfront.net/images/sites/misc/lewagon/original.png?1568416131",
   bio: "CODE: Cool On Demand Engineers",
   discord: "https://discord.gg/Gw8cmHShnV",
   status: 0,
