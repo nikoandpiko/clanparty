@@ -556,6 +556,7 @@
     width: 150%;
     opacity: 100%;
     transition: all 0.5s;
+    z-index: 1;
 
 }
 
@@ -567,18 +568,18 @@
     right: -290px;
     background-color:transparent !important ;
     border: none;
-    transition: all 0.5s;
+    transition: all 0.4s;
 }
 
 .clicked-caret {
     position: relative;
 
-    top: 220px;
+    top: 320px;
     right: -290px;
     background-color:transparent !important ;
     border: none;
     transform: rotate(180deg);
-    transition: all 0.5s;
+    transition: all 0.4s;
 }
 
 .fa-caret-down {
@@ -658,3 +659,27 @@
     height: 500px;
 }
 
+.content-cards {
+    position: absolute;
+    bottom: 60px;
+    left: 78px;
+    opacity: 0%;
+    transition: all 0.1s;
+    z-index: 0;
+}
+
+.clicked-content-cards {
+    opacity: 100%;
+    transition: all 1.5s;
+}
+
+.content-header {
+    position: relative;
+    left: 10px;
+}
+
+.role-header {
+    position: relative;
+    left: 10px;
+    
+}
