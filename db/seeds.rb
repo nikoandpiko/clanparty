@@ -800,8 +800,8 @@ puts "Creating 4 IT Geniuses"
 sat = []
 # days_times << random_start_end_time(rand(17..17), rand(22..22))
 tue_thu = []
-tue_thu << random_start_end_time(rand(19..17), rand(22..22))
-sat << random_start_end_time(rand(17..17), rand(23..23))
+tue_thu << random_start_end_time(19, 22)
+sat << random_start_end_time(17, 23)
 User.create(
   username: "Nicholas",
   email: "nick@1.com",
