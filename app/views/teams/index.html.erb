@@ -3,8 +3,8 @@
     <div class="container">
       <div class="p-1 text-left" style="background-color:transparent;">
         <div class="banner">
-          <h1>Find your Team to raid with</h1>
-          <p class="flex-grow-1 p-1 bg-warning barwidth"></p>
+          <h1 style="position: relative; z-index: 2; text-shadow: none;">FIND A TEAM TO RAID WITH!</h1>
+          <p class="flex-grow-1 p-1 bg-warning barwidth-team"></p>
         </div>
       </div>
     </div>
@@ -22,14 +22,14 @@
 <div class="tab-content" id="myTabContent">
   <div class="tab-pane fade show active" id="team" role="tabpanel" aria-labelledby="team-tab">
     <div class="team-cards-grid container" style="margin-top: -30px">
-      
+
     <% counter = 0 %>
       <% @teams.each do |team| %>
       <div class="row">
       <div class="col-lg-12">
 
 
-        
+
           <div class="p-3 background-gradient-purple mb-3">
             <h2 class="card-outer-header"><i class="fas fa-user-plus pr-1"></i> SEEKING</h2>
             <div class="card-team d-flex card-inner-team-index" style="padding-left:33px;"><% old_color="#252830" %>
@@ -45,10 +45,10 @@
                 <% team.thursday == true ? counter += 1 : counter = counter %>
                 <% team.friday == true ? counter += 1 : counter = counter %>
                 <% team.saturday == true ? counter += 1 : counter = counter %>
-                <% team.sunday == true ? counter += 1 : counter = counter %>   
-                <h6 class="card-subtitle text-muted mb-2"><i class="far fa-user ml-2"></i> <%= team.invites.accepted.count + 1 %> <i class="far fa-calendar ml-1"></i> <%= "#{counter} days" %>   
+                <% team.sunday == true ? counter += 1 : counter = counter %>
+                <h6 class="card-subtitle text-muted mb-2"><i class="far fa-user ml-2"></i> <%= team.invites.accepted.count + 1 %> <i class="far fa-calendar ml-1"></i> <%= "#{counter} days" %>
                 <i class="fas fa-clock ml-2"></i> <%= team.wednesday_start%> - <%= team.wednesday_end %>  </h6>
-      
+
                 <div class="day-grid">
                   <div class="days1">
                     <p class="monday1">M</p>
@@ -115,7 +115,7 @@
                 <% end %>
                 <!-- <p class="card-text text-dark">CORE HOURS</p> -->
 
-        
+
                 <button class="caret-button" type="button" data-toggle="dropdown" onclick="cardExpander();">
                 <i class="fas fa-caret-down"></i>
                 </button>
@@ -126,7 +126,7 @@
         </div>
       </div>
       <% end %>
-     
+
     </div>
   </div>
   <div class="tab-pane fade" id="user" role="tabpanel" aria-labelledby="user-tab">
@@ -183,7 +183,7 @@ function cardExpander() {
   event.currentTarget.classList.toggle("clicked-caret")
 
   event.currentTarget.previousElementSibling.classList.toggle("clicked-content-cards")
- 
+
   console.log(event.currentTarget.previousElementSibling)
 
 
