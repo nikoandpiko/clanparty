@@ -256,7 +256,7 @@
             <% elsif !@user.team_id.nil? && !@invite_check.nil? %>
               <%= render 'userleader' %>
             <% elsif !current_user.team_id.nil? || !@invite_check.nil? %>
-              <% if !@user.team_id.nil? || !@invite_check.nil? %>
+              <% if !@user.team_id.nil? && !@invite_check.nil? %>
                 <%= render 'userleader' %>
               <% elsif Team.find_by(user_id: @user).nil?%>
                 <%= render 'userwithteam' %>
@@ -530,7 +530,7 @@
           const fridaySquares = document.getElementById("friday-squares1").querySelectorAll("button");
           const saturdaySquares = document.getElementById("saturday-squares1").querySelectorAll("button");
           const sundaySquares = document.getElementById("sunday-squares1").querySelectorAll("button");
-          
+
           let firstClickedDown = 50
           let firstClickedUp = -50
           let currentSquareHovered = null
@@ -543,75 +543,75 @@
           let dataSubmitterFriday = []
           let dataSubmitterSaturday = []
           let dataSubmitterSunday = []
-          
+
           const monStartAttribute = document.createAttribute("value");
           const mondayStartInput = document.getElementById("user_monday_start");
           mondayStartInput.setAttributeNode(monStartAttribute);
-          
+
           const monEndAttribute = document.createAttribute("value");
           const mondayEndInput = document.getElementById("user_monday_end");
           mondayEndInput.setAttributeNode(monEndAttribute);
-          
+
           const tueStartAttribute = document.createAttribute("value");
           const tuesdayStartInput = document.getElementById("user_tuesday_start");
           tuesdayStartInput.setAttributeNode(tueStartAttribute);
-          
+
           const tueEndAttribute = document.createAttribute("value");
           const tuesdayEndInput = document.getElementById("user_tuesday_end");
           tuesdayEndInput.setAttributeNode(tueEndAttribute);
-          
+
           const wedStartAttribute = document.createAttribute("value");
           const wednesdayStartInput = document.getElementById("user_wednesday_start");
           wednesdayStartInput.setAttributeNode(wedStartAttribute);
-          
+
           const wedEndAttribute = document.createAttribute("value");
           const wednesdayEndInput = document.getElementById("user_wednesday_end");
           wednesdayEndInput.setAttributeNode(wedEndAttribute);
-          
+
           const thurStartAttribute = document.createAttribute("value");
           const thursdayStartInput = document.getElementById("user_thursday_start");
           thursdayStartInput.setAttributeNode(thurStartAttribute);
-          
+
           const thurEndAttribute = document.createAttribute("value");
           const thursdayEndInput = document.getElementById("user_thursday_end");
           thursdayEndInput.setAttributeNode(thurEndAttribute);
-          
+
           const friStartAttribute = document.createAttribute("value");
           const fridayStartInput = document.getElementById("user_friday_start");
           fridayStartInput.setAttributeNode(friStartAttribute);
-          
+
           const friEndAttribute = document.createAttribute("value");
           const fridayEndInput = document.getElementById("user_friday_end");
           fridayEndInput.setAttributeNode(friEndAttribute);
-          
+
           const satStartAttribute = document.createAttribute("value");
           const saturdayStartInput = document.getElementById("user_saturday_start");
           saturdayStartInput.setAttributeNode(satStartAttribute);
-          
+
           const satEndAttribute = document.createAttribute("value");
           const saturdayEndInput = document.getElementById("user_saturday_end");
           saturdayEndInput.setAttributeNode(satEndAttribute);
-          
+
           const sunStartAttribute = document.createAttribute("value");
           const sundayStartInput = document.getElementById("user_sunday_start");
           sundayStartInput.setAttributeNode(sunStartAttribute);
-          
+
           const sunEndAttribute = document.createAttribute("value");
           const sundayEndInput = document.getElementById("user_sunday_end");
           sundayEndInput.setAttributeNode(sunEndAttribute);
-          
+
           function clickchecker(square) {
             if (square.classList.contains("clicked-square")) {
                 square.classList.add("first-selection")
             }
           }
-          
+
           function scheduleDataSetterMonday(square) {
             if (square.classList.contains("clicked-square")) {
                 dataSubmitterMonday.push(square)
             }
           }
-          
+
           function scheduleDataSetterTuesday(square) {
             if (square.classList.contains("clicked-square")) {
                 dataSubmitterTuesday.push(square)
@@ -642,7 +642,7 @@
                 dataSubmitterSunday.push(square)
             }
           }
-          
+
           function goingupRangemaker(square,index) {
             if (firstClickedUp > index && index > currentSquareHoveredIndexDown) {
                   square.classList.add("range-connecter");
@@ -653,16 +653,16 @@
               }
             });
           }
-          
+
           function rangemaker(square, index) {
-          
+
               var parent = event.currentTarget.parentElement;
-          
+
               if (square.classList.contains("clicked-square")) {
                 firstClickedDown = index
                 firstClickedUp = index
               }
-          
+
               if (currentSquareHovered.classList.contains("0")) {
                 currentSquareHoveredIndexDown = 0
               } else if (currentSquareHovered.classList.contains("1")) {
@@ -678,36 +678,36 @@
               } else if (currentSquareHovered.classList.contains("6")) {
                 currentSquareHoveredIndexDown = 6
               }
-          
-          
+
+
               if (firstClickedDown < index && index < currentSquareHoveredIndexDown)  {
                   square.classList.add("range-connecter");
-          
+
               }
-          
+
               currentSquareHovered.addEventListener("click", function() {
                 if (firstClickedDown < index && index < currentSquareHoveredIndexDown) {
                   square.classList.add("clicked-square");
                 }
               });
-          
+
               parent.querySelectorAll("button").forEach(goingupRangemaker);
           }
-          
-          
+
+
           function rangedestroyer(square) {
               if (!square.classList.contains("clicked-square")) {
                 square.classList.remove("range-connecter");
               }
           }
-          
+
           function hover() {
               currentSquareHovered = event.currentTarget
               var parent = event.currentTarget.parentElement;
               parent.querySelectorAll("button").forEach(rangemaker);
           }
-          
-          
+
+
           function hoveroff() {
             var parent = event.currentTarget.parentElement;
             alreadyClicked= false
@@ -715,22 +715,22 @@
             firstClickedDown = 50
             firstClickedUp = -50
           }
-          
-          
+
+
           function buttontoggle() {
             var parent = event.currentTarget.parentElement;
             parent.querySelectorAll("button").forEach(clickchecker)
             event.currentTarget.classList.toggle("clicked-square");
             event.currentTarget.classList.remove("not-clicked");
-          
+
             if (event.currentTarget.nextElementSibling.classList.contains("clicked-square") && event.currentTarget.previousElementSibling.classList.contains("clicked-square")) {
               event.currentTarget.classList.add("clicked-square")
             }
           }
-          
+
           function mondaySubmitButtonHover() {
             mondaySquares.forEach(scheduleDataSetterMonday);
-          
+
             if (dataSubmitterMonday[0].classList.contains("0")) {
                 mondayStartInput.value = "17:00"
               } else if (dataSubmitterMonday[0].classList.contains("1")) {
@@ -746,8 +746,8 @@
               } else if (dataSubmitterMonday[0].classList.contains("6")) {
                 mondayStartInput.value = "23:00"
               }
-          
-          
+
+
             if (dataSubmitterMonday[dataSubmitterMonday.length - 1].classList.contains("0")) {
                 mondayEndInput.value = "17:00"
               } else if (dataSubmitterMonday[dataSubmitterMonday.length - 1].classList.contains("1")) {
@@ -763,13 +763,13 @@
               } else if (dataSubmitterMonday[dataSubmitterMonday.length - 1].classList.contains("6")) {
                 mondayEndInput.value = "23:00"
               }
-          
+
           }
-          
+
           function tuesdaySubmitButtonHover() {
             tuesdaySquares.forEach(scheduleDataSetterTuesday);
-          
-          
+
+
             if (dataSubmitterTuesday[0].classList.contains("0")) {
                 tuesdayStartInput.value = "17:00"
               } else if (dataSubmitterTuesday[0].classList.contains("1")) {
@@ -785,7 +785,7 @@
               } else if (dataSubmitterTuesday[0].classList.contains("6")) {
                 tuesdayStartInput.value = "23:00"
               }
-          
+
             if (dataSubmitterTuesday[dataSubmitterTuesday.length - 1].classList.contains("0")) {
                 tuesdayEndInput.value = "17:00"
               } else if (dataSubmitterTuesday[dataSubmitterTuesday.length - 1].classList.contains("1")) {
@@ -801,13 +801,13 @@
               } else if (dataSubmitterTuesday[dataSubmitterTuesday.length - 1].classList.contains("6")) {
                 tuesdayEndInput.value = "23:00"
               }
-          
+
           }
-          
+
           function wednesdaySubmitButtonHover() {
             wednesdaySquares.forEach(scheduleDataSetterWednesday);
-          
-          
+
+
             if (dataSubmitterWednesday[0].classList.contains("0")) {
                 wednesdayStartInput.value = "17:00"
               } else if (dataSubmitterWednesday[0].classList.contains("1")) {
@@ -823,7 +823,7 @@
               } else if (dataSubmitterWednesday[0].classList.contains("6")) {
                 wednesdayStartInput.value = "23:00"
               }
-          
+
             if (dataSubmitterWednesday[dataSubmitterWednesday.length - 1].classList.contains("0")) {
                 wednesdayEndInput.value = "17:00"
               } else if (dataSubmitterWednesday[dataSubmitterWednesday.length - 1].classList.contains("1")) {
@@ -839,13 +839,13 @@
               } else if (dataSubmitterWednesday[dataSubmitterWednesday.length - 1].classList.contains("6")) {
                 wednesdayEndInput.value = "23:00"
               }
-          
+
           }
-          
+
           function thursdaySubmitButtonHover() {
             thursdaySquares.forEach(scheduleDataSetterThursday);
-          
-          
+
+
             if (dataSubmitterThursday[0].classList.contains("0")) {
                 thursdayStartInput.value = "17:00"
               } else if (dataSubmitterThursday[0].classList.contains("1")) {
@@ -861,7 +861,7 @@
               } else if (dataSubmitterThursday[0].classList.contains("6")) {
                 thursdayStartInput.value = "23:00"
               }
-          
+
             if (dataSubmitterThursday[dataSubmitterThursday.length - 1].classList.contains("0")) {
                 thursdayEndInput.value = "17:00"
               } else if (dataSubmitterThursday[dataSubmitterThursday.length - 1].classList.contains("1")) {
@@ -877,13 +877,13 @@
               } else if (dataSubmitterThursday[dataSubmitterThursday.length - 1].classList.contains("6")) {
                 thursdayEndInput.value = "23:00"
               }
-          
+
           }
-          
+
           function fridaySubmitButtonHover() {
             fridaySquares.forEach(scheduleDataSetterFriday);
-          
-          
+
+
             if (dataSubmitterFriday[0].classList.contains("0")) {
                 fridayStartInput.value = "17:00"
               } else if (dataSubmitterFriday[0].classList.contains("1")) {
@@ -899,7 +899,7 @@
               } else if (dataSubmitterFriday[0].classList.contains("6")) {
                 fridayStartInput.value = "23:00"
               }
-          
+
             if (dataSubmitterFriday[dataSubmitterFriday.length - 1].classList.contains("0")) {
                 fridayEndInput.value = "17:00"
               } else if (dataSubmitterFriday[dataSubmitterFriday.length - 1].classList.contains("1")) {
@@ -915,13 +915,13 @@
               } else if (dataSubmitterFriday[dataSubmitterFriday.length - 1].classList.contains("6")) {
                 fridayEndInput.value = "23:00"
               }
-          
+
           }
-          
+
           function saturdaySubmitButtonHover() {
             saturdaySquares.forEach(scheduleDataSetterSaturday);
-          
-          
+
+
             if (dataSubmitterSaturday[0].classList.contains("0")) {
                 saturdayStartInput.value = "17:00"
               } else if (dataSubmitterSaturday[0].classList.contains("1")) {
@@ -937,7 +937,7 @@
               } else if (dataSubmitterSaturday[0].classList.contains("6")) {
                 saturdayStartInput.value = "23:00"
               }
-          
+
             if (dataSubmitterSaturday[dataSubmitterSaturday.length - 1].classList.contains("0")) {
                 saturdayEndInput.value = "17:00"
               } else if (dataSubmitterSaturday[dataSubmitterSaturday.length - 1].classList.contains("1")) {
@@ -953,13 +953,13 @@
               } else if (dataSubmitterSaturday[dataSubmitterSaturday.length - 1].classList.contains("6")) {
                 saturdayEndInput.value = "23:00"
               }
-          
+
           }
-          
+
           function sundaySubmitButtonHover() {
             sundaySquares.forEach(scheduleDataSetterSunday);
-          
-          
+
+
             if (dataSubmitterSunday[0].classList.contains("0")) {
                 sundayStartInput.value = "17:00"
               } else if (dataSubmitterSunday[0].classList.contains("1")) {
@@ -975,7 +975,7 @@
               } else if (dataSubmitterSunday[0].classList.contains("6")) {
                 sundayStartInput.value = "23:00"
               }
-          
+
             if (dataSubmitterSunday[dataSubmitterSunday.length - 1].classList.contains("0")) {
                 sundayEndInput.value = "17:00"
               } else if (dataSubmitterSunday[dataSubmitterSunday.length - 1].classList.contains("1")) {
@@ -992,15 +992,15 @@
                 sundayEndInput.value = "23:00"
               }
           }
-          
-          
-          
+
+
+
           document.addEventListener("DOMContentLoaded", function() {
           displaySchedule();
           });
-          
-          
-          
+
+
+
           function displaySchedule() {
             const scheduleButton = document.getElementById("edit-schedule");
             const mondaySquares = document.getElementById("monday-squares").querySelectorAll("button");
@@ -1010,40 +1010,40 @@
             const fridaySquares = document.getElementById("friday-squares").querySelectorAll("button");
             const saturdaySquares = document.getElementById("saturday-squares").querySelectorAll("button");
             const sundaySquares = document.getElementById("sunday-squares").querySelectorAll("button");
-          
-          
+
+
             function grayMondaySquareMaker(number) {
                mondaySquares[number-1].classList.remove("view-only-green")
             }
-          
+
             function grayTuesdaySquareMaker(number) {
                tuesdaySquares[number-1].classList.remove("view-only-green")
             }
-          
+
             function grayWednesdaySquareMaker(number) {
                wednesdaySquares[number-1].classList.remove("view-only-green")
             }
-          
+
             function grayThursdaySquareMaker(number) {
                thursdaySquares[number-1].classList.remove("view-only-green")
             }
-          
+
             function grayFridaySquareMaker(number) {
                fridaySquares[number-1].classList.remove("view-only-green")
             }
-          
+
             function graySaturdaySquareMaker(number) {
                saturdaySquares[number-1].classList.remove("view-only-green")
             }
-          
+
             function graySundaySquareMaker(number) {
                sundaySquares[number-1].classList.remove("view-only-green")
             }
-          
-          
-          
-          
-          
+
+
+
+
+
           //reformats monday data for iteration
             if (monday_start_show == "") {
               monday_start_show = [1, 2, 3, 4, 5, 6, 7]
@@ -1087,8 +1087,8 @@
             if (sunday_end_show == "") {
                 sunday_end_show = []
             }
-          
-          
+
+
             if (monday_start_show == "2000-01-01 17:00:00 UTC") {
               monday_start_show = [1, 2, 3, 4, 5, 6, 7]
             } else if (monday_start_show == "2000-01-01 18:00:00 UTC") {
@@ -1104,8 +1104,8 @@
             } else if (monday_start_show == "2000-01-01 23:00:00 UTC") {
               monday_start_show = [7]
             }
-          
-          
+
+
             if (monday_end_show == "2000-01-01 23:00:00 UTC") {
                 monday_end_show = [1, 2, 3, 4, 5, 6, 7]
               } else if (monday_end_show == "2000-01-01 22:00:00 UTC") {
@@ -1121,8 +1121,8 @@
               } else if (monday_end_show == "2000-01-01 17:00:00 UTC") {
                 monday_end_show = [1]
               }
-          
-          
+
+
           //reformats tuesday data for iteration
            if (tuesday_start_show == "2000-01-01 17:00:00 UTC") {
               tuesday_start_show = [1, 2, 3, 4, 5, 6, 7]
@@ -1139,8 +1139,8 @@
             } else if (tuesday_start_show == "2000-01-01 23:00:00 UTC") {
               tuesday_start_show = [7]
             }
-          
-          
+
+
             if (tuesday_end_show == "2000-01-01 23:00:00 UTC") {
               tuesday_end_show = [1, 2, 3, 4, 5, 6, 7]
             } else if (tuesday_end_show == "2000-01-01 22:00:00 UTC") {
@@ -1156,7 +1156,7 @@
             } else if (tuesday_end_show == "2000-01-01 17:00:00 UTC") {
               tuesday_end_show = [1]
             }
-          
+
             //reformats wednesday data for iteration
             if (wednesday_start_show == "2000-01-01 17:00:00 UTC") {
               wednesday_start_show = [1, 2, 3, 4, 5, 6, 7]
@@ -1173,8 +1173,8 @@
             } else if (wednesday_start_show == "2000-01-01 23:00:00 UTC") {
               wednesday_start_show = [7]
             }
-          
-          
+
+
             if (wednesday_end_show == "2000-01-01 23:00:00 UTC") {
               wednesday_end_show = [1, 2, 3, 4, 5, 6, 7]
             } else if (wednesday_end_show == "2000-01-01 22:00:00 UTC") {
@@ -1190,8 +1190,8 @@
             } else if (wednesday_end_show == "2000-01-01 17:00:00 UTC") {
               wednesday_end_show = [1]
             }
-          
-          
+
+
             //reformats thursday data for iteration
             if (thursday_start_show == "2000-01-01 17:00:00 UTC") {
               thursday_start_show = [1, 2, 3, 4, 5, 6, 7]
@@ -1208,8 +1208,8 @@
             } else if (thursday_start_show == "2000-01-01 23:00:00 UTC") {
               thursday_start_show = [7]
             }
-          
-          
+
+
             if (thursday_end_show == "2000-01-01 23:00:00 UTC") {
               thursday_end_show = [1, 2, 3, 4, 5, 6, 7]
             } else if (thursday_end_show == "2000-01-01 22:00:00 UTC") {
@@ -1225,7 +1225,7 @@
             } else if (thursday_end_show == "2000-01-01 17:00:00 UTC") {
               thursday_end_show = [1]
             }
-          
+
             //reformats friday data for iteration
             if (friday_start_show == "2000-01-01 17:00:00 UTC") {
               friday_start_show = [1, 2, 3, 4, 5, 6, 7]
@@ -1242,8 +1242,8 @@
             } else if (friday_start_show == "2000-01-01 23:00:00 UTC") {
               friday_start_show = [7]
             }
-          
-          
+
+
             if (friday_end_show == "2000-01-01 23:00:00 UTC") {
               friday_end_show = [1, 2, 3, 4, 5, 6, 7]
             } else if (friday_end_show == "2000-01-01 22:00:00 UTC") {
@@ -1259,7 +1259,7 @@
             } else if (friday_end_show == "2000-01-01 17:00:00 UTC") {
               friday_end_show = [1]
             }
-          
+
             //reformats saturday data for iteration
             if (saturday_start_show == "2000-01-01 17:00:00 UTC") {
               saturday_start_show = [1, 2, 3, 4, 5, 6, 7]
@@ -1276,8 +1276,8 @@
             } else if (saturday_start_show == "2000-01-01 23:00:00 UTC") {
               saturday_start_show = [7]
             }
-          
-          
+
+
             if (saturday_end_show == "2000-01-01 23:00:00 UTC") {
               saturday_end_show = [1, 2, 3, 4, 5, 6, 7]
             } else if (saturday_end_show == "2000-01-01 22:00:00 UTC") {
@@ -1293,7 +1293,7 @@
             } else if (saturday_end_show == "2000-01-01 17:00:00 UTC") {
               saturday_end_show = [1]
             }
-          
+
             //reformats sunday data for iteration
             if (sunday_start_show == "2000-01-01 17:00:00 UTC") {
               sunday_start_show = [1, 2, 3, 4, 5, 6, 7]
@@ -1310,8 +1310,8 @@
             } else if (sunday_start_show == "2000-01-01 23:00:00 UTC") {
               sunday_start_show = [7]
             }
-          
-          
+
+
             if (sunday_end_show == "2000-01-01 23:00:00 UTC") {
               sunday_end_show = [1, 2, 3, 4, 5, 6, 7]
             } else if (sunday_end_show == "2000-01-01 22:00:00 UTC") {
@@ -1332,32 +1332,32 @@
             const grayMonday2 = monday_end_show.filter(val => !monday_start_show.includes(val));
             const grayMonday = grayMonday2.concat(grayMonday1);
             console.log(grayMonday)
-          
+
             const grayTuesday1 = tuesday_start_show.filter(val => !tuesday_end_show.includes(val));
             const grayTuesday2 = tuesday_end_show.filter(val => !tuesday_start_show.includes(val));
             const grayTuesday = grayTuesday2.concat(grayTuesday1);
-          
+
             const grayWednesday1 = wednesday_start_show.filter(val => !wednesday_end_show.includes(val));
             const grayWednesday2 = wednesday_end_show.filter(val => !wednesday_start_show.includes(val));
             const grayWednesday = grayWednesday2.concat(grayWednesday1);
-          
+
             const grayThursday1 = thursday_start_show.filter(val => !thursday_end_show.includes(val));
             const grayThursday2 = thursday_end_show.filter(val => !thursday_start_show.includes(val));
             const grayThursday = grayThursday2.concat(grayThursday1);
-          
+
             const grayFriday1 = friday_start_show.filter(val => !friday_end_show.includes(val));
             const grayFriday2 = friday_end_show.filter(val => !friday_start_show.includes(val));
             const grayFriday = grayFriday2.concat(grayFriday1);
-          
+
             const graySaturday1 = saturday_start_show.filter(val => !saturday_end_show.includes(val));
             const graySaturday2 = saturday_end_show.filter(val => !saturday_start_show.includes(val));
             const graySaturday = graySaturday2.concat(graySaturday1);
-          
+
             const graySunday1 = sunday_start_show.filter(val => !sunday_end_show.includes(val));
             const graySunday2 = sunday_end_show.filter(val => !sunday_start_show.includes(val));
             const graySunday = graySunday2.concat(graySunday1);
-          
-          
+
+
             grayMonday.forEach(grayMondaySquareMaker);
             grayTuesday.forEach(grayTuesdaySquareMaker);
             grayWednesday.forEach(grayWednesdaySquareMaker);
@@ -1365,9 +1365,9 @@
             grayFriday.forEach(grayFridaySquareMaker);
             graySaturday.forEach(graySaturdaySquareMaker);
             graySunday.forEach(graySundaySquareMaker);
-          
+
           }
-          
+
           function displayModalSchedule() {
           console.log("hi")
             const mondaySquares1 = document.getElementById("monday-squares1").querySelectorAll("button");
@@ -1377,9 +1377,9 @@
             const fridaySquares1 = document.getElementById("friday-squares1").querySelectorAll("button");
             const saturdaySquares1 = document.getElementById("saturday-squares1").querySelectorAll("button");
             const sundaySquares1 = document.getElementById("sunday-squares1").querySelectorAll("button");
-          
+
           function arrayMaker(element) {
-          
+
               if (element == "") {
                 element = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
                 }
@@ -1468,7 +1468,7 @@
                 let count = 0
                 for (console.log("runnin loop"); count < array1.length; count ++) {
               console.log(count)
-          
+
               console.log(array1[count])
               console.log(array2[count])
               if (notDups.length > count) {
