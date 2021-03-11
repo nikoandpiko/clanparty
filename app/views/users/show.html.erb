@@ -185,7 +185,7 @@
                 <% elsif event.day == 7 %>
                   <h4 class="card-day"> <i class="far fa-clock"></i> Saturday</h4>
                 <% end %>
-                <h3 class="card-secondary-text pt-2"> <%= event.start_time.strftime("%h 4") %>, <%= event.start_time.strftime("%I:%M") %> - <%= event.end_time.strftime("%I:%M") %> JST</h3>
+                <h3 class="card-secondary-text pt-2"> <%= "#{event.start_time.strftime("%I:%M")}pm" %> - <%= "#{event.end_time.strftime("%I:%M")}pm" %> JST</h3>
                 <%# Name and Description are reversed until seed is updated %>
                 <img style="height:auto;width:348px; padding-top: 8px;" src="https://p82.f1.n0.cdn.getcloudapp.com/items/2NuE6yJB/914012ad-98c7-4991-b5c8-515b9c6c80b6.png?source=viewer&v=19281e6905f541573774159e29d50de5" alt=""><br>
                 <h6 class="card-event-header"><i class="fas fa-bullseye"></i> Awesome Event</h6>
