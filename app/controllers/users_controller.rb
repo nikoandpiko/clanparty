@@ -11,13 +11,40 @@ class UsersController < ApplicationController
     unless current_user.nil?
       @invite_check = Invite.find_by(user_id: current_user.id)
 
-      if !current_user.team_id.nil? || !@invite_check.nil?
+      if !current_user.team_id.nil? && !@invite_check.nil?
         @current_team = Team.find_by(user_id: @user)
         @teamleader = @user
-        @team_members_all = Invite.where(team_id: @current_team)
+        @team_members_all = Invite.where(team_id: @current_team.id)
+        @leader_teammates = @team_members_all.where(status: 1)
+      elsif !@user.team_id.nil? && !@invite_check.nil?
+        @current_team = Team.find_by(user_id: @user)
+        @teamleader = @user
+        @team_members_all = Invite.where(team_id: @current_team.id)
         @leader_teammates = @team_members_all.where(status: 1)
 
+      elsif !current_user.team_id.nil? || !@invite_check.nil?
+        @current_team = Team.find_by(user_id: @user)
+        if @current_team.nil?
+          @current_invite = Invite.find_by(user_id: @user)
+          @teammates = Invite.where(team_id: @current_invite.team_id)
+          @member_teammates = @teammates.where(status: 1)
+          @current_team = Team.find(@current_invite.team_id)
+          @leader = User.where(team_id: @current_team)
+        else
+          @teamleader = @user
+          @team_members_all = Invite.where(team_id: @current_team.id)
+          @leader_teammates = @team_members_all.where(status: 1)
+        end
+      elsif !current_user.team_id.nil? || !@invite_check.nil?
+        @current_invite = Invite.find_by(user_id: @user)
+        @teammates = Invite.where(team_id: @current_invite.team_id)
+        @member_teammates = @teammates.where(status: 1)
+        @current_team = Team.find(@current_invite.team_id)
+        @leader = User.where(team_id: @current_team)
+
       elsif @invite_check.nil? || @invite_check.status == 0 || @invite_check.status == 2 || @invite_check.status == 3
+
+
 
       else
         @current_invite = Invite.find_by(user_id: @user)

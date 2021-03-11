@@ -128,10 +128,11 @@ puts "Done"
 #Creating teams with members via invites (status 0 declined, 1 accepted, 2 pending?)
 puts "Creating Teams with members"
 teams_for_seed = Team.all
+invites = Invite.all
 40.times do
   user = users_for_seed.sample
 
-  if user.team_id.nil?
+  if user.team_id.nil? && invites.find_by(user_id: user.id).nil?
     Invite.create(
       status: 1,
       user: users_for_seed.sample,
@@ -145,7 +146,7 @@ puts "Creating pending Invites"
   team_invite = teams_for_seed.sample
   user = users_for_seed.sample
 
-  if user.team_id.nil? && team_invite.status == 1
+  if user.team_id.nil? && team_invite.status == 1 && invites.find_by(user_id: user.id).nil?
     Invite.create(
       status: 2,
       user: users_for_seed.sample,
