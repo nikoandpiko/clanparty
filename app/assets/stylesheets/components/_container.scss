@@ -556,6 +556,7 @@
     width: 150%;
     opacity: 100%;
     transition: all 0.5s;
+    z-index: 1;
 
 }
 
@@ -658,3 +659,16 @@
     height: 500px;
 }
 
+.content-cards {
+    position: absolute;
+    bottom: 80px;
+    left: 40px;
+    opacity: 0%;
+    transition: all 0.3s;
+    z-index: 0;
+}
+
+.clicked-content-cards {
+    opacity: 100%;
+    transition: all 0.5s;
+}

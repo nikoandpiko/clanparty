@@ -95,8 +95,19 @@
                   <%= button_tag type: 'button', class: "btn shadow-none grid-square 0 view-only view-only-green-edit grayout2 index" do %><% end %>
                   <% end %>
                 </div>
+
+                <% if team.name == "Fatebreaker Savage" %>
           
-                
+                <div class="content-cards">
+                  <img style="height:auto;width:400px; margin-bottom:-6px;" src="https://i.imgur.com/EIVYFUd.png" alt=""><br>
+                  <img style="height:auto;width:400px; margin-bottom:-6px;" src="https://i.imgur.com/0TS1Ipf.png" alt=""><br>
+                </div>
+                <% elsif team.name == "Meme Breakers" %>
+                <div class="content-cards">
+                  <img style="height:auto;width:400px; margin-bottom:-6px;" src="https://i.imgur.com/OEO2cHt.png" alt=""><br>
+                  <img style="height:auto;width:400px; margin-bottom:-6px;" src="https://i.imgur.com/s3ncE4a.png" alt=""><br>
+                </div>
+                <% end %>
                 <!-- <p class="card-text text-dark">CORE HOURS</p> -->
 
         
@@ -166,7 +177,9 @@ function cardExpander() {
   card.classList.toggle("taller-inner-card");
   event.currentTarget.classList.toggle("clicked-caret")
 
-  event.currentTarget.previousElementSibling.classList.toggle("day-grid-enabled")
+  event.currentTarget.previousElementSibling.classList.toggle("clicked-content-cards")
+ 
+  console.log(event.currentTarget.previousElementSibling)
 
 
 
