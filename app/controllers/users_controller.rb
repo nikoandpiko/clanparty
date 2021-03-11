@@ -4,29 +4,28 @@ class UsersController < ApplicationController
   def index
     @users = User.all
   end
-  
-    def show
+
+  def show
     @user = User.find(params[:id])
 
+    unless current_user.nil?
+      @invite_check = Invite.find_by(user_id: current_user.id)
 
-    @invite_check = Invite.find_by(user_id: current_user.id)
+      if !current_user.team_id.nil? || !@invite_check.nil?
+        @current_team = Team.find_by(user_id: @user)
+        @teamleader = @user
+        @team_members_all = Invite.where(team_id: @current_team)
+        @leader_teammates = @team_members_all.where(status: 1)
 
-   if !current_user.team_id.nil?
-    @current_team = Team.find_by(user_id: @user)
-    @teamleader = @user
-    @team_members_all = Invite.where(team_id: @current_team.id)
-    @leader_teammates = @team_members_all.where(status: 1)
+      elsif @invite_check.nil? || @invite_check.status == 0 || @invite_check.status == 2 || @invite_check.status == 3
 
-    elsif @invite_check.nil? || @invite_check.status == 0 || @invite_check.status == 2 || @invite_check.status == 3
-
-    else
-    @current_invite = Invite.find_by(user_id: @user)
-    @teammates = Invite.where(team_id: @current_invite.team_id)
-    @member_teammates = @teammates.where(status: 1)
-
-    @current_team = Team.find(@current_invite.team_id)
-    @leader = User.where(team_id: @current_team)
-
+      else
+        @current_invite = Invite.find_by(user_id: @user)
+        @teammates = Invite.where(team_id: @current_invite.team_id)
+        @member_teammates = @teammates.where(status: 1)
+        @current_team = Team.find(@current_invite.team_id)
+        @leader = User.where(team_id: @current_team)
+      end
     end
 
     @invite = Invite.where(user_id: @user)
@@ -36,13 +35,11 @@ class UsersController < ApplicationController
     elsif !@user.team_id.nil?
       @team = Team.where(id: @user.team_id)
     end
-    if !@user.team_id.nil?
-      @accepted_member = Invite.accepted.where(team: @team)
-    end
+    @accepted_member = Invite.accepted.where(team: @team) unless @user.team_id.nil?
     @events = Event.where(team_id: @team)
     authorize @user
   end
-  
+
   def new
     @user = User.new
     authorize @user
@@ -64,7 +61,7 @@ class UsersController < ApplicationController
 
   def edit_schedule
     @user = User.find(params[:id])
-    if !@user.team_id.nil?
+    unless @user.team_id.nil?
       @team = Team.where(id: @user.team_id)
       @accepted_member = Invite.accepted.where(team: @team)
     end
@@ -76,7 +73,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     authorize @user
     @user.update(user_params)
-    
+
     redirect_to user_path(@user)
   end
 
@@ -86,5 +83,4 @@ class UsersController < ApplicationController
     params.require(:user).permit(:nickname, :bio, :discord, :role, :monday_start, :monday_end, :tuesday_start, :tuesday_end, :wednesday_start, :wednesday_end, :thursday_start,
                                  :thursday_end, :friday_start, :friday_end, :saturday_start, :saturday_end, :sunday_start, :sunday_end)
   end
-
 end

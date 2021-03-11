@@ -197,28 +197,30 @@
         </div>
       </div>
 
-      <% if @user == current_user %>
-      <div class="col-md-6">
-        <div class="p-3 background-gradient-recruitment">
-          <h2 class="card-outer-header"><i class="fas fa-user-plus"></i> RECRUITMENT</h2>
-          <div class="p-3 text-left card-inner card-inner-header card">
-            <h2>Find people to play with</h2>
-            <% if !@user.team_id.nil? %>
-            <%= link_to "FIND A USER", teams_path, class: "btn btn-blue mr-3 btn-block", style: "font-family:'Tungsten' !important;font-size:24px;border-radius:6px !important;"%>
-            <p>Find a user that matches your team's schedule or or disband your team here.</p>
-            <button type="button" class="btn btn-danger btn-block" style="font-family:'Tungsten' !important;font-size:24px;border-radius:6px !important;">
-              DISBAND CURRENT TEAM
-            </button>
-            <% else %>
-            <%= link_to "FIND A TEAM", teams_path, class: "btn btn-pink mr-3 btn-block" %>
-            <p>Find a team that matches your schedule or create your own team to find members that play during your core time.</p>
-            <button type="button" class="btn btn-blue mr-3 btn-block">
-              CREATE A TEAM
-            <% end %>
-            </button>
+      <% unless current_user.nil? %>
+        <% if @user == current_user %>
+        <div class="col-md-6">
+          <div class="p-3 background-gradient-recruitment">
+            <h2 class="card-outer-header"><i class="fas fa-user-plus"></i> RECRUITMENT</h2>
+            <div class="p-3 text-left card-inner card-inner-header card">
+              <h2>Find people to play with</h2>
+              <% if !@user.team_id.nil? %>
+              <%= link_to "FIND A USER", teams_path, class: "btn btn-blue mr-3 btn-block", style: "font-family:'Tungsten' !important;font-size:24px;border-radius:6px !important;"%>
+              <p>Find a user that matches your team's schedule or or disband your team here.</p>
+              <button type="button" class="btn btn-danger btn-block" style="font-family:'Tungsten' !important;font-size:24px;border-radius:6px !important;">
+                DISBAND CURRENT TEAM
+              </button>
+              <% else %>
+              <%= link_to "FIND A TEAM", teams_path, class: "btn btn-pink mr-3 btn-block" %>
+              <p>Find a team that matches your schedule or create your own team to find members that play during your core time.</p>
+              <button type="button" class="btn btn-blue mr-3 btn-block">
+                CREATE A TEAM
+              <% end %>
+              </button>
+            </div>
           </div>
-        </div>
-      <% end %><br>
+        <% end %><br>
+      <% end %>
       <% if @user != current_user %> <div class="col-md-6"> <% end %>
 
       <div class="p-3 background-gradient-members">
@@ -243,12 +245,14 @@
         </div>
         </div><br>
 
-        <% if !current_user.team_id.nil? %>
-        <%= render 'userleader' %>
-        <% elsif @invite_check.nil? || @invite_check.status == 0 || @invite_check.status == 2 || @invite_check.status == 3 %>
-        <%= render 'userwithoutteam' %>
-        <% else %>
-        <%= render 'userwithteam' %>
+        <% unless current_user.nil? %>
+          <% if !current_user.team_id.nil? || !@invite_check.nil? %>
+          <%= render 'userleader' %>
+          <% elsif @invite_check.nil? || @invite_check.status == 0 || @invite_check.status == 2 || @invite_check.status == 3 %>
+          <%= render 'userwithoutteam' %>
+          <% else %>
+          <%= render 'userwithteam' %>
+          <% end %>
         <% end %>
 
       </div>
@@ -264,7 +268,7 @@
               <span aria-hidden="true">&times;</span>
           </button>
             <h2 class="modal-title card-outer-header" id="exampleModalLongTitle"><i class="far fa-calendar-check pr-1"></i> ENTER YOUR SCHEDULE</h2>
-      
+
           <div class="container edit-profile-container">
               <div class="container edit-profile-container">
                 <div class="row justify-content-center">
@@ -402,7 +406,7 @@
                               <% end %>
                               <%= button_tag type: 'button', class: "btn shadow-none grid-square 6", :onclick => "buttontoggle()", :onmouseover => "hover()", :onmouseout => "hoveroff()" do %>
                               <% end %>
-                            </div>         
+                            </div>
                         </div>
 
                       </div>
@@ -428,9 +432,9 @@
               </div>
             <% end %>
 
-             
-             </div> 
-          </div> 
+
+             </div>
+          </div>
         </div>
         <%= javascript_tag do %>
           monday_start_show = "<%= j @user.monday_start.to_s %>";
