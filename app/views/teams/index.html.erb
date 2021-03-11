@@ -46,7 +46,7 @@
                 <% team.friday == true ? counter += 1 : counter = counter %>
                 <% team.saturday == true ? counter += 1 : counter = counter %>
                 <% team.sunday == true ? counter += 1 : counter = counter %>
-                <h6 class="card-subtitle text-muted mb-2"><i class="far fa-user ml-2"></i> <%= team.invites.accepted.count + 1 %> <i class="far fa-calendar ml-1"></i> <%= "#{counter} days" %>
+                <h6 class="card-subtitle text-muted mb-2" style="position:relative; right: 8px; top:3px;"><i class="far fa-user ml-2"></i> <%= team.invites.accepted.count + 1 %> <i class="far fa-calendar ml-1"></i> <%= "#{counter} days" %>
                 <i class="fas fa-clock ml-2"></i> <%= team.wednesday_start%> - <%= team.wednesday_end %>  </h6>
 
                 <div class="day-grid">
