@@ -164,7 +164,7 @@
         <br>
         <div class="p-3 background-gradient-events">
           <h2 class="card-outer-header"><i class="far fa-calendar-check pr-1"></i> UPCOMING EVENTS</h2>
-          <% @events.each do |event| %>
+          <% @events.order(created_at: :desc).each do |event| %>
             <div class="text-white text-left">
               <div class="text-white text-left p-3 card-inner card-inner-header card">
                 <div class="event-img" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= Event::EVENT_IMAGE[event.name] %>)">
