@@ -412,13 +412,13 @@ end
 puts "Creating pending invite to special team"
 
 
-if user_7.team_id.nil?
-  Invite.create(
-    status: 2,
-    user: user_7,
-    team: team_special
-  )
-end
+# if user_7.team_id.nil?
+#   Invite.create(
+#     status: 2,
+#     user: user_7,
+#     team: team_special
+#   )
+# end
 
 User.create(
   username: "Ludacris",
