@@ -164,39 +164,41 @@
         <br>
         <div class="p-3 background-gradient-events">
           <h2 class="card-outer-header"><i class="far fa-calendar-check pr-1"></i> UPCOMING EVENTS</h2>
-          <% @events.order(created_at: :desc).each do |event| %>
-            <div class="text-white text-left">
-              <div class="text-white text-left p-3 card-inner card-inner-header card">
-                <div class="event-img" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= Event::EVENT_IMAGE[event.name] %>)">
-                  <h4 class="card-outer-header text-right truncate pt-5 px-3" style=""><%= event.description %></h4>
+          <% if !Invite.accepted.find_by(user_id: @user).nil? %>
+            <% @events.order(created_at: :desc).each do |event| %>
+              <div class="text-white text-left">
+                <div class="text-white text-left p-3 card-inner card-inner-header card">
+                  <div class="event-img" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= Event::EVENT_IMAGE[event.name] %>)">
+                    <h4 class="card-outer-header text-right truncate pt-5 px-3" style=""><%= event.description %></h4>
+                  </div>
+                  <br>
+                  <br>
+                  <br>
+                  <br>
+                  <% if event.day == 1 %>
+                    <h4 class="card-day"> <i class="far fa-clock"></i> Sunday</h4>
+                  <% elsif event.day == 2 %>
+                    <h4 class="card-day"> <i class="far fa-clock"></i> Monday</h4>
+                  <% elsif event.day == 3 %>
+                    <h4 class="card-day"> <i class="far fa-clock"></i> Tuesday</h4>
+                  <% elsif event.day == 4 %>
+                    <h4 class="card-day"> <i class="far fa-clock"></i> Wednesday</h4>
+                  <% elsif event.day == 5 %>
+                    <h4 class="card-day"> <i class="far fa-clock"></i> Thursday</h4>
+                  <% elsif event.day == 6 %>
+                    <h4 class="card-day"> <i class="far fa-clock"></i> Friday</h4>
+                  <% elsif event.day == 7 %>
+                    <h4 class="card-day"> <i class="far fa-clock"></i> Saturday</h4>
+                  <% end %>
+                  <h3 class="card-secondary-text pt-2"> <%= "#{event.start_time.strftime("%I:%M")}pm" %> - <%= "#{event.end_time.strftime("%I:%M")}pm" %> JST</h3>
+                  <%# Name and Description are reversed until seed is updated %>
+                  <img style="height:auto;width:348px; padding-top: 8px;" src="https://p82.f1.n0.cdn.getcloudapp.com/items/2NuE6yJB/914012ad-98c7-4991-b5c8-515b9c6c80b6.png?source=viewer&v=19281e6905f541573774159e29d50de5" alt=""><br>
+                  <h6 class="card-event-header"><i class="fas fa-bullseye"></i> Awesome Event</h6>
+                  <h6 class="card-secondary-text"><%= event.name %></h4>
                 </div>
-                <br>
-                <br>
-                <br>
-                <br>
-                <% if event.day == 1 %>
-                  <h4 class="card-day"> <i class="far fa-clock"></i> Sunday</h4>
-                <% elsif event.day == 2 %>
-                  <h4 class="card-day"> <i class="far fa-clock"></i> Monday</h4>
-                <% elsif event.day == 3 %>
-                  <h4 class="card-day"> <i class="far fa-clock"></i> Tuesday</h4>
-                <% elsif event.day == 4 %>
-                  <h4 class="card-day"> <i class="far fa-clock"></i> Wednesday</h4>
-                <% elsif event.day == 5 %>
-                  <h4 class="card-day"> <i class="far fa-clock"></i> Thursday</h4>
-                <% elsif event.day == 6 %>
-                  <h4 class="card-day"> <i class="far fa-clock"></i> Friday</h4>
-                <% elsif event.day == 7 %>
-                  <h4 class="card-day"> <i class="far fa-clock"></i> Saturday</h4>
-                <% end %>
-                <h3 class="card-secondary-text pt-2"> <%= "#{event.start_time.strftime("%I:%M")}pm" %> - <%= "#{event.end_time.strftime("%I:%M")}pm" %> JST</h3>
-                <%# Name and Description are reversed until seed is updated %>
-                <img style="height:auto;width:348px; padding-top: 8px;" src="https://p82.f1.n0.cdn.getcloudapp.com/items/2NuE6yJB/914012ad-98c7-4991-b5c8-515b9c6c80b6.png?source=viewer&v=19281e6905f541573774159e29d50de5" alt=""><br>
-                <h6 class="card-event-header"><i class="fas fa-bullseye"></i> Awesome Event</h6>
-                <h6 class="card-secondary-text"><%= event.name %></h4>
               </div>
-            </div>
-            <br>
+              <br>
+            <% end %>
           <% end %>
         </div>
       </div>
