@@ -12,10 +12,10 @@
 
   <ul class="nav nav-tabs border-0" id="myTab" role="tablist" style="margin-bottom: 30px">
     <li class="nav-item">
-      <a class="nav-link active" id="team-tab" data-toggle="tab" href="#team" role="tab" aria-controls="team" aria-selected="true">Find a Team</a>
+      <a class="nav-link active" id="team-tab" data-toggle="tab" href="#team" role="tab" aria-controls="team" aria-selected="true">TEAMS</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" id="user-tab" data-toggle="tab" href="#user" role="tab" aria-controls="user" aria-selected="false">Find a Member</a>
+      <a class="nav-link" id="user-tab" data-toggle="tab" href="#user" role="tab" aria-controls="user" aria-selected="false">MEMBERS</a>
     </li>
   </ul>
 </div>
@@ -131,6 +131,7 @@
   </div>
   <div class="tab-pane fade" id="user" role="tabpanel" aria-labelledby="user-tab">
     <div class="tab-pane fade show active" id="team" role="tabpanel" aria-labelledby="team-tab">
+    <% @users = @users.sort %>
       <div class="team-cards-grid container" style="margin-top: -30px">
         <% @users.each do |user| %>
           <div class="row">
@@ -138,7 +139,7 @@
 
 
 
-          <div class="p-3 background-gradient-purple mb-3">
+          <div class="p-3 background-gradient-orange mb-3">
             <h2 class="card-outer-header"><i class="fas fa-user-plus pr-1"></i> SEEKING</h2>
             <div class="card-team d-flex card-inner-team-index" style="padding-left:40px;"><% old_color="#252830" %>
 
@@ -154,9 +155,24 @@
                 <% user.friday == true ? counter += 1 : counter = counter %>
                 <% user.saturday == true ? counter += 1 : counter = counter %>
                 <% user.sunday == true ? counter += 1 : counter = counter %>
+
+                
                 <h6 class="card-subtitle text-muted mb-2" style="position:relative; right: 8px; top:3px;"><i class="far fa-calendar ml-1"></i> <%= "#{counter} days" %>
-                <i class="fas fa-clock ml-2"></i> <%= user.wednesday_start%> - <%= user.wednesday_end %>  </h6>
-                <% if user.monday == true %>
+                <% if !user.wednesday_start.nil? %>
+                <i class="fas fa-clock ml-2"></i> <%= user.wednesday_start.strftime("%H:%M")   %> - <%= user.wednesday_end.strftime("%H:%M") %>  </h6>
+                <% end %>
+
+                <div class="day-grid">
+                  <div class="days1">
+                    <p class="monday1">M</p>
+                    <p class="tuesday1">T</p>
+                    <p class="wednesday1">W</p>
+                    <p class="thursday1">T</p>
+                    <p class="friday1">F</p>
+                    <p class="saturday1">S</p>
+                    <p class="sunday1">S</p>
+                  </div>
+                  <% if user.monday == true %>
                   <%= button_tag type: 'button', class: "btn shadow-none grid-square 0 view-only view-only-green-edit data-class index" do %><% end %>
                   <% else  %>
                   <%= button_tag type: 'button', class: "btn shadow-none grid-square 0 view-only view-only-green-edit grayout2 index" do %><% end %>
@@ -191,6 +207,7 @@
                   <% else  %>
                   <%= button_tag type: 'button', class: "btn shadow-none grid-square 0 view-only view-only-green-edit grayout2 index" do %><% end %>
                   <% end %>
+                </div>
 
                
                 <!-- <p class="card-text text-dark">CORE HOURS</p> -->
