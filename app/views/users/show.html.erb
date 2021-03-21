@@ -442,6 +442,13 @@
                   <%= f.input :saturday_end, :as => :hidden %>
                   <%= f.input :sunday_start, :as => :hidden %>
                   <%= f.input :sunday_end, :as => :hidden %>
+                  <%= f.input :monday, :as => :hidden %>
+                  <%= f.input :tuesday, :as => :hidden %>
+                  <%= f.input :wednesday, :as => :hidden %>
+                  <%= f.input :thursday, :as => :hidden %>
+                  <%= f.input :friday, :as => :hidden %>
+                  <%= f.input :saturday, :as => :hidden %>
+                  <%= f.input :sunday, :as => :hidden %>
                   <%= f.button :submit, "SUBMIT SCHEDULE", class: "edit-schedule-button4", id:"sweet-alert-schedule", :onclick => "mondaySubmitButtonHover(); tuesdaySubmitButtonHover(); wednesdaySubmitButtonHover(); thursdaySubmitButtonHover(); fridaySubmitButtonHover(); saturdaySubmitButtonHover(); sundaySubmitButtonHover()" %>
                 </div>
               <% end %>
@@ -802,6 +809,12 @@
 
             }
 
+             if (dataSubmitterMonday[dataSubmitterMonday.length - 1] == null && dataSubmitterMonday[0] == null) {
+                mondayBoolInput.value = false
+              } else {
+                mondayBoolInput.value = true
+            }
+
           }
 
           function tuesdaySubmitButtonHover() {
@@ -844,6 +857,12 @@
               } else if (dataSubmitterTuesday[dataSubmitterTuesday.length - 1].classList.contains("6")) {
                 tuesdayEndInput.value = "23:00"
               }
+            }
+
+            if (dataSubmitterTuesday[dataSubmitterTuesday.length - 1] == null && dataSubmitterTuesday[0] == null) {
+                tuesdayBoolInput.value = false
+              } else {
+                tuesdayBoolInput.value = true
             }
 
           }
@@ -890,6 +909,12 @@
               }
             }
 
+            if (dataSubmitterWednesday[dataSubmitterWednesday.length - 1] == null && dataSubmitterWednesday[0] == null) {
+                wednesdayBoolInput.value = false
+              } else {
+                wednesdayBoolInput.value = true
+            }
+
           }
 
           function thursdaySubmitButtonHover() {
@@ -932,6 +957,12 @@
               } else if (dataSubmitterThursday[dataSubmitterThursday.length - 1].classList.contains("6")) {
                 thursdayEndInput.value = "23:00"
               }
+            }
+
+            if (dataSubmitterThursday[dataSubmitterThursday.length - 1] == null && dataSubmitterThursday[0] == null) {
+                thursdayBoolInput.value = false
+              } else {
+                thursdayBoolInput.value = true
             }
 
           }
@@ -978,6 +1009,12 @@
               }
             }
 
+            if (dataSubmitterFriday[dataSubmitterFriday.length - 1] == null && dataSubmitterFriday[0] == null) {
+                fridayBoolInput.value = false
+              } else {
+                fridayBoolInput.value = true
+            }
+
           }
 
           function saturdaySubmitButtonHover() {
@@ -1022,6 +1059,12 @@
               }
             }
 
+            if (dataSubmitterSaturday[dataSubmitterSaturday.length - 1] == null && dataSubmitterSaturday[0] == null) {
+                saturdayBoolInput.value = false
+              } else {
+                saturdayBoolInput.value = true
+            }
+
           }
 
           function sundaySubmitButtonHover() {
@@ -1064,6 +1107,12 @@
               } else if (dataSubmitterSunday[dataSubmitterSunday.length - 1].classList.contains("6")) {
                 sundayEndInput.value = "23:00"
               }
+            }
+
+            if (dataSubmitterSunday[dataSubmitterSunday.length - 1] == null && dataSubmitterSunday[0] == null) {
+                sundayBoolInput.value = false
+              } else {
+                sundayBoolInput.value = true
             }
           }
 

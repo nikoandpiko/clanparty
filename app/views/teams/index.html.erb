@@ -146,6 +146,52 @@
               <div class="ml-2">
                 <p class="card-member-role">Final Fantasy XIV</p>
                 <h5 class="card-inner-header"><%= link_to user.nickname, user_path(user) %></h5>
+                <% counter = 0 %>
+                <% user.monday == true ? counter += 1 : counter = counter  %>
+                <% user.tuesday == true ? counter += 1 : counter = counter %>
+                <% user.wednesday == true ? counter += 1 : counter = counter %>
+                <% user.thursday == true ? counter += 1 : counter = counter %>
+                <% user.friday == true ? counter += 1 : counter = counter %>
+                <% user.saturday == true ? counter += 1 : counter = counter %>
+                <% user.sunday == true ? counter += 1 : counter = counter %>
+                <h6 class="card-subtitle text-muted mb-2" style="position:relative; right: 8px; top:3px;"><i class="far fa-calendar ml-1"></i> <%= "#{counter} days" %>
+                <i class="fas fa-clock ml-2"></i> <%= user.wednesday_start%> - <%= user.wednesday_end %>  </h6>
+                <% if user.monday == true %>
+                  <%= button_tag type: 'button', class: "btn shadow-none grid-square 0 view-only view-only-green-edit data-class index" do %><% end %>
+                  <% else  %>
+                  <%= button_tag type: 'button', class: "btn shadow-none grid-square 0 view-only view-only-green-edit grayout2 index" do %><% end %>
+                  <% end %>
+                  <% if user.tuesday == true %>
+                  <%= button_tag type: 'button', class: "btn shadow-none grid-square 0 view-only view-only-green-edit data-class index" do %><% end %>
+                  <% else  %>
+                  <%= button_tag type: 'button', class: "btn shadow-none grid-square 0 view-only view-only-green-edit grayout2 index" do %><% end %>
+                  <% end %>
+                  <% if user.wednesday == true %>
+                  <%= button_tag type: 'button', class: "btn shadow-none grid-square 0 view-only view-only-green-edit data-class index" do %><% end %>
+                  <% else  %>
+                  <%= button_tag type: 'button', class: "btn shadow-none grid-square 0 view-only view-only-green-edit grayout2 index" do %><% end %>
+                  <% end %>
+                  <% if user.thursday == true %>
+                  <%= button_tag type: 'button', class: "btn shadow-none grid-square 0 view-only view-only-green-edit data-class index" do %><% end %>
+                  <% else  %>
+                  <%= button_tag type: 'button', class: "btn shadow-none grid-square 0 view-only view-only-green-edit grayout2 index" do %><% end %>
+                  <% end %>
+                  <% if user.friday == true %>
+                  <%= button_tag type: 'button', class: "btn shadow-none grid-square 0 view-only view-only-green-edit data-class index" do %><% end %>
+                  <% else  %>
+                  <%= button_tag type: 'button', class: "btn shadow-none grid-square 0 view-only view-only-green-edit grayout2 index" do %><% end %>
+                  <% end %>
+                  <% if user.saturday == true %>
+                  <%= button_tag type: 'button', class: "btn shadow-none grid-square 0 view-only view-only-green-edit data-class index" do %><% end %>
+                  <% else  %>
+                  <%= button_tag type: 'button', class: "btn shadow-none grid-square 0 view-only view-only-green-edit grayout2 index" do %><% end %>
+                  <% end %>
+                  <% if user.sunday == true %>
+                  <%= button_tag type: 'button', class: "btn shadow-none grid-square 0 view-only view-only-green-edit data-class index" do %><% end %>
+                  <% else  %>
+                  <%= button_tag type: 'button', class: "btn shadow-none grid-square 0 view-only view-only-green-edit grayout2 index" do %><% end %>
+                  <% end %>
+
                
                 <!-- <p class="card-text text-dark">CORE HOURS</p> -->
 
