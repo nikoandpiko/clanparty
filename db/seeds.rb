@@ -65,6 +65,13 @@ logs_pics = ["https://img2.finalfantasyxiv.com/f/e668c247e191bceb03b523a66050377
     friday_end: days_times[5][1],
     saturday_start: days_times[0][0],
     saturday_end: days_times[0][1],
+    monday: true,
+    tuesday: true,
+    wednesday: true, 
+    thursday: true,
+    friday: true,
+    saturday: true,
+    sunday: true,
     stats: random_stats,
     server: random_servers[0]
   )
