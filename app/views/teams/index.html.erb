@@ -133,39 +133,32 @@
     <div class="tab-pane fade show active" id="team" role="tabpanel" aria-labelledby="team-tab">
       <div class="team-cards-grid container" style="margin-top: -30px">
         <% @users.each do |user| %>
-          <div class="p-3 background-gradient-orange mb-3">
-            <div class="card-body d-flex card-inner">
-              <img src="<%= user.avatar %>" alt="<%= user.username %>" style="height:80px;width:80px;border-radius:50%;">
+          <div class="row">
+          <div class="col-lg-12">
+
+
+
+          <div class="p-3 background-gradient-purple mb-3">
+            <h2 class="card-outer-header"><i class="fas fa-user-plus pr-1"></i> SEEKING</h2>
+            <div class="card-team d-flex card-inner-team-index" style="padding-left:40px;"><% old_color="#252830" %>
+
+              <img src="<%= user.avatar %>" alt="<%= user.nickname %>" style="height:80px;width:80px;border-radius:50%;">
               <div class="ml-2">
-                <p class="card-member-role"><%= user.role %></p>
-                <h5 class="card-title"><%= link_to user.username, user_path(user) %>
-                 <!--  <a href="<%= user.discord %> " style="color: Mediumslateblue;">
-                    <i class="fab fa-discord fa-fw"></i></a> -->
-                </h5>
-                <%# <h6 class="card-subtitle text-muted mb-2"><%= user.bio %>
-                <h6 class="card-subtitle text-muted mb-2"><i class="far fa-calendar"></i>
-                <% schedule_image = ["https://p82.f1.n0.cdn.getcloudapp.com/items/P8uk622q/b82d1154-75bb-417b-804a-ac81125756f5.png?source=viewer&v=183e8b6eebbe0bda6043b1aa448e0845", "https://p82.f1.n0.cdn.getcloudapp.com/items/GGu6E75q/fbc8aab0-c3d2-46a4-b623-2512a8cdb545.png?source=viewer&v=36457909afbfe99044472904f0c916c5", "https://p82.f1.n0.cdn.getcloudapp.com/items/rRukNgzq/ff493556-96fb-4b30-9e69-dc6d6a540239.png?source=viewer&v=d2c8a5f3480208e5296a3ce2d3b79bc3"] %>
-                <% sample = schedule_image.sample %>
-                <% if sample == schedule_image[2] %>
-                  <%= 3 %>
-                 <% elsif sample == schedule_image[0] %>
-                  <%= 5 %>
-                <% else %>
-                  <%= 4 %>
-                <% end %>
-                days / <i class="far fa-clock"></i>
-                <% if sample == schedule_image[2] %>
-                  <%= "20-24" %>
-                <% elsif sample == schedule_image[1] %>
-                  <%= "18-22" %>
-                <% else %>
-                  <%= "19-23" %>
-                <% end %>
-              </h6>
-              <img src="<%= sample %>" alt="Schedule" style="width:350px;">
+                <p class="card-member-role">Final Fantasy XIV</p>
+                <h5 class="card-inner-header"><%= link_to user.nickname, user_path(user) %></h5>
+               
+                <!-- <p class="card-text text-dark">CORE HOURS</p> -->
+
+
+                <button class="caret-button" type="button" data-toggle="dropdown" onclick="cardExpander();">
+                <i class="fas fa-caret-down"></i>
+                </button>
+
               </div>
             </div>
           </div>
+        </div>
+      </div>
         <% end %>
       </div>
     </div>

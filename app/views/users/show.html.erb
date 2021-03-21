@@ -602,6 +602,35 @@
           const sundayEndInput = document.getElementById("user_sunday_end");
           sundayEndInput.setAttributeNode(sunEndAttribute);
 
+          const monBoolAttribute = document.createAttribute("value");
+          const mondayBoolInput = document.getElementById("user_monday");
+          mondayBoolInput.setAttributeNode(monBoolAttribute);
+
+          const tueBoolAttribute = document.createAttribute("value");
+          const tuesdayBoolInput = document.getElementById("user_tuesday");
+          tuesdayBoolInput.setAttributeNode(tueBoolAttribute);
+
+          const wedBoolAttribute = document.createAttribute("value");
+          const wednesdayBoolInput = document.getElementById("user_wednesday");
+          wednesdayBoolInput.setAttributeNode(wedBoolAttribute);
+
+          const thurBoolAttribute = document.createAttribute("value");
+          const thursdayBoolInput = document.getElementById("user_thursday");
+          thursdayBoolInput.setAttributeNode(thurBoolAttribute);
+
+          const friBoolAttribute = document.createAttribute("value");
+          const fridayBoolInput = document.getElementById("user_friday");
+          fridayBoolInput.setAttributeNode(friBoolAttribute);
+
+          const satBoolAttribute = document.createAttribute("value");
+          const saturdayBoolInput = document.getElementById("user_saturday");
+          saturdayBoolInput.setAttributeNode(satBoolAttribute);
+
+
+          const sunBoolAttribute = document.createAttribute("value");
+          const sundayBoolInput = document.getElementById("user_sunday");
+          sundayBoolInput.setAttributeNode(sunBoolAttribute);
+
           function clickchecker(square) {
             if (square.classList.contains("clicked-square")) {
                 square.classList.add("first-selection")
