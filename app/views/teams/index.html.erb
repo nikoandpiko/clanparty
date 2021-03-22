@@ -28,10 +28,46 @@
       <div class="row">
       <div class="col-lg-12">
 
-
-
+      <% @roles = []  %>
+      <% @roles << team.user.role  %>
+      <% @accepted_members = Invite.accepted.where(team_id: team.id)  %>
+      <% @accepted_members.each do |invite|  %>
+        <% @roles << invite.user.role  %>
+      <% end  %>
+      <% @healer_count = 0  %>
+      <% @dps_count = 0  %>
+      <% @tank_count = 0  %>
+      <% @roles.each do |role|  %>
+        <% if role == "Healer"  %>
+          <% @healer_count += 1 %>
+        <% elsif role == "Tank" %>
+          <% @tank_count += 1 %>
+        <% elsif role == "DPS" %>
+          <% @dps_count += 1 %>
+        <% end %>
+      <% end  %>
+      
           <div class="p-3 background-gradient-purple mb-3">
             <h2 class="card-outer-header"><i class="fas fa-user-plus pr-1"></i> SEEKING</h2>
+             <div class="role-icons">
+              <% if @tank_count < 4 %>
+                <img class = "role-icons-tank" src="https://i.imgur.com/PtMLh5N.png" alt="">
+              <% else  %>
+                <img class = "role-icons-disabled" src="https://i.imgur.com/PtMLh5N.png" alt="">
+              <% end %>
+
+              <% if @healer_count < 2 %>
+                <img class = "role-icons-healer" src="https://i.imgur.com/pn4uX5k.png" alt="">
+              <% else  %>
+                <img class = "role-icons-disabled" src="https://i.imgur.com/pn4uX5k.png" alt="">
+              <% end %>
+
+              <% if @dps_count < 2 %>
+                <img class = "role-icons-dps" src="https://i.imgur.com/zvA6ftO.png" alt="">
+              <% else  %>
+                <img class = "role-icons-disabled" src="https://i.imgur.com/zvA6ftO.png" alt="">
+              <% end %>
+            </div>
             <div class="card-team d-flex card-inner-team-index" style="padding-left:40px;"><% old_color="#252830" %>
 
               <img src="<%= team.avatar %>" alt="<%= team.name %>" style="height:80px;width:80px;border-radius:50%;">
