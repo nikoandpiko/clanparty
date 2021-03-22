@@ -392,27 +392,36 @@ background-size: 1800% 1800%;
 
 }
 
+.role-icons {
+  display: flex;
+  height: 45px;
+  position: absolute;
+  right: -322px;
+  top: 10px;
+
+}
 
 .role-icons-healer {
-  position: absolute;
-  height: 60px;
-  top: 4px;
-  right: 21px;
-
+  margin-right: 10px;
+  border-radius: 4px;
+  box-shadow: 2px 2px 4px #00000080;
 }
 
 .role-icons-dps {
-  position: absolute;
-  height: 57px;
-  top: 6px;
-  right: 21px;
-
+  margin-right: 10px;
+  border-radius: 4px;
+  box-shadow: 2px 2px 4px #00000080;
 }
 
 .role-icons-tank {
-  position: absolute;
-  height: 54.5px;
-  top: 5px;
-  right: 17px;
+  margin-right: 10px;
+  border-radius: 4px;
+  box-shadow: 2px 2px 4px #00000080;
+}
 
+.role-icons-disabled {
+  margin-right: 10px;
+  border-radius: 4px;
+  box-shadow: 2px 2px 4px #00000080;
+  opacity: 30%;
 }

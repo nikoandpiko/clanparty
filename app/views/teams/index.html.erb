@@ -140,14 +140,24 @@
 
 
           <div class="p-3 background-gradient-orange mb-3">
-            <h2 class="card-outer-header"><i class="fas fa-user-plus pr-1"></i> SEEKING</h2>
-            <% if user.role == "Tank" %>
-              <img class = "role-icons-tank" src="https://i.imgur.com/04GyKcW.png" alt="">
-            <% elsif user.role == "DPS" %>
-              <img class = "role-icons-dps" src="https://i.imgur.com/4RH67Fe.png" alt="">
-            <% else %>
-              <img class = "role-icons-healer" src="https://i.imgur.com/g6MBOHB.png" alt="">
-            <% end %>
+            <h2 class="card-outer-header"><i class="fas fa-user-plus pr-1"></i> </h2>
+            <div class="role-icons">
+              <% if user.role == "Tank" %>
+                <img class = "role-icons-tank" src="https://i.imgur.com/PtMLh5N.png" alt="">
+                <img class = "role-icons-disabled" src="https://i.imgur.com/pn4uX5k.png" alt="">
+                <img class = "role-icons-disabled" src="https://i.imgur.com/zvA6ftO.png" alt="">
+              <% elsif user.role == "DPS" %>
+                <img class = "role-icons-disabled" src="https://i.imgur.com/PtMLh5N.png" alt="">
+                <img class = "role-icons-disabled" src="https://i.imgur.com/pn4uX5k.png" alt="">
+                <img class = "role-icons-dps" src="https://i.imgur.com/zvA6ftO.png" alt="">
+                
+              <% else %>
+                <img class = "role-icons-disabled" src="https://i.imgur.com/PtMLh5N.png" alt="">
+                <img class = "role-icons-healer" src="https://i.imgur.com/pn4uX5k.png" alt="">
+                <img class = "role-icons-disabled" src="https://i.imgur.com/zvA6ftO.png" alt="">
+                
+              <% end %>
+            </div>
             <div class="card-team d-flex card-inner-team-index" style="padding-left:40px;"><% old_color="#252830" %>
 
               <img src="<%= user.avatar %>" alt="<%= user.nickname %>" style="height:80px;width:80px;border-radius:50%;">
