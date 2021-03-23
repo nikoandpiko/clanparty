@@ -15,13 +15,13 @@
               <%= link_to "MY TEAM", team_path(current_user.team_id), class: "btn btn-outline-warning mr-3", style:"font-weight:bold;border-radius:0.4em;" %>
             <% elsif invite.nil? || invite.status == 0 || invite.status == 2 || invite.status == 3 %>
               <%= link_to "FIND A TEAM", teams_path, class: "btn btn-outline-warning mr-3", style:"font-weight:bold;border-radius:0.4em;" %>
-              <%= link_to "CREATE A TEAM", teams_path, class: "btn btn-outline-warning mr-3", style:"font-weight:bold;border-radius:0.4em;" %>
+              <%= link_to "CREATE A TEAM", new_team_path, class: "btn btn-outline-warning mr-3", style:"font-weight:bold;border-radius:0.4em;" %>
             <% else %>
               <%= link_to "MY TEAM", team_path(Invite.find_by(user_id: current_user.id).team_id), class: "btn btn-outline-warning mr-3", style:"font-weight:bold;border-radius:0.4em;" %>
             <% end %>
           </li>
           <li class="nav-item dropdown">
-            <% if current_user.nil?%>
+            <% if current_user.nil? || current_user.avatar.nil? %>%>
               <%= image_tag "https://pp.userapi.com/c845420/v845420005/198a42/Ne3gNlRtYcI.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <% else %>
               <%= image_tag current_user.avatar, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>

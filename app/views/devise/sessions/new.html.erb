@@ -1,6 +1,6 @@
 <div class="container text-white mt-3 pt-3">
   <div class="row justify-content-center">
-    <div class="col-xs-12 col-sm-4 col-sm-offset-4">
+    <div class="col-xs-12 col-sm-4 col-sm-offset-4 modal-body np-3 background-gradient-events">
       <div class="form-login">
         <h2>Log in</h2>
         <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -16,7 +16,7 @@
           </div>
 
           <div class="form-actions">
-            <%= f.button :submit, "Log in", class: "btn btn-outline-warning mr-3" %>
+            <%= f.button :submit, "Log in", class: "btn btn-pink mr-3 px-5" %>
           </div>
         <% end %><br>
         <%= render "devise/shared/links" %>

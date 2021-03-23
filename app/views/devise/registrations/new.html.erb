@@ -1,6 +1,6 @@
 <div class="container text-white mt-3 pt-3">
   <div class="row justify-content-center">
-    <div class="col-xs-12 col-sm-4 col-sm-offset-4">
+    <div class="col-xs-12 col-sm-4 col-sm-offset-4 modal-body np-3 background-gradient-events">
       <div class="form-login">
         <h2>Sign up</h2>
 
@@ -12,6 +12,13 @@
                         required: true,
                         autofocus: true,
                         input_html: { autocomplete: "email" }%>
+            <%= f.input :nickname %>
+            <%= f.input :bio %>
+            <%= f.input :avatar, as: :file %>
+            <%= f.label "Role:⠀" %>
+            <%= f.collection_radio_buttons :role, [[2, "⠀Tank⠀"], [1, '⠀Healer⠀'], [0, '⠀DPS']], :first, :last %>
+            <%= f.input :server %>
+            <%= f.input :discord %>
             <%= f.input :password,
                         required: true,
                         hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
@@ -19,10 +26,11 @@
             <%= f.input :password_confirmation,
                         required: true,
                         input_html: { autocomplete: "new-password" } %>
+
           </div>
 
           <div class="form-actions">
-            <%= f.button :submit, "Sign up", class:"text-white btn btn-outline-warning mr-3"%>
+            <%= f.button :submit, "Sign up", class:"btn btn-pink mr-3 px-5"%>
           </div>
         <% end %><br>
 
