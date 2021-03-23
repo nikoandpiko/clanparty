@@ -21,7 +21,7 @@
             <% end %>
           </li>
           <li class="nav-item dropdown">
-            <% if current_user.nil?%>
+            <% if current_user.nil? || current_user.avatar.nil? %>%>
               <%= image_tag "https://pp.userapi.com/c845420/v845420005/198a42/Ne3gNlRtYcI.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <% else %>
               <%= image_tag current_user.avatar, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>

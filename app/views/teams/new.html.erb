@@ -1,7 +1,10 @@
-<div class="container text-white mt-3 pt-3">
+<%# <div class="container text-white mt-3 pt-3">
   <div class="row justify-content-center">
     <div class="col-xs-12 col-sm-4 col-sm-offset-4 modal-body np-3 background-gradient-events">
-      <div class="form-login">
+      <div class="form-login"> %>
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-6 p-3 blue">
         <%= simple_form_for (@team)  do |f| %>
           <%= f.input :name %>
           <%= f.input :bio %>
@@ -15,4 +18,11 @@
       </div>
     </div>
   </div>
-</div>
+<%# </div> %>
+
+<style>
+  .bg-blue {
+    background-color: #b1b1dc;
+    border-radius: 5px;
+  }
+</style>
