@@ -969,3 +969,4 @@ https = Net::HTTP.new(url.host, url.port)
 https.use_ssl = true
 request = Net::HTTP::Post.new(url)
 request["Content-Type"] = "application/json"
+fflogs_url = ENV["FFLOGS_KEY"]
