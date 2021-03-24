@@ -970,3 +970,11 @@ https.use_ssl = true
 request = Net::HTTP::Post.new(url)
 request["Content-Type"] = "application/json"
 fflogs_url = ENV["FFLOGS_KEY"]
+request["Authorization"] = fflogs_url
+request.body = "{\"query\":\"query {\\n  worldData {\\n    zones{\\n      name\\n    }\\n  }\\n}\",\"variables\":{}}"
+response = https.request(request)
+puts response.read_body
+
+sleep 2
+
+puts "all done"
