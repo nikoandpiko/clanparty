@@ -67,7 +67,7 @@ logs_pics = ["https://img2.finalfantasyxiv.com/f/e668c247e191bceb03b523a66050377
     saturday_end: days_times[0][1],
     monday: true,
     tuesday: true,
-    wednesday: true, 
+    wednesday: true,
     thursday: true,
     friday: true,
     saturday: true,
@@ -959,4 +959,13 @@ Event.create(
   team_id: team_special3.id
 )
 
-puts "Now its done!"
+puts "Awesome events created!"
+
+puts "Adding fflogs API"
+require "uri"
+require "net/http"
+url = URI("https://www.fflogs.com/api/v2/client")
+https = Net::HTTP.new(url.host, url.port)
+https.use_ssl = true
+request = Net::HTTP::Post.new(url)
+request["Content-Type"] = "application/json"
