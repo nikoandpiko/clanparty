@@ -31,7 +31,7 @@ class TeamsController < ApplicationController
     @game = Game.find(team_params[:game_id])
     @team = Team.new(
       game: @game,
-      user: current_user,
+      user_id: current_user.id,
       name: team_params[:name],
       status: team_params[:status],
       discord: team_params[:discord],
@@ -41,6 +41,8 @@ class TeamsController < ApplicationController
     authorize @team
 
     if @team.save
+      current_user.team_id = @team.id
+      current_user.save
       redirect_to teams_path, notice: "Team successfully created"
     else
       render :new, notice: "Please fill in the necessary information"
