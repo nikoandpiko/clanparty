@@ -5,7 +5,7 @@
         <%= simple_form_for (@team) do |f| %>
           <%= f.input :name %>
           <%= f.input :bio %>
-          <%= f.input :avatar, as: :file %>
+          <%# <%= f.input :avatar, as: :file %>
           <%= f.input :discord %>
           <%= f.label "Status:⠀" %>
           <%= f.collection_radio_buttons :status, [[1, '⠀Open to Public‎‎‎⠀'], [0, '⠀Closed']], :first, :last %>

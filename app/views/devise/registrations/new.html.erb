@@ -14,11 +14,15 @@
                         input_html: { autocomplete: "email" }%>
             <%= f.input :nickname %>
             <%= f.input :bio %>
-            <%= f.input :avatar, as: :file %>
-            <%= f.label "Role:⠀" %>
-            <%= f.collection_radio_buttons :role, [[2, "⠀Tank⠀"], [1, '⠀Healer⠀'], [0, '⠀DPS']], :first, :last %>
-            <%= f.input :server %>
-            <%= f.input :discord %>
+            <%# <%= f.input :avatar, as: :file %>
+            <%= f.input :role,
+                        :collection => [["Tank"], ['Healer'], ['DPS']],
+                        :label_method => :last,
+                        :value_method => :first,
+                        :as => :radio_buttons,
+                        :checked => true %>
+            <%= f.input :server, :collection => %w[Aegis Atomos Carbuncle Garuda Gungnir Kujata Ramuh Tonberry Typhon Unicorn ] %>
+            <%# <%= f.input :discord %>
             <%= f.input :password,
                         required: true,
                         hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),

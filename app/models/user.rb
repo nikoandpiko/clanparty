@@ -9,7 +9,10 @@ class User < ApplicationRecord
   belongs_to :team, optional: true
   has_one :team, dependent: :destroy
 
-  # validates :username, presence: true
+  validates :nickname, presence: :true
+  validates :bio, presence: :true
+  validates :role, presence: :true
+  validates :server, presence: :true
 
   def team
     Invite.accepted.find_by(user: self).team
@@ -22,8 +25,4 @@ class User < ApplicationRecord
   def declined
     Invite.declined.find_by(user: self).team
   end
-
-  # def unassigned
-  #   Invite.unassigned.find_by(user: self).team
-  # end
 end
