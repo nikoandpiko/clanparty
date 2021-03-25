@@ -6,7 +6,7 @@ class Team < ApplicationRecord
   #  has_one_attached :avatar # for cloudinary only
 
   validates :name, presence: true, uniqueness: true
-  validates :avatar, presence: true
+  # validates :avatar, presence: true
   validates :bio, presence: true
   validates :discord, presence: true
   validates :status, presence: true

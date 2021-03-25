@@ -35,9 +35,10 @@ class TeamsController < ApplicationController
       name: team_params[:name],
       status: team_params[:status],
       discord: team_params[:discord],
-      bio: team_params[:bio],
-      avatar: team_params[:avatar]
+      bio: team_params[:bio]
+      # avatar: team_params[:avatar]
     )
+
     authorize @team
 
     if @team.save
