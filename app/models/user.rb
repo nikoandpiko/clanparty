@@ -10,7 +10,7 @@ class User < ApplicationRecord
   has_one :team, dependent: :destroy
 
   validates :nickname, presence: :true
-  validates :bio, presence: :true
+  # validates :bio, presence: :true
   validates :role, presence: :true
   validates :server, presence: :true
 
