@@ -42,6 +42,8 @@ class TeamsController < ApplicationController
     authorize @team
 
     if @team.save
+      current_user.team_id = @team.id
+      current_user.save
       redirect_to teams_path, notice: "Team successfully created"
     else
       render :new, notice: "Please fill in the necessary information"
