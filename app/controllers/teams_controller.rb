@@ -31,13 +31,14 @@ class TeamsController < ApplicationController
     @game = Game.find(team_params[:game_id])
     @team = Team.new(
       game: @game,
-      user: current_user,
+      user_id: current_user.id,
       name: team_params[:name],
       status: team_params[:status],
       discord: team_params[:discord],
-      bio: team_params[:bio],
-      avatar: team_params[:avatar]
+      bio: team_params[:bio]
+      # avatar: team_params[:avatar]
     )
+
     authorize @team
 
     if @team.save

@@ -44,8 +44,6 @@ class UsersController < ApplicationController
 
       elsif @invite_check.nil? || @invite_check.status == 0 || @invite_check.status == 2 || @invite_check.status == 3
 
-
-
       else
         @current_invite = Invite.find_by(user_id: @user)
         @teammates = Invite.where(team_id: @current_invite.team_id)
@@ -68,6 +66,11 @@ class UsersController < ApplicationController
   end
 
   def new
+    @user = User.new
+    authorize @user
+  end
+
+  def create
     @user = User.new
     authorize @user
   end
@@ -107,7 +110,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:nickname, :bio, :discord, :role, :monday_start, :monday_end, :tuesday_start, :tuesday_end, :wednesday_start, :wednesday_end, :thursday_start,
+    params.require(:user).permit(:nickname, :avatar, :bio, :discord, :team_id, :role, :monday_start, :monday_end, :tuesday_start, :tuesday_end, :wednesday_start, :wednesday_end, :thursday_start,
                                  :thursday_end, :friday_start, :friday_end, :saturday_start, :saturday_end, :sunday_start, :sunday_end, :monday, :tuesday, :wednesday, :thursday, :friday, :saturday, :sunday)
   end
 end

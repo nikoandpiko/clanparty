@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_21_043719) do
+ActiveRecord::Schema.define(version: 2021_03_25_054552) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -68,7 +68,7 @@ ActiveRecord::Schema.define(version: 2021_03_21_043719) do
 
   create_table "teams", force: :cascade do |t|
     t.string "name"
-    t.string "avatar"
+    t.string "avatar", default: "https://robohash.org/sitsedat.png?size=300x300&set=set1"
     t.text "bio"
     t.string "discord"
     t.integer "status"
@@ -111,7 +111,7 @@ ActiveRecord::Schema.define(version: 2021_03_21_043719) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "username"
     t.string "nickname"
-    t.string "avatar"
+    t.string "avatar", default: "https://robohash.org/quasiteneturomnis.png?size=300x300&set=set1"
     t.text "bio"
     t.string "discord"
     t.string "role"
