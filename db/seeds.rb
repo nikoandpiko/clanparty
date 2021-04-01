@@ -810,7 +810,7 @@ sat = []
 tue_thu = []
 tue_thu << random_start_end_time(19, 22)
 sat << random_start_end_time(17, 23)
-U
+
 
 days_times_events = []
 days_times_events << random_start_end_time(rand(17..19), rand(20..23))
