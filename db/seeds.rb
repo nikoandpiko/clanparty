@@ -973,7 +973,16 @@ fflogs_url = ENV["FFLOGS_KEY"]
 request["Authorization"] = fflogs_url
 request.body = "{\"query\":\"query {\\n  worldData {\\n    zones{\\n      name\\n    }\\n  }\\n}\",\"variables\":{}}"
 response = https.request(request)
+request.body = "{\"query\":\"query {\\n  worldData {\\n    regions{\\n      name\\n    }\\n  }\\n}\",\"variables\":{}}"
+
+response2 = https.request(request)
+require 'json'
+beers = JSON.parse(response.read_body)
+beers2 = JSON.parse(response2.read_body)
 puts response.read_body
+puts response2.read_body
+puts beers
+puts beers2.type
 
 sleep 2
 
