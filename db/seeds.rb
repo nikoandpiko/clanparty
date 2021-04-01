@@ -38,6 +38,8 @@ zones["data"]["worldData"]["zones"].each do |zo|
   zone << zo["name"]
 end
 
+puts zone
+
 
 # Users
 puts "Creating random times"
@@ -138,11 +140,6 @@ users_for_seed = User.all
   user.update(team_id: team.id)
 end
 
-
-
-
-
-
 puts "Done"
 
 # Invites
@@ -211,8 +208,7 @@ puts "Creating Events"
   day = 1..7
   teams_for_seed = Team.all
   Event.create(
-    # name: Faker::Games::Fallout.quote,
-    name: content.sample,
+    name: zone.sample,
     description: Faker::Games::Overwatch.quote,
     day: rand(day),
     start_time: days_times_events[0][0],
@@ -474,7 +470,7 @@ days_times_events << random_start_end_time(rand(17..19), rand(20..23))
 day = 1..7
 teams_for_seed = Team.all
 Event.create(
-  name: content[2],
+  name: zone.sample,
   description: Faker::Games::Overwatch.quote,
   day: rand(day),
   start_time: days_times_events[0][0],
@@ -483,7 +479,7 @@ Event.create(
 )
 
 Event.create(
-  name: content[4],
+  name: zone.sample,
   description: Faker::Games::Overwatch.quote,
   day: rand(day),
   start_time: days_times_events[0][0],
@@ -492,7 +488,7 @@ Event.create(
 )
 
 Event.create(
-  name: content[1],
+  name: zone.sample,
   description: Faker::Games::Overwatch.quote,
   day: rand(day),
   start_time: days_times_events[0][0],
@@ -785,7 +781,7 @@ days_times_events = []
 days_times_events << random_start_end_time(rand(17..19), rand(20..23))
 day = 1..7
 Event.create(
-  name: content[3],
+  name: zone.sample,
   description: Faker::Games::Overwatch.quote,
   day: rand(day),
   start_time: days_times_events[0][0],
@@ -794,7 +790,7 @@ Event.create(
 )
 
 Event.create(
-  name: content[0],
+  name: zone.sample,
   description: Faker::Games::Overwatch.quote,
   day: rand(day),
   start_time: days_times_events[0][0],
@@ -803,7 +799,7 @@ Event.create(
 )
 
 Event.create(
-  name: content[2],
+  name: zone.sample,
   description: Faker::Games::Overwatch.quote,
   day: rand(day),
   start_time: days_times_events[0][0],
@@ -974,7 +970,4 @@ Event.create(
 )
 
 puts "Awesome events created!"
-
-
-
 puts "all done"
