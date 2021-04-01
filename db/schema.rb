@@ -68,7 +68,7 @@ ActiveRecord::Schema.define(version: 2021_03_25_054552) do
 
   create_table "teams", force: :cascade do |t|
     t.string "name"
-    t.string "avatar", default: "https://robohash.org/doloribusdignissimospariatur.png?size=300x300&set=set1"
+    t.string "avatar", default: "https://robohash.org/atquelaudantiumvoluptas.png?size=300x300&set=set1"
     t.text "bio"
     t.string "discord"
     t.integer "status"
@@ -111,7 +111,7 @@ ActiveRecord::Schema.define(version: 2021_03_25_054552) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "username"
     t.string "nickname"
-    t.string "avatar", default: "https://robohash.org/dignissimosreiciendissint.png?size=300x300&set=set1"
+    t.string "avatar", default: "https://robohash.org/iustoquiaculpa.png?size=300x300&set=set1"
     t.text "bio"
     t.string "discord"
     t.string "role"

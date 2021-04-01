@@ -553,7 +553,7 @@
     position: relative;
     top: 40px;
     left: -88px;
-    width: 150%;
+    width: 400%;
     opacity: 100%;
     transition: all 0.5s;
     z-index: 1;
@@ -564,22 +564,21 @@
 
 .caret-button {
     position: relative;
-    top: 38px;
-    right: -260px;
+    top: 18%;
+    right: -87%;
     background-color:transparent !important ;
     border: none;
-    transition: all 0.4s;
+    transition: all 0.465s;
 }
 
 .clicked-caret {
     position: relative;
-
-    top: 320px;
-    right: -260px;
+    top: 67%;
+    right: -87%;
     background-color:transparent !important ;
     border: none;
     transform: rotate(180deg);
-    transition: all 0.4s;
+    transition: all 0.35s;
 }
 
 .fa-caret-down {
@@ -661,7 +660,7 @@
 
 .content-cards {
     position: absolute;
-    bottom: 60px;
+    bottom: 100px;
     left: 60px;
     opacity: 0%;
     z-index: -1;
@@ -673,6 +672,7 @@
     transition: opacity 1.5s;
     z-index: 0;
 }
+
 
 .content-header {
     position: relative;
@@ -688,3 +688,4 @@
 .content-card {
     margin-top: -5px;
 }
+

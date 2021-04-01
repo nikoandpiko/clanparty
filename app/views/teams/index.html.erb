@@ -24,9 +24,10 @@
     <div class="team-cards-grid container" style="margin-top: -30px">
 
     <% counter = 0 %>
+    <div class="row">
       <% @teams.each do |team| %>
-      <div class="row">
-      <div class="col-lg-12">
+      
+      <div class="col-lg-6 col-md-12 col-s-12 col-xs-12">
 
       <% @roles = []  %>
       <% @roles << team.user.role  %>
@@ -47,7 +48,7 @@
         <% end %>
       <% end  %>
       
-          <div class="p-3 background-gradient-purple mb-3">
+          <div class="p-3 background-gradient-purple mb-4">
             <h2 class="card-outer-header"><i class="fas fa-user-plus pr-1"></i> SEEKING</h2>
              <div class="role-icons">
               <% if @tank_count < 4 %>
@@ -131,23 +132,38 @@
                   <% end %>
                 </div>
 
-                <% if team.name == "Fatebreaker Savage" %>
+                 
+                
+
                 <div class="content-cards">
                   <p class="card-member-role role-header">Role Needed:</p>
-                  <img class= "content-card" style="height:auto;width:220px; margin-bottom:2px;" src="https://i.imgur.com/o30Hi0k.png" alt=""><br>
+                  <br>
+                  <br>
+                  <br>
+                  <div class="role-icons2">
+                    <% if @tank_count < 4 %>
+                      <img class = "role-icons-tank" src="https://i.imgur.com/PtMLh5N.png" alt="">
+                    <% else  %>
+                      <img class = "role-icons-disabled" src="https://i.imgur.com/PtMLh5N.png" alt="">
+                    <% end %>
+
+                    <% if @healer_count < 2 %>
+                      <img class = "role-icons-healer" src="https://i.imgur.com/pn4uX5k.png" alt="">
+                    <% else  %>
+                      <img class = "role-icons-disabled" src="https://i.imgur.com/pn4uX5k.png" alt="">
+                    <% end %>
+
+                    <% if @dps_count < 2 %>
+                      <img class = "role-icons-dps" src="https://i.imgur.com/zvA6ftO.png" alt="">
+                    <% else  %>
+                      <img class = "role-icons-disabled" src="https://i.imgur.com/zvA6ftO.png" alt="">
+                    <% end %>
+                  </div>
                   <p class="card-member-role content-header">Content:</p>
                   <img style="height:auto;width:358px; margin-bottom:-6px;" src="https://i.imgur.com/EIVYFUd.png" alt=""><br>
                   <img style="height:auto;width:358px; margin-bottom:-6px;" src="https://i.imgur.com/0TS1Ipf.png" alt=""><br>
                 </div>
-                <% elsif team.name == "Meme Breakers" %>
-                <div class="content-cards">
-                  <p class="card-member-role role-header">Role Needed:</p>
-                  <img style="height:auto;width:200px; margin-bottom:10px;" src="https://i.imgur.com/5KUAj8N.png" alt=""><br>
-                  <p class="card-member-role content-header">Content:</p>
-                  <img style="height:auto;width:358px; margin-bottom:-6px;" src="https://i.imgur.com/OEO2cHt.png" alt=""><br>
-                  <img style="height:auto;width:358px; margin-bottom:-6px;" src="https://i.imgur.com/s3ncE4a.png" alt=""><br>
-                </div>
-                <% end %>
+    
                 <!-- <p class="card-text text-dark">CORE HOURS</p> -->
 
 
@@ -159,22 +175,23 @@
             </div>
           </div>
         </div>
-      </div>
+     
       <% end %>
-
+ </div>
     </div>
   </div>
   <div class="tab-pane fade" id="user" role="tabpanel" aria-labelledby="user-tab">
     <div class="tab-pane fade show active" id="team" role="tabpanel" aria-labelledby="team-tab">
     <% @users = @users.sort %>
       <div class="team-cards-grid container" style="margin-top: -30px">
+      <div class="row">
         <% @users.each do |user| %>
-          <div class="row">
-          <div class="col-lg-12">
+          
+          <div class="col-lg-6">
 
 
 
-          <div class="p-3 background-gradient-orange mb-3">
+          <div class="p-3 background-gradient-orange mb-4">
             <h2 class="card-outer-header"><i class="fas fa-user-plus pr-1"></i> </h2>
             <div class="role-icons">
               <% if user.role == "Tank" %>
@@ -267,8 +284,9 @@
             </div>
           </div>
         </div>
-      </div>
+     
         <% end %>
+         </div>
       </div>
     </div>
 
