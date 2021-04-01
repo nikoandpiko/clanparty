@@ -10,6 +10,35 @@ Game.destroy_all
 
 puts "All clean"
 
+puts "Adding fflogs API. Zones and Regions only"
+require "uri"
+require "net/http"
+url = URI("https://www.fflogs.com/api/v2/client")
+https = Net::HTTP.new(url.host, url.port)
+https.use_ssl = true
+request = Net::HTTP::Post.new(url)
+request["Content-Type"] = "application/json"
+fflogs_url = ENV["FFLOGS_KEY"]
+request["Authorization"] = fflogs_url
+request.body = "{\"query\":\"query {\\n  worldData {\\n    zones{\\n      name\\n    }\\n  }\\n}\",\"variables\":{}}"
+response = https.request(request)
+request.body = "{\"query\":\"query {\\n  worldData {\\n    regions{\\n      name\\n    }\\n  }\\n}\",\"variables\":{}}"
+
+response2 = https.request(request)
+require 'json'
+zones = JSON.parse(response.read_body)
+regions = JSON.parse(response2.read_body)
+region = []
+zone = []
+regions["data"]["worldData"]["regions"].each do |reg|
+  region << reg["name"]
+end
+
+zones["data"]["worldData"]["zones"].each do |zo|
+  zone << zo["name"]
+end
+
+puts zone
 
 
 # Users
@@ -73,25 +102,12 @@ logs_pics = ["https://img2.finalfantasyxiv.com/f/e668c247e191bceb03b523a66050377
     saturday: true,
     sunday: true,
     stats: random_stats,
-    server: random_servers[0]
+    server: region.sample
   )
 end
 puts "Done"
 
 
-
-
-
-# puts "Create User without schedule"
-# User.create(
-#   username: "CrazyGamer",
-#   email: "1@1.com",
-#   password: 123456,
-#   nickname: "KillOnDemand",
-#   bio: "Just look at my stats and start crying since you will never get as good as me.",
-#   discord: "https://discord.gg/crazyLWT",
-#   role: role.sample
-# )
 # Games only FFXIV for now
 puts "Creating Game"
 content = ["The Sirensong Sea", "Amaurot", "The Dying Gasp", "Anamnesis Anyder", "Mt. Gulg"]
@@ -123,11 +139,6 @@ users_for_seed = User.all
   team = Team.last
   user.update(team_id: team.id)
 end
-
-
-
-
-
 
 puts "Done"
 
@@ -197,8 +208,7 @@ puts "Creating Events"
   day = 1..7
   teams_for_seed = Team.all
   Event.create(
-    # name: Faker::Games::Fallout.quote,
-    name: content.sample,
+    name: zone.sample,
     description: Faker::Games::Overwatch.quote,
     day: rand(day),
     start_time: days_times_events[0][0],
@@ -240,7 +250,7 @@ User.create(
   bio: "Just look at my stats and start crying since you will never get as good as me.",
   discord: "361828201426714625",
   role: role[0],
-  server: "Tonberry",
+  server: "Japan",
   stats: 81
 )
 
@@ -253,7 +263,7 @@ User.create(
   bio: "Just look at my stats and start crying since you will never get as good as me.",
   discord: "https://discord.gg/crazyLWT",
   role: role[1],
-  server: "Tonberry",
+  server: "Japan",
   stats: 99
 )
 
@@ -266,7 +276,7 @@ User.create(
   bio: "Just look at my stats and start crying since you will never get as good as me.",
   discord: "https://discord.gg/crazyLWT",
   role: role[2],
-  server: "Tonberry",
+  server: "Japan",
   stats: 99
 )
 
@@ -279,7 +289,7 @@ User.create(
   bio: "Just look at my stats and start crying since you will never get as good as me.",
   discord: "https://discord.gg/crazyLWT",
   role: role[2],
-  server: "Tonberry",
+  server: "Japan",
   stats: 94
 )
 
@@ -292,7 +302,7 @@ User.create(
   bio: "Just look at my stats and start crying since you will never get as good as me.",
   discord: "https://discord.gg/crazyLWT",
   role: role[0],
-  server: "Tonberry",
+  server: "Japan",
   stats: 80
 )
 
@@ -305,7 +315,7 @@ User.create(
   bio: "Just look at my stats and start crying since you will never get as good as me.",
   discord: "https://discord.gg/crazyLWT",
   role: role[2],
-  server: "Tonberry",
+  server: "Japan",
   stats: 76
 )
 
@@ -318,7 +328,7 @@ User.create(
   bio: "Just look at my stats and start crying since you will never get as good as me.",
   discord: "https://discord.gg/crazyLWT",
   role: role[2],
-  server: "Tonberry",
+  server: "Japan",
   stats: 84
 )
 
@@ -331,7 +341,7 @@ User.create(
   bio: "Playing FF since 2019. Maybe not the best, but daily online! High level Healer and if necessary can be Tank too!",
   discord: "204311541561032704",
   role: role[1],
-  server: "Tonberry",
+  server: "Japan",
   stats: 80
 )
 
@@ -436,7 +446,7 @@ User.create(
   bio: "Pro Gamer since 2008. Teams only win because of my skills. Not wasting my time with loosers. Only winner teams please. LETS GO AND RAID!",
   discord: "812607345414766602",
   role: role[1],
-  server: "Tonberry",
+  server: "Japan",
   stats: 74
 )
 
@@ -460,7 +470,7 @@ days_times_events << random_start_end_time(rand(17..19), rand(20..23))
 day = 1..7
 teams_for_seed = Team.all
 Event.create(
-  name: content[2],
+  name: zone.sample,
   description: Faker::Games::Overwatch.quote,
   day: rand(day),
   start_time: days_times_events[0][0],
@@ -469,7 +479,7 @@ Event.create(
 )
 
 Event.create(
-  name: content[4],
+  name: zone.sample,
   description: Faker::Games::Overwatch.quote,
   day: rand(day),
   start_time: days_times_events[0][0],
@@ -478,7 +488,7 @@ Event.create(
 )
 
 Event.create(
-  name: content[1],
+  name: zone.sample,
   description: Faker::Games::Overwatch.quote,
   day: rand(day),
   start_time: days_times_events[0][0],
@@ -550,7 +560,7 @@ User.create(
   bio: "Just look at my stats and start crying since you will never get as good as me.",
   discord: "invalid",
   role: role[0],
-  server: "Tonberry",
+  server: "Japan",
   stats: 98,
   monday_start: days_times[0][0],
   monday_end: days_times[0][1],
@@ -571,7 +581,7 @@ User.create(
   bio: "Just look at my stats and start crying since you will never get as good as me.",
   discord: "https://discord.gg/crazyLWT",
   role: role[1],
-  server: "Tonberry",
+  server: "Japan",
   stats: 94,
   monday_start: days_times[0][0],
   monday_end: days_times[0][1],
@@ -592,7 +602,7 @@ User.create(
   bio: "Just look at my stats and start crying since you will never get as good as me.",
   discord: "https://discord.gg/crazyLWT",
   role: role[2],
-  server: "Tonberry",
+  server: "Japan",
   stats: 78,
   monday_start: days_times[0][0],
   monday_end: days_times[0][1],
@@ -613,7 +623,7 @@ User.create(
   bio: "Just look at my stats and start crying since you will never get as good as me.",
   discord: "https://discord.gg/crazyLWT",
   role: role[2],
-  server: "Tonberry",
+  server: "Japan",
   stats: 69,
   monday_start: days_times[0][0],
   monday_end: days_times[0][1],
@@ -634,7 +644,7 @@ User.create(
   bio: "Just look at my stats and start crying since you will never get as good as me.",
   discord: "https://discord.gg/crazyLWT",
   role: role[1],
-  server: "Tonberry",
+  server: "Japan",
   stats: 82,
   monday_start: days_times[0][0],
   monday_end: days_times[0][1],
@@ -655,7 +665,7 @@ User.create(
   bio: "Just look at my stats and start crying since you will never get as good as me.",
   discord: "https://discord.gg/crazyLWT",
   role: role[2],
-  server: "Tonberry",
+  server: "Japan",
   stats: 72,
   monday_start: days_times[0][0],
   monday_end: days_times[0][1],
@@ -676,7 +686,7 @@ User.create(
   bio: "Just look at my stats and start crying since you will never get as good as me.",
   discord: "https://discord.gg/crazyLWT",
   role: role[2],
-  server: "Tonberry",
+  server: "Japan",
   stats: 89,
   monday_start: days_times[0][0],
   monday_end: days_times[0][1],
@@ -771,7 +781,7 @@ days_times_events = []
 days_times_events << random_start_end_time(rand(17..19), rand(20..23))
 day = 1..7
 Event.create(
-  name: content[3],
+  name: zone.sample,
   description: Faker::Games::Overwatch.quote,
   day: rand(day),
   start_time: days_times_events[0][0],
@@ -780,7 +790,7 @@ Event.create(
 )
 
 Event.create(
-  name: content[0],
+  name: zone.sample,
   description: Faker::Games::Overwatch.quote,
   day: rand(day),
   start_time: days_times_events[0][0],
@@ -789,7 +799,7 @@ Event.create(
 )
 
 Event.create(
-  name: content[2],
+  name: zone.sample,
   description: Faker::Games::Overwatch.quote,
   day: rand(day),
   start_time: days_times_events[0][0],
@@ -815,22 +825,5 @@ sat << random_start_end_time(17, 23)
 days_times_events = []
 days_times_events << random_start_end_time(rand(17..19), rand(20..23))
 day = 1..7
-
-puts "Adding fflogs API"
-require "uri"
-require "net/http"
-url = URI("https://www.fflogs.com/api/v2/client")
-https = Net::HTTP.new(url.host, url.port)
-https.use_ssl = true
-request = Net::HTTP::Post.new(url)
-request["Content-Type"] = "application/json"
-fflogs_url = ENV["FFLOGS_KEY"]
-request["Authorization"] = fflogs_url
-request.body = "{\"query\":\"query {\\n  worldData {\\n    zones{\\n      name\\n    }\\n  }\\n}\",\"variables\":{}}"
-response = https.request(request)
-puts response.read_body
-
-sleep 2
-
 
 puts "all done"
