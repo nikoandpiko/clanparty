@@ -573,7 +573,7 @@
 
 .clicked-caret {
     position: relative;
-    top: 65%;
+    top: 67%;
     right: -87%;
     background-color:transparent !important ;
     border: none;
@@ -660,7 +660,7 @@
 
 .content-cards {
     position: absolute;
-    bottom: 60px;
+    bottom: 100px;
     left: 60px;
     opacity: 0%;
     z-index: -1;
@@ -672,6 +672,7 @@
     transition: opacity 1.5s;
     z-index: 0;
 }
+
 
 .content-header {
     position: relative;
