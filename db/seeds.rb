@@ -977,12 +977,15 @@ request.body = "{\"query\":\"query {\\n  worldData {\\n    regions{\\n      name
 
 response2 = https.request(request)
 require 'json'
-beers = JSON.parse(response.read_body)
-beers2 = JSON.parse(response2.read_body)
+zones = JSON.parse(response.read_body)
+regions = JSON.parse(response2.read_body)
 puts response.read_body
 puts response2.read_body
-puts beers
-puts beers2.type
+region = []
+zone = []
+regions["data"]["worldData"]["regions"].each do |reg|
+  region << reg["name"]
+end
 
 sleep 2
 
