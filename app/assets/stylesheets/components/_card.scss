@@ -143,11 +143,14 @@
 .background-gradient-orange {
   background: linear-gradient(to bottom, #FF5100, #97370A);
   border-radius: 6px;
+  max-width: 500px;
 }
 
 .background-gradient-purple {
   background: linear-gradient(to bottom, #BF00FF, #4F006A);
   border-radius: 6px;
+  max-width: 500px;
+
 }
 
 .background-gradient-blue {
@@ -431,7 +434,15 @@ background-size: 1800% 1800%;
 }
 
 
-@media only screen and (max-width: 950px) {
+@media only screen and (max-width: 990px) {
+  .role-icons {
+    display: flex;
+    height: 45px;
+    position: absolute;
+    left: 342px;
+    top: 10px;
+  
+  }
 
 }
 
