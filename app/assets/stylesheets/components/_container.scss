@@ -564,8 +564,8 @@
 
 .caret-button {
     position: relative;
-    top: 38px;
-    right: -260px;
+    top: 18%;
+    right: -87%;
     background-color:transparent !important ;
     border: none;
     transition: all 0.4s;
@@ -573,9 +573,8 @@
 
 .clicked-caret {
     position: relative;
-
-    top: 320px;
-    right: -260px;
+    top: 90%;
+    right: -87%;
     background-color:transparent !important ;
     border: none;
     transform: rotate(180deg);
