@@ -143,11 +143,14 @@
 .background-gradient-orange {
   background: linear-gradient(to bottom, #FF5100, #97370A);
   border-radius: 6px;
+  max-width: 460px;
 }
 
 .background-gradient-purple {
   background: linear-gradient(to bottom, #BF00FF, #4F006A);
   border-radius: 6px;
+  max-width: 450px;
+
 }
 
 .background-gradient-blue {
@@ -263,11 +266,6 @@
   padding: 16px;
 }
 
-.team-cards-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-column-gap: 1rem;
-}
 
 .user-show-card {
   margin-top: 20px;
@@ -387,7 +385,7 @@ background-size: 1800% 1800%;
   border-radius:6px;
   background-color:#0D0D0DF2;
   box-shadow: 2px 2px 4px #00000080;
-  height: 500px;
+  height: 530px;
   transition: all 0.4s;
 
 }
@@ -425,3 +423,29 @@ background-size: 1800% 1800%;
   box-shadow: 2px 2px 4px #00000080;
   opacity: 30%;
 }
+
+.role-icons2 {
+  display: flex;
+  height: 45px;
+  position: absolute;
+  right: -162px;
+  top: 30px;
+
+}
+
+
+@media only screen and (max-width: 990px) {
+  .role-icons {
+    display: flex;
+    height: 45px;
+    position: absolute;
+    left: 293px;
+    top: 10px;
+  
+  }
+
+}
+
+
+
+
