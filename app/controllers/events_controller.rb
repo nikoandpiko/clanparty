@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :find_team, only: [ :new ]
+  before_action :find_team, only: [:new]
 
   def new
     @event = Event.new
@@ -36,21 +36,21 @@ class EventsController < ApplicationController
 
   def day_time(day)
     day_time = case day
-    when 2
-      "Monday"
-    when 3
-      "Tuesday"
-    when 4
-      "Wednesday"
-    when 5
-      "Thursday"
-    when 6
-      "Friday"
-    when 7
-      "Saturday"
-    when 1
-      "Sunday"
-    end
+               when 2
+                 "Monday"
+               when 3
+                 "Tuesday"
+               when 4
+                 "Wednesday"
+               when 5
+                 "Thursday"
+               when 6
+                 "Friday"
+               when 7
+                 "Saturday"
+               when 1
+                 "Sunday"
+               end
     return day_time
   end
   WEBHOOK_URL = ENV["DISCORD_URL"]
@@ -63,7 +63,7 @@ class EventsController < ApplicationController
       builder.content = "@everyone NEW Event!"
       builder.add_embed do |embed|
         embed.title = event_title
-        embed.color = 16056575
+        embed.color = 16_056_575
         embed.url = "http://www.clanparty.net/teams/#{team.id}/"
         # change LINK to clanparty.net later!!!
         embed.description = "#{description}!"

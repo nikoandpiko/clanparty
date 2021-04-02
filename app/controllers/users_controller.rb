@@ -42,7 +42,7 @@ class UsersController < ApplicationController
         @current_team = Team.find(@current_invite.team_id)
         @leader = User.where(team_id: @current_team)
 
-      elsif @invite_check.nil? || @invite_check.status == 0 || @invite_check.status == 2 || @invite_check.status == 3
+      elsif @invite_check.nil? || @invite_check.status.zero? || @invite_check.status == 2 || @invite_check.status == 3
 
       else
         @current_invite = Invite.find_by(user_id: @user)
