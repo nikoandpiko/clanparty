@@ -21,7 +21,7 @@ class TeamsController < ApplicationController
     @accepted_member.each do |member|
       @members_of_a_team << member.user
     end
-    @members_of_a_team << @user
+    @members_of_a_team << @user[0]
     authorize @team
   end
 
