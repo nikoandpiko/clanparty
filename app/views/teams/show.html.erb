@@ -431,15 +431,14 @@
             </div>
             <br>
           <% end %>
-          <% raise %>
-          <% unless current_user.nil? %>
+          <% if @members_of_a_team.include?(current_user) %>
           <button onclick="displayEventModalSchedule()"  type="button" class="btn btn-pink mr-3 btn-block" data-toggle="modal" data-target="#eventModal">
             CREATE NEW EVENT
           </button>
           <% end %>
         </div>
       </div>
-
+<% raise %>
       <div class="col-md-6">
         <div class="p-3 background-gradient-recruitment">
           <h2 class="card-outer-header"><i class="fas fa-user-plus"></i> RECRUITMENT</h2>
