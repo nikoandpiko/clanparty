@@ -17,6 +17,11 @@ class TeamsController < ApplicationController
     @declined_member = Invite.declined.where(team_id: @team.id)
     # @unassigned_member = Invite.unassigned.where(team_id: @team.id)
     @applicant = current_user
+    @members_of_a_team = []
+    @accepted_member.each do |member|
+      @members_of_a_team << member.user
+    end
+    @members_of_a_team << @user[0]
     authorize @team
   end
 
