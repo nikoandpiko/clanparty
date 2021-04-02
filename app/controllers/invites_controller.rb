@@ -1,5 +1,4 @@
 class InvitesController < ApplicationController
-
   def edit; end
 
   def new
@@ -26,7 +25,6 @@ class InvitesController < ApplicationController
     end
   end
 
-
   def update
     @invite = Invite.find(params[:id])
     authorize @invite
@@ -34,9 +32,10 @@ class InvitesController < ApplicationController
     # @specific_team = Invite.where(team_id: @team)
     @invite.update(invite_params)
     session[:return_to] ||= request.referer
-    if @invite.status == 1
+    case @invite.status
+    when 1
       accepted_discord(@invite.user)
-    elsif @invite.status == 0
+    when 0
       declined_discord(@invite.user, @invite.team)
     end
     redirect_to session.delete(:return_to), notice: "Status updated!"
@@ -48,7 +47,7 @@ class InvitesController < ApplicationController
     params.require(:invite).permit(:status, :team)
   end
 
-  WEBHOOK_URL = ENV["DISCORD_URL2"].freeze
+  WEBHOOK_URL = ENV["DISCORD_URL2"]
 
   def application_discord(user, team)
     require 'discordrb/webhooks'
@@ -74,7 +73,7 @@ class InvitesController < ApplicationController
     client.execute do |builder|
       builder.content = "<@!#{user.discord}> Congratulations!"
       builder.add_embed do |embed|
-        embed.color = 65321
+        embed.color = 65_321
         embed.title = "Check out events channel"
         # embed.url = "<#817030626846048306>"
         # change LINK to clanparty.net later!!!
@@ -91,7 +90,7 @@ class InvitesController < ApplicationController
     client.execute do |builder|
       builder.content = "<@!#{user.discord}> Denied!"
       builder.add_embed do |embed|
-        embed.color = 16711680
+        embed.color = 16_711_680
         embed.title = "Denied to join team"
         embed.url = "http://www.clanparty.net/teams/#{team.id}/"
         # change LINK to clanparty.net later!!!
@@ -100,5 +99,4 @@ class InvitesController < ApplicationController
       end
     end
   end
-
 end

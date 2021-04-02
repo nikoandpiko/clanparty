@@ -9,10 +9,10 @@ class User < ApplicationRecord
   belongs_to :team, optional: true
   has_one :team, dependent: :destroy
 
-  validates :nickname, presence: :true
+  validates :nickname, presence: true
   # validates :bio, presence: :true
-  validates :role, presence: :true
-  validates :server, presence: :true
+  validates :role, presence: true
+  validates :server, presence: true
 
   def team
     Invite.accepted.find_by(user: self).team
