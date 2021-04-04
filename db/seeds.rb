@@ -31,15 +31,12 @@ regions = JSON.parse(response2.read_body)
 region = []
 zone = []
 regions["data"]["worldData"]["regions"].each do |reg|
-  region << reg["name"]
+ region << reg["name"]
 end
 
 zones["data"]["worldData"]["zones"].each do |zo|
-  zone << zo["name"]
+ zone << zo["name"]
 end
-
-puts zone
-
 
 # Users
 puts "Creating random times"
