@@ -22,7 +22,7 @@
           </button>
             <h2 class="modal-title card-outer-header" id="exampleModalLongTitle"><i class="far fa-calendar-check pr-1"></i> ENTER EVENT DETAILS</h2>
           <%= simple_form_for [ @team, @event ] do |f| %>
-          <%= f.input :name, label: "Event", collection: ["The Sirensong Sea", "Amaurot", "The Dying Gasp", "Anamnesis Anyder", "Mt. Gulg"], class: "text-white" %>
+          <%= f.input :name, label: "Event", collection: ["Amaurot", "Anamnesis Anyder", "Eden's Gate", "Eden's Promise", "Eden's Verse", "Mt. Gulg", "The Copied Factory", "The Dying Gasp", "The Orbonne Monastery", "The Puppets' Bunker", "The Ridorana Lighthouse", "The Royal City of Rabanastre", "The Sirensong Sea", "The Weapon's Refrain", "The Unending Coil of Bahamut", "Void Ark"], class: "text-white" %>
           <%# < f.input :day, collection: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]  %>
           <%# event will have a day picked by scheduler dont need to save the day/input  %>
           <%= f.input :start_time, :as => :hidden %>
@@ -431,7 +431,7 @@
             </div>
             <br>
           <% end %>
-        
+
 
 
           <% if @members_of_a_team.include?(current_user) %>
@@ -439,7 +439,7 @@
               CREATE NEW EVENT
             </button>
           <% end %>
-        
+
         </div>
       </div>
 
